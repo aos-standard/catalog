@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-09T23:30:53.625818+00:00",
+  "publisher": "aos-standard",
+  "spec": "https://github.com/aos-standard/AOS-spec",
+  "structure_audit": {
+    "method": "static structure scan against declared layout rules",
+    "scopes_scanned": 2,
+    "red_alerts": 0,
+    "verified_at": "2026-07-09T23:30:51.669905+00:00"
+  },
+  "immune_loop": {
+    "enabled": true,
+    "mode": "audit-only",
+    "description": "Scheduled entropy scan chain; violations produce audit records, physical removal requires human approval.",
+    "purge_plan_records": 0
+  },
+  "manifest_discipline": {
+    "zone_declarations": true,
+    "validator": "mcp-blast-radius",
+    "validator_catalog_entry": "https://raw.githubusercontent.com/aos-standard/catalog/main/catalog.json"
+  },
+  "knowledge_base": {
+    "curated_records": 5,
+    "note": "Internal engineering records; business-pattern records are being added over time."
+  }
+}
