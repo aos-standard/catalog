@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-08T23:42:44.956952+00:00",
+  "generated_at": "2026-07-13T23:24:13.170388+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 1,
@@ -9,7 +9,7 @@
       "product_id": "mcp-blast-radius",
       "display_name": "MCP Blast-Radius Auditor",
       "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences.",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "limitations": "Static analysis only; findings use confidence labels (observed-static, inferred). Default scan scope excludes tests/, docs/, examples/, scripts/, benchmarks/, .github/, and test_*.py unless --include-peripheral is set.",
       "aos_compliant": true,
       "pricing": {
@@ -17,7 +17,7 @@
         "unit_price": 1.0,
         "currency": "USD"
       },
-      "install": "pip install mcp-blast-radius==0.2.3",
+      "install": "pip install mcp-blast-radius==0.2.4",
       "mcp": {
         "command": "mcp-blast-radius",
         "transport": "stdio"
