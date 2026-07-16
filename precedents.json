@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16T23:37:50.983463+00:00",
+  "publisher": "aos-standard",
+  "spec": "https://github.com/aos-standard/AOS-spec",
+  "total_precedents": 1,
+  "precedents": [
+    {
+      "precedent_id": "PREC_DNA-0001",
+      "date": "2026-07-16",
+      "title": "Receipt-processing chain: taxi expense settlement",
+      "abstract": "A four-skill automation chain removes manual entry from receipt photos via OCR, JSON handoffs, and browser automation with SSO profile reuse. One human checkpoint remains at structured-data confirmation.",
+      "sha256_full_text": "49f845036ae6967a603c1967fa16383ed35615b20744166a273749670ca08f55",
+      "spec": "https://github.com/aos-standard/AOS-spec"
+    }
+  ]
+}
