@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-16T11:55:43.228875+00:00",
+  "generated_at": "2026-07-19T04:21:20.655331+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 2,
@@ -29,10 +29,10 @@
       }
     },
     {
-      "product_id": "aos-agent-health-mcp",
-      "display_name": "AOS Agent Health Reporter",
+      "product_id": "mcp-agent-health",
+      "display_name": "MCP Agent Health Reporter",
       "description": "Validate AOS-compliant agent health before deployment. Catch agents that look fine locally but silently fail in production \u2014 scores manifest, runtime services, immune loop, and physical evidence under any target directory.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "limitations": "Advisory health scan only \u2014 findings do not block deployment by default. Scores are based on static and runtime checks under target_dir; false negatives are possible if agents hide failures outside scanned paths.",
       "aos_compliant": true,
       "pricing": {
@@ -40,15 +40,15 @@
         "unit_price": 0.5,
         "currency": "USD"
       },
-      "install": "pip install aos-agent-health-mcp==0.2.0",
+      "install": "pip install mcp-agent-health==0.3.0",
       "mcp": {
-        "command": "aos-health-mcp",
+        "command": "mcp-agent-health",
         "transport": "stdio"
       },
       "links": {
-        "pypi": "https://pypi.org/project/aos-agent-health-mcp/",
-        "repository": "https://github.com/aos-standard/aos-agent-health-mcp",
-        "agent_card": "https://raw.githubusercontent.com/aos-standard/aos-agent-health-mcp/main/packaging/agent_card.json"
+        "pypi": "https://pypi.org/project/mcp-agent-health/",
+        "repository": "https://github.com/aos-standard/mcp-agent-health",
+        "agent_card": "https://raw.githubusercontent.com/aos-standard/mcp-agent-health/main/packaging/agent_card.json"
       }
     }
   ]
