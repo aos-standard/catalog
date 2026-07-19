@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "attestation_type": "mcp-blast-radius-audit",
+  "generated_at": "2026-07-19T03:50:42.873566+00:00",
+  "publisher": "aos-standard",
+  "spec": "https://github.com/aos-standard/AOS-spec",
+  "structure_audit": {
+    "method": "mcp-blast-radius static scan (advisory mode, maintainer-run)",
+    "scopes_scanned": 1,
+    "red_alerts": 0,
+    "verified_at": "2026-07-19T03:49:51.174353+00:00"
+  },
+  "immune_loop": {
+    "enabled": false,
+    "mode": "n/a",
+    "description": "Single opt-in maintainer scan attestation; no automated purge loop attached to badge display.",
+    "purge_plan_records": 0
+  },
+  "manifest_discipline": {
+    "zone_declarations": true,
+    "validator": "mcp-blast-radius",
+    "validator_catalog_entry": "https://raw.githubusercontent.com/aos-standard/catalog/main/catalog.json"
+  },
+  "knowledge_base": {
+    "curated_records": 73,
+    "note": "Human review uses 73 calibration pattern classes (counts and categories only; corpus body not published)."
+  },
+  "tool_url": "https://github.com/aos-standard/mcp-blast-radius",
+  "tool_repo": "aos-standard/mcp-blast-radius",
+  "scanned_path": "packaging/aos_validator_mcp",
+  "scanned_version": "0.2.4",
+  "scan_date": "2026-07-19T03:49:51.174353+00:00",
+  "scan_command": "mcp-blast-radius-gate --gate-mode advisory --target-dir packaging/aos_validator_mcp",
+  "result_summary": {
+    "gate_pass": true,
+    "gate_mode": "advisory",
+    "red_count": 0,
+    "yellow_count": 0,
+    "divergence_count": 0
+  },
+  "corpus_patterns_base": 73,
+  "expires_at": "2026-10-17T03:49:51.174353+00:00",
+  "evidence_hash": "9b66cbe728276b094747abf460a8ea2847c269f64f4e30a66aff8e4f7a9869bf",
+  "signature": "IRA-SIG-20260719125042883312-062eff673f8a5f09cb67804400daaac16633b959913a29b768bb5854d8fb5845ab028f6ac5b70b0dbe4c72d996b9feabf5b804447c187a8657684cc731bd1707",
+  "snippet": "[![AOS audited](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/aos-standard/catalog/main/attestations/endpoints/aos-standard__mcp-blast-radius.json)](https://github.com/aos-standard/mcp-blast-radius/blob/main/BADGE_CRITERIA.md)\n<!-- Static badge \u2014 no phone-home. Verify: catalog attestations/aos-standard__mcp-blast-radius.json -->"
+}
