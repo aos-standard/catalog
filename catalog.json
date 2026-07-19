@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-19T04:21:20.655331+00:00",
+  "generated_at": "2026-07-19T04:31:35.598230+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 2,
@@ -8,8 +8,8 @@
     {
       "product_id": "mcp-blast-radius",
       "display_name": "MCP Blast-Radius Auditor",
-      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences.",
-      "version": "0.2.4",
+      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences. Query bundled business-DNA precedents via list/search/get tools.",
+      "version": "0.2.5",
       "limitations": "Static analysis only; findings use confidence labels (observed-static, inferred). Default scan scope excludes tests/, docs/, examples/, scripts/, benchmarks/, .github/, and test_*.py unless --include-peripheral is set.",
       "aos_compliant": true,
       "pricing": {
@@ -17,7 +17,7 @@
         "unit_price": 1.0,
         "currency": "USD"
       },
-      "install": "pip install mcp-blast-radius==0.2.4",
+      "install": "pip install mcp-blast-radius==0.2.5",
       "mcp": {
         "command": "mcp-blast-radius",
         "transport": "stdio"
@@ -32,7 +32,7 @@
       "product_id": "mcp-agent-health",
       "display_name": "MCP Agent Health Reporter",
       "description": "Validate AOS-compliant agent health before deployment. Catch agents that look fine locally but silently fail in production \u2014 scores manifest, runtime services, immune loop, and physical evidence under any target directory.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "limitations": "Advisory health scan only \u2014 findings do not block deployment by default. Scores are based on static and runtime checks under target_dir; false negatives are possible if agents hide failures outside scanned paths.",
       "aos_compliant": true,
       "pricing": {
@@ -40,7 +40,7 @@
         "unit_price": 0.5,
         "currency": "USD"
       },
-      "install": "pip install mcp-agent-health==0.3.0",
+      "install": "pip install mcp-agent-health==0.3.1",
       "mcp": {
         "command": "mcp-agent-health",
         "transport": "stdio"
@@ -50,6 +50,17 @@
         "repository": "https://github.com/aos-standard/mcp-agent-health",
         "agent_card": "https://raw.githubusercontent.com/aos-standard/mcp-agent-health/main/packaging/agent_card.json"
       }
+    }
+  ],
+  "total_precedents": 1,
+  "precedents": [
+    {
+      "precedent_id": "PREC_DNA-0001",
+      "date": "2026-07-16",
+      "title": "Receipt-processing chain: taxi expense settlement",
+      "abstract": "A four-skill automation chain removes manual entry from receipt photos via OCR, JSON handoffs, and browser automation with SSO profile reuse. One human checkpoint remains at structured-data confirmation.",
+      "sha256_full_text": "49f845036ae6967a603c1967fa16383ed35615b20744166a273749670ca08f55",
+      "spec": "https://github.com/aos-standard/AOS-spec"
     }
   ]
 }
