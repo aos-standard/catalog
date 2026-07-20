@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-19T04:47:33.770543+00:00",
+  "generated_at": "2026-07-19T09:34:39.734096+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 2,
@@ -8,7 +8,7 @@
     {
       "product_id": "mcp-blast-radius",
       "display_name": "MCP Blast-Radius Auditor",
-      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences. Query bundled business-DNA precedents via list/search/get tools.",
+      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences. Query bundled business-DNA precedents via list/search/get tools. Conflict-free verification: no phone-home, Ed25519 attestations, and the same audit rules applied to our own tools via public governance.json.",
       "version": "0.2.5",
       "limitations": "Static analysis only; findings use confidence labels (observed-static, inferred). Default scan scope excludes tests/, docs/, examples/, scripts/, benchmarks/, .github/, and test_*.py unless --include-peripheral is set.",
       "aos_compliant": true,
@@ -31,7 +31,7 @@
     {
       "product_id": "mcp-agent-health",
       "display_name": "MCP Agent Health Reporter",
-      "description": "Validate AOS-compliant agent health before deployment. Catch agents that look fine locally but silently fail in production \u2014 scores manifest, runtime services, immune loop, and physical evidence under any target directory.",
+      "description": "Validate AOS-compliant agent health before deployment. Catch agents that look fine locally but silently fail in production \u2014 scores manifest, runtime services, immune loop, and physical evidence under any target directory. Conflict-free verification: no phone-home, Ed25519 attestations, and the same audit rules applied to our own tools via public governance.json.",
       "version": "0.3.1",
       "limitations": "Advisory health scan only \u2014 findings do not block deployment by default. Scores are based on static and runtime checks under target_dir; false negatives are possible if agents hide failures outside scanned paths.",
       "aos_compliant": true,
