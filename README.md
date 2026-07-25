@@ -1,8 +1,13 @@
 # AOS Public Catalog
 
-Machine-readable product catalog. Agents read: `catalog.json`
+Machine-readable product catalog and trust artifacts for [AOS-v0.1](https://github.com/aos-standard/AOS-spec) tools.
 
-Raw URL: https://raw.githubusercontent.com/aos-standard/catalog/main/catalog.json
+| File | Purpose |
+|------|---------|
+| [`catalog.json`](catalog.json) | Product entries (install, pricing, MCP endpoints) |
+| [`governance.json`](governance.json) | Structure audit evidence (measured at export time) |
+| [`precedents.json`](precedents.json) | Public summaries of business-pattern precedents |
+| [`ANCHORS.jsonl`](ANCHORS.jsonl) | Weekly SHA-256 anchors for private assets |
+| [`attestations/`](attestations/) | **Signed audit badges** for MCP servers that opt in via [badge application](https://github.com/aos-standard/mcp-blast-radius/issues/new?template=badge-application.yml) |
 
-- **`precedents.json`** — Public summaries of business-pattern precedents (`PREC_DNA-*` only); full text stays private; `sha256_full_text` enables third-party hash verification on request.
-- **`ANCHORS.jsonl`** — Weekly append-only SHA-256 anchors proving private assets existed at GitHub push time; file contents are never published.
+**Audit badge program:** Free, opt-in, 90-day attestations — see [mcp-blast-radius BADGE_CRITERIA.md](https://github.com/aos-standard/mcp-blast-radius/blob/main/BADGE_CRITERIA.md).

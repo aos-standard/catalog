@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-19T04:47:33.904610+00:00",
+  "generated_at": "2026-07-23T10:25:50.688574+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
-  "total_precedents": 1,
+  "total_precedents": 2,
   "precedents": [
     {
       "precedent_id": "PREC_DNA-0001",
@@ -11,6 +11,14 @@
       "title": "Receipt-processing chain: taxi expense settlement",
       "abstract": "A four-skill automation chain removes manual entry from receipt photos via OCR, JSON handoffs, and browser automation with SSO profile reuse. One human checkpoint remains at structured-data confirmation.",
       "sha256_full_text": "49f845036ae6967a603c1967fa16383ed35615b20744166a273749670ca08f55",
+      "spec": "https://github.com/aos-standard/AOS-spec"
+    },
+    {
+      "precedent_id": "PREC_DNA-0002",
+      "date": "2026-07-23",
+      "title": "Reconciliation chain: CRM opportunity sync to Excel",
+      "abstract": "A four-skill automation chain removes manual CRM field transcription into Excel via DOM extraction, Shadow DOM traversal, SSO profile reuse, and weekly summary regeneration.",
+      "sha256_full_text": "465526157c8d7d20d0e5fdf3b0b9ecba30556f6bbcf992ff93a29e08eb45292c",
       "spec": "https://github.com/aos-standard/AOS-spec"
     }
   ]
