@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-27T00:06:39.740723+00:00",
+  "generated_at": "2026-07-27T06:52:57.943312+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 2,
@@ -52,7 +52,7 @@
       }
     }
   ],
-  "total_precedents": 2,
+  "total_precedents": 3,
   "precedents": [
     {
       "precedent_id": "PREC_DNA-0001",
@@ -68,6 +68,14 @@
       "title": "Reconciliation chain: CRM opportunity sync to Excel",
       "abstract": "A four-skill automation chain removes manual CRM field transcription into Excel via DOM extraction, Shadow DOM traversal, SSO profile reuse, and weekly summary regeneration.",
       "sha256_full_text": "465526157c8d7d20d0e5fdf3b0b9ecba30556f6bbcf992ff93a29e08eb45292c",
+      "spec": "https://github.com/aos-standard/AOS-spec"
+    },
+    {
+      "precedent_id": "PREC_DNA-0003",
+      "date": "2026-07-27",
+      "title": "Quality-gate chain: agent skill planning and multi-stage automation",
+      "abstract": "A five-skill automation chain removes manual skill planning, implementation, and ad-hoc quality review via static analysis loops, dynamic eval loops, and a pre-release security gate. Human intervention is limited to intent capture and completion confirmation.",
+      "sha256_full_text": "210aaf921496b43d88116aaae4d923b23ef68fea05ea08a00a1c9fd9f92d43e2",
       "spec": "https://github.com/aos-standard/AOS-spec"
     }
   ]
