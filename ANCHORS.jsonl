@@ -15,3 +15,4 @@
 {"date":"2026-W32","asset_id":"prec-dna-0003","sha256":"210aaf921496b43d88116aaae4d923b23ef68fea05ea08a00a1c9fd9f92d43e2","size_bytes":4572,"note":""}
 {"date":"2026-W32","asset_id":"rulings-ledger","sha256":"5f61d8bd03d587fb9826c843f818761b375b65e78aa0d6f922036be8c74e8353","size_bytes":75086,"note":"","rows":84}
 {"event":"witness_ref_introduced","rule_version":"witness-ref-v1","witness":{"kind":"public_vcs","repo":"aos-standard/catalog","commit":"0eb69bf9f26f03b8d4fbce3b3b64ac46e10e1582"},"introduced_at":"2026-08-07"}
+{"event":"signature_suite_introduced","rule_version":"signature-suite-v1","signature_suite":"none","introduced_at":"2026-08-08"}
