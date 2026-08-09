@@ -2,6 +2,19 @@
 
 Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.digests.json`](ANCHORS.jsonl.digests.json). **Standard library only.** Takes **public HTTPS URLs** as input — no local checkout required.
 
+## Distribution (canonical)
+
+The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
+
+```bash
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.1/anchors_verify.py
+python3 anchors_verify.py --self-test
+```
+
+To pin a release, reference tag **`anchors-verify-v0.1`** in the URL (not `main`).
+
+This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
+
 **Run (copy-paste):**
 
 ```bash
