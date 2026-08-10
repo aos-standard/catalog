@@ -46,6 +46,8 @@ class VerifyUnattested(Exception):
 EXIT_OK = 0
 EXIT_FAILED = 1
 EXIT_UNATTESTED = 2
+EXIT_PARTIAL = 3
+EXIT_UNPINNED = 4
 
 
 def _fail(message: str) -> None:
@@ -460,6 +462,42 @@ def verify_truncation_against_witness(
             f"({presented_count} vs {len(main_lines)} lines); "
             "detection assumes witness platform history has not been rewritten"
         )
+
+
+def format_result_summary(result: dict[str, Any]) -> str:
+    return (
+        f"lines={result['lines']} digests={result['digests']} "
+        f"witness_repo={result['witness_repo']} "
+        f"witness_commit={result['witness_commit']} "
+        f"attested_prefix_lines={result['attested_prefix_lines']}"
+    )
+
+
+def classify_verification_outcome(
+    result: dict[str, Any],
+    *,
+    expect_witness_repo: str | None,
+) -> tuple[int, str, str]:
+    """Return (exit_code, stream, message) where stream is stdout or stderr."""
+    summary = format_result_summary(result)
+    if not expect_witness_repo:
+        detail = (
+            f"VERIFY UNPINNED: {summary}\n"
+            "trust anchor not pinned (--expect-witness-repo omitted); "
+            "verification cannot be cited as fully anchored"
+        )
+        return EXIT_UNPINNED, "stderr", detail
+    if result["attested_prefix_lines"] < result["lines"]:
+        attested = result["attested_prefix_lines"]
+        total = result["lines"]
+        detail = (
+            f"VERIFY PARTIAL: {summary}\n"
+            f"only {attested}/{total} lines attested; "
+            "VERIFY OK requires attested_prefix_lines == lines"
+        )
+        return EXIT_PARTIAL, "stderr", detail
+    detail = f"VERIFY OK: {summary}"
+    return EXIT_OK, "stdout", detail
 
 
 def emit_trust_anchor_warning(expect_witness_repo: str | None) -> None:
@@ -963,20 +1001,18 @@ def main(argv: list[str] | None = None) -> int:
         print(LIMITATIONS_TEXT, file=sys.stderr)
         return EXIT_FAILED
 
-    print(
-        "VERIFY OK: "
-        f"lines={result['lines']} digests={result['digests']} "
-        f"witness_repo={result['witness_repo']} witness_commit={result['witness_commit']} "
-        f"attested_prefix_lines={result['attested_prefix_lines']}"
+    summary = format_result_summary(result)
+
+    exit_code, stream, message = classify_verification_outcome(
+        result,
+        expect_witness_repo=args.expect_witness_repo,
     )
+    if stream == "stdout":
+        print(message)
+    else:
+        print(message, file=sys.stderr)
     print(LIMITATIONS_TEXT, file=sys.stderr)
-    if result["attested_prefix_lines"] < result["lines"]:
-        print(
-            "Note: stream tip after last position_binding attestation is not yet bound; "
-            "forks at the tip are not detectable until the next attestation.",
-            file=sys.stderr,
-        )
-    return EXIT_OK
+    return exit_code
 
 
 if __name__ == "__main__":

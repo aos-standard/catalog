@@ -7,15 +7,37 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.2/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.2`** in the URL (not `main`). Tag **`anchors-verify-v0.1`** remains available but its self-test may fail when the witness stream on `main` has grown past the tag snapshot.
+To pin a release, reference tag **`anchors-verify-v0.3`** in the URL (not `main`). Older tags (`anchors-verify-v0.2`, `anchors-verify-v0.1`) remain available for history; **`v0.3` narrows the public contract** (see outcomes below).
 
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
-**Run (copy-paste):**
+**Run (copy-paste — tag-fixed, reproducible):**
+
+```bash
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/ANCHORS.jsonl
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/ANCHORS.jsonl.digests.json
+python3 anchors_verify.py \
+  --anchors-url file://$(pwd)/ANCHORS.jsonl \
+  --digests-url file://$(pwd)/ANCHORS.jsonl.digests.json \
+  --expect-witness-repo aos-standard/catalog
+```
+
+The bundled files come from the **same tag** as the verifier. You can reproduce without referencing `main`.
+
+**Self-test (adversarial vectors, no network):**
+
+```bash
+python3 anchors_verify.py --self-test
+```
+
+**Optional — verify live `main` tip (not tag-fixed):**
+
+Use this only when you intentionally want the moving witness stream on `main`. Results depend on how many lines exist on `main` at fetch time.
 
 ```bash
 python3 anchors_verify.py \
@@ -24,21 +46,19 @@ python3 anchors_verify.py \
   --expect-witness-repo aos-standard/catalog
 ```
 
-**Self-test (adversarial vectors, no network):**
-
-```bash
-python3 anchors_verify.py --self-test
-```
-
 ## Verification outcomes (do not conflate)
+
+**Contract change (v0.3):** Prior releases treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.3` adds distinct outcomes and exit codes.**
 
 | Outcome | Exit code | Meaning |
 |---------|-----------|---------|
-| **VERIFY OK** | 0 | At least one `position_binding_introduced` attestation exists and every attested prefix **byte-matches** the witness platform. |
-| **VERIFY UNATTESTED** | 2 | Digest and boundary checks passed, but **`attested_prefix_lines=0`** — no position binding. Not a successful verification. Typical downgrade: strip line 19 and rely on weaker checks. |
+| **VERIFY OK** | 0 | **`attested_prefix_lines == lines`** — every line in the presented stream is covered by a verified position-binding prefix, and each attested prefix **byte-matches** the witness platform. |
+| **VERIFY PARTIAL** | 3 | **`0 < attested_prefix_lines < lines`** — some prefix is attested and verified, but the stream tip remains unattested. **Not full verification.** |
+| **VERIFY UNATTESTED** | 2 | Digest and boundary checks passed, but **`attested_prefix_lines=0`** — no position binding. Not a successful verification. |
+| **VERIFY UNPINNED** | 4 | Digest/binding checks may have run, but **`--expect-witness-repo` was omitted** — trust anchor taken from the stream itself. **Not citable as anchored verification.** |
 | **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, prefix mismatch, or trust-anchor mismatch. |
 
-**Do not treat UNATTESTED as OK.** An offline snapshot of an older stream without attestation must not print `VERIFY OK`.
+**Do not treat PARTIAL, UNATTESTED, or UNPINNED as OK.**
 
 ## What it checks
 
@@ -50,10 +70,10 @@ python3 anchors_verify.py --self-test
 
 ## Trust anchor (`--expect-witness-repo`)
 
-**Strongly recommended.** Supply the witness repository as `owner/repo` (e.g. `aos-standard/catalog`). The verifier uses this as the trust anchor for platform queries instead of accepting whatever repository the stream under verification names.
+**Required for VERIFY OK or VERIFY PARTIAL.** Supply the witness repository as `owner/repo` (e.g. `aos-standard/catalog`). The verifier uses this as the trust anchor for platform queries instead of accepting whatever repository the stream under verification names.
 
-- If `--expect-witness-repo` is set and the stream names a different repository → **fail closed**.
-- If omitted, a **warning** is printed: the trust anchor is taken from the stream itself, and a forged stream can point queries at an attacker-controlled repository.
+- If `--expect-witness-repo` is set and the stream names a different repository → **fail closed** (`VERIFY FAILED`).
+- If omitted → **warning** plus **`VERIFY UNPINNED`** (exit 4): a forged stream can point queries at an attacker-controlled repository.
 
 ## Rolling attestation discipline
 
