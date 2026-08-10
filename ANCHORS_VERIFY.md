@@ -7,11 +7,11 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.1/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.2/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.1`** in the URL (not `main`).
+To pin a release, reference tag **`anchors-verify-v0.2`** in the URL (not `main`). Tag **`anchors-verify-v0.1`** remains available but its self-test may fail when the witness stream on `main` has grown past the tag snapshot.
 
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 

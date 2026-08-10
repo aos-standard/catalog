@@ -11,6 +11,7 @@ is not detectable). Equivocation and force-push are not prevented.
 
 from __future__ import annotations
 
+from pathlib import Path
 import argparse
 import hashlib
 import json
@@ -571,8 +572,29 @@ def verify_urls(
     )
 
 
-def _build_fork_self_test_streams() -> tuple[list[str], list[str], dict[str, Any]]:
-    """wowlegend-class fork: lines 1-16 shared, line 17 swapped, both 18 lines."""
+def _build_fork_self_test_streams(
+    live_lines: list[str] | None = None,
+) -> tuple[list[str], list[str], dict[str, Any], list[str], str]:
+    """wowlegend-class fork derived from live stream when available."""
+    if live_lines is not None and len(live_lines) >= 19:
+        shared = live_lines[:16]
+        witness_real = live_lines[16]
+        suite_event = live_lines[17]
+        binding_line = live_lines[18]
+        tail = live_lines[19:]
+        witness_row = parse_row(witness_real)
+        forged_at = str(witness_row.get("introduced_at") or "2026-08-07") + "-forged"
+        witness_row["introduced_at"] = forged_at
+        witness_fake = (
+            json.dumps(witness_row, ensure_ascii=True, separators=(",", ":")) + "\n"
+        )
+        attestation = parse_row(binding_line)["attestation"]
+        if not isinstance(attestation, dict):
+            _fail("live position_binding row missing attestation for fork self-test")
+        f18a = shared + [witness_real, suite_event]
+        f18b = shared + [witness_fake, suite_event]
+        return f18a, f18b, attestation, tail, binding_line
+
     shared = [
         '{"date":"2099-W01","asset_id":"demo-a","sha256":"aa","size_bytes":1,"note":""}\n',
         '{"date":"2099-W01","asset_id":"demo-b","sha256":"bb","size_bytes":1,"note":""}\n',
@@ -626,7 +648,37 @@ def _build_fork_self_test_streams() -> tuple[list[str], list[str], dict[str, Any
             "sha256": sha256_bytes(prefix_bytes),
         },
     }
-    return f18a, f18b, attestation
+    return f18a, f18b, attestation, [], (
+        json.dumps(
+            {
+                "event": POSITION_BINDING_EVENT_NAME,
+                "rule_version": "position-binding-v1",
+                "attestation": attestation,
+                "introduced_at": "2026-08-09",
+            },
+            ensure_ascii=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    )
+
+
+def _load_live_anchors_lines_for_self_test() -> list[str] | None:
+    live_path = Path(__file__).resolve().parent / "ANCHORS.jsonl"
+    if not live_path.is_file():
+        return None
+    return bytes_to_lines(live_path.read_bytes())
+
+
+def _rejection_class(exc: BaseException) -> str:
+    message = str(exc)
+    if "fork or insertion detected" in message:
+        return "fork"
+    if "truncation vector" in message:
+        return "truncation"
+    if isinstance(exc, VerifyUnattested):
+        return "unattested"
+    return "verify_error"
 
 
 def run_self_test() -> int:
@@ -737,11 +789,13 @@ def run_self_test() -> int:
         ),
     )
 
-    f18a, f18b, attestation = _build_fork_self_test_streams()
+    live_lines = _load_live_anchors_lines_for_self_test()
+    f18a, f18b, attestation, tail, binding_line = _build_fork_self_test_streams(live_lines)
     witness_ref = attestation["witness"]
     repo = witness_ref["repo"]
     commit = witness_ref["commit"]
     witness_map = {(repo, commit): f18a}
+    reference_main = live_lines if live_lines is not None else f18a
 
     try:
         verify_truncation_length_only(f18a, witness_lines=f18a, main_lines=f18a)
@@ -754,21 +808,8 @@ def run_self_test() -> int:
         print(f"FAIL self-test: fork length-only baseline ({exc})", file=sys.stderr)
         cases_failed += 1
 
-    binding_line = (
-        json.dumps(
-            {
-                "event": POSITION_BINDING_EVENT_NAME,
-                "rule_version": "position-binding-v1",
-                "attestation": attestation,
-                "introduced_at": "2026-08-09",
-            },
-            ensure_ascii=True,
-            separators=(",", ":"),
-        )
-        + "\n"
-    )
-    f18a_bound = f18a + [binding_line]
-    f18b_bound = f18b + [binding_line]
+    f18a_bound = f18a + [binding_line] + tail
+    f18b_bound = f18b + [binding_line] + tail
     f18a_digests = [sha256_line(line) for line in f18a_bound]
     f18b_digests = [sha256_line(line) for line in f18b_bound]
 
@@ -778,30 +819,60 @@ def run_self_test() -> int:
             json.dumps({"version": "1.0.0", "line_sha256": f18a_digests}).encode(
                 "utf-8"
             ),
+            witness_lines=reference_main,
+            main_lines=reference_main,
             check_witness_platform=True,
             expect_witness_repo=repo,
             witness_lines_by_ref=witness_map,
         )
         print("PASS self-test: fork vector f18a accepted with position binding", file=sys.stderr)
     except VerifyUnattested as exc:
-        print(f"FAIL self-test: fork f18a unattested ({exc})", file=sys.stderr)
+        print(
+            f"FAIL self-test: fork f18a unattested "
+            f"(rejection={_rejection_class(exc)}: {exc})",
+            file=sys.stderr,
+        )
         cases_failed += 1
     except VerifyError as exc:
-        print(f"FAIL self-test: fork f18a rejected ({exc})", file=sys.stderr)
+        print(
+            f"FAIL self-test: fork f18a rejected "
+            f"(rejection={_rejection_class(exc)}: {exc})",
+            file=sys.stderr,
+        )
         cases_failed += 1
 
-    expect_fail(
-        "fork vector f18b rejected with position binding",
-        lambda: verify_from_bytes(
-            "".join(f18b_bound).encode("utf-8"),
-            json.dumps({"version": "1.0.0", "line_sha256": f18b_digests}).encode(
-                "utf-8"
-            ),
-            check_witness_platform=True,
-            expect_witness_repo=repo,
-            witness_lines_by_ref=witness_map,
-        ),
-    )
+    def _expect_fork_reject_f18b() -> None:
+        try:
+            verify_from_bytes(
+                "".join(f18b_bound).encode("utf-8"),
+                json.dumps({"version": "1.0.0", "line_sha256": f18b_digests}).encode(
+                    "utf-8"
+                ),
+                witness_lines=reference_main,
+                main_lines=reference_main,
+                check_witness_platform=True,
+                expect_witness_repo=repo,
+                witness_lines_by_ref=witness_map,
+            )
+        except VerifyError as exc:
+            rejection = _rejection_class(exc)
+            if rejection != "fork":
+                raise VerifyError(
+                    f"expected fork rejection for f18b, got {rejection}: {exc}"
+                ) from exc
+            print(
+                f"PASS self-test: fork vector f18b rejected "
+                f"(rejection={rejection})",
+                file=sys.stderr,
+            )
+            return
+        raise AssertionError("f18b bound stream did not fail closed")
+
+    try:
+        _expect_fork_reject_f18b()
+    except (VerifyError, AssertionError) as exc:
+        print(f"FAIL self-test: fork vector f18b ({exc})", file=sys.stderr)
+        cases_failed += 1
 
     forge18_digests = [sha256_line(line) for line in f18b]
     expect_unattested(
