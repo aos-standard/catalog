@@ -7,20 +7,22 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.3`** in the URL (not `main`). Older tags (`anchors-verify-v0.2`, `anchors-verify-v0.1`) remain available for history; **`v0.3` narrows the public contract** (see outcomes below).
+To pin a release, reference tag **`anchors-verify-v0.4`** in the URL (not `main`). Older tags (`anchors-verify-v0.2`, `anchors-verify-v0.1`) remain available for history.
+
+**`anchors-verify-v0.3` was published pointing at the wrong commit and does not implement the `VERIFY PARTIAL` / `VERIFY UNPINNED` outcomes documented here. It is superseded by `v0.4` and left in place rather than re-pointed, because re-pointing a published tag would break the reproducibility this verifier exists to check.**
 
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
 **Run (copy-paste — tag-fixed, reproducible):**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/anchors_verify.py
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/ANCHORS.jsonl
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.3/ANCHORS.jsonl.digests.json
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/ANCHORS.jsonl
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/ANCHORS.jsonl.digests.json
 python3 anchors_verify.py \
   --anchors-url file://$(pwd)/ANCHORS.jsonl \
   --digests-url file://$(pwd)/ANCHORS.jsonl.digests.json \
@@ -48,7 +50,7 @@ python3 anchors_verify.py \
 
 ## Verification outcomes (do not conflate)
 
-**Contract change (v0.3):** Prior releases treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.3` adds distinct outcomes and exit codes.**
+**Contract change (v0.4):** Prior releases through `v0.2` (and the mis-pointed `v0.3` tag) treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.4` adds distinct outcomes and exit codes.**
 
 | Outcome | Exit code | Meaning |
 |---------|-----------|---------|
