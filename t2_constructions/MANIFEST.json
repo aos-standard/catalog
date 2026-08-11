@@ -1,0 +1,159 @@
+{
+  "schema": "aos-t2-constructions.v1",
+  "count_correction": "A public comment said 'nine constructions'. The set that was actually run is ten mutations plus baseline (eleven artifacts). That miscount is ours; it is not hidden.",
+  "input": {
+    "anchors_path": "/home/tetsuroh/Dev/03_Infrastructure/public_catalog_export/ANCHORS.jsonl",
+    "anchors_sha256": "d0a5857384624babbbac8d2d2b08fc6f35d61a0fd0d46b0471f163e0475e7c97",
+    "anchors_line_count": 24
+  },
+  "threat_model": {
+    "this_set": "sidecar_regenerated",
+    "external_separator_receipt": "sidecar_unmodified",
+    "stricter": "external_separator_receipt"
+  },
+  "constructions": [
+    {
+      "id": "baseline",
+      "anchors_file": "baseline.jsonl",
+      "digests_file": "baseline.jsonl.digests.json",
+      "line_count": 24,
+      "sha256_anchors": "d0a5857384624babbbac8d2d2b08fc6f35d61a0fd0d46b0471f163e0475e7c97",
+      "sha256_digests": "ef8ad2d1d3e7747e98c115ad2f835459a7700e1596efc29b0a10c236b8419f28",
+      "expected_exit_code": 3,
+      "expected_verdict": "VERIFY PARTIAL",
+      "expected_rejection_class": null,
+      "note": "unmodified stream; attested_prefix_lines=18",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "A2",
+      "anchors_file": "A2.jsonl",
+      "digests_file": "A2.jsonl.digests.json",
+      "line_count": 25,
+      "sha256_anchors": "a1b6ca70df72822a8d222bdc6059d13f6227e8dbffbfb6947797d273af412ac9",
+      "sha256_digests": "7a91495cf7df11c7ecf0e6c552af0086377313831f8bd1764c243c8f8c2553fb",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "fork or insertion detected",
+      "note": "duplicate genuine record inserted inside attested prefix",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "A3",
+      "anchors_file": "A3.jsonl",
+      "digests_file": "A3.jsonl.digests.json",
+      "line_count": 25,
+      "sha256_anchors": "8aba536ecce1128d81d0a11c019c10f4789631fa0ab79954740510f4c5a7f48e",
+      "sha256_digests": "44ec0ecd49e5683486f21b41b270d4f338297af7e10d1a872f41c505378ed9a2",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "fork or insertion detected",
+      "note": "altered genuine record inserted inside attested prefix",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "B",
+      "anchors_file": "B.jsonl",
+      "digests_file": "B.jsonl.digests.json",
+      "line_count": 23,
+      "sha256_anchors": "4e8693ca2631fee397b34549cd75f7210b35b70d5d320e308b97d0e850cb136e",
+      "sha256_digests": "1a40d67e098518e36bda3d3deb05e7c97db804ca20f262a47619201caabeccca",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "fork or insertion detected",
+      "note": "one record deleted inside attested prefix",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "C",
+      "anchors_file": "C.jsonl",
+      "digests_file": "C.jsonl.digests.json",
+      "line_count": 24,
+      "sha256_anchors": "04366ca3f8a7df9e1e4b63a663d49a0a5a0ed8d67a11b6f8146f6a1b24fc2059",
+      "sha256_digests": "079a21fa4c0b2620e0f021c594e775d9396b6dd5ea40f538bf5090e3a07e8c61",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "fork or insertion detected",
+      "note": "one byte flipped inside attested prefix",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "D2",
+      "anchors_file": "D2.jsonl",
+      "digests_file": "D2.jsonl.digests.json",
+      "line_count": 24,
+      "sha256_anchors": "3f50c583d24a9e2700d5bb18a6908d264733c7cbdd7e7d9add8e38cc4aabd3ac",
+      "sha256_digests": "5245c699fd9f2f6fbb2469cefce3a630fb8d272b044c7f0a015f9e6ed1ef32d5",
+      "expected_exit_code": 3,
+      "expected_verdict": "VERIFY PARTIAL",
+      "expected_rejection_class": null,
+      "note": "duplicate genuine record in unattested tip (documented out of scope)",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "D3",
+      "anchors_file": "D3.jsonl",
+      "digests_file": "D3.jsonl.digests.json",
+      "line_count": 24,
+      "sha256_anchors": "9ffb712d1523e0de34ab25fdd2ae1a37d138c1111874d047931e14fc3e47c067",
+      "sha256_digests": "7173f9e397b3fd003b75a3dc68de23545307dec4a59f8ddb77cf9fd5f61851d2",
+      "expected_exit_code": 3,
+      "expected_verdict": "VERIFY PARTIAL",
+      "expected_rejection_class": null,
+      "note": "altered tip row (documented out of scope)",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "E",
+      "anchors_file": "E.jsonl",
+      "digests_file": "E.jsonl.digests.json",
+      "line_count": 23,
+      "sha256_anchors": "7611ce4c0a50988a19fb31efa37058d5397a299a3fd275080ee11501356b2dfa",
+      "sha256_digests": "552864d2a3e0fce5bd7f5b359b47d438e5208b43af515176b8ca2e009452593b",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "truncation vector 2",
+      "note": "binding row removed (line count shrinks)",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "F",
+      "anchors_file": "F.jsonl",
+      "digests_file": "F.jsonl.digests.json",
+      "line_count": 10,
+      "sha256_anchors": "e3dce50786c095eb111ccac6c35347ffe7e39218697f17d4b55390dce663d533",
+      "sha256_digests": "5d490f6fa31002d60485eac662bed49dcc049376c04b43f19c18e86b0fdcc7cc",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "truncation vector 2",
+      "note": "stream truncated to 10 lines",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "G",
+      "anchors_file": "G.jsonl",
+      "digests_file": "G.jsonl.digests.json",
+      "line_count": 25,
+      "sha256_anchors": "adbc9424285c841b8d6bb96cf78a675a17b81cf0f40136e9e8ce50484d89b512",
+      "sha256_digests": "6df21b67a4e7c9ed696134bf5f5019b91f127885bfb3e65822bab61cd30f7065",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "has fewer than",
+      "note": "extra binding claiming line_count=24; witness commit lacks 24 lines",
+      "sidecar_regenerated": true
+    },
+    {
+      "id": "H",
+      "anchors_file": "H.jsonl",
+      "digests_file": "H.jsonl.digests.json",
+      "line_count": 24,
+      "sha256_anchors": "09fc1bb0ff5b696da357b5d683404291fb919d92a3e8b506cb40b954df765781",
+      "sha256_digests": "7140d6266ecef1dadb062cfdc2761ad4c4ffe3ebdd5baa8022b8082763ae810f",
+      "expected_exit_code": 1,
+      "expected_verdict": "VERIFY FAILED",
+      "expected_rejection_class": "missing witness after introduction",
+      "note": "binding row replaced by a record row (line count preserved)",
+      "sidecar_regenerated": true
+    }
+  ]
+}
