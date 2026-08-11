@@ -58,8 +58,10 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def sha256_line(line: str) -> str:
-    return sha256_bytes(line.encode("utf-8"))
+def sha256_line(line: bytes | str) -> str:
+    if isinstance(line, str):
+        return sha256_bytes(line.encode("utf-8"))
+    return sha256_bytes(line)
 
 
 def fetch_url(url: str, *, timeout: float = 60.0) -> bytes:
@@ -74,21 +76,35 @@ def fetch_url(url: str, *, timeout: float = 60.0) -> bytes:
     raise AssertionError("unreachable")
 
 
-def bytes_to_lines(content: bytes) -> list[str]:
-    text = content.decode("utf-8")
-    lines: list[str] = []
-    for raw in text.splitlines(keepends=True):
-        if raw.endswith("\n"):
-            lines.append(raw)
-        elif raw.strip():
-            lines.append(raw + "\n")
-    if text and not text.endswith("\n") and not lines:
-        lines.append(text + "\n")
+def bytes_to_lines(content: bytes) -> list[bytes]:
+    """Split on b'\\n' only; each line includes its trailing newline byte.
+
+    No Unicode line-boundary normalization — raw stored bytes are preserved.
+    Separator-only segments are retained (never silently skipped).
+    """
+    if not content:
+        return []
+    parts = content.split(b"\n")
+    lines: list[bytes] = []
+    for index, part in enumerate(parts):
+        is_last = index == len(parts) - 1
+        if is_last and part == b"" and content.endswith(b"\n"):
+            continue
+        if is_last and not content.endswith(b"\n"):
+            if not part:
+                _fail("empty anchor line")
+            lines.append(part + b"\n")
+        else:
+            lines.append(part + b"\n")
     return lines
 
 
-def parse_row(line: str) -> dict[str, Any]:
-    stripped = line.strip()
+def parse_row(line: bytes) -> dict[str, Any]:
+    try:
+        text = line.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        _fail(f"invalid UTF-8 in anchor line: {exc}")
+    stripped = text.strip()
     if not stripped:
         _fail("empty anchor line")
     try:
@@ -124,7 +140,7 @@ def is_anchor_record(row: dict[str, Any]) -> bool:
     return isinstance(row.get("asset_id"), str) and "event" not in row
 
 
-def load_active_witness(lines: list[str]) -> dict[str, Any] | None:
+def load_active_witness(lines: list[bytes]) -> dict[str, Any] | None:
     witness: dict[str, Any] | None = None
     for line in lines:
         row = parse_row(line)
@@ -151,7 +167,7 @@ def witness_record_matches_active(record_witness: Any, active_witness: dict[str,
     return True
 
 
-def verify_witness_boundary(lines: list[str]) -> None:
+def verify_witness_boundary(lines: list[bytes]) -> None:
     boundary_index: int | None = None
     active_witness: dict[str, Any] | None = None
     for index, line in enumerate(lines):
@@ -186,7 +202,7 @@ def verify_witness_boundary(lines: list[str]) -> None:
                 _fail(f"witness mismatch at line {index + 1}")
 
 
-def load_active_signature_suite(lines: list[str]) -> str | None:
+def load_active_signature_suite(lines: list[bytes]) -> str | None:
     suite: str | None = None
     for line in lines:
         row = parse_row(line)
@@ -204,7 +220,7 @@ def load_active_signature_suite(lines: list[str]) -> str | None:
     return suite
 
 
-def verify_signature_suite_boundary(lines: list[str]) -> None:
+def verify_signature_suite_boundary(lines: list[bytes]) -> None:
     boundary_index: int | None = None
     active_suite: str | None = None
     for index, line in enumerate(lines):
@@ -236,12 +252,12 @@ def verify_signature_suite_boundary(lines: list[str]) -> None:
                 _fail(f"signature_suite mismatch at line {index + 1}")
 
 
-def verify_anchor_boundaries(lines: list[str]) -> None:
+def verify_anchor_boundaries(lines: list[bytes]) -> None:
     verify_witness_boundary(lines)
     verify_signature_suite_boundary(lines)
 
 
-def collect_position_bindings(lines: list[str]) -> list[tuple[int, dict[str, Any]]]:
+def collect_position_bindings(lines: list[bytes]) -> list[tuple[int, dict[str, Any]]]:
     bindings: list[tuple[int, dict[str, Any]]] = []
     for index, line in enumerate(lines):
         row = parse_row(line)
@@ -269,11 +285,11 @@ def _resolve_trust_repo(
 
 
 def verify_position_bindings(
-    presented_lines: list[str],
+    presented_lines: list[bytes],
     *,
     expect_witness_repo: str | None,
-    fetch_lines: Callable[[str, str], list[str]] | None = None,
-    witness_lines_by_ref: dict[tuple[str, str], list[str]] | None = None,
+    fetch_lines: Callable[[str, str], list[bytes]] | None = None,
+    witness_lines_by_ref: dict[tuple[str, str], list[bytes]] | None = None,
 ) -> int:
     """Verify attested prefixes by byte match at named witness commits (B-1)."""
     bindings = collect_position_bindings(presented_lines)
@@ -344,9 +360,7 @@ def verify_position_bindings(
                 f"{commit[:12]} has fewer than {line_count} lines"
             )
 
-        witness_prefix_bytes = b"".join(
-            line.encode("utf-8") for line in witness_lines[:line_count]
-        )
+        witness_prefix_bytes = b"".join(witness_lines[:line_count])
         if len(witness_prefix_bytes) != byte_length:
             _fail(
                 f"position binding at line {binding_index + 1}: witness prefix "
@@ -358,9 +372,7 @@ def verify_position_bindings(
                 "digest mismatch"
             )
 
-        presented_prefix_bytes = b"".join(
-            line.encode("utf-8") for line in presented_lines[:line_count]
-        )
+        presented_prefix_bytes = b"".join(presented_lines[:line_count])
         if presented_prefix_bytes != witness_prefix_bytes:
             _fail(
                 f"position binding at line {binding_index + 1}: presented prefix "
@@ -385,7 +397,7 @@ def load_line_digests(content: bytes) -> list[str]:
     return [str(item) for item in digests]
 
 
-def verify_lines_against_digests(lines: list[str], digests: list[str]) -> None:
+def verify_lines_against_digests(lines: list[bytes], digests: list[str]) -> None:
     """Vector 1: records-only truncation while sidecar retains prior digests."""
     if len(digests) > len(lines):
         _fail(
@@ -413,16 +425,16 @@ def raw_github_url(repo: str, ref: str, path: str) -> str:
     return f"https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 
 
-def fetch_repo_lines(repo: str, ref: str, path: str) -> list[str]:
+def fetch_repo_lines(repo: str, ref: str, path: str) -> list[bytes]:
     url = raw_github_url(repo, ref, path)
     return bytes_to_lines(fetch_url(url))
 
 
 def verify_truncation_length_only(
-    presented_lines: list[str],
+    presented_lines: list[bytes],
     *,
-    witness_lines: list[str] | None,
-    main_lines: list[str] | None,
+    witness_lines: list[bytes] | None,
+    main_lines: list[bytes] | None,
 ) -> None:
     """Legacy vector 2: line-count floor only (fork-vulnerable — for self-test contrast)."""
     presented_count = len(presented_lines)
@@ -439,10 +451,10 @@ def verify_truncation_length_only(
 
 
 def verify_truncation_against_witness(
-    presented_lines: list[str],
+    presented_lines: list[bytes],
     *,
-    witness_lines: list[str] | None,
-    main_lines: list[str] | None,
+    witness_lines: list[bytes] | None,
+    main_lines: list[bytes] | None,
     expect_witness_repo: str | None,
     max_attested_lines: int,
 ) -> None:
@@ -526,12 +538,12 @@ def verify_from_bytes(
     anchors_content: bytes,
     digests_content: bytes,
     *,
-    witness_lines: list[str] | None = None,
-    main_lines: list[str] | None = None,
+    witness_lines: list[bytes] | None = None,
+    main_lines: list[bytes] | None = None,
     check_witness_platform: bool = True,
     anchors_url: str | None = None,
     expect_witness_repo: str | None = None,
-    witness_lines_by_ref: dict[tuple[str, str], list[str]] | None = None,
+    witness_lines_by_ref: dict[tuple[str, str], list[bytes]] | None = None,
 ) -> dict[str, Any]:
     lines = bytes_to_lines(anchors_content)
     digests = load_line_digests(digests_content)
@@ -610,9 +622,13 @@ def verify_urls(
     )
 
 
+def _jsonl_bytes(obj: dict[str, Any]) -> bytes:
+    return (json.dumps(obj, ensure_ascii=True, separators=(",", ":")) + "\n").encode("utf-8")
+
+
 def _build_fork_self_test_streams(
-    live_lines: list[str] | None = None,
-) -> tuple[list[str], list[str], dict[str, Any], list[str], str]:
+    live_lines: list[bytes] | None = None,
+) -> tuple[list[bytes], list[bytes], dict[str, Any], list[bytes], bytes]:
     """wowlegend-class fork derived from live stream when available."""
     if live_lines is not None and len(live_lines) >= 19:
         shared = live_lines[:16]
@@ -623,9 +639,7 @@ def _build_fork_self_test_streams(
         witness_row = parse_row(witness_real)
         forged_at = str(witness_row.get("introduced_at") or "2026-08-07") + "-forged"
         witness_row["introduced_at"] = forged_at
-        witness_fake = (
-            json.dumps(witness_row, ensure_ascii=True, separators=(",", ":")) + "\n"
-        )
+        witness_fake = _jsonl_bytes(witness_row)
         attestation = parse_row(binding_line)["attestation"]
         if not isinstance(attestation, dict):
             _fail("live position_binding row missing attestation for fork self-test")
@@ -634,46 +648,77 @@ def _build_fork_self_test_streams(
         return f18a, f18b, attestation, tail, binding_line
 
     shared = [
-        '{"date":"2099-W01","asset_id":"demo-a","sha256":"aa","size_bytes":1,"note":""}\n',
-        '{"date":"2099-W01","asset_id":"demo-b","sha256":"bb","size_bytes":1,"note":""}\n',
+        _jsonl_bytes(
+            {
+                "date": "2099-W01",
+                "asset_id": "demo-a",
+                "sha256": "aa",
+                "size_bytes": 1,
+                "note": "",
+            }
+        ),
+        _jsonl_bytes(
+            {
+                "date": "2099-W01",
+                "asset_id": "demo-b",
+                "sha256": "bb",
+                "size_bytes": 1,
+                "note": "",
+            }
+        ),
     ]
     while len(shared) < 16:
         idx = len(shared)
         shared.append(
-            json.dumps(
+            _jsonl_bytes(
                 {
                     "date": "2099-W01",
                     "asset_id": f"demo-{idx}",
                     "sha256": f"{idx:02x}",
                     "size_bytes": 1,
                     "note": "",
-                },
-                ensure_ascii=True,
-                separators=(",", ":"),
+                }
             )
-            + "\n"
         )
 
     prior_head = "0eb69bf9f26f03b8d4fbce3b3b64ac46e10e1582"
-    witness_real = (
-        '{"event":"witness_ref_introduced","rule_version":"witness-ref-v1",'
-        f'"witness":{{"kind":"public_vcs","repo":"aos-standard/catalog",'
-        f'"commit":"{prior_head}"}},"introduced_at":"2026-08-07"}}\n'
+    witness_real = _jsonl_bytes(
+        {
+            "event": "witness_ref_introduced",
+            "rule_version": "witness-ref-v1",
+            "witness": {
+                "kind": "public_vcs",
+                "repo": "aos-standard/catalog",
+                "commit": prior_head,
+            },
+            "introduced_at": "2026-08-07",
+        }
     )
-    witness_fake = (
-        '{"event":"witness_ref_introduced","rule_version":"witness-ref-v1",'
-        f'"witness":{{"kind":"public_vcs","repo":"aos-standard/catalog",'
-        f'"commit":"{prior_head}"}},"introduced_at":"2026-08-07-forged"}}\n'
+    witness_fake = _jsonl_bytes(
+        {
+            "event": "witness_ref_introduced",
+            "rule_version": "witness-ref-v1",
+            "witness": {
+                "kind": "public_vcs",
+                "repo": "aos-standard/catalog",
+                "commit": prior_head,
+            },
+            "introduced_at": "2026-08-07-forged",
+        }
     )
-    suite_event = (
-        '{"event":"signature_suite_introduced","rule_version":"signature-suite-v1",'
-        '"signature_suite":"none","introduced_at":"2026-08-08"}\n'
+    suite_event = _jsonl_bytes(
+        {
+            "event": "signature_suite_introduced",
+            "rule_version": "signature-suite-v1",
+            "signature_suite": "none",
+            "introduced_at": "2026-08-08",
+        }
     )
 
     f18a = shared + [witness_real, suite_event]
     f18b = shared + [witness_fake, suite_event]
 
-    prefix_bytes = b"".join(line.encode("utf-8") for line in f18a)
+    prefix_bytes = b"".join(f18a)
     attestation = {
         "witness": {
             "kind": "public_vcs",
@@ -686,22 +731,17 @@ def _build_fork_self_test_streams(
             "sha256": sha256_bytes(prefix_bytes),
         },
     }
-    return f18a, f18b, attestation, [], (
-        json.dumps(
-            {
-                "event": POSITION_BINDING_EVENT_NAME,
-                "rule_version": "position-binding-v1",
-                "attestation": attestation,
-                "introduced_at": "2026-08-09",
-            },
-            ensure_ascii=True,
-            separators=(",", ":"),
-        )
-        + "\n"
+    return f18a, f18b, attestation, [], _jsonl_bytes(
+        {
+            "event": POSITION_BINDING_EVENT_NAME,
+            "rule_version": "position-binding-v1",
+            "attestation": attestation,
+            "introduced_at": "2026-08-09",
+        }
     )
 
 
-def _load_live_anchors_lines_for_self_test() -> list[str] | None:
+def _load_live_anchors_lines_for_self_test() -> list[bytes] | None:
     live_path = Path(__file__).resolve().parent / "ANCHORS.jsonl"
     if not live_path.is_file():
         return None
@@ -710,6 +750,8 @@ def _load_live_anchors_lines_for_self_test() -> list[str] | None:
 
 def _rejection_class(exc: BaseException) -> str:
     message = str(exc)
+    if "digest mismatch" in message:
+        return "digest_mismatch"
     if "fork or insertion detected" in message:
         return "fork"
     if "truncation vector" in message:
@@ -756,21 +798,58 @@ def run_self_test() -> int:
             print(f"FAIL self-test: {label} did not report unattested", file=sys.stderr)
             cases_failed += 1
 
-    line_a = '{"date":"2099-W01","asset_id":"demo-a","sha256":"aa","size_bytes":1,"note":""}\n'
-    line_b = '{"date":"2099-W01","asset_id":"demo-b","sha256":"bb","size_bytes":1,"note":""}\n'
-    witness_event = (
-        '{"event":"witness_ref_introduced","rule_version":"witness-ref-v1",'
-        '"witness":{"kind":"public_vcs","repo":"example/catalog",'
-        '"commit":"abc123"},"introduced_at":"2099-01-01"}\n'
+    line_a = _jsonl_bytes(
+        {
+            "date": "2099-W01",
+            "asset_id": "demo-a",
+            "sha256": "aa",
+            "size_bytes": 1,
+            "note": "",
+        }
     )
-    suite_event = (
-        '{"event":"signature_suite_introduced","rule_version":"signature-suite-v1",'
-        '"signature_suite":"none","introduced_at":"2099-01-02"}\n'
+    line_b = _jsonl_bytes(
+        {
+            "date": "2099-W01",
+            "asset_id": "demo-b",
+            "sha256": "bb",
+            "size_bytes": 1,
+            "note": "",
+        }
     )
-    line_c = (
-        '{"date":"2099-W02","asset_id":"demo-c","sha256":"cc","size_bytes":1,"note":"",'
-        '"witness":{"kind":"public_vcs","repo":"example/catalog","commit":"abc123"},'
-        '"signature_suite":"none"}\n'
+    witness_event = _jsonl_bytes(
+        {
+            "event": "witness_ref_introduced",
+            "rule_version": "witness-ref-v1",
+            "witness": {
+                "kind": "public_vcs",
+                "repo": "example/catalog",
+                "commit": "abc123",
+            },
+            "introduced_at": "2099-01-01",
+        }
+    )
+    suite_event = _jsonl_bytes(
+        {
+            "event": "signature_suite_introduced",
+            "rule_version": "signature-suite-v1",
+            "signature_suite": "none",
+            "introduced_at": "2099-01-02",
+        }
+    )
+    line_c = _jsonl_bytes(
+        {
+            "date": "2099-W02",
+            "asset_id": "demo-c",
+            "sha256": "cc",
+            "size_bytes": 1,
+            "note": "",
+            "witness": {
+                "kind": "public_vcs",
+                "repo": "example/catalog",
+                "commit": "abc123",
+            },
+            "signature_suite": "none",
+        }
     )
 
     full_lines = [line_a, line_b, witness_event, suite_event, line_c]
@@ -798,7 +877,7 @@ def run_self_test() -> int:
 
     try:
         verify_from_bytes(
-            "".join(truncated).encode("utf-8"),
+            b"".join(truncated),
             json.dumps({"version": "1.0.0", "line_sha256": truncated_digests}).encode(
                 "utf-8"
             ),
@@ -816,7 +895,7 @@ def run_self_test() -> int:
     expect_unattested(
         "stream without position binding is unattested not ok",
         lambda: verify_from_bytes(
-            "".join(full_lines).encode("utf-8"),
+            b"".join(full_lines),
             json.dumps({"version": "1.0.0", "line_sha256": full_digests}).encode(
                 "utf-8"
             ),
@@ -853,7 +932,7 @@ def run_self_test() -> int:
 
     try:
         verify_from_bytes(
-            "".join(f18a_bound).encode("utf-8"),
+            b"".join(f18a_bound),
             json.dumps({"version": "1.0.0", "line_sha256": f18a_digests}).encode(
                 "utf-8"
             ),
@@ -882,7 +961,7 @@ def run_self_test() -> int:
     def _expect_fork_reject_f18b() -> None:
         try:
             verify_from_bytes(
-                "".join(f18b_bound).encode("utf-8"),
+                b"".join(f18b_bound),
                 json.dumps({"version": "1.0.0", "line_sha256": f18b_digests}).encode(
                     "utf-8"
                 ),
@@ -916,7 +995,7 @@ def run_self_test() -> int:
     expect_unattested(
         "forge18 downgrade without attestation",
         lambda: verify_from_bytes(
-            "".join(f18b).encode("utf-8"),
+            b"".join(f18b),
             json.dumps({"version": "1.0.0", "line_sha256": forge18_digests}).encode(
                 "utf-8"
             ),

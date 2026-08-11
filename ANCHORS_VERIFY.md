@@ -7,22 +7,24 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.5/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.4`** in the URL (not `main`). Older tags (`anchors-verify-v0.2`, `anchors-verify-v0.1`) remain available for history.
+To pin a release, reference tag **`anchors-verify-v0.5`** in the URL (not `main`). Older tags (`anchors-verify-v0.4`, `anchors-verify-v0.2`, `anchors-verify-v0.1`) remain available for history.
 
 **`anchors-verify-v0.3` was published pointing at the wrong commit and does not implement the `VERIFY PARTIAL` / `VERIFY UNPINNED` outcomes documented here. It is superseded by `v0.4` and left in place rather than re-pointed, because re-pointing a published tag would break the reproducibility this verifier exists to check.**
+
+**Line splitting (v0.5):** Releases through **`anchors-verify-v0.4`** decoded UTF-8 and used `str.splitlines()`, which treats `\r`, VT, FF, FS, GS, RS, NEL, U+2028, and U+2029 as line boundaries and could **silently drop** separator-only fragments. Standalone separators inserted inside an attested prefix could therefore produce **byte-identical verification output** despite changed raw bytes. **`v0.5` splits on raw `b"\n"` only**, hashes and prefix comparison operate on **stored line bytes**, and segments that cannot be read as a record **fail closed** (never skipped). This limit and fix were reported by **`mohammedmessaoudene-cmd`** in [`aos-standard/catalog#1`](https://github.com/aos-standard/catalog/issues/1).
 
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
 **Run (copy-paste — tag-fixed, reproducible):**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/anchors_verify.py
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/ANCHORS.jsonl
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.4/ANCHORS.jsonl.digests.json
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.5/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.5/ANCHORS.jsonl
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.5/ANCHORS.jsonl.digests.json
 python3 anchors_verify.py \
   --anchors-url file://$(pwd)/ANCHORS.jsonl \
   --digests-url file://$(pwd)/ANCHORS.jsonl.digests.json \
@@ -64,7 +66,9 @@ python3 anchors_verify.py \
 
 ## What it checks
 
-- Each JSONL line SHA-256 matches the sidecar entry for that line index. Hashes cover the **full stored line including the trailing newline byte**.
+- Each JSONL line SHA-256 matches the sidecar entry for that line index. Hashes cover the **full stored line including the trailing newline byte**, computed on **raw bytes** (not Unicode-normalized line strings).
+- Lines are split on **`b"\n"` only** — no `str.splitlines()` normalization.
+- Invalid or separator-only lines are **not skipped**; they fail closed via digest mismatch or parse rejection.
 - Boundary rules for `witness_ref_introduced`, `signature_suite_introduced`, and `position_binding_introduced` (field presence before/after each event).
 - **Truncation vector 1:** fewer anchor lines than digest entries → fail closed.
 - **Truncation vector 2 (unattested tip only):** anchor lines and sidecar both shortened but internally consistent → fail closed **when compared to witness platform snapshots** on lines **after** the last `position_binding_introduced` attestation.
@@ -95,5 +99,6 @@ What this tool **does** buy: **detection of fake boundaries inserted after the f
 
 - **Signature verification is not implemented.** The stream may declare `signature_suite`; this tool does not validate signatures or keys.
 - **Truncation vector 2 on the unattested tip** depends on witness platform history not being rewritten. Do **not** claim unconditional truncation detection.
+- **Through v0.4:** Unicode line-boundary normalization could miss standalone separator injection inside attested prefixes (see distribution note above). Use **`anchors-verify-v0.5`** or later for raw-byte line splitting.
 
 Detection strength inherits the availability and honesty of the witness platform whose history you compare against, and whether you supply `--expect-witness-repo`.
