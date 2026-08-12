@@ -137,7 +137,83 @@ def is_versioned_boundary_event(row: dict[str, Any]) -> bool:
     )
 
 
+# Event name → the only accepted rule_version. Unknown values fail closed.
+# Do not treat "this rule is unknown" as "this rule is satisfied".
+KNOWN_BOUNDARY_RULE_VERSIONS: dict[str, str] = {
+    WITNESS_EVENT_NAME: "witness-ref-v1",
+    SIGNATURE_SUITE_EVENT_NAME: "signature-suite-v1",
+    POSITION_BINDING_EVENT_NAME: "position-binding-v1",
+}
+
+# Fields that make a row record-shaped. Presence together with a recognized
+# boundary event is malformed — do not classify as either side.
+RECORD_SHAPE_FIELDS: tuple[str, ...] = ("asset_id",)
+
+
+def record_shape_fields_present(row: dict[str, Any]) -> list[str]:
+    present: list[str] = []
+    for key in RECORD_SHAPE_FIELDS:
+        if isinstance(row.get(key), str):
+            present.append(key)
+    return present
+
+
+def is_malformed_hybrid_row(row: dict[str, Any]) -> bool:
+    return is_versioned_boundary_event(row) and bool(record_shape_fields_present(row))
+
+
+def require_known_rule_version(
+    row: dict[str, Any],
+    *,
+    line_no: int | None = None,
+) -> str:
+    loc = f" at line {line_no}" if line_no is not None else ""
+    event = row.get("event")
+    expected = (
+        KNOWN_BOUNDARY_RULE_VERSIONS.get(event) if isinstance(event, str) else None
+    )
+    actual = row.get("rule_version")
+    if expected is None:
+        _fail(f"rule_version not applicable{loc}")
+    if not isinstance(actual, str) or not actual:
+        _fail(f"{event} event missing rule_version{loc}")
+    if actual != expected:
+        _fail(
+            f"unknown rule_version {actual!r}{loc} for event {event!r} "
+            f"(known: {expected})"
+        )
+    return actual
+
+
+def interpret_anchor_row(row: dict[str, Any], *, line_no: int) -> None:
+    """Fail closed on hybrid rows and unknown rule_version — before classification."""
+    if is_versioned_boundary_event(row):
+        fields = record_shape_fields_present(row)
+        if fields:
+            _fail(
+                f"malformed row at line {line_no}: recognized boundary event "
+                f"{row.get('event')!r} together with record fields {fields}"
+            )
+        require_known_rule_version(row, line_no=line_no)
+        return
+    actual = row.get("rule_version")
+    if isinstance(actual, str) and actual:
+        known = set(KNOWN_BOUNDARY_RULE_VERSIONS.values())
+        if actual not in known:
+            _fail(f"unknown rule_version {actual!r} at line {line_no}")
+
+
+def interpret_anchor_lines(lines: list[bytes]) -> None:
+    for index, line in enumerate(lines):
+        interpret_anchor_row(parse_row(line), line_no=index + 1)
+
+
 def is_anchor_record(row: dict[str, Any]) -> bool:
+    """True for an anchor record row (not a versioned boundary event).
+
+    Hybrid rows (recognized event + record-shaped fields) are rejected by
+    ``interpret_anchor_row`` before this predicate is consulted.
+    """
     return isinstance(row.get("asset_id"), str) and "event" not in row
 
 
@@ -177,9 +253,7 @@ def load_active_witness(lines: list[bytes]) -> dict[str, Any] | None:
         candidate = row.get("witness")
         if not isinstance(candidate, dict):
             _fail("witness_ref_introduced event missing witness object")
-        rule_version = row.get("rule_version")
-        if not isinstance(rule_version, str) or not rule_version:
-            _fail("witness_ref_introduced event missing rule_version")
+        require_known_rule_version(row, line_no=index + 1)
         witness = candidate
     return witness
 
@@ -279,6 +353,7 @@ def verify_signature_suite_boundary(lines: list[bytes]) -> None:
 
 
 def verify_anchor_boundaries(lines: list[bytes]) -> None:
+    interpret_anchor_lines(lines)
     verify_witness_boundary(lines)
     verify_signature_suite_boundary(lines)
 
