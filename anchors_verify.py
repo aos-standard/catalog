@@ -17,6 +17,7 @@ import hashlib
 import json
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import warnings
 from typing import Any, Callable
@@ -138,6 +139,31 @@ def is_versioned_boundary_event(row: dict[str, Any]) -> bool:
 
 def is_anchor_record(row: dict[str, Any]) -> bool:
     return isinstance(row.get("asset_id"), str) and "event" not in row
+
+
+def attested_unit_fully_covered(
+    presented_lines: list[bytes],
+    attested_prefix_lines: int,
+) -> bool:
+    """Return True when VERIFY OK's attested-unit predicate holds (v0.7).
+
+    Attested unit = every anchor record row (`is_anchor_record`), i.e. all
+    rows except the boundary events `witness_ref_introduced`,
+    `signature_suite_introduced`, and `position_binding_introduced`.
+
+    OK when no such record row exists after the attested prefix. Boundary
+    event rows after the prefix are allowed. This does **not** change
+    `prefix.line_count` semantics (still byte-compare `presented_lines[:N]`).
+    """
+    if attested_prefix_lines < 1:
+        return False
+    if attested_prefix_lines > len(presented_lines):
+        return False
+    for line in presented_lines[attested_prefix_lines:]:
+        row = parse_row(line)
+        if is_anchor_record(row):
+            return False
+    return True
 
 
 def load_active_witness(lines: list[bytes]) -> dict[str, Any] | None:
@@ -284,12 +310,113 @@ def _resolve_trust_repo(
     return stream_repo
 
 
+def github_api_url(path: str) -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    return f"https://api.github.com{path}"
+
+
+def fetch_github_json(url: str, *, timeout: float = 60.0) -> Any:
+    """Fetch JSON from GitHub API. Any failure fails closed (no OK/PARTIAL)."""
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "aos-anchors-verify/1.0",
+            "Accept": "application/vnd.github+json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            raw = response.read()
+    except urllib.error.HTTPError as exc:
+        _fail(f"HTTP {exc.code} fetching {url}")
+    except urllib.error.URLError as exc:
+        _fail(f"network error fetching {url}: {exc.reason}")
+    try:
+        return json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        _fail(f"invalid JSON from {url}: {exc}")
+    raise AssertionError("unreachable")
+
+
+def resolve_default_branch(
+    repo: str,
+    *,
+    fetch_json: Callable[[str], Any] | None = None,
+) -> str:
+    fetcher = fetch_json or fetch_github_json
+    data = fetcher(github_api_url(f"/repos/{repo}"))
+    if not isinstance(data, dict):
+        _fail(f"unexpected repository metadata for {repo}")
+    branch = data.get("default_branch")
+    if not isinstance(branch, str) or not branch:
+        _fail(f"missing default_branch for {repo}")
+    return branch
+
+
+def assert_commit_reachable_from_default_branch(
+    repo: str,
+    commit: str,
+    *,
+    context: str,
+    commit_reachability: dict[tuple[str, str], bool] | None = None,
+    fetch_json: Callable[[str], Any] | None = None,
+    default_branch_cache: dict[str, str] | None = None,
+) -> None:
+    """Require binding commit on pin repo default-branch history (ahead_by == 0).
+
+    Uses GET /repos/{repo}/compare/{default_branch}...{sha}.
+    Do not query which branches have the SHA as tip — legitimate ancestor
+    commits (e.g. 0eb69bf) are not branch heads and would be rejected.
+    Unconfirmable ancestry (network, API limits, malformed responses) fails
+    closed — never OK or PARTIAL.
+    """
+    key = (repo, commit)
+    if commit_reachability is not None:
+        if key not in commit_reachability:
+            _fail(
+                f"{context}: cannot confirm commit {commit[:12]} is reachable "
+                f"from {repo} default-branch history"
+            )
+        if not commit_reachability[key]:
+            _fail(
+                f"{context}: commit {commit[:12]} is not reachable from "
+                f"{repo} default-branch history (fork or non-ancestor)"
+            )
+        return
+
+    fetcher = fetch_json or fetch_github_json
+    if default_branch_cache is not None and repo in default_branch_cache:
+        default_branch = default_branch_cache[repo]
+    else:
+        default_branch = resolve_default_branch(repo, fetch_json=fetcher)
+        if default_branch_cache is not None:
+            default_branch_cache[repo] = default_branch
+
+    base = urllib.parse.quote(default_branch, safe="")
+    head = urllib.parse.quote(commit, safe="")
+    compare_url = github_api_url(f"/repos/{repo}/compare/{base}...{head}")
+    data = fetcher(compare_url)
+    if not isinstance(data, dict):
+        _fail(f"{context}: unexpected compare response for {commit[:12]}")
+    ahead_by = data.get("ahead_by")
+    if not isinstance(ahead_by, int):
+        _fail(f"{context}: compare response missing ahead_by for {commit[:12]}")
+    if ahead_by != 0:
+        _fail(
+            f"{context}: commit {commit[:12]} is not reachable from "
+            f"{repo}@{default_branch} (ahead_by={ahead_by})"
+        )
+
+
 def verify_position_bindings(
     presented_lines: list[bytes],
     *,
     expect_witness_repo: str | None,
     fetch_lines: Callable[[str, str], list[bytes]] | None = None,
     witness_lines_by_ref: dict[tuple[str, str], list[bytes]] | None = None,
+    commit_reachability: dict[tuple[str, str], bool] | None = None,
+    fetch_json: Callable[[str], Any] | None = None,
 ) -> int:
     """Verify attested prefixes by byte match at named witness commits (B-1)."""
     bindings = collect_position_bindings(presented_lines)
@@ -297,6 +424,7 @@ def verify_position_bindings(
         return 0
 
     max_attested = 0
+    default_branch_cache: dict[str, str] = {}
     for binding_index, row in bindings:
         rule_version = row.get("rule_version")
         if not isinstance(rule_version, str) or not rule_version:
@@ -330,6 +458,15 @@ def verify_position_bindings(
             stream_repo,
             expect_witness_repo=expect_witness_repo,
             context=f"position binding at line {binding_index + 1}",
+        )
+        context = f"position binding at line {binding_index + 1}"
+        assert_commit_reachable_from_default_branch(
+            query_repo,
+            commit,
+            context=context,
+            commit_reachability=commit_reachability,
+            fetch_json=fetch_json,
+            default_branch_cache=default_branch_cache,
         )
 
         line_count = prefix.get("line_count")
@@ -489,6 +626,7 @@ def classify_verification_outcome(
     result: dict[str, Any],
     *,
     expect_witness_repo: str | None,
+    presented_lines: list[bytes] | None = None,
 ) -> tuple[int, str, str]:
     """Return (exit_code, stream, message) where stream is stdout or stderr."""
     summary = format_result_summary(result)
@@ -499,13 +637,25 @@ def classify_verification_outcome(
             "verification cannot be cited as fully anchored"
         )
         return EXIT_UNPINNED, "stderr", detail
-    if result["attested_prefix_lines"] < result["lines"]:
+    covered = result.get("attested_unit_covered")
+    if covered is None and presented_lines is not None:
+        covered = attested_unit_fully_covered(
+            presented_lines,
+            int(result["attested_prefix_lines"]),
+        )
+    if covered is None:
+        raise ValueError(
+            "classify_verification_outcome requires attested_unit_covered "
+            "in result or presented_lines"
+        )
+    if not covered:
         attested = result["attested_prefix_lines"]
         total = result["lines"]
         detail = (
             f"VERIFY PARTIAL: {summary}\n"
-            f"only {attested}/{total} lines attested; "
-            "VERIFY OK requires attested_prefix_lines == lines"
+            f"attested prefix covers {attested}/{total} lines; "
+            "VERIFY OK requires no anchor record rows after the attested "
+            "prefix (boundary event rows alone are allowed)"
         )
         return EXIT_PARTIAL, "stderr", detail
     detail = f"VERIFY OK: {summary}"
@@ -518,7 +668,9 @@ def emit_trust_anchor_warning(expect_witness_repo: str | None) -> None:
     print(
         "WARNING: --expect-witness-repo not set; witness repository is taken from "
         "the stream under verification. A forged stream can name an attacker "
-        "repository as the trust anchor.",
+        "repository as the trust anchor. Pinning also requires each binding "
+        "commit to be reachable from that repository's default-branch history "
+        "(GitHub compare ahead_by == 0); unconfirmable ancestry fails closed.",
         file=sys.stderr,
     )
 
@@ -544,6 +696,8 @@ def verify_from_bytes(
     anchors_url: str | None = None,
     expect_witness_repo: str | None = None,
     witness_lines_by_ref: dict[tuple[str, str], list[bytes]] | None = None,
+    commit_reachability: dict[tuple[str, str], bool] | None = None,
+    fetch_json: Callable[[str], Any] | None = None,
 ) -> dict[str, Any]:
     lines = bytes_to_lines(anchors_content)
     digests = load_line_digests(digests_content)
@@ -556,6 +710,8 @@ def verify_from_bytes(
             lines,
             expect_witness_repo=expect_witness_repo,
             witness_lines_by_ref=witness_lines_by_ref,
+            commit_reachability=commit_reachability,
+            fetch_json=fetch_json,
         )
 
     witness = load_active_witness(lines)
@@ -596,12 +752,16 @@ def verify_from_bytes(
             )
         require_position_binding_attestation(max_attested)
 
+    unit_covered = (
+        attested_unit_fully_covered(lines, max_attested) if max_attested > 0 else False
+    )
     return {
         "lines": len(lines),
         "digests": len(digests),
         "witness_repo": witness.get("repo") if witness else None,
         "witness_commit": witness.get("commit") if witness else None,
         "attested_prefix_lines": max_attested,
+        "attested_unit_covered": unit_covered,
     }
 
 
@@ -754,6 +914,8 @@ def _rejection_class(exc: BaseException) -> str:
         return "digest_mismatch"
     if "fork or insertion detected" in message:
         return "fork"
+    if "not reachable from" in message or "cannot confirm commit" in message:
+        return "unreachable_witness"
     if "truncation vector" in message:
         return "truncation"
     if isinstance(exc, VerifyUnattested):
@@ -912,6 +1074,7 @@ def run_self_test() -> int:
     repo = witness_ref["repo"]
     commit = witness_ref["commit"]
     witness_map = {(repo, commit): f18a}
+    reachability_ok = {(repo, commit): True}
     reference_main = live_lines if live_lines is not None else f18a
 
     try:
@@ -941,6 +1104,7 @@ def run_self_test() -> int:
             check_witness_platform=True,
             expect_witness_repo=repo,
             witness_lines_by_ref=witness_map,
+            commit_reachability=reachability_ok,
         )
         print("PASS self-test: fork vector f18a accepted with position binding", file=sys.stderr)
     except VerifyUnattested as exc:
@@ -970,6 +1134,7 @@ def run_self_test() -> int:
                 check_witness_platform=True,
                 expect_witness_repo=repo,
                 witness_lines_by_ref=witness_map,
+                commit_reachability=reachability_ok,
             )
         except VerifyError as exc:
             rejection = _rejection_class(exc)
@@ -1012,8 +1177,53 @@ def run_self_test() -> int:
             f18a_bound,
             expect_witness_repo="trusted/catalog",
             witness_lines_by_ref=witness_map,
+            commit_reachability=reachability_ok,
         ),
     )
+
+    expect_fail(
+        "fork-derived binding commit fail closed",
+        lambda: verify_position_bindings(
+            f18a_bound,
+            expect_witness_repo=repo,
+            witness_lines_by_ref=witness_map,
+            commit_reachability={(repo, commit): False},
+        ),
+    )
+
+    expect_fail(
+        "unconfirmable ancestry fail closed",
+        lambda: verify_position_bindings(
+            f18a_bound,
+            expect_witness_repo=repo,
+            witness_lines_by_ref=witness_map,
+            commit_reachability={},
+        ),
+    )
+
+    ancestor_commit = "0eb69bf9f26f03b8d4fbce3b3b64ac46e10e1582"
+
+    def _fake_compare(url: str) -> Any:
+        if url.endswith("/repos/aos-standard/catalog"):
+            return {"default_branch": "main"}
+        if "compare/" in url and ancestor_commit in url:
+            return {"ahead_by": 0, "behind_by": 14, "status": "behind"}
+        _fail(f"unexpected fetch_json url in self-test: {url}")
+
+    try:
+        assert_commit_reachable_from_default_branch(
+            "aos-standard/catalog",
+            ancestor_commit,
+            context="self-test ancestor",
+            fetch_json=_fake_compare,
+        )
+        print(
+            "PASS self-test: ancestor commit 0eb69bf ahead_by==0 accepted",
+            file=sys.stderr,
+        )
+    except VerifyError as exc:
+        print(f"FAIL self-test: ancestor 0eb69bf rejected ({exc})", file=sys.stderr)
+        cases_failed += 1
 
     with warnings.catch_warnings(record=True):
         emit_trust_anchor_warning(None)
@@ -1042,7 +1252,9 @@ def build_parser() -> argparse.ArgumentParser:
         "--expect-witness-repo",
         help=(
             "Trust anchor: owner/repo for witness platform queries (strongly recommended). "
-            "Must match stream witness repo or verification fails closed."
+            "Must match stream witness repo. Binding commits must be reachable from this "
+            "repository's default-branch history (GitHub compare ahead_by == 0). "
+            "Unconfirmable ancestry fails closed."
         ),
     )
     parser.add_argument(
