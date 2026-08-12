@@ -16,7 +16,7 @@ python3 t2_constructions.py
 ```
 
 **Verifier pin (for checking these constructions):** use tag
-**`anchors-verify-v0.7`** (or any of `v0.5` … `v0.7` — dispositions measured
+**`anchors-verify-v0.8`** (or any of `v0.5` … `v0.8` — dispositions measured
 identical; see below). **Construction-set artifacts** were first published
 under tag **`anchors-verify-v0.6`**.
 
@@ -47,11 +47,11 @@ the full set under the corrected name.
 | `G` | append a binding claiming `line_count: 24` |
 | `H` | replace the binding row with a record row (line count preserved) |
 
-Expected disposition against `anchors-verify-v0.5` … `v0.7` verifier logic
-(**measured 2026-08-12** on the eleven regenerated constructions with the
-`v0.7` verifier — **11/11 matched** the prior `MANIFEST.json` expectations;
-`baseline` / `D2` / `D3` remained `VERIFY PARTIAL` / exit 3 under the v0.7
-attested-unit OK predicate):
+Expected disposition against `anchors-verify-v0.5` … `v0.8` verifier logic
+(**measured 2026-08-13** on the eleven committed constructions with the
+`v0.8` verifier — **11/11 matched** the prior `MANIFEST.json` expectations;
+`baseline` / `D2` / `D3` remained `VERIFY PARTIAL` / exit 3 under the v0.8
+classification narrowing):
 
 - attested-prefix mutations **A2, A3, B, C** → `fork or insertion detected`, exit 1
 - unattested-tip mutations **D2, D3** (and **baseline**) → `VERIFY PARTIAL`, exit 3

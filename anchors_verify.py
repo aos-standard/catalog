@@ -244,7 +244,7 @@ def attested_unit_fully_covered(
 
 def load_active_witness(lines: list[bytes]) -> dict[str, Any] | None:
     witness: dict[str, Any] | None = None
-    for line in lines:
+    for index, line in enumerate(lines):
         row = parse_row(line)
         if not is_witness_introduction_event(row):
             continue
@@ -304,15 +304,13 @@ def verify_witness_boundary(lines: list[bytes]) -> None:
 
 def load_active_signature_suite(lines: list[bytes]) -> str | None:
     suite: str | None = None
-    for line in lines:
+    for index, line in enumerate(lines):
         row = parse_row(line)
         if not is_signature_suite_introduction_event(row):
             continue
         if suite is not None:
             _fail("multiple signature_suite_introduced events")
-        rule_version = row.get("rule_version")
-        if not isinstance(rule_version, str) or not rule_version:
-            _fail("signature_suite_introduced event missing rule_version")
+        require_known_rule_version(row, line_no=index + 1)
         candidate = row.get("signature_suite")
         if not isinstance(candidate, str) or not candidate:
             _fail("signature_suite_introduced event missing signature_suite")
@@ -501,12 +499,7 @@ def verify_position_bindings(
     max_attested = 0
     default_branch_cache: dict[str, str] = {}
     for binding_index, row in bindings:
-        rule_version = row.get("rule_version")
-        if not isinstance(rule_version, str) or not rule_version:
-            _fail(
-                f"position_binding_introduced at line {binding_index + 1} "
-                "missing rule_version"
-            )
+        require_known_rule_version(row, line_no=binding_index + 1)
         attestation = row.get("attestation")
         if not isinstance(attestation, dict):
             _fail(
@@ -1303,6 +1296,48 @@ def run_self_test() -> int:
     with warnings.catch_warnings(record=True):
         emit_trust_anchor_warning(None)
     print("PASS self-test: missing expect-witness-repo emits warning", file=sys.stderr)
+
+    hybrid_row = parse_row(witness_event)
+    hybrid_row["asset_id"] = "demo-a"
+    expect_fail(
+        "hybrid event+asset_id fail closed",
+        lambda: interpret_anchor_row(hybrid_row, line_no=1),
+    )
+    unknown_version_row = parse_row(witness_event)
+    unknown_version_row["rule_version"] = "witness-ref-v99"
+    expect_fail(
+        "unknown rule_version fail closed",
+        lambda: interpret_anchor_row(unknown_version_row, line_no=1),
+    )
+    binding_event = _jsonl_bytes(
+        {
+            "event": POSITION_BINDING_EVENT_NAME,
+            "rule_version": KNOWN_BOUNDARY_RULE_VERSIONS[POSITION_BINDING_EVENT_NAME],
+            "attestation": {
+                "witness": {
+                    "kind": "public_vcs",
+                    "repo": "example/catalog",
+                    "commit": "abc123",
+                },
+                "prefix": {"line_count": 1, "byte_length": 1, "sha256": "aa"},
+            },
+            "introduced_at": "2099-01-03",
+        }
+    )
+    try:
+        interpret_anchor_row(parse_row(witness_event), line_no=1)
+        interpret_anchor_row(parse_row(suite_event), line_no=2)
+        interpret_anchor_row(parse_row(binding_event), line_no=3)
+        print(
+            "PASS self-test: known boundary events and rule_versions interpret",
+            file=sys.stderr,
+        )
+    except VerifyError as exc:
+        print(
+            f"FAIL self-test: known boundary interpret ({exc})",
+            file=sys.stderr,
+        )
+        cases_failed += 1
 
     return 1 if cases_failed else 0
 

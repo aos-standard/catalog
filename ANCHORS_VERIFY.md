@@ -7,11 +7,11 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.7/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.8/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.7`** in the URL (not `main`). Older tags (`anchors-verify-v0.6`, `v0.5`, `v0.4`, `v0.2`, `v0.1`) remain available for history. **Published tags are never re-pointed.**
+To pin a release, reference tag **`anchors-verify-v0.8`** in the URL (not `main`). Older tags (`anchors-verify-v0.7`, `v0.6`, `v0.5`, `v0.4`, `v0.2`, `v0.1`) remain available for history. **Published tags are never re-pointed.**
 
 **`anchors-verify-v0.3` was published pointing at the wrong commit and does not implement the `VERIFY PARTIAL` / `VERIFY UNPINNED` outcomes documented here. It is superseded by `v0.4` and left in place rather than re-pointed, because re-pointing a published tag would break the reproducibility this verifier exists to check.**
 
@@ -19,14 +19,16 @@ To pin a release, reference tag **`anchors-verify-v0.7`** in the URL (not `main`
 
 **OK predicate (v0.7):** Same input bytes may yield a different outcome under a newer verifier. A stream that was **`VERIFY PARTIAL` under `v0.6` and earlier can become `VERIFY OK` under `v0.7`** when the tip after the attested prefix contains only boundary event rows (or nothing). **Tags are not re-pointed** — pin the verifier tag you mean to cite.
 
+**Row classification and `rule_version` (v0.8):** Same input bytes may yield a different outcome under a newer verifier. A stream that was **`VERIFY OK` or `VERIFY PARTIAL` under `v0.7` can become `VERIFY FAILED` under `v0.8`** when a row mixes a recognized boundary event with record-shaped fields (`asset_id`), or when `rule_version` is not the known value for that event. Unknown rule versions fail closed — not knowing a rule is not the same as the rule being satisfied. **Tags are not re-pointed.** This change is a classification narrowing, not a security-impact claim.
+
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
 **Run (copy-paste — tag-fixed, reproducible):**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.7/anchors_verify.py
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.7/ANCHORS.jsonl
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.7/ANCHORS.jsonl.digests.json
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.8/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.8/ANCHORS.jsonl
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.8/ANCHORS.jsonl.digests.json
 python3 anchors_verify.py \
   --anchors-url file://$(pwd)/ANCHORS.jsonl \
   --digests-url file://$(pwd)/ANCHORS.jsonl.digests.json \
@@ -56,6 +58,8 @@ python3 anchors_verify.py \
 
 **Contract change (v0.4):** Prior releases through `v0.2` (and the mis-pointed `v0.3` tag) treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.4` adds distinct outcomes and exit codes.**
 
+**Contract change (v0.8):** Row interpretation fails closed before boundary or attested-unit checks. A recognized boundary event (`witness_ref_introduced`, `signature_suite_introduced`, `position_binding_introduced`) that also carries record-shaped fields (`asset_id`) is **malformed**, not classified as either side. `rule_version` is accepted only from the event correspondence table (`witness-ref-v1` / `signature-suite-v1` / `position-binding-v1`); any other value fails closed.
+
 **Contract change (v0.7):** `VERIFY OK` no longer requires `attested_prefix_lines == lines`. **`prefix.line_count` still means the first N lines** (byte comparison unchanged). OK means the **attested unit** has no unattested tip:
 
 > **Attested unit** = every anchor record row, excluding the boundary events `witness_ref_introduced`, `signature_suite_introduced`, and `position_binding_introduced`.
@@ -66,7 +70,7 @@ python3 anchors_verify.py \
 | **VERIFY PARTIAL** | 3 | Some prefix is attested and verified, but **at least one anchor record row sits after the attested prefix** (typical weekly tip). **PARTIAL is the healthy steady state in rolling operation** — it does not mean the verifier is broken. **Not full verification.** |
 | **VERIFY UNATTESTED** | 2 | Digest and boundary checks passed, but **`attested_prefix_lines=0`** — no position binding. Not a successful verification. |
 | **VERIFY UNPINNED** | 4 | Digest/binding checks may have run, but **`--expect-witness-repo` was omitted** — trust anchor taken from the stream itself. **Not citable as anchored verification.** |
-| **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, prefix mismatch, trust-anchor mismatch, or binding commit **not reachable** from the pin repository's default-branch history (or ancestry could not be confirmed). |
+| **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, **malformed hybrid row**, **unknown `rule_version`**, prefix mismatch, trust-anchor mismatch, or binding commit **not reachable** from the pin repository's default-branch history (or ancestry could not be confirmed). |
 
 **Do not treat PARTIAL, UNATTESTED, or UNPINNED as OK.** **Do not treat “OK is absent on a growing tip” as a defect.**
 
@@ -76,6 +80,8 @@ python3 anchors_verify.py \
 - Lines are split on **`b"\n"` only** — no `str.splitlines()` normalization.
 - Invalid or separator-only lines are **not skipped**; they fail closed via digest mismatch or parse rejection.
 - Boundary rules for `witness_ref_introduced`, `signature_suite_introduced`, and `position_binding_introduced` (field presence before/after each event).
+- **Row classification (v0.8):** a recognized boundary event together with record-shaped fields (`asset_id`) is malformed (fail closed). Errors name the line number, the event, and the record fields.
+- **`rule_version` (v0.8):** only the three known event↔version pairs are accepted. Unknown or mismatched values fail closed.
 - **Truncation vector 1:** fewer anchor lines than digest entries → fail closed.
 - **Truncation vector 2 (unattested tip only):** anchor lines and sidecar both shortened but internally consistent → fail closed **when compared to witness platform snapshots** on lines **after** the last `position_binding_introduced` attestation.
 - **Position binding (attested prefix):** for each `position_binding_introduced` event, the verifier fetches `ANCHORS.jsonl` at the named witness commit and checks that the attested **prefix length, byte length, and SHA-256** match **byte-for-byte** on the witness platform and in the presented stream. Inserted fake boundaries inside an attested prefix are detected.
