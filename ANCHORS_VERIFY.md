@@ -21,6 +21,8 @@ To pin a release, reference tag **`anchors-verify-v0.8`** in the URL (not `main`
 
 **Row classification and `rule_version` (v0.8):** Same input bytes may yield a different outcome under a newer verifier. A stream that was **`VERIFY OK` or `VERIFY PARTIAL` under `v0.7` can become `VERIFY FAILED` under `v0.8`** when a row mixes a recognized boundary event with record-shaped fields (`asset_id`), or when `rule_version` is not the known value for that event. Unknown rule versions fail closed — not knowing a rule is not the same as the rule being satisfied. **Tags are not re-pointed.** This change is a classification narrowing, not a security-impact claim.
 
+**Record typing (v0.9):** Same input bytes may yield a different outcome under a newer verifier. A stream that was **`VERIFY OK` or `VERIFY PARTIAL` under `v0.8` can become `VERIFY FAILED` under `v0.9`** when a recognized boundary event carries a record-shaped **key** (`asset_id`) of any JSON type, when a no-event row is missing `asset_id` or `asset_id` is not a string, or when an integer field (`line_count`, `byte_length`, `size_bytes`, `rows`) is a JSON `true`/`false`. Classification uses **key presence**, not value type. Rows that are neither a recognized boundary event nor a record are malformed — they do not silently drop out of the attested unit. **Tags are not re-pointed.** This is a typing narrowing, not a security-impact claim.
+
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
 **Run (copy-paste — tag-fixed, reproducible):**
@@ -58,6 +60,8 @@ python3 anchors_verify.py \
 
 **Contract change (v0.4):** Prior releases through `v0.2` (and the mis-pointed `v0.3` tag) treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.4` adds distinct outcomes and exit codes.**
 
+**Contract change (v0.9):** Row interpretation treats a no-event row as a record and fails closed if `asset_id` is missing or not a string, or if integer fields are JSON booleans. A recognized boundary event that carries the `asset_id` **key** (any value type) is malformed. Unattested tip rows of any shape cannot produce `VERIFY OK`.
+
 **Contract change (v0.8):** Row interpretation fails closed before boundary or attested-unit checks. A recognized boundary event (`witness_ref_introduced`, `signature_suite_introduced`, `position_binding_introduced`) that also carries record-shaped fields (`asset_id`) is **malformed**, not classified as either side. `rule_version` is accepted only from the event correspondence table (`witness-ref-v1` / `signature-suite-v1` / `position-binding-v1`); any other value fails closed.
 
 **Contract change (v0.7):** `VERIFY OK` no longer requires `attested_prefix_lines == lines`. **`prefix.line_count` still means the first N lines** (byte comparison unchanged). OK means the **attested unit** has no unattested tip:
@@ -70,7 +74,7 @@ python3 anchors_verify.py \
 | **VERIFY PARTIAL** | 3 | Some prefix is attested and verified, but **at least one anchor record row sits after the attested prefix** (typical weekly tip). **PARTIAL is the healthy steady state in rolling operation** — it does not mean the verifier is broken. **Not full verification.** |
 | **VERIFY UNATTESTED** | 2 | Digest and boundary checks passed, but **`attested_prefix_lines=0`** — no position binding. Not a successful verification. |
 | **VERIFY UNPINNED** | 4 | Digest/binding checks may have run, but **`--expect-witness-repo` was omitted** — trust anchor taken from the stream itself. **Not citable as anchored verification.** |
-| **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, **malformed hybrid row**, **unknown `rule_version`**, prefix mismatch, trust-anchor mismatch, or binding commit **not reachable** from the pin repository's default-branch history (or ancestry could not be confirmed). |
+| **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, **malformed hybrid row**, **malformed record** (missing/`asset_id` not a string, or integer field is a bool), **unknown `rule_version`**, prefix mismatch, trust-anchor mismatch, or binding commit **not reachable** from the pin repository's default-branch history (or ancestry could not be confirmed). |
 
 **Do not treat PARTIAL, UNATTESTED, or UNPINNED as OK.** **Do not treat “OK is absent on a growing tip” as a defect.**
 
@@ -80,7 +84,8 @@ python3 anchors_verify.py \
 - Lines are split on **`b"\n"` only** — no `str.splitlines()` normalization.
 - Invalid or separator-only lines are **not skipped**; they fail closed via digest mismatch or parse rejection.
 - Boundary rules for `witness_ref_introduced`, `signature_suite_introduced`, and `position_binding_introduced` (field presence before/after each event).
-- **Row classification (v0.8):** a recognized boundary event together with record-shaped fields (`asset_id`) is malformed (fail closed). Errors name the line number, the event, and the record fields.
+- **Row classification (v0.8 / v0.9):** a recognized boundary event together with record-shaped **keys** (`asset_id`, any JSON type) is malformed (fail closed). Errors name the line number, the event, and the record fields. A no-event row missing `asset_id`, or with a non-string `asset_id`, is malformed — it is not ignored.
+- **Integer fields (v0.9):** `line_count`, `byte_length`, `size_bytes`, and `rows` reject JSON booleans (`true` is not `1`).
 - **`rule_version` (v0.8):** only the three known event↔version pairs are accepted. Unknown or mismatched values fail closed.
 - **Truncation vector 1:** fewer anchor lines than digest entries → fail closed.
 - **Truncation vector 2 (unattested tip only):** anchor lines and sidecar both shortened but internally consistent → fail closed **when compared to witness platform snapshots** on lines **after** the last `position_binding_introduced` attestation.

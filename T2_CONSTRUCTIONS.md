@@ -16,9 +16,10 @@ python3 t2_constructions.py
 ```
 
 **Verifier pin (for checking these constructions):** use tag
-**`anchors-verify-v0.8`** (or any of `v0.5` … `v0.8` — dispositions measured
-identical; see below). **Construction-set artifacts** were first published
-under tag **`anchors-verify-v0.6`**.
+**`anchors-verify-v0.9`** once published (or any of `v0.5` … `v0.9` —
+dispositions measured identical; see below). Until that tag exists, the
+working-tree verifier is the measurement surface. **Construction-set
+artifacts** were first published under tag **`anchors-verify-v0.6`**.
 
 **This document** lives on `main` and is **not** bound to the same commit as
 any release tag. Published tags are never re-pointed; no new tag is cut for
@@ -47,11 +48,13 @@ the full set under the corrected name.
 | `G` | append a binding claiming `line_count: 24` |
 | `H` | replace the binding row with a record row (line count preserved) |
 
-Expected disposition against `anchors-verify-v0.5` … `v0.8` verifier logic
+Expected disposition against `anchors-verify-v0.5` … `v0.9` verifier logic
 (**measured 2026-08-13** on the eleven committed constructions with the
-`v0.8` verifier — **11/11 matched** the prior `MANIFEST.json` expectations;
-`baseline` / `D2` / `D3` remained `VERIFY PARTIAL` / exit 3 under the v0.8
-classification narrowing):
+`v0.9` typing verifier — **11/11 matched** the prior `MANIFEST.json`
+expectations; `baseline` / `D2` / `D3` remained `VERIFY PARTIAL` / exit 3.
+Isolation used construction-era `main_lines` = 24-line baseline and witness
+commit `e000814f…` = 18 lines. Live GitHub `main` is 25 lines; that drift is
+truncation vector 2, not a typing change. `MANIFEST.json` is not updated):
 
 - attested-prefix mutations **A2, A3, B, C** → `fork or insertion detected`, exit 1
 - unattested-tip mutations **D2, D3** (and **baseline**) → `VERIFY PARTIAL`, exit 3

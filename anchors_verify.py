@@ -147,13 +147,23 @@ KNOWN_BOUNDARY_RULE_VERSIONS: dict[str, str] = {
 
 # Fields that make a row record-shaped. Presence together with a recognized
 # boundary event is malformed — do not classify as either side.
+# Presence of the key is enough; the value's type is not consulted.
 RECORD_SHAPE_FIELDS: tuple[str, ...] = ("asset_id",)
+
+# Integer payload keys on record rows. Absent is allowed; present must be a
+# JSON integer (bool is not an integer).
+RECORD_INTEGER_FIELDS: tuple[str, ...] = ("size_bytes", "rows")
+
+
+def is_json_int(value: Any) -> bool:
+    """True for JSON integers. bool is a subclass of int in Python — reject it."""
+    return isinstance(value, int) and not isinstance(value, bool)
 
 
 def record_shape_fields_present(row: dict[str, Any]) -> list[str]:
     present: list[str] = []
     for key in RECORD_SHAPE_FIELDS:
-        if isinstance(row.get(key), str):
+        if key in row:
             present.append(key)
     return present
 
@@ -185,8 +195,35 @@ def require_known_rule_version(
     return actual
 
 
+def require_anchor_record(row: dict[str, Any], *, line_no: int) -> None:
+    """Fail closed when a no-event row is not a well-formed record.
+
+    Rows without ``event`` are records. They are never a third state that
+    silently drops out of the attested unit. Type of ``asset_id`` is checked
+    here, not at classification.
+    """
+    if "asset_id" not in row:
+        _fail(f"malformed record at line {line_no}: missing asset_id")
+    if not isinstance(row.get("asset_id"), str):
+        _fail(
+            f"malformed record at line {line_no}: asset_id must be a string "
+            f"(got {type(row.get('asset_id')).__name__})"
+        )
+    for key in RECORD_INTEGER_FIELDS:
+        if key not in row:
+            continue
+        if not is_json_int(row[key]):
+            _fail(
+                f"malformed record at line {line_no}: {key} must be an integer "
+                f"(bool is not an integer)"
+            )
+
+
 def interpret_anchor_row(row: dict[str, Any], *, line_no: int) -> None:
-    """Fail closed on hybrid rows and unknown rule_version — before classification."""
+    """Fail closed on hybrid rows, unknown events, malformed records, unknown rule_version.
+
+    A row is a boundary event, a record, or malformed. There is no third class.
+    """
     if is_versioned_boundary_event(row):
         fields = record_shape_fields_present(row)
         if fields:
@@ -196,6 +233,9 @@ def interpret_anchor_row(row: dict[str, Any], *, line_no: int) -> None:
             )
         require_known_rule_version(row, line_no=line_no)
         return
+    if "event" in row:
+        _fail(f"unknown event at line {line_no}")
+    require_anchor_record(row, line_no=line_no)
     actual = row.get("rule_version")
     if isinstance(actual, str) and actual:
         known = set(KNOWN_BOUNDARY_RULE_VERSIONS.values())
@@ -209,12 +249,14 @@ def interpret_anchor_lines(lines: list[bytes]) -> None:
 
 
 def is_anchor_record(row: dict[str, Any]) -> bool:
-    """True for an anchor record row (not a versioned boundary event).
+    """True when the row is classified as a record (no ``event`` key).
 
-    Hybrid rows (recognized event + record-shaped fields) are rejected by
-    ``interpret_anchor_row`` before this predicate is consulted.
+    Well-formedness (string ``asset_id``, integer fields) is enforced by
+    ``require_anchor_record`` / ``interpret_anchor_row``. Classification
+    does not inspect value types — that was the third state that dropped
+    tip rows out of the attested unit.
     """
-    return isinstance(row.get("asset_id"), str) and "event" not in row
+    return "event" not in row
 
 
 def attested_unit_fully_covered(
@@ -223,11 +265,12 @@ def attested_unit_fully_covered(
 ) -> bool:
     """Return True when VERIFY OK's attested-unit predicate holds (v0.7).
 
-    Attested unit = every anchor record row (`is_anchor_record`), i.e. all
-    rows except the boundary events `witness_ref_introduced`,
-    `signature_suite_introduced`, and `position_binding_introduced`.
+    Attested unit = every row that is not a recognized boundary event
+    (`witness_ref_introduced`, `signature_suite_introduced`,
+    `position_binding_introduced`). Malformed or mistyped records still
+    count: they must not vanish into a third state.
 
-    OK when no such record row exists after the attested prefix. Boundary
+    OK when no such row exists after the attested prefix. Boundary
     event rows after the prefix are allowed. This does **not** change
     `prefix.line_count` semantics (still byte-compare `presented_lines[:N]`).
     """
@@ -237,7 +280,7 @@ def attested_unit_fully_covered(
         return False
     for line in presented_lines[attested_prefix_lines:]:
         row = parse_row(line)
-        if is_anchor_record(row):
+        if not is_versioned_boundary_event(row):
             return False
     return True
 
@@ -473,7 +516,7 @@ def assert_commit_reachable_from_default_branch(
     if not isinstance(data, dict):
         _fail(f"{context}: unexpected compare response for {commit[:12]}")
     ahead_by = data.get("ahead_by")
-    if not isinstance(ahead_by, int):
+    if not is_json_int(ahead_by):
         _fail(f"{context}: compare response missing ahead_by for {commit[:12]}")
     if ahead_by != 0:
         _fail(
@@ -540,11 +583,11 @@ def verify_position_bindings(
         line_count = prefix.get("line_count")
         byte_length = prefix.get("byte_length")
         expected_digest = prefix.get("sha256")
-        if not isinstance(line_count, int) or line_count < 1:
+        if not is_json_int(line_count) or line_count < 1:
             _fail(
                 f"position binding at line {binding_index + 1}: invalid line_count"
             )
-        if not isinstance(byte_length, int) or byte_length < 1:
+        if not is_json_int(byte_length) or byte_length < 1:
             _fail(
                 f"position binding at line {binding_index + 1}: invalid byte_length"
             )
