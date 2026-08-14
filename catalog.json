@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "generated_at": "2026-07-27T06:52:57.943312+00:00",
+  "generated_at": "2026-08-14T13:51:15.753656+00:00",
   "publisher": "aos-standard",
   "spec": "https://github.com/aos-standard/AOS-spec",
   "total_products": 2,
@@ -16,6 +16,43 @@
         "model": "per_run",
         "unit_price": 1.0,
         "currency": "USD"
+      },
+      "payment": {
+        "rail": {
+          "chain_caip2": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+          "asset": "USDC",
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6
+        },
+        "pay_to": "7m3eDYs3FeyG2kp6F4gRd4p2V1g4eQX9RNrBPHRHwYvi",
+        "token_account": "ESLDKS4EvANSkqbF1u3rYnty8FAoRg2vLg4zA1dCvXG9",
+        "amount": {
+          "settlement_asset": "USDC",
+          "usdc_per_usd": 1,
+          "formula": "pricing.unit_price * run_count",
+          "smallest_units_formula": "round(pricing.unit_price * run_count * 10^decimals)"
+        },
+        "correlation": {
+          "method": "include_tx_signature_in_fulfillment_request",
+          "memo_field": "none"
+        },
+        "fulfillment_request": {
+          "channel": "github_issue",
+          "url": "https://github.com/aos-standard/catalog/issues/new",
+          "required_fields": [
+            "product_id",
+            "run_count",
+            "tx_signature",
+            "delivery_destination"
+          ]
+        },
+        "deliverable": "Human-delivered run output for the paid product_id, as specified in the fulfillment request. There is no automatic delivery endpoint.",
+        "turnaround": {
+          "automatic_delivery": false,
+          "human_step": true,
+          "typical": "within 2 business days after on-chain confirmation and a complete fulfillment request that includes the transaction signature",
+          "not_instant": true
+        }
       },
       "install": "pip install mcp-blast-radius==0.2.5",
       "mcp": {
@@ -39,6 +76,43 @@
         "model": "per_run",
         "unit_price": 0.5,
         "currency": "USD"
+      },
+      "payment": {
+        "rail": {
+          "chain_caip2": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+          "asset": "USDC",
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6
+        },
+        "pay_to": "7m3eDYs3FeyG2kp6F4gRd4p2V1g4eQX9RNrBPHRHwYvi",
+        "token_account": "ESLDKS4EvANSkqbF1u3rYnty8FAoRg2vLg4zA1dCvXG9",
+        "amount": {
+          "settlement_asset": "USDC",
+          "usdc_per_usd": 1,
+          "formula": "pricing.unit_price * run_count",
+          "smallest_units_formula": "round(pricing.unit_price * run_count * 10^decimals)"
+        },
+        "correlation": {
+          "method": "include_tx_signature_in_fulfillment_request",
+          "memo_field": "none"
+        },
+        "fulfillment_request": {
+          "channel": "github_issue",
+          "url": "https://github.com/aos-standard/catalog/issues/new",
+          "required_fields": [
+            "product_id",
+            "run_count",
+            "tx_signature",
+            "delivery_destination"
+          ]
+        },
+        "deliverable": "Human-delivered run output for the paid product_id, as specified in the fulfillment request. There is no automatic delivery endpoint.",
+        "turnaround": {
+          "automatic_delivery": false,
+          "human_step": true,
+          "typical": "within 2 business days after on-chain confirmation and a complete fulfillment request that includes the transaction signature",
+          "not_instant": true
+        }
       },
       "install": "pip install mcp-agent-health==0.3.1",
       "mcp": {

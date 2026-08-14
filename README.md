@@ -5,6 +5,7 @@ Machine-readable product catalog and trust artifacts for [AOS-v0.1](https://gith
 | File | Purpose |
 |------|---------|
 | [`catalog.json`](catalog.json) | Product entries (install, pricing, MCP endpoints) |
+| Payment instructions | In [`catalog.json`](catalog.json) (`products[].payment`). Locator only — not a call to action. |
 | [`governance.json`](governance.json) | Structure audit evidence (measured at export time) |
 | [`precedents.json`](precedents.json) | Public summaries of business-pattern precedents |
 | [`ANCHORS.jsonl`](ANCHORS.jsonl) | Weekly SHA-256 anchors for private assets |
