@@ -1,0 +1,65 @@
+{
+  "snapshot_date": "2026-08-16",
+  "snapshot_sha256": "9c0d6b100b1ef08e251e37c57e2d55ab9f4b22825a56709bbfb85208481dcd61",
+  "method_version": "2026-08-16.1",
+  "records_all_versions": 73561,
+  "unique_active_servers": 21732,
+  "duplicate_version_rows_removed": 51072,
+  "boundary_claim_mappable": 730,
+  "remote_only": 338,
+  "unscannable_other": 20,
+  "scannable_package_and_github": 372,
+  "process_capability_claims": 132,
+  "data_domain_claims_excluded": 240,
+  "network_offline_approx": 27,
+  "series": {
+    "2026-08-16.1": {
+      "unique_active_servers": 21732,
+      "duplicate_version_rows_removed": 51072,
+      "boundary_claim_mappable": 730,
+      "remote_only": 338,
+      "unscannable_other": 20,
+      "scannable_package_and_github": 372,
+      "process_capability_claims": 132,
+      "data_domain_claims_excluded": 240,
+      "network_offline_approx": 27
+    }
+  },
+  "third_party_vocabulary_collisions": {
+    "scope": "rows of the reduced per-server JSONL",
+    "forbidden_word_rows": 7,
+    "forbidden_word_breakdown": {
+      "Phase": 3,
+      "precedent": 3,
+      "判例": 1
+    },
+    "japanese_character_rows": 115,
+    "note": "Third-party text republished verbatim; not filtered."
+  },
+  "method": {
+    "axes": [
+      "filesystem",
+      "network",
+      "subprocess",
+      "env"
+    ],
+    "dedup": "one row per server name among active records; latest row wins",
+    "scannable": "packages non-empty AND repository URL contains github.com",
+    "stage2": "process vs data-domain split via locality heuristic in LOCALITY_PATTERNS",
+    "excluded_phrases": [
+      "secure",
+      "safe",
+      "privacy-first",
+      "trusted"
+    ],
+    "network_offline_phrases": [
+      "no network",
+      "fully offline",
+      "works offline",
+      "air-gapped",
+      "local-only",
+      "never leaves your machine/device/computer"
+    ],
+    "network_offline_scope": "Counted only within process_capability_claims, not within data_domain_claims_excluded"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "aos-census-digests.v2",
+  "static_files": {
+    "README.md": "d44e09db23ca49bb9e40516dbd2756edc692f40f053f6204877e8bea79602e00",
+    "fetch_registry_snapshot.py": "48b0e6df57fae4b9eded5dfefcb96b87f9ac05740c69c26408722df803ce772a",
+    "registry_capability_census.py": "1b931d0459ac8b16487f79be07b8823a1581ba4b4493b52d03414a3d2e73441c",
+    "SERIES.md": "ef9068c1f2483027cd7f06ebbc9fa120e15b44e33a22821f8655781084eddae1",
+    "RUNS.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runs": {
+    "2026-08-16": {
+      "paths": {
+        "servers": "servers_2026-08-16.jsonl",
+        "results": "results_2026-08-16.json",
+        "registry_gz": "registry_2026-08-16.jsonl.gz"
+      },
+      "sha256": {
+        "servers": "8045d078cac5efadbe18d7ff206a4cd4d395dc47990d9ccad1c4524c3b04dd27",
+        "results": "af31faa4385deb2b7094e1ae79d14e3dce1ecd7ab63c1d2ec80b97c74301f6ed",
+        "registry_gz": "4b69632cc65dde8457ba2723f84394c4d10aa2054d577c1e15529a4e41069ab5"
+      }
+    }
+  }
+}
