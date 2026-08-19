@@ -25,7 +25,11 @@ from typing import Any, Callable
 WITNESS_EVENT_NAME = "witness_ref_introduced"
 SIGNATURE_SUITE_EVENT_NAME = "signature_suite_introduced"
 POSITION_BINDING_EVENT_NAME = "position_binding_introduced"
+DIGEST_SUITE_TRANSITION_EVENT_NAME = "digest_suite_transition"
 DEFAULT_SIGNATURE_SUITE_NONE = "none"
+
+SUITE_KECCAK256_JCS = "keccak256-jcs"
+SUITE_SHA3_256_JCS = "sha3-256-jcs"
 
 VERIFY_ERROR = "verify_error"
 
@@ -129,11 +133,16 @@ def is_position_binding_introduction_event(row: dict[str, Any]) -> bool:
     return row.get("event") == POSITION_BINDING_EVENT_NAME
 
 
+def is_digest_suite_transition_event(row: dict[str, Any]) -> bool:
+    return row.get("event") == DIGEST_SUITE_TRANSITION_EVENT_NAME
+
+
 def is_versioned_boundary_event(row: dict[str, Any]) -> bool:
     return (
         is_witness_introduction_event(row)
         or is_signature_suite_introduction_event(row)
         or is_position_binding_introduction_event(row)
+        or is_digest_suite_transition_event(row)
     )
 
 
@@ -143,6 +152,7 @@ KNOWN_BOUNDARY_RULE_VERSIONS: dict[str, str] = {
     WITNESS_EVENT_NAME: "witness-ref-v1",
     SIGNATURE_SUITE_EVENT_NAME: "signature-suite-v1",
     POSITION_BINDING_EVENT_NAME: "position-binding-v1",
+    DIGEST_SUITE_TRANSITION_EVENT_NAME: "suite-transition-v1",
 }
 
 # Fields that make a row record-shaped. Presence together with a recognized
@@ -321,7 +331,11 @@ def verify_witness_boundary(lines: list[bytes]) -> None:
             boundary_index = index
             active_witness = load_active_witness(lines)
             continue
-        if is_signature_suite_introduction_event(row) or is_position_binding_introduction_event(row):
+        if (
+            is_signature_suite_introduction_event(row)
+            or is_position_binding_introduction_event(row)
+            or is_digest_suite_transition_event(row)
+        ):
             continue
         if "event" in row:
             _fail(f"unknown event at line {index + 1}")
@@ -393,10 +407,177 @@ def verify_signature_suite_boundary(lines: list[bytes]) -> None:
                 _fail(f"signature_suite mismatch at line {index + 1}")
 
 
+# --- Vendored Keccak-256 (Ethereum padding; not hashlib.sha3_256) -----------------
+_KECCAK_MASK = (1 << 64) - 1
+_KECCAK_RC = [
+    0x0000000000000001, 0x0000000000008082, 0x800000000000808A, 0x8000000080008000,
+    0x000000000000808B, 0x0000000080000001, 0x8000000080008081, 0x8000000000008009,
+    0x000000000000008A, 0x0000000000000088, 0x0000000080008009, 0x000000008000000A,
+    0x000000008000808B, 0x800000000000008B, 0x8000000000008089, 0x8000000000008003,
+    0x8000000000008002, 0x8000000000000080, 0x000000000000800A, 0x800000008000000A,
+    0x8000000080008081, 0x8000000000008080, 0x0000000080000001, 0x8000000080008008,
+]
+_KECCAK_ROT = [
+    [0, 36, 3, 41, 18], [1, 44, 10, 45, 2], [62, 6, 43, 15, 61],
+    [28, 55, 25, 21, 56], [27, 20, 39, 8, 14],
+]
+
+
+def _keccak_rotl(x: int, n: int) -> int:
+    return ((x << n) | (x >> (64 - n))) & _KECCAK_MASK
+
+
+def _keccak_f(state):
+    for rnd in range(24):
+        c = [state[x][0] ^ state[x][1] ^ state[x][2] ^ state[x][3] ^ state[x][4] for x in range(5)]
+        d = [c[(x - 1) % 5] ^ _keccak_rotl(c[(x + 1) % 5], 1) for x in range(5)]
+        state = [[state[x][y] ^ d[x] for y in range(5)] for x in range(5)]
+        b = [[0] * 5 for _ in range(5)]
+        for x in range(5):
+            for y in range(5):
+                b[y][(2 * x + 3 * y) % 5] = _keccak_rotl(state[x][y], _KECCAK_ROT[x][y])
+        state = [
+            [b[x][y] ^ ((~b[(x + 1) % 5][y]) & b[(x + 2) % 5][y]) for y in range(5)]
+            for x in range(5)
+        ]
+        state[0][0] ^= _KECCAK_RC[rnd]
+    return state
+
+
+def _keccak256(data: bytes) -> bytes:
+    rate = 136
+    padded = bytearray(data)
+    padlen = rate - (len(padded) % rate)
+    if padlen == 1:
+        padded += b"\x81"
+    else:
+        padded += b"\x01" + b"\x00" * (padlen - 2) + b"\x80"
+    state = [[0] * 5 for _ in range(5)]
+    for offset in range(0, len(padded), rate):
+        for lane_index in range(rate // 8):
+            lane = int.from_bytes(
+                padded[offset + 8 * lane_index : offset + 8 * lane_index + 8],
+                "little",
+            )
+            state[lane_index % 5][lane_index // 5] ^= lane
+        state = _keccak_f(state)
+    digest = bytearray()
+    for lane_index in range(rate // 8):
+        digest += state[lane_index % 5][lane_index // 5].to_bytes(8, "little")
+        if len(digest) >= 32:
+            break
+    return bytes(digest[:32])
+
+
+for _kat_msg, _kat_want in {
+    b"": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+    b"abc": "4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45",
+}.items():
+    if _keccak256(_kat_msg).hex() != _kat_want:
+        raise RuntimeError("vendored keccak256 self-check failed")
+
+
+def _norm_hex_digest(value: Any) -> str | None:
+    if not isinstance(value, str):
+        return None
+    lowered = value.lower()
+    if not lowered.startswith("0x") or len(lowered) != 66:
+        return None
+    try:
+        int(lowered[2:], 16)
+    except ValueError:
+        return None
+    return lowered
+
+
+def _auec_canonical(value: Any) -> str:
+    """RFC 8785-style canonical form for conformance-vector AUEC prefix records."""
+    if value is None:
+        return "null"
+    if value is True:
+        return "true"
+    if value is False:
+        return "false"
+    if isinstance(value, str):
+        return json.dumps(value, ensure_ascii=False)
+    if isinstance(value, int):
+        if abs(value) > 2**53 - 1:
+            _fail("AUEC prefix integer outside I-JSON interoperable range")
+        return str(value)
+    if isinstance(value, float):
+        _fail("AUEC prefix digest domain rejects non-integer JSON numbers")
+    if isinstance(value, list):
+        return "[" + ",".join(_auec_canonical(item) for item in value) + "]"
+    if isinstance(value, dict):
+        items = sorted(value.items(), key=lambda kv: kv[0].encode("utf-16-be"))
+        return "{" + ",".join(
+            json.dumps(key, ensure_ascii=False) + ":" + _auec_canonical(val)
+            for key, val in items
+        ) + "}"
+    _fail(f"AUEC prefix contains non-JSON value: {type(value).__name__}")
+    raise AssertionError("unreachable")
+
+
+def _auec_prefix_digest(prefix: list[Any], suite: str) -> str:
+    canonical_bytes = _auec_canonical(prefix).encode("utf-8")
+    if suite == SUITE_KECCAK256_JCS:
+        return "0x" + _keccak256(canonical_bytes).hex()
+    if suite == SUITE_SHA3_256_JCS:
+        return "0x" + hashlib.sha3_256(canonical_bytes).hexdigest()
+    _fail(f"unknown digest suite {suite!r}")
+    raise AssertionError("unreachable")
+
+
+def verify_digest_suite_transitions(lines: list[bytes]) -> None:
+    """Reject retroactive prefix re-digest under a successor suite (n29 class)."""
+    for index, line in enumerate(lines):
+        row = parse_row(line)
+        if not is_digest_suite_transition_event(row):
+            continue
+        require_known_rule_version(row, line_no=index + 1)
+        claimed = _norm_hex_digest(row.get("prefix_digest"))
+        if claimed is None:
+            _fail(
+                f"digest_suite_transition at line {index + 1} "
+                "missing parseable prefix_digest"
+            )
+        from_suite = row.get("from_suite")
+        to_suite = row.get("to_suite")
+        if not isinstance(from_suite, str) or not from_suite:
+            _fail(
+                f"digest_suite_transition at line {index + 1} missing from_suite"
+            )
+        if not isinstance(to_suite, str) or not to_suite:
+            _fail(
+                f"digest_suite_transition at line {index + 1} missing to_suite"
+            )
+        auec_prefix = row.get("auec_prefix")
+        if not isinstance(auec_prefix, list) or not auec_prefix:
+            _fail(
+                f"digest_suite_transition at line {index + 1} missing auec_prefix"
+            )
+        prior_digest = _auec_prefix_digest(auec_prefix, from_suite)
+        successor_digest = _auec_prefix_digest(auec_prefix, to_suite)
+        if claimed == successor_digest and claimed != prior_digest:
+            _fail(
+                f"digest_suite_transition at line {index + 1}: prefix was redigested "
+                f"under successor digest suite {to_suite!r} "
+                f"(binding must use {from_suite!r} digest for history written before "
+                "the transition)"
+            )
+        if claimed != prior_digest:
+            _fail(
+                f"digest_suite_transition at line {index + 1}: prefix_digest does not "
+                f"match digest under suite in force when prefix was written "
+                f"({from_suite!r})"
+            )
+
+
 def verify_anchor_boundaries(lines: list[bytes]) -> None:
     interpret_anchor_lines(lines)
     verify_witness_boundary(lines)
     verify_signature_suite_boundary(lines)
+    verify_digest_suite_transitions(lines)
 
 
 def collect_position_bindings(lines: list[bytes]) -> list[tuple[int, dict[str, Any]]]:
@@ -1031,6 +1212,8 @@ def _rejection_class(exc: BaseException) -> str:
         return "truncation"
     if isinstance(exc, VerifyUnattested):
         return "unattested"
+    if "prefix was redigested" in message:
+        return "suite_transition_redigest"
     return "verify_error"
 
 

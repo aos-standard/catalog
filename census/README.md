@@ -81,6 +81,22 @@ These are third-party descriptions republished verbatim.
 Text we author in this directory is linted; third-party rows are not —
 provenance is checked instead (regeneration byte-match + digests + recomputation).
 
+## Excluded targets (individual judgment)
+
+Per `R-20260818-01` (`SOVEREIGN_RULING_20260818_denial_conditions.md` §4).
+We do not perform **unrequested individual judgments** on these classes.
+Silence is not an exclusion — only listed classes are excluded.
+
+| Reason class | Scope (as of 2026-08-16) |
+|---|---|
+| `self-audit` | Our own tools: `mcp-blast-radius`, `mcp-agent-health`, AOS-related (self-audit is a separate lane) |
+| `competitor` | *(none listed yet — empty means none observed, not hidden)* |
+| `financial-relationship` | *(none listed yet)* |
+| `employer-or-client` | *(none listed — class only; no employer/client names on this surface)* |
+
+When a competitor appears, add the repository/package name here with reason class `competitor`.
+Update this table before publishing an individual judgment that skips a scannable target.
+
 ## Reproduce
 
 Bundled snapshot files are included so the same counts reproduce without re-fetching.

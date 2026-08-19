@@ -1,7 +1,7 @@
 {
   "schema": "aos-census-digests.v2",
   "static_files": {
-    "README.md": "d44e09db23ca49bb9e40516dbd2756edc692f40f053f6204877e8bea79602e00",
+    "README.md": "976ce52fbc08217f3602ea548e96db501c3d21c911b1044a100daf5b5ead18ee",
     "fetch_registry_snapshot.py": "48b0e6df57fae4b9eded5dfefcb96b87f9ac05740c69c26408722df803ce772a",
     "registry_capability_census.py": "1b931d0459ac8b16487f79be07b8823a1581ba4b4493b52d03414a3d2e73441c",
     "SERIES.md": "ef9068c1f2483027cd7f06ebbc9fa120e15b44e33a22821f8655781084eddae1",
