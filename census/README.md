@@ -16,7 +16,8 @@ No product SKU, no pricing, no CTA, no individual server verdicts in this releas
 | └ └ └ of which "no network / offline" phrasing | **27** |
 | └ └ data-domain permission claims (excluded from process count) | 240 |
 
-Snapshot: 73,561 version rows · sha256 `9c0d6b100b1ef08e251e37c57e2d55ab9f4b22825a56709bbfb85208481dcd61`
+Snapshot: 73,561 version rows · sha256 `16fe770a2b549902bfb2279e0f3916d9c0bf7c3e3a156ed1d32d94f7d601f318`
+(Corrected 2026-08-24: was `9c0d6b100b1ef08e251e37c57e2d55ab9f4b22825a56709bbfb85208481dcd61`, the hash of an unbundled JSON array; now the decompressed content of the bundled `registry_2026-08-16.jsonl.gz`.)
 
 ## What was counted
 
@@ -125,3 +126,6 @@ python3 registry_capability_census.py verify .
 
 File an issue on `aos-standard/catalog` if a count or classification is wrong.
 If we were wrong, we record the correction in `CONDUCT.jsonl` ourselves.
+Open challenge on the 372 -> 132 step: https://github.com/aos-standard/catalog/issues/2
+Dated snapshots are kept indefinitely; a count published here can be recomputed against the snapshot it was computed from.
+Requests to remove third-party data from a snapshot: open an issue here. We do not process them automatically and we record that the request was made.

@@ -1,10 +1,10 @@
 {
   "schema": "aos-census-digests.v2",
   "static_files": {
-    "README.md": "976ce52fbc08217f3602ea548e96db501c3d21c911b1044a100daf5b5ead18ee",
+    "README.md": "1ad2b001267f63c315cf0936f3fda2731bc23d7d3e1a34ebfcd98db1aad462d8",
     "fetch_registry_snapshot.py": "48b0e6df57fae4b9eded5dfefcb96b87f9ac05740c69c26408722df803ce772a",
-    "registry_capability_census.py": "1b931d0459ac8b16487f79be07b8823a1581ba4b4493b52d03414a3d2e73441c",
-    "SERIES.md": "ef9068c1f2483027cd7f06ebbc9fa120e15b44e33a22821f8655781084eddae1",
+    "registry_capability_census.py": "7b5443962f7507a28a51d896c291d600c9e7ff7412128e4a0a6bc49c9404f44e",
+    "SERIES.md": "f766b0e737e198ddee4db21b876a89a2469a19fa7b1834902602b409d2f53283",
     "RUNS.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "runs": {
@@ -16,7 +16,7 @@
       },
       "sha256": {
         "servers": "8045d078cac5efadbe18d7ff206a4cd4d395dc47990d9ccad1c4524c3b04dd27",
-        "results": "af31faa4385deb2b7094e1ae79d14e3dce1ecd7ab63c1d2ec80b97c74301f6ed",
+        "results": "0ab0d8ab05d5299c1bf36100c8fd8177d90e82641180bea3db4ef0255e0476e9",
         "registry_gz": "4b69632cc65dde8457ba2723f84394c4d10aa2054d577c1e15529a4e41069ab5"
       }
     }

@@ -11,6 +11,7 @@ import argparse
 import copy
 import gzip
 import hashlib
+import io
 import json
 import re
 import sys
@@ -144,11 +145,27 @@ def _load_records(path: Path) -> list[dict[str, Any]]:
     raise ValueError(f"unsupported snapshot shape: {path}")
 
 
+def snapshot_content_sha256(path: Path) -> str:
+    """Hash the snapshot *content*, not the gzip container.
+
+    For ``*.gz`` / ``*.jsonl.gz``, hash decompressed bytes. Container hashes drift
+    with ``mtime`` even when the payload is identical.
+    """
+    raw = path.read_bytes()
+    name = path.name
+    if name.endswith(".gz"):
+        return hashlib.sha256(gzip.decompress(raw)).hexdigest()
+    return hashlib.sha256(raw).hexdigest()
+
+
 def records_to_jsonl_gz(records: list[dict[str, Any]], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with gzip.open(out_path, "wt", encoding="utf-8", compresslevel=9) as handle:
+    buf = io.BytesIO()
+    with gzip.GzipFile(filename="", mode="wb", fileobj=buf, mtime=0, compresslevel=9) as gz:
         for row in records:
-            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+            line = json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
+            gz.write(line.encode("utf-8"))
+    out_path.write_bytes(buf.getvalue())
 
 
 def build_reduced_servers_jsonl(records: list[dict[str, Any]]) -> bytes:
@@ -449,12 +466,18 @@ def verify_artifacts(census_dir: Path) -> None:
         if actual_servers != expected_servers:
             raise ValueError(f"servers byte mismatch for {run_date}")
         stored = json.loads(results_path.read_text(encoding="utf-8"))
-        snapshot_sha = stored.get("snapshot_sha256")
-        if not isinstance(snapshot_sha, str):
+        stored_sha = stored.get("snapshot_sha256")
+        if not isinstance(stored_sha, str) or not stored_sha:
             raise ValueError(f"results missing snapshot_sha256 for {run_date}")
+        derived_sha = snapshot_content_sha256(source)
+        if stored_sha != derived_sha:
+            raise ValueError(
+                f"snapshot_sha256 mismatch for {run_date}: "
+                f"stored={stored_sha} derived={derived_sha}"
+            )
         recomputed = compute_results(
             records,
-            snapshot_sha256=snapshot_sha,
+            snapshot_sha256=derived_sha,
             snapshot_date=run_date,
             reduced_jsonl=actual_servers,
             method_version=str(stored.get("method_version") or CURRENT_METHOD_VERSION),
@@ -547,7 +570,7 @@ def main() -> int:
         print(f"wrote {args.output} bytes={len(payload)}")
         return 0
     if args.command == "write-results":
-        sha = hashlib.sha256(args.snapshot.read_bytes()).hexdigest()
+        sha = snapshot_content_sha256(args.snapshot)
         run_date = args.run_date or date.today().isoformat()
         reduced = build_reduced_servers_jsonl(records)
         payload = compute_results(
