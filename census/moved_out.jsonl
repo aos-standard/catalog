@@ -1,0 +1,35 @@
+{"name": "ai.aliengiraffe/spotdb", "cause": "sandbox", "claim": "Ephemeral data sandbox for AI workflows with guardrails and security"}
+{"name": "ar.com.muovi/mcp-server", "cause": "local", "claim": "Read-only MCP server for Muovi, Argentina's trust-first local services marketplace (6 tools)."}
+{"name": "co.yungle/yungle", "cause": "files", "claim": "Ask about your Yungle file deliveries — what was sent, who downloaded, what expires. Read-only."}
+{"name": "com.mailbuttons/mcp-server", "cause": "sandbox", "claim": "Mailbuttons (mbag.ai) Governed email for AI agents (Mailbuttons / mbag.ai): sandbox inboxes, policy gate, audit log."}
+{"name": "com.mcparmory/e2b", "cause": "sandbox", "claim": "Create and manage secure sandboxes for running AI agent code"}
+{"name": "io.github.Melgencer/alpacacloud-mcp", "cause": "sandbox", "claim": "Connect AI agents to Alpaca Cloud: Postgres, Auth, Storage, Sandboxes, and Workflows."}
+{"name": "io.github.Michael-WhiteCapData/tablebridge-mcp", "cause": "files", "claim": "Query a folder of CSV / Parquet / JSON files with SQL — one queryable source, read-only."}
+{"name": "io.github.Runewardd/runeward", "cause": "sandbox", "claim": "Governed execution cells for AI agents: Docker/K8s sandboxes with policy, audit, and approvals."}
+{"name": "io.github.Shan-Zhu/shuck-file", "cause": "files", "claim": "shuck-file Any file in, Markdown out — read only what matters."}
+{"name": "io.github.YS-projectcalc/agent-cold-email", "cause": "sandbox", "claim": "Agent-run cold-email infra: 24 MCP tools, live sending, free sandbox. $99/mo, concierge go-live."}
+{"name": "io.github.argon-lab/argon", "cause": "sandbox", "claim": "Versioned MongoDB sandboxes for AI agents: branch, time-travel, merge, and undo over MCP."}
+{"name": "io.github.arifulislamat/database-mcp-libsql", "cause": "local", "claim": "MCP server for libSQL/Turso, local or remote. Read-only by default, row caps, timeouts."}
+{"name": "io.github.armandocodecr/ramp-kit", "cause": "sandbox", "claim": "LATAM fiat ramps on Stellar for AI agents: live quotes, sandbox orders, PIX/SPEI simulation, docs"}
+{"name": "io.github.codelad1304/agentic-compute", "cause": "sandbox", "claim": "Secure Python sandbox for data optimization and Matplotlib rendering via x402 microtransactions."}
+{"name": "io.github.declaw-ai/mcp-server", "cause": "sandbox", "claim": "Secure Firecracker microVM sandboxes for AI agents: network policy, PII & injection guardrails."}
+{"name": "io.github.dimitrovakulenko/dwg-mcp-server", "cause": "files", "claim": "DWG MCP Server Read-only MCP server for inspecting AutoCAD DWG files"}
+{"name": "io.github.edithatogo/osf-cli-go", "cause": "files", "claim": "OSF CLI Go Read-only MCP tools for authenticated Open Science Framework projects and files."}
+{"name": "io.github.evidai/tokenized-stock", "cause": "sandbox", "claim": "Buy/sell tokenized US stocks (Dinari dShares) in USDC. Daily USD cap guard. Sandbox default."}
+{"name": "io.github.fetchsandbox/mcp", "cause": "sandbox", "claim": "Stateful OpenAPI sandbox for AI agents to validate API integrations end-to-end."}
+{"name": "io.github.flujo-app/mcp-sandbox-computer-vm-for-ai", "cause": "sandbox", "claim": "MCP Sandbox Computer VM for AI Named Docker and Fly Machine sandbox computers with an interactive MCP App dashboard."}
+{"name": "io.github.infoinlet-marketplace/mcp-github", "cause": "files", "claim": "GitHub for AI agents — repos, files, code search, issues, PRs, commits. Read-only default."}
+{"name": "io.github.pachote/nira-repl", "cause": "sandbox", "claim": "NIRA REPL MCP Secure code execution sandbox for Claude — run Python, JavaScript, and shell commands"}
+{"name": "io.github.pijusz/mcp-mailtrap", "cause": "sandbox", "claim": "MCP server for the Mailtrap email platform — analytics, sending, contacts, sandbox"}
+{"name": "io.github.quackai-org/q402-mcp", "cause": "sandbox", "claim": "Q402 - gasless payments, yield, escrow, bridge & NAV triggers on 12 EVM chains. Sandbox-default."}
+{"name": "io.github.ruvnet/flow-nexus", "cause": "sandbox", "claim": "Cloud-powered AI platform with multi-agent swarms, sandboxes, and workflow automation"}
+{"name": "io.github.shofer-dev/live-memory", "cause": "files", "claim": "Persistent, read-only codebase memory for Claude Code; ask it instead of re-reading files."}
+{"name": "io.github.stefanoshea/rlm-tools", "cause": "sandbox", "claim": "RLM Tools Persistent Python sandbox for token-efficient codebase exploration in MCP clients"}
+{"name": "io.github.sterion66/godot", "cause": "sandbox", "claim": "The most complete Godot 4 MCP: secure sandbox, 40+ tools (projects–runtime), major MCP clients."}
+{"name": "io.github.superserve-ai/mcp", "cause": "sandbox", "claim": "Superserve MCP server for Superserve sandboxes: create, exec, and manage Firecracker microVMs"}
+{"name": "io.github.taybenlor/runno", "cause": "sandbox", "claim": "MCP Server for the Runno Sandbox"}
+{"name": "io.github.vndee/llm-sandbox", "cause": "sandbox", "claim": "LLM Sandbox Securely run LLM-generated code in isolated containers across 7 languages and 3 container backends."}
+{"name": "io.github.wgt19861219/godot-mcp-enhanced", "cause": "sandbox", "claim": "Enhanced Godot 4.5-4.7 MCP: headless+editor+bridge, secure GDScript sandbox, closed-loop AI dev."}
+{"name": "io.github.yusufkadry/cinch", "cause": "sandbox", "claim": "Run AI-generated code safely. gVisor-isolated Python/JS sandboxes for any MCP client. Pay per run."}
+{"name": "io.github.zayansalman/google-drive-comments-mcp", "cause": "files", "claim": "Minimal MCP server for reading comments on Google Drive files (Docs, Sheets, Slides). Read-only."}
+{"name": "org.opencovenant/guard", "cause": "sandbox", "claim": "Covenant Guard Hard spend cap, OS sandbox, and signed receipts for unattended coding agents like Claude Code."}

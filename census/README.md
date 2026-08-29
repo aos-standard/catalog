@@ -129,3 +129,17 @@ If we were wrong, we record the correction in `CONDUCT.jsonl` ourselves.
 Open challenge on the 372 -> 132 step: https://github.com/aos-standard/catalog/issues/2
 Dated snapshots are kept indefinitely; a count published here can be recomputed against the snapshot it was computed from.
 Requests to remove third-party data from a snapshot: open an issue here. We do not process them automatically and we record that the request was made.
+
+## Method-comparison harness (`moved_claims_diff.py`)
+
+Carries the locality-pattern refinement discussed in
+[#2](https://github.com/aos-standard/catalog/issues/2) as text (a REMOVED/ADDED
+set applied at runtime) and recomputes both readings from the frozen snapshot:
+372 scannable; 132/240/27 under `2026-08-16.1`; 102/270/27 under the patched
+patterns; 35 moved out (25 sandbox / 8 files / 2 local), 5 moved in
+(`no api keys?`), 27 offline invariant under both. `moved_out.jsonl` /
+`moved_in.jsonl` are the committed row fixtures; CI runs
+`python census/moved_claims_diff.py --check`, which fails unless counts and
+rows reproduce exactly. The shipped census spec is not modified and no new
+method version is declared here — publishing the patch only makes the second
+reading re-derivable from text rather than checkable against a list (VCL-0017).
