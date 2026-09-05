@@ -15,5 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Require moved-row fixtures
+        run: |
+          test -f census/moved_out.jsonl || { echo "fixtures absent (sync deleted them?)"; exit 1; }
+          test -f census/moved_in.jsonl || { echo "fixtures absent (sync deleted them?)"; exit 1; }
+          test -f census/moved_claims_diff.py || { echo "fixtures absent (sync deleted them?)"; exit 1; }
+
       - name: Recompute census diff against frozen snapshot
         run: python census/moved_claims_diff.py --check
