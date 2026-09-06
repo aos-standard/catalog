@@ -1,0 +1,29 @@
+{
+  "schema": "aos-shelf-owned.v1",
+  "owned": [
+    ".published_manifest.json",
+    "A2.jsonl",
+    "A2.jsonl.digests.json",
+    "A3.jsonl",
+    "A3.jsonl.digests.json",
+    "B.jsonl",
+    "B.jsonl.digests.json",
+    "C.jsonl",
+    "C.jsonl.digests.json",
+    "D2.jsonl",
+    "D2.jsonl.digests.json",
+    "D3.jsonl",
+    "D3.jsonl.digests.json",
+    "E.jsonl",
+    "E.jsonl.digests.json",
+    "F.jsonl",
+    "F.jsonl.digests.json",
+    "G.jsonl",
+    "G.jsonl.digests.json",
+    "H.jsonl",
+    "H.jsonl.digests.json",
+    "MANIFEST.json",
+    "baseline.jsonl",
+    "baseline.jsonl.digests.json"
+  ]
+}

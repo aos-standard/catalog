@@ -117,6 +117,46 @@ METHOD_VERSIONS: dict[str, dict[str, Any]] = {
     },
 }
 
+# Name-list overlays on top of CURRENT_METHOD_VERSION. Do not add these keys to
+# METHOD_VERSIONS: compute_results always runs build_series_block over every
+# METHOD_VERSIONS entry, and a new entry would rewrite results_2026-08-16.json.
+LIST_OVERLAYS: dict[str, dict[str, Any]] = {
+    "2026-08-28.mechanical": {
+        "apply_returns": False,
+        "moves": "locality_moves_2026-08-28.jsonl",
+        "adds": "locality_adds_2026-08-28.jsonl",
+        "expected_moves": 35,
+        "expected_adds": 5,
+        "stage2": (
+            "2026-08-16.1 locality split, then name-list overlay "
+            "(locality_moves_2026-08-28.jsonl 35 out, locality_adds_2026-08-28.jsonl 5 in); "
+            "subject_call is not applied"
+        ),
+    },
+    "2026-08-28.adjudicated": {
+        "apply_returns": True,
+        "moves": "locality_moves_2026-08-28.jsonl",
+        "adds": "locality_adds_2026-08-28.jsonl",
+        "expected_moves": 35,
+        "expected_adds": 5,
+        "stage2": (
+            "2026-08-16.1 locality split, then the mechanical name-list overlay, "
+            "then restore subject_call=returns (14); gray (2) is not restored"
+        ),
+    },
+}
+
+NETWORK_OFFLINE_INVARIANT_VERSIONS: tuple[str, ...] = (
+    CURRENT_METHOD_VERSION,
+    "2026-08-28.mechanical",
+    "2026-08-28.adjudicated",
+)
+NETWORK_OFFLINE_INVARIANT_VALUE = 27
+NETWORK_OFFLINE_INVARIANT_SNAPSHOT_SHA256 = (
+    "16fe770a2b549902bfb2279e0f3916d9c0bf7c3e3a156ed1d32d94f7d601f318"
+)
+EXPECTED_RETURNS_RESTORED = 14
+
 
 def _compile_method_spec(spec: dict[str, Any]) -> dict[str, Any]:
     offline_phrases = list(spec.get("network_offline_phrases") or [])
@@ -145,17 +185,19 @@ def _load_records(path: Path) -> list[dict[str, Any]]:
     raise ValueError(f"unsupported snapshot shape: {path}")
 
 
-def snapshot_content_sha256(path: Path) -> str:
-    """Hash the snapshot *content*, not the gzip container.
+def canonical_jsonl_bytes(records: list[dict[str, Any]]) -> bytes:
+    """Canonical JSONL bytes bound by snapshot_sha256 (input-format independent)."""
+    lines = [json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in records]
+    return "".join(lines).encode("utf-8")
 
-    For ``*.gz`` / ``*.jsonl.gz``, hash decompressed bytes. Container hashes drift
-    with ``mtime`` even when the payload is identical.
-    """
-    raw = path.read_bytes()
-    name = path.name
-    if name.endswith(".gz"):
-        return hashlib.sha256(gzip.decompress(raw)).hexdigest()
-    return hashlib.sha256(raw).hexdigest()
+
+def canonical_jsonl_sha256(records: list[dict[str, Any]]) -> str:
+    return hashlib.sha256(canonical_jsonl_bytes(records)).hexdigest()
+
+
+def snapshot_content_sha256(path: Path) -> str:
+    """Hash canonical JSONL content for records loaded from any snapshot path."""
+    return canonical_jsonl_sha256(_load_records(path))
 
 
 def records_to_jsonl_gz(records: list[dict[str, Any]], out_path: Path) -> None:
@@ -229,7 +271,9 @@ def _match_axes(text: str, compiled_axes: dict[str, list[re.Pattern[str]]]) -> l
     )
 
 
-def _aggregate_counts(records: list[dict[str, Any]], compiled: dict[str, Any]) -> dict[str, int]:
+def _collect_scannable(
+    records: list[dict[str, Any]], compiled: dict[str, Any]
+) -> tuple[Counter[str], list[dict[str, Any]]]:
     seen: dict[str, dict[str, Any]] = {}
     stats: Counter[str] = Counter()
     scannable: list[dict[str, Any]] = []
@@ -248,8 +292,7 @@ def _aggregate_counts(records: list[dict[str, Any]], compiled: dict[str, Any]) -
         seen[name] = srv
 
     stats["unique_active"] = len(seen)
-    dup_versions = stats["dup_versions"]
-    for srv in seen.values():
+    for name, srv in seen.items():
         text = " ".join(filter(None, [srv.get("title"), srv.get("description")]))
         axes = _match_axes(text, compiled["axes"])
         if not axes:
@@ -261,20 +304,35 @@ def _aggregate_counts(records: list[dict[str, Any]], compiled: dict[str, Any]) -
         scannable_flag = bool(pkgs) and "github.com" in repo
         if scannable_flag:
             stats["scannable"] += 1
-            scannable.append({"claim": text[:300]})
+            scannable.append({"name": name, "claim": text[:300]})
         elif remotes and not pkgs:
             stats["remote_only"] += 1
         else:
             stats["unscannable_other"] += 1
+    return stats, scannable
 
+
+def _split_process(
+    scannable: list[dict[str, Any]], compiled: dict[str, Any]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     process_claims = [c for c in scannable if any(p.search(c["claim"]) for p in compiled["locality"])]
-    data_domain = [c for c in scannable if c not in process_claims]
+    process_names = {c["name"] for c in process_claims}
+    data_domain = [c for c in scannable if c["name"] not in process_names]
+    return process_claims, data_domain
+
+
+def _counts_from_split(
+    stats: Counter[str],
+    process_claims: list[dict[str, Any]],
+    data_domain: list[dict[str, Any]],
+    compiled: dict[str, Any],
+) -> dict[str, int]:
     network_offline = sum(
         1 for c in process_claims if any(p.search(c["claim"]) for p in compiled["network_offline"])
     )
     return {
         "unique_active_servers": stats["unique_active"],
-        "duplicate_version_rows_removed": dup_versions,
+        "duplicate_version_rows_removed": stats["dup_versions"],
         "boundary_claim_mappable": stats["boundary_claim"],
         "remote_only": stats["remote_only"],
         "unscannable_other": stats["unscannable_other"],
@@ -283,6 +341,66 @@ def _aggregate_counts(records: list[dict[str, Any]], compiled: dict[str, Any]) -
         "data_domain_claims_excluded": len(data_domain),
         "network_offline_approx": network_offline,
     }
+
+
+def _load_overlay_rows(census_dir: Path, filename: str, expected: int) -> list[dict[str, Any]]:
+    path = census_dir / filename
+    if not path.is_file():
+        raise ValueError(f"missing overlay list: {filename}")
+    rows = [
+        json.loads(line)
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    if len(rows) != expected:
+        raise ValueError(f"{filename} row count {len(rows)} != {expected}")
+    return rows
+
+
+def _apply_list_overlay(
+    process_claims: list[dict[str, Any]],
+    data_domain: list[dict[str, Any]],
+    scannable: list[dict[str, Any]],
+    overlay: dict[str, Any],
+    census_dir: Path,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    moves = _load_overlay_rows(census_dir, str(overlay["moves"]), int(overlay["expected_moves"]))
+    adds = _load_overlay_rows(census_dir, str(overlay["adds"]), int(overlay["expected_adds"]))
+    by_name = {row["name"]: row for row in scannable}
+    missing = [row["name"] for row in moves + adds if row["name"] not in by_name]
+    if missing:
+        raise ValueError(f"overlay name not in scannable: {missing}")
+    proc = {row["name"]: row for row in process_claims}
+    data = {row["name"]: row for row in data_domain}
+    for row in moves:
+        name = row["name"]
+        if name not in proc:
+            raise ValueError(f"moved_out name not in process: {name}")
+        data[name] = proc.pop(name)
+    for row in adds:
+        name = row["name"]
+        if name not in data:
+            raise ValueError(f"moved_in name not in data-domain: {name}")
+        proc[name] = data.pop(name)
+    if overlay["apply_returns"]:
+        restored = 0
+        for row in moves:
+            if row.get("subject_call") != "returns":
+                continue
+            name = row["name"]
+            if name not in data:
+                raise ValueError(f"returns name not in data-domain after overlay: {name}")
+            proc[name] = data.pop(name)
+            restored += 1
+        if restored != EXPECTED_RETURNS_RESTORED:
+            raise ValueError(f"returns restored {restored} != {EXPECTED_RETURNS_RESTORED}")
+    return list(proc.values()), list(data.values())
+
+
+def _aggregate_counts(records: list[dict[str, Any]], compiled: dict[str, Any]) -> dict[str, int]:
+    stats, scannable = _collect_scannable(records, compiled)
+    process_claims, data_domain = _split_process(scannable, compiled)
+    return _counts_from_split(stats, process_claims, data_domain, compiled)
 
 
 def build_series_block(records: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
@@ -300,13 +418,28 @@ def compute_results(
     snapshot_date: str,
     reduced_jsonl: bytes,
     method_version: str = CURRENT_METHOD_VERSION,
+    census_dir: Path | None = None,
 ) -> dict[str, Any]:
-    if method_version not in METHOD_VERSIONS:
+    overlay = LIST_OVERLAYS.get(method_version)
+    if overlay is None and method_version not in METHOD_VERSIONS:
         raise ValueError(f"unknown method_version: {method_version}")
-    compiled = _compile_method_spec(METHOD_VERSIONS[method_version])
-    counts = _aggregate_counts(records, compiled)
-    spec = METHOD_VERSIONS[method_version]
+    base_version = CURRENT_METHOD_VERSION if overlay is not None else method_version
+    compiled = _compile_method_spec(METHOD_VERSIONS[base_version])
+    spec = METHOD_VERSIONS[base_version]
+    lists_dir = Path(census_dir) if census_dir is not None else Path(__file__).resolve().parent
+    stats, scannable = _collect_scannable(records, compiled)
+    process_claims, data_domain = _split_process(scannable, compiled)
+    if overlay is not None:
+        process_claims, data_domain = _apply_list_overlay(
+            process_claims, data_domain, scannable, overlay, lists_dir
+        )
+    counts = _counts_from_split(stats, process_claims, data_domain, compiled)
     series = build_series_block(records)
+    stage2 = (
+        str(overlay["stage2"])
+        if overlay is not None
+        else "process vs data-domain split via locality heuristic in LOCALITY_PATTERNS"
+    )
     return {
         "snapshot_date": snapshot_date,
         "snapshot_sha256": snapshot_sha256,
@@ -319,7 +452,7 @@ def compute_results(
             "axes": list(spec["axes"].keys()),
             "dedup": spec["dedup"],
             "scannable": spec["scannable"],
-            "stage2": "process vs data-domain split via locality heuristic in LOCALITY_PATTERNS",
+            "stage2": stage2,
             "excluded_phrases": list(spec["excluded_phrases"]),
             "network_offline_phrases": list(spec["network_offline_phrases"]),
             "network_offline_scope": (
@@ -341,24 +474,38 @@ def _static_digest_targets() -> tuple[str, ...]:
         "registry_capability_census.py",
         "SERIES.md",
         "RUNS.jsonl",
+        "locality_moves_2026-08-28.jsonl",
+        "locality_adds_2026-08-28.jsonl",
+        "locality_lists_2026-08-28.provenance.json",
+        "moved_claims_diff.py",
+        "moved_out.jsonl",
+        "moved_in.jsonl",
     )
 
 
 def discover_runs(census_dir: Path) -> dict[str, dict[str, str]]:
     runs: dict[str, dict[str, str]] = {}
     for results_path in sorted(census_dir.glob("results_*.json")):
-        run_date = results_path.name.removeprefix("results_").removesuffix(".json")
-        servers = census_dir / f"servers_{run_date}.jsonl"
-        if not servers.is_file():
+        run_id = results_path.name.removeprefix("results_").removesuffix(".json")
+        stored = json.loads(results_path.read_text(encoding="utf-8"))
+        snapshot_date = str(stored.get("snapshot_date") or "")
+        if not snapshot_date:
+            raise ValueError(f"results missing snapshot_date: {results_path.name}")
+        bind_date = ""
+        for candidate in (snapshot_date, run_id):
+            if candidate and (census_dir / f"servers_{candidate}.jsonl").is_file():
+                bind_date = candidate
+                break
+        if not bind_date:
             continue
         entry: dict[str, str] = {
-            "servers": servers.name,
+            "servers": f"servers_{bind_date}.jsonl",
             "results": results_path.name,
         }
-        registry_gz = census_dir / f"registry_{run_date}.jsonl.gz"
+        registry_gz = census_dir / f"registry_{bind_date}.jsonl.gz"
         if registry_gz.is_file():
             entry["registry_gz"] = registry_gz.name
-        runs[run_date] = entry
+        runs[run_id] = entry
     return runs
 
 
@@ -441,6 +588,7 @@ def _results_match(stored: dict[str, Any], recomputed: dict[str, Any]) -> None:
         "method_version",
         "series",
         "third_party_vocabulary_collisions",
+        "method",
     )
     for key in keys:
         if stored.get(key) != recomputed.get(key):
@@ -454,9 +602,19 @@ def _load_digests_doc(census_dir: Path) -> dict[str, Any]:
     return json.loads(digests_path.read_text(encoding="utf-8"))
 
 
+def _assert_network_offline_invariant(observed: dict[str, int]) -> None:
+    for version, value in observed.items():
+        if value != NETWORK_OFFLINE_INVARIANT_VALUE:
+            raise ValueError(
+                f"network_offline invariant broken for {version}: "
+                f"{value} != {NETWORK_OFFLINE_INVARIANT_VALUE}"
+            )
+
+
 def verify_artifacts(census_dir: Path) -> None:
     """Validate run data and recomputed results. Does not check RUNS.jsonl or DIGESTS hashes."""
-    for run_date, rel_map in discover_runs(census_dir).items():
+    observed_offline: dict[str, int] = {}
+    for run_id, rel_map in discover_runs(census_dir).items():
         servers_path = census_dir / rel_map["servers"]
         results_path = census_dir / rel_map["results"]
         source = _snapshot_source_for_run(census_dir, rel_map)
@@ -464,25 +622,37 @@ def verify_artifacts(census_dir: Path) -> None:
         expected_servers = build_reduced_servers_jsonl(records)
         actual_servers = servers_path.read_bytes()
         if actual_servers != expected_servers:
-            raise ValueError(f"servers byte mismatch for {run_date}")
+            raise ValueError(f"servers byte mismatch for {run_id}")
         stored = json.loads(results_path.read_text(encoding="utf-8"))
         stored_sha = stored.get("snapshot_sha256")
         if not isinstance(stored_sha, str) or not stored_sha:
-            raise ValueError(f"results missing snapshot_sha256 for {run_date}")
-        derived_sha = snapshot_content_sha256(source)
+            raise ValueError(f"results missing snapshot_sha256 for {run_id}")
+        derived_sha = canonical_jsonl_sha256(records)
         if stored_sha != derived_sha:
             raise ValueError(
-                f"snapshot_sha256 mismatch for {run_date}: "
+                f"snapshot_sha256 mismatch for {run_id}: "
                 f"stored={stored_sha} derived={derived_sha}"
+            )
+        stored_date = str(stored.get("snapshot_date") or "")
+        method_version = str(stored.get("method_version") or CURRENT_METHOD_VERSION)
+        if (
+            stored_sha == NETWORK_OFFLINE_INVARIANT_SNAPSHOT_SHA256
+            and method_version in NETWORK_OFFLINE_INVARIANT_VERSIONS
+        ):
+            observed_offline[method_version] = int(stored["network_offline_approx"])
+            _assert_network_offline_invariant(
+                {method_version: observed_offline[method_version]}
             )
         recomputed = compute_results(
             records,
             snapshot_sha256=derived_sha,
-            snapshot_date=run_date,
+            snapshot_date=stored_date,
             reduced_jsonl=actual_servers,
-            method_version=str(stored.get("method_version") or CURRENT_METHOD_VERSION),
+            method_version=method_version,
+            census_dir=census_dir,
         )
         _results_match(stored, recomputed)
+    _assert_network_offline_invariant(observed_offline)
 
 
 def verify_digests(census_dir: Path) -> None:
@@ -542,6 +712,7 @@ def main() -> int:
     results.add_argument("snapshot", type=Path)
     results.add_argument("-o", "--output", type=Path, required=True)
     results.add_argument("--run-date", default=None)
+    results.add_argument("--method-version", default=CURRENT_METHOD_VERSION)
 
     verify = sub.add_parser("verify", help="Provenance lint for census directory")
     verify.add_argument("census_dir", type=Path)
@@ -570,7 +741,7 @@ def main() -> int:
         print(f"wrote {args.output} bytes={len(payload)}")
         return 0
     if args.command == "write-results":
-        sha = snapshot_content_sha256(args.snapshot)
+        sha = canonical_jsonl_sha256(records)
         run_date = args.run_date or date.today().isoformat()
         reduced = build_reduced_servers_jsonl(records)
         payload = compute_results(
@@ -578,6 +749,8 @@ def main() -> int:
             snapshot_sha256=sha,
             snapshot_date=run_date,
             reduced_jsonl=reduced,
+            method_version=args.method_version,
+            census_dir=args.snapshot.resolve().parent,
         )
         args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"wrote {args.output}")

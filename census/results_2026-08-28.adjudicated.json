@@ -1,7 +1,7 @@
 {
   "snapshot_date": "2026-08-16",
   "snapshot_sha256": "16fe770a2b549902bfb2279e0f3916d9c0bf7c3e3a156ed1d32d94f7d601f318",
-  "method_version": "2026-08-16.1",
+  "method_version": "2026-08-28.adjudicated",
   "records_all_versions": 73561,
   "unique_active_servers": 21732,
   "duplicate_version_rows_removed": 51072,
@@ -9,8 +9,8 @@
   "remote_only": 338,
   "unscannable_other": 20,
   "scannable_package_and_github": 372,
-  "process_capability_claims": 132,
-  "data_domain_claims_excluded": 240,
+  "process_capability_claims": 116,
+  "data_domain_claims_excluded": 256,
   "network_offline_approx": 27,
   "series": {
     "2026-08-16.1": {
@@ -45,7 +45,7 @@
     ],
     "dedup": "one row per server name among active records; latest row wins",
     "scannable": "packages non-empty AND repository URL contains github.com",
-    "stage2": "process vs data-domain split via locality heuristic in LOCALITY_PATTERNS",
+    "stage2": "2026-08-16.1 locality split, then the mechanical name-list overlay, then restore subject_call=returns (14); gray (2) is not restored",
     "excluded_phrases": [
       "secure",
       "safe",

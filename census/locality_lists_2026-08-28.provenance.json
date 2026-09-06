@@ -1,0 +1,17 @@
+{
+  "source_url": "https://github.com/aos-standard/catalog/issues/2#issuecomment-5412869230",
+  "author": "navigatorbuilds",
+  "posted_at": "2026-08-26T00:37:00+09:00",
+  "comment_body_sha256_12": "8ef96deaeec6",
+  "note": "Rows copied from the comment fences without edits. The pattern patch that produced them was not published.",
+  "files": {
+    "locality_moves_2026-08-28.jsonl": {
+      "rows": 35,
+      "role": "moved_out"
+    },
+    "locality_adds_2026-08-28.jsonl": {
+      "rows": 5,
+      "role": "moved_in"
+    }
+  }
+}

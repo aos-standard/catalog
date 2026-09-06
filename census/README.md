@@ -19,6 +19,13 @@ No product SKU, no pricing, no CTA, no individual server verdicts in this releas
 Snapshot: 73,561 version rows · sha256 `16fe770a2b549902bfb2279e0f3916d9c0bf7c3e3a156ed1d32d94f7d601f318`
 (Corrected 2026-08-24: was `9c0d6b100b1ef08e251e37c57e2d55ab9f4b22825a56709bbfb85208481dcd61`, the hash of an unbundled JSON array; now the decompressed content of the bundled `registry_2026-08-16.jsonl.gz`.)
 
+`snapshot_sha256` covers these bytes (canonical JSONL):
+
+- one record per line
+- `json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"`
+- UTF-8 · LF
+- identical to the payload inside `registry_*.jsonl.gz` from `pack-gz`
+
 ## What was counted
 
 Phrase match against server `title` and `description` among **active** records only.
@@ -38,12 +45,16 @@ Full regex list: `registry_capability_census.py` (`AXES` constant).
 ### "No network / offline" sub-count (27)
 
 This sub-count is **not** the full network axis. It applies only to the **132**
-process-capability rows and uses these six phrase patterns:
+process-capability rows and uses these six phrase patterns (regex; optional
+separators match `air gapped`, `airgapped`, `local only`, etc.):
 
 ```
-no network · fully offline · works offline · air-gapped · local-only ·
-never leaves your machine/device/computer
+no network · fully offline · works offline · air[-\s]?gapped · local[-\s]only ·
+never leaves your (?:machine|device|computer)
 ```
+
+(Corrected 2026-08-25: published `method.network_offline_phrases` listed literal
+strings narrower than the implementation regexes above; counts unchanged.)
 
 Broader network-axis hits (e.g. `no telemetry`) are excluded because they do not
 assert absence of communication. Machine-readable copy: `results_2026-08-16.json`
@@ -102,6 +113,26 @@ Update this table before publishing an individual judgment that skips a scannabl
 
 Bundled snapshot files are included so the same counts reproduce without re-fetching.
 
+### 1. Bundled snapshot only (no re-fetch)
+
+Use the files in this directory as-is. No `registry_full.json` is required.
+
+```bash
+# ① Provenance self-check (used by shelf_sync before push)
+python3 registry_capability_census.py verify .
+
+# ② Recompute counts from the bundled gz (must match results_2026-08-16.json)
+python3 registry_capability_census.py write-results registry_2026-08-16.jsonl.gz \
+  -o /tmp/results_check.json --run-date 2026-08-16
+# snapshot_sha256 → 16fe770a... · network_offline_approx → 27 · process → 132 · scannable → 372
+```
+
+`--run-date 2026-08-16` is required; omitting it defaults to today's date.
+
+### 2. Fresh fetch (numbers move if the registry moved)
+
+`registry_full.json` is **not** bundled; it is produced only on this path.
+
 ```bash
 # Optional fresh fetch (changes numbers if registry moved)
 python3 fetch_registry_snapshot.py -o registry_full.json
@@ -116,9 +147,10 @@ python3 registry_capability_census.py write-reduced registry_full.json \
 
 # Aggregate results JSON
 python3 registry_capability_census.py write-results registry_full.json \
-  -o results_2026-08-16.json
+  -o results_2026-08-16.json --run-date 2026-08-16
 
-# Provenance self-check (used by shelf_sync before push)
+# Provenance check — requires DIGESTS.json (run refresh-metadata after edits)
+python3 registry_capability_census.py refresh-metadata .
 python3 registry_capability_census.py verify .
 ```
 

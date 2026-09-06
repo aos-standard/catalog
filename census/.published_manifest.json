@@ -1,0 +1,23 @@
+{
+  "schema": "aos-shelf-owned.v1",
+  "owned": [
+    ".published_manifest.json",
+    "DIGESTS.json",
+    "README.md",
+    "RUNS.jsonl",
+    "SERIES.md",
+    "fetch_registry_snapshot.py",
+    "locality_adds_2026-08-28.jsonl",
+    "locality_lists_2026-08-28.provenance.json",
+    "locality_moves_2026-08-28.jsonl",
+    "moved_claims_diff.py",
+    "moved_in.jsonl",
+    "moved_out.jsonl",
+    "registry_2026-08-16.jsonl.gz",
+    "registry_capability_census.py",
+    "results_2026-08-16.json",
+    "results_2026-08-28.adjudicated.json",
+    "results_2026-08-28.mechanical.json",
+    "servers_2026-08-16.jsonl"
+  ]
+}

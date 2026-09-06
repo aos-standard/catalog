@@ -1,0 +1,10 @@
+{
+  "schema": "aos-shelf-owned.v1",
+  "owned": [
+    ".published_manifest.json",
+    "README.md",
+    "aos-standard__mcp-blast-radius.json",
+    "endpoints/aos-standard__mcp-blast-radius.json",
+    "public_key.pem"
+  ]
+}

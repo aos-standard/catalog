@@ -1,0 +1,5 @@
+{"name": "com.limzo/telegram-group-stats", "cause": "\\bno api keys?\\b", "claim": "Limzo Telegram Group Stats Read-only public Telegram group stats from Limzo: leaderboards, activity, levels. No API key."}
+{"name": "io.github.0xfreak0/sui-mcp", "cause": "\\bno api keys?\\b", "claim": "Sui Analytics Read-only Sui blockchain analytics: 59 tools, protocol-aware tx decoding, no API keys or wallet."}
+{"name": "io.github.AliAkhtari78/spotifyscraper", "cause": "\\bno api keys?\\b", "claim": "Public Spotify metadata, lyrics and podcasts for LLM agents. No API key, read-only."}
+{"name": "io.github.Mustafashehab/sima-mcp-server", "cause": "\\bno api keys?\\b", "claim": "SIMA MCP Server Read-only MCP server for SIMA Solana AI agent protection discovery. No API keys required."}
+{"name": "io.github.jsilets/twscrape-twitter-mcp", "cause": "\\bno api keys?\\b", "claim": "twscrape Twitter/X (read-only) Read-only X/Twitter MCP: posts, threads, replies, search via twscrape. No API key."}

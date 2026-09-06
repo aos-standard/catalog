@@ -1,11 +1,17 @@
 {
   "schema": "aos-census-digests.v2",
   "static_files": {
-    "README.md": "1ad2b001267f63c315cf0936f3fda2731bc23d7d3e1a34ebfcd98db1aad462d8",
+    "README.md": "22b90b8d159f37f2db27a5d3230cd7c738f9cae6e10dc686d24cbbdf1be4361e",
     "fetch_registry_snapshot.py": "48b0e6df57fae4b9eded5dfefcb96b87f9ac05740c69c26408722df803ce772a",
-    "registry_capability_census.py": "7b5443962f7507a28a51d896c291d600c9e7ff7412128e4a0a6bc49c9404f44e",
-    "SERIES.md": "f766b0e737e198ddee4db21b876a89a2469a19fa7b1834902602b409d2f53283",
-    "RUNS.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "registry_capability_census.py": "f133acb1547870a3f709987a62f8a2a765fbe77e29f4580531aa629f036134c1",
+    "SERIES.md": "244cae58ee99f6ce0fa6522964eaf01ab841903259528bbe6830426e8c68f1e7",
+    "RUNS.jsonl": "0614f5f55a5b772a1556b08446d72ed19ca66d12fcfc062819b9999757a7697f",
+    "locality_moves_2026-08-28.jsonl": "d104f1140f6368114869b311344580a2cff7c42ad172b0e5e886fe048f138340",
+    "locality_adds_2026-08-28.jsonl": "5c6b1aa34f5760ec6b073aa80ff5c0b34ae616721430260b07177081a27c3a5a",
+    "locality_lists_2026-08-28.provenance.json": "1a8429e13885cc0d326eb1b00baf0291b24fbb223ff23e9bace0175653c2aa0e",
+    "moved_claims_diff.py": "41a67ca3ef27e1a6b8246528993a538dc2e3e5330625ebc02559840ef3223fca",
+    "moved_out.jsonl": "80ac04a7031df35db1aade0f55e36cafa5bb1e3a807d039a069b3d2326381b7d",
+    "moved_in.jsonl": "5c6b1aa34f5760ec6b073aa80ff5c0b34ae616721430260b07177081a27c3a5a"
   },
   "runs": {
     "2026-08-16": {
@@ -16,7 +22,31 @@
       },
       "sha256": {
         "servers": "8045d078cac5efadbe18d7ff206a4cd4d395dc47990d9ccad1c4524c3b04dd27",
-        "results": "0ab0d8ab05d5299c1bf36100c8fd8177d90e82641180bea3db4ef0255e0476e9",
+        "results": "207d23a9b38cbde862e151da82264a1289c58168da9fd4117d2b7dac63e5e72f",
+        "registry_gz": "4b69632cc65dde8457ba2723f84394c4d10aa2054d577c1e15529a4e41069ab5"
+      }
+    },
+    "2026-08-28.adjudicated": {
+      "paths": {
+        "servers": "servers_2026-08-16.jsonl",
+        "results": "results_2026-08-28.adjudicated.json",
+        "registry_gz": "registry_2026-08-16.jsonl.gz"
+      },
+      "sha256": {
+        "servers": "8045d078cac5efadbe18d7ff206a4cd4d395dc47990d9ccad1c4524c3b04dd27",
+        "results": "579f8bb7f5ae30e974e514247b6cdc61ccc022ab4ccd14ec43bc6472d3d47cc1",
+        "registry_gz": "4b69632cc65dde8457ba2723f84394c4d10aa2054d577c1e15529a4e41069ab5"
+      }
+    },
+    "2026-08-28.mechanical": {
+      "paths": {
+        "servers": "servers_2026-08-16.jsonl",
+        "results": "results_2026-08-28.mechanical.json",
+        "registry_gz": "registry_2026-08-16.jsonl.gz"
+      },
+      "sha256": {
+        "servers": "8045d078cac5efadbe18d7ff206a4cd4d395dc47990d9ccad1c4524c3b04dd27",
+        "results": "5f66a62bd76490b9f2846b8a2cc1b86a9f6cde340e1e479b3b79e17507cf3629",
         "registry_gz": "4b69632cc65dde8457ba2723f84394c4d10aa2054d577c1e15529a4e41069ab5"
       }
     }
