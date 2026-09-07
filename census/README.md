@@ -162,6 +162,47 @@ Open challenge on the 372 -> 132 step: https://github.com/aos-standard/catalog/i
 Dated snapshots are kept indefinitely; a count published here can be recomputed against the snapshot it was computed from.
 Requests to remove third-party data from a snapshot: open an issue here. We do not process them automatically and we record that the request was made.
 
+## Second method on the same snapshot (2026-08-28)
+
+This is a second method on the **2026-08-16** snapshot, not a correction of the first census.
+The first run stays at 132 / 240 / 27 under `method_version` `2026-08-16.1`.
+
+A third-party review by [navigatorbuilds](https://github.com/navigatorbuilds) listed 35 rows moving out of process and 5 moving in (`catalog#2` [comment](https://github.com/aos-standard/catalog/issues/2#issuecomment-5412869230), 2026-08-26 00:37 JST). The lists are bundled as `locality_moves_2026-08-28.jsonl` and `locality_adds_2026-08-28.jsonl`. The regex patch that produced those rows was **not published**. Attribution stays with navigatorbuilds; we do not take it.
+
+Two overlays are computed from those lists (same snapshot sha256 `16fe770a…`):
+
+| method_version | process | data-domain | scannable | network_offline |
+|---|---:|---:|---:|---:|
+| `2026-08-16.1` (first census) | 132 | 240 | 372 | 27 |
+| `2026-08-28.mechanical` | **102** | 270 | 372 | 27 |
+| `2026-08-28.adjudicated` | **116** | 256 | 372 | 27 |
+
+Mechanical = 132 − 35 + 5. Adjudicated = mechanical + the 14 rows marked `subject_call=returns`. The difference between 102 and 116 is those 14 rows. The 2 rows marked `gray` are not restored, so the adjudicated count is a single number, not a range.
+
+372 and 27 are unchanged across all three. That 27 is invariant under both draws is navigatorbuilds' finding; `verify` fails if any of the three versions reports a different `network_offline_approx`.
+
+116 depends on the per-row `subject_call` labels in the 35-row list. 102 does not.
+
+### Reproducibility of 102 is weaker than 132
+
+The first census's 132 can be re-derived from the snapshot text with the regex in this directory. You do not need a row list.
+
+**102 is deterministic against the published 40-row lists, but it cannot be re-derived from the descriptions alone**, because the patch that produced the lists was not published. Third parties can check each listed row (we did). That is a different property from “the regex yields the number.”
+
+```bash
+python3 registry_capability_census.py write-results registry_2026-08-16.jsonl.gz \
+  -o /tmp/results_mechanical.json --run-date 2026-08-16 \
+  --method-version 2026-08-28.mechanical
+# process → 102 · data-domain → 270 · scannable → 372 · network_offline → 27
+
+python3 registry_capability_census.py write-results registry_2026-08-16.jsonl.gz \
+  -o /tmp/results_adjudicated.json --run-date 2026-08-16 \
+  --method-version 2026-08-28.adjudicated
+# process → 116 · data-domain → 256 · scannable → 372 · network_offline → 27
+```
+
+Omitting `--method-version` keeps `2026-08-16.1` (132).
+
 ## Method-comparison harness (`moved_claims_diff.py`)
 
 Carries the locality-pattern refinement discussed in
@@ -175,3 +216,11 @@ patterns; 35 moved out (25 sandbox / 8 files / 2 local), 5 moved in
 rows reproduce exactly. The shipped census spec is not modified and no new
 method version is declared here — publishing the patch only makes the second
 reading re-derivable from text rather than checkable against a list (VCL-0017).
+
+Source: https://github.com/aos-standard/catalog/pull/3
+Author: navigatorbuilds (Nenad Vasic, AI maintainer)
+Ingested: 2026-09-05
+Ruling: R-20260830-01 (census/ placement allowed)
+License: MIT by the author's explicit consent in
+https://github.com/aos-standard/catalog/issues/2#issuecomment-5544770893
+Attribution stays with navigatorbuilds.
