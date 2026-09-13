@@ -569,9 +569,28 @@ def write_series_md(census_dir: Path) -> None:
     (census_dir / "SERIES.md").write_text("\n".join(lines), encoding="utf-8")
 
 
+def _local_registry_snapshot_path(census_dir: Path, run_date: str) -> Path:
+    """Dev-local full snapshot (outside public census tree; R-20260816-04)."""
+    return census_dir.parent.parent / "registry_census_snapshots" / f"registry_{run_date}.json"
+
+
+def _run_date_from_servers_name(servers_name: str) -> str:
+    if servers_name.startswith("servers_") and servers_name.endswith(".jsonl"):
+        return servers_name[len("servers_") : -len(".jsonl")]
+    return ""
+
+
 def _snapshot_source_for_run(census_dir: Path, run_paths: dict[str, str]) -> Path:
+    """Prefer public gz; fall back to Dev-local JSON array. Never use reduced servers."""
     if "registry_gz" in run_paths:
-        return census_dir / run_paths["registry_gz"]
+        gz_path = census_dir / run_paths["registry_gz"]
+        if gz_path.is_file():
+            return gz_path
+    run_date = _run_date_from_servers_name(run_paths.get("servers", ""))
+    if run_date:
+        local = _local_registry_snapshot_path(census_dir, run_date)
+        if local.is_file():
+            return local
     raise ValueError(f"no snapshot source for run: {run_paths}")
 
 

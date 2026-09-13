@@ -14,10 +14,13 @@
     "moved_in.jsonl",
     "moved_out.jsonl",
     "registry_2026-08-16.jsonl.gz",
+    "registry_2026-09-13.jsonl.gz",
     "registry_capability_census.py",
     "results_2026-08-16.json",
     "results_2026-08-28.adjudicated.json",
     "results_2026-08-28.mechanical.json",
-    "servers_2026-08-16.jsonl"
+    "results_2026-09-13.json",
+    "servers_2026-08-16.jsonl",
+    "servers_2026-09-13.jsonl"
   ]
 }
