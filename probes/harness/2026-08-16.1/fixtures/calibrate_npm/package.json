@@ -1,0 +1,14 @@
+{
+  "name": "aos-bp-calibrate-npm",
+  "version": "0.0.1",
+  "description": "No-op MCP server for behavior-probe instrument calibration (no network, no writes).",
+  "bin": {
+    "aos-bp-calibrate-npm": "./server.js"
+  },
+  "files": [
+    "server.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

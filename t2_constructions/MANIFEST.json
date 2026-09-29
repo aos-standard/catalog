@@ -2,7 +2,7 @@
   "schema": "aos-t2-constructions.v1",
   "count_correction": "A public comment said 'nine constructions'. The set that was actually run is ten mutations plus baseline (eleven artifacts). That miscount is ours; it is not hidden.",
   "input": {
-    "anchors_path": "/home/tetsuroh/Dev/03_Infrastructure/public_catalog_export/ANCHORS.jsonl",
+    "anchors_path": "03_Infrastructure/public_catalog_export/ANCHORS.jsonl",
     "anchors_sha256": "d0a5857384624babbbac8d2d2b08fc6f35d61a0fd0d46b0471f163e0475e7c97",
     "anchors_line_count": 24
   },

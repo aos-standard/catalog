@@ -34,6 +34,27 @@ CONSTRUCTION_IDS = (
     "H",
 )
 
+_EXPORT_PREFIX = Path("03_Infrastructure") / "public_catalog_export"
+
+
+def _manifest_anchors_path(anchors_path: Path) -> str:
+    """Repository-relative path for public MANIFEST.json (no host path)."""
+    resolved = anchors_path.resolve()
+    here = Path(__file__).resolve().parent
+    try:
+        return (_EXPORT_PREFIX / resolved.relative_to(here)).as_posix()
+    except ValueError:
+        pass
+    for parent in resolved.parents:
+        if (parent / "03_Infrastructure").is_dir() and (
+            (parent / ".git").exists() or (parent / "CLAUDE.md").is_file()
+        ):
+            try:
+                return resolved.relative_to(parent).as_posix()
+            except ValueError:
+                break
+    return (_EXPORT_PREFIX / resolved.name).as_posix()
+
 # Expected outcomes from the 2026-08-11 self-attack (anchors-verify-v0.5).
 EXPECTED: dict[str, dict[str, Any]] = {
     "baseline": {
@@ -279,7 +300,7 @@ def generate(
             "That miscount is ours; it is not hidden."
         ),
         "input": {
-            "anchors_path": str(anchors_path.resolve()),
+            "anchors_path": _manifest_anchors_path(anchors_path),
             "anchors_sha256": sha256_bytes(content),
             "anchors_line_count": len(base_lines),
         },

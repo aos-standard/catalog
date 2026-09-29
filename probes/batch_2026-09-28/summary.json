@@ -1,0 +1,47 @@
+{
+  "accounting_bridge": {
+    "cargo_unmeasured": 1,
+    "excluded": 2,
+    "not_measured_verdict": 10,
+    "nuget_unmeasured": 1,
+    "unmeasured": 8
+  },
+  "denominator": {
+    "cargo": 1,
+    "mcpb": 2,
+    "npm": 14,
+    "nuget": 1,
+    "pypi": 9
+  },
+  "denominator_total": 27,
+  "excluded": 2,
+  "exclusions": [
+    {
+      "name": "io.github.CanopyHQ/phloem",
+      "reason_class": "unreachable-repository"
+    },
+    {
+      "name": "io.github.JoyTruepath/truepath-office-mcp",
+      "reason_class": "unreachable-repository"
+    }
+  ],
+  "measured": 17,
+  "rows_by_registry": {
+    "cargo": 1,
+    "mcpb": 2,
+    "npm": 14,
+    "nuget": 1,
+    "pypi": 9
+  },
+  "start_failed": {
+    "start_failed_dependency_incompatible": 2,
+    "start_failed_entrypoint_not_mcp": 1,
+    "start_failed_stderr_unavailable": 1
+  },
+  "unmeasured": 8,
+  "verdicts": {
+    "claim_contradicted": 1,
+    "not_contradicted_within_coverage": 16,
+    "not_measured": 10
+  }
+}
