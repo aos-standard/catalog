@@ -597,8 +597,10 @@ def _resolve_trust_repo(
     expect_witness_repo: str | None,
     context: str,
 ) -> str:
+    if stream_repo is not None and not stream_repo.strip():
+        _fail(f"{context}: names no witness repository")
     if expect_witness_repo:
-        if stream_repo and stream_repo != expect_witness_repo:
+        if stream_repo is not None and stream_repo != expect_witness_repo:
             _fail(
                 f"{context}: stream names repo {stream_repo!r} but "
                 f"--expect-witness-repo is {expect_witness_repo!r}"
@@ -747,6 +749,11 @@ def verify_position_bindings(
                 f"position_binding_introduced at line {binding_index + 1} "
                 "missing repo or commit"
             )
+        if not stream_repo.strip():
+            _fail(
+                f"position binding at line {binding_index + 1}: "
+                "names no witness repository"
+            )
 
         query_repo = _resolve_trust_repo(
             stream_repo,
@@ -861,24 +868,60 @@ def fetch_repo_lines(repo: str, ref: str, path: str) -> list[bytes]:
     return bytes_to_lines(fetch_url(url))
 
 
+def _first_differing_line(
+    presented_lines: list[bytes], reference_lines: list[bytes]
+) -> int:
+    """1-based index of the first line that differs within presented length."""
+    for index, presented in enumerate(presented_lines):
+        if index >= len(reference_lines) or presented != reference_lines[index]:
+            return index + 1
+    return len(presented_lines)
+
+
+def _default_branch_prefix_note(
+    presented_lines: list[bytes], main_lines: list[bytes]
+) -> str | None:
+    """Compare presented stream to default-branch tip by byte prefix.
+
+    Returns a note when presented is an exact byte-prefix of main and shorter
+    (not a failure). Raises VerifyError when shorter and not a prefix.
+    """
+    presented_count = len(presented_lines)
+    main_count = len(main_lines)
+    if main_count <= presented_count:
+        return None
+    presented_bytes = b"".join(presented_lines)
+    main_bytes = b"".join(main_lines)
+    if main_bytes.startswith(presented_bytes):
+        return (
+            "presented stream is a byte-prefix of the default branch "
+            f"({presented_count} of {main_count} lines); "
+            f"lines beyond {presented_count} are not presented"
+        )
+    differing = _first_differing_line(presented_lines, main_lines)
+    _fail(
+        "truncation vector 2: presented stream diverges from default branch "
+        f"within its own length (first differing line {differing})"
+    )
+    return None  # unreachable; _fail always raises
+
+
 def verify_truncation_length_only(
     presented_lines: list[bytes],
     *,
     witness_lines: list[bytes] | None,
     main_lines: list[bytes] | None,
-) -> None:
-    """Legacy vector 2: line-count floor only (fork-vulnerable — for self-test contrast)."""
+) -> str | None:
+    """Legacy vector 2: witness length floor; main compared by byte prefix."""
     presented_count = len(presented_lines)
     if witness_lines is not None and len(witness_lines) > presented_count:
         _fail(
             "truncation vector 2: presented stream shorter than witness commit "
             f"({presented_count} vs {len(witness_lines)} lines)"
         )
-    if main_lines is not None and len(main_lines) > presented_count:
-        _fail(
-            "truncation vector 2: presented stream shorter than main branch "
-            f"({presented_count} vs {len(main_lines)} lines)"
-        )
+    if main_lines is not None:
+        return _default_branch_prefix_note(presented_lines, main_lines)
+    return None
 
 
 def verify_truncation_against_witness(
@@ -888,23 +931,25 @@ def verify_truncation_against_witness(
     main_lines: list[bytes] | None,
     expect_witness_repo: str | None,
     max_attested_lines: int,
-) -> None:
-    """Vector 2 for unattested tip: length floor only when prefix not yet bound."""
+) -> str | None:
+    """Vector 2 for unattested tip: witness length floor; main by byte prefix.
+
+    Returns a default-branch prefix note when the presented stream is a proper
+    byte-prefix of main (caller caps outcome at PARTIAL). Witness-commit
+    shortness remains fail closed.
+    """
     presented_count = len(presented_lines)
     if presented_count <= max_attested_lines:
-        return
+        return None
     if witness_lines is not None and len(witness_lines) > presented_count:
         _fail(
             "truncation vector 2: presented stream shorter than witness commit "
             f"({presented_count} vs {len(witness_lines)} lines); "
             "detection assumes witness platform history has not been rewritten"
         )
-    if main_lines is not None and len(main_lines) > presented_count:
-        _fail(
-            "truncation vector 2: presented stream shorter than main branch "
-            f"({presented_count} vs {len(main_lines)} lines); "
-            "detection assumes witness platform history has not been rewritten"
-        )
+    if main_lines is not None:
+        return _default_branch_prefix_note(presented_lines, main_lines)
+    return None
 
 
 def format_result_summary(result: dict[str, Any]) -> str:
@@ -924,12 +969,15 @@ def classify_verification_outcome(
 ) -> tuple[int, str, str]:
     """Return (exit_code, stream, message) where stream is stdout or stderr."""
     summary = format_result_summary(result)
+    prefix_note = result.get("default_branch_prefix_note")
     if not expect_witness_repo:
         detail = (
             f"VERIFY UNPINNED: {summary}\n"
             "trust anchor not pinned (--expect-witness-repo omitted); "
             "verification cannot be cited as fully anchored"
         )
+        if prefix_note:
+            detail = f"{detail}\n{prefix_note}"
         return EXIT_UNPINNED, "stderr", detail
     covered = result.get("attested_unit_covered")
     if covered is None and presented_lines is not None:
@@ -942,7 +990,7 @@ def classify_verification_outcome(
             "classify_verification_outcome requires attested_unit_covered "
             "in result or presented_lines"
         )
-    if not covered:
+    if prefix_note or not covered:
         attested = result["attested_prefix_lines"]
         total = result["lines"]
         detail = (
@@ -951,6 +999,8 @@ def classify_verification_outcome(
             "VERIFY OK requires no anchor record rows after the attested "
             "prefix (boundary event rows alone are allowed)"
         )
+        if prefix_note:
+            detail = f"{detail}\n{prefix_note}"
         return EXIT_PARTIAL, "stderr", detail
     detail = f"VERIFY OK: {summary}"
     return EXIT_OK, "stdout", detail
@@ -1009,6 +1059,7 @@ def verify_from_bytes(
         )
 
     witness = load_active_witness(lines)
+    default_branch_prefix_note: str | None = None
     if check_witness_platform:
         repo: str | None = None
         commit: str | None = None
@@ -1016,6 +1067,8 @@ def verify_from_bytes(
             repo_val = witness.get("repo")
             commit_val = witness.get("commit")
             if isinstance(repo_val, str) and isinstance(commit_val, str):
+                if not repo_val.strip():
+                    _fail("active witness names no repository")
                 repo, commit = repo_val, commit_val
             else:
                 _fail("active witness missing repo or commit")
@@ -1023,6 +1076,8 @@ def verify_from_bytes(
             repo = repo_from_raw_github_url(anchors_url)
 
         if expect_witness_repo:
+            if repo is not None and not repo.strip():
+                _fail("active witness names no repository")
             if repo and repo != expect_witness_repo:
                 _fail(
                     f"stream witness repo {repo!r} != --expect-witness-repo "
@@ -1037,7 +1092,7 @@ def verify_from_bytes(
                 witness_lines = fetch_repo_lines(query_repo, commit, "ANCHORS.jsonl")
             if main_lines is None and query_repo:
                 main_lines = fetch_repo_lines(query_repo, "main", "ANCHORS.jsonl")
-            verify_truncation_against_witness(
+            default_branch_prefix_note = verify_truncation_against_witness(
                 lines,
                 witness_lines=witness_lines,
                 main_lines=main_lines,
@@ -1056,6 +1111,7 @@ def verify_from_bytes(
         "witness_commit": witness.get("commit") if witness else None,
         "attested_prefix_lines": max_attested,
         "attested_unit_covered": unit_covered,
+        "default_branch_prefix_note": default_branch_prefix_note,
     }
 
 
@@ -1210,7 +1266,7 @@ def _rejection_class(exc: BaseException) -> str:
         return "fork"
     if "not reachable from" in message or "cannot confirm commit" in message:
         return "unreachable_witness"
-    if "truncation vector" in message:
+    if "truncation vector" in message or "diverges from default branch" in message:
         return "truncation"
     if isinstance(exc, VerifyUnattested):
         return "unattested"

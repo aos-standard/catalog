@@ -7,11 +7,11 @@ Standalone checker for [`ANCHORS.jsonl`](ANCHORS.jsonl) and [`ANCHORS.jsonl.dige
 The canonical distribution is a **single file** fetched and executed directly. **Zero dependencies.**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.11/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.12/anchors_verify.py
 python3 anchors_verify.py --self-test
 ```
 
-To pin a release, reference tag **`anchors-verify-v0.11`** in the URL (not `main`). Older tags (`anchors-verify-v0.10`, `v0.9`, `v0.8`, `v0.7`, `v0.6`, `v0.5`, `v0.4`, `v0.2`, `v0.1`) remain available for history. **Published tags are never re-pointed.**
+To pin a release, reference tag **`anchors-verify-v0.12`** in the URL (not `main`). Older tags (`anchors-verify-v0.11`, `v0.10`, `v0.9`, `v0.8`, `v0.7`, `v0.6`, `v0.5`, `v0.4`, `v0.2`, `v0.1`) remain available for history. **Published tags are never re-pointed.**
 
 **`anchors-verify-v0.3` was published pointing at the wrong commit and does not implement the `VERIFY PARTIAL` / `VERIFY UNPINNED` outcomes documented here. It is superseded by `v0.4` and left in place rather than re-pointed, because re-pointing a published tag would break the reproducibility this verifier exists to check.**
 
@@ -25,21 +25,23 @@ To pin a release, reference tag **`anchors-verify-v0.11`** in the URL (not `main
 
 **Unterminated final line (v0.11):** Same input bytes may yield a different outcome under a newer verifier. A stream whose final line has no trailing newline byte was hashed as if it had one through v0.10; under v0.11 it is hashed as stored, so such a stream that was VERIFY PARTIAL can become VERIFY FAILED (digest mismatch at the final line). Tags are not re-pointed. This is a byte-faithfulness fix against the text as written, not a security-impact claim.
 
+**Default-branch prefix and empty witness repo (v0.12):** Same input bytes may yield a different outcome under a newer verifier. Through v0.11, a tag-pinned run older than `main` returned **VERIFY FAILED** (`truncation vector 2`, presented line count vs default-branch line count) even when the presented stream was an exact byte-prefix of `main`. Under v0.12 that case is **VERIFY PARTIAL** with a prefix note — not FAILED, and not OK. A presented stream that is shorter than `main` but diverges within its own length still fails closed. An empty or whitespace-only witness repository name in a position binding or active witness also fails closed. Tags are not re-pointed.
+
 This verifier is **not distributed as a PyPI package.** Requiring `pip install` would ask auditors to trust the supply chain; a single file can be read in full before execution.
 
-**Run (copy-paste — tag-fixed, reproducible):**
+**Run (copy-paste — tag-pinned code and inputs):**
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.11/anchors_verify.py
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.11/ANCHORS.jsonl
-curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.11/ANCHORS.jsonl.digests.json
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.12/anchors_verify.py
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.12/ANCHORS.jsonl
+curl -sLO https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.12/ANCHORS.jsonl.digests.json
 python3 anchors_verify.py \
   --anchors-url file://$(pwd)/ANCHORS.jsonl \
   --digests-url file://$(pwd)/ANCHORS.jsonl.digests.json \
   --expect-witness-repo aos-standard/catalog
 ```
 
-The bundled files come from the **same tag** as the verifier. You can reproduce without referencing `main`.
+The code and the three input files are pinned by the tag. The verifier still reads the witness repository's default branch, for two checks: binding-commit ancestry, and whether the presented stream is a byte-prefix of the current stream. A tag older than `main` therefore yields `VERIFY PARTIAL` with the prefix note — not `VERIFY OK`, and not `VERIFY FAILED`.
 
 **Self-test (adversarial vectors, no network):**
 
@@ -61,6 +63,8 @@ python3 anchors_verify.py \
 ## Verification outcomes (do not conflate)
 
 **Contract change (v0.4):** Prior releases through `v0.2` (and the mis-pointed `v0.3` tag) treated partial attestation like full success (`VERIFY OK` with `attested_prefix_lines < lines`). **`v0.4` adds distinct outcomes and exit codes.**
+
+**Contract change (v0.12):** Comparison to the witness repository's default branch uses **byte-prefix** of the presented stream, not line-count alone. A tag-pinned stream that is an exact byte-prefix of a longer `main` yields **VERIFY PARTIAL** (with a prefix note), not FAILED. Through v0.11, a tag-pinned run older than `main` returned VERIFY FAILED (`truncation vector 2`). A shorter stream that diverges within its own length fails closed. Empty or whitespace-only witness repository names fail closed. Witness-commit shortness checks are unchanged.
 
 **Contract change (v0.11):** The final line is hashed as stored. No byte is added before hashing.
 
@@ -93,7 +97,7 @@ python3 anchors_verify.py \
 - **Integer fields (v0.9):** `line_count`, `byte_length`, `size_bytes`, and `rows` reject JSON booleans (`true` is not `1`).
 - **`rule_version` (v0.8):** only the three known event↔version pairs are accepted. Unknown or mismatched values fail closed.
 - **Truncation vector 1:** fewer anchor lines than digest entries → fail closed.
-- **Truncation vector 2 (unattested tip only):** anchor lines and sidecar both shortened but internally consistent → fail closed **when compared to witness platform snapshots** on lines **after** the last `position_binding_introduced` attestation.
+- **Truncation vector 2 (unattested tip only):** anchor lines and sidecar both shortened but internally consistent → fail closed when shorter than the **witness commit** snapshot, or when shorter than the default branch and **not** a byte-prefix of it (divergence within presented length). An exact byte-prefix of a longer default branch is **not** FAILED; the outcome is capped at **VERIFY PARTIAL** with a prefix note.
 - **Position binding (attested prefix):** for each `position_binding_introduced` event, the verifier fetches `ANCHORS.jsonl` at the named witness commit and checks that the attested **prefix length, byte length, and SHA-256** match **byte-for-byte** on the witness platform and in the presented stream. Inserted fake boundaries inside an attested prefix are detected.
 - **Witness commit history (v0.7):** name match alone is insufficient. Each binding commit must be **reachable from the pin repository's default branch** via `GET /repos/{repo}/compare/{default_branch}...{sha}` with **`ahead_by == 0`** (ancestor or identical). Commits that exist only under `refs/pull/N/head` (fork PR heads) fail closed. Do **not** use “which branches have this SHA as tip” queries — legitimate ancestor commits are not branch heads. If ancestry cannot be confirmed (network, API limits, malformed responses), the verifier **does not** return OK or PARTIAL.
 
@@ -102,6 +106,7 @@ python3 anchors_verify.py \
 **Required for VERIFY OK or VERIFY PARTIAL.** Supply the witness repository as `owner/repo` (e.g. `aos-standard/catalog`). The verifier uses this as the trust anchor for platform queries instead of accepting whatever repository the stream under verification names.
 
 - If `--expect-witness-repo` is set and the stream names a different repository → **fail closed** (`VERIFY FAILED`).
+- If the stream names no repository (empty) → **fail closed**.
 - If set, each binding commit must also lie on that repository's **default-branch history** (`ahead_by == 0`); otherwise **fail closed**. Unconfirmable ancestry → **fail closed** (never OK/PARTIAL).
 - If omitted → **warning** plus **`VERIFY UNPINNED`** (exit 4): a forged stream can point queries at an attacker-controlled repository.
 
