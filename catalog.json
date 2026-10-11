@@ -1,11 +1,31 @@
 {
-  "catalog_version": "1.0.0",
-  "generated_at": "2026-10-04T23:41:13.251574+00:00",
+  "catalog_version": "1.1.0",
+  "generated_at": "2026-10-11T23:41:21.289733+00:00",
   "publisher": "aos-standard",
   "maintainers": [
     "Tetsurohhori"
   ],
   "spec": "https://github.com/aos-standard/AOS-spec",
+  "trust": {
+    "verifier": {
+      "file": "anchors_verify.py",
+      "url": "https://github.com/aos-standard/catalog/blob/anchors-verify-v0.12/anchors_verify.py",
+      "pinned_tag": "anchors-verify-v0.12",
+      "how_to_run": "ANCHORS_VERIFY.md",
+      "distribution": "single-file, curl; not on PyPI"
+    },
+    "conduct_ledger": {
+      "file": "CONDUCT.jsonl",
+      "reader_guide": "CONDUCT.md",
+      "append_only": true,
+      "not_a_kpi": true
+    },
+    "anchors": {
+      "file": "ANCHORS.jsonl",
+      "digests": "ANCHORS.jsonl.digests.json",
+      "cadence": "weekly"
+    }
+  },
   "total_products": 2,
   "products": [
     {
