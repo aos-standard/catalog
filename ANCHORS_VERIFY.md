@@ -49,6 +49,8 @@ The code and the three input files are pinned by the tag. The verifier still rea
 python3 anchors_verify.py --self-test
 ```
 
+**Cases:** `docs/cases/` holds runnable pairs with measured verdicts and stop reasons (first: `docs/cases/unterminated-final-line/`, pinned at `anchors-verify-v0.12`).
+
 **Optional — verify live `main` tip (not tag-fixed):**
 
 Use this only when you intentionally want the moving witness stream on `main`. Results depend on how many lines exist on `main` at fetch time.
@@ -83,6 +85,8 @@ python3 anchors_verify.py \
 | **VERIFY UNATTESTED** | 2 | Digest and boundary checks passed, but **`attested_prefix_lines=0`** — no position binding. Not a successful verification. |
 | **VERIFY UNPINNED** | 4 | Digest/binding checks may have run, but **`--expect-witness-repo` was omitted** — trust anchor taken from the stream itself. **Not citable as anchored verification.** |
 | **VERIFY FAILED** | 1 | Digest mismatch, boundary violation, **malformed hybrid row**, **malformed record** (missing/`asset_id` not a string, or integer field is a bool), **unknown `rule_version`**, prefix mismatch, trust-anchor mismatch, or binding commit **not reachable** from the pin repository's default-branch history (or ancestry could not be confirmed). |
+
+`VERIFY PARTIAL` is not a soft pass. It is also the verdict when the sidecar has fewer entries than the stream has lines: the uncovered lines are unverified, the counts in the output say so, and a caller that treats anything but `VERIFY OK` as success is misreading this table.
 
 **Do not treat PARTIAL, UNATTESTED, or UNPINNED as OK.** **Do not treat “OK is absent on a growing tip” as a defect.**
 

@@ -43,6 +43,68 @@ python3 "$VERIFY" \
   --expect-witness-repo aos-standard/catalog
 ```
 
+## Run it in CI (GitHub Actions)
+
+Weekly plus manual. Fetches the four files from tag `anchors-verify-v0.12`, runs the pair, and fails if either exit code or the first stderr line differs from the measured values (3 / `VERIFY PARTIAL`, 1 / `digest mismatch at line 73`). An unauthenticated GitHub API `HTTP 403` is printed as `rate-limited, not a case failure` and fails the job — it is not treated as a pass.
+
+```yaml
+name: unterminated-final-line
+on:
+  schedule:
+    - cron: "17 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  case:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch pinned files and compare the pair
+        run: |
+          set -euo pipefail
+          T=https://raw.githubusercontent.com/aos-standard/catalog/anchors-verify-v0.12
+          curl -fsSLO "$T/anchors_verify.py"
+          for f in terminated.jsonl unterminated.jsonl sidecar.json; do
+            curl -fsSLO "$T/docs/cases/unterminated-final-line/$f"
+          done
+
+          run_case() {
+            local stream="$1"
+            local expect_exit="$2"
+            local expect_needle="$3"
+            set +e
+            python3 anchors_verify.py \
+              --anchors-url "file://$(pwd)/${stream}.jsonl" \
+              --digests-url "file://$(pwd)/sidecar.json" \
+              --expect-witness-repo aos-standard/catalog \
+              >"${stream}.stdout" 2>"${stream}.stderr"
+            local rc=$?
+            set -e
+            local first
+            first=$(head -n 1 "${stream}.stderr")
+            if grep -q "HTTP 403" "${stream}.stderr"; then
+              echo "rate-limited, not a case failure" >&2
+              exit 1
+            fi
+            if [ "$rc" -ne "$expect_exit" ]; then
+              echo "exit mismatch: got $rc want $expect_exit" >&2
+              cat "${stream}.stderr" >&2
+              exit 1
+            fi
+            case "$first" in
+              *"$expect_needle"*) ;;
+              *)
+                echo "stderr mismatch: first line lacked ${expect_needle}" >&2
+                echo "$first" >&2
+                exit 1
+                ;;
+            esac
+            echo "ok ${stream} exit=${rc} first=${first}"
+          }
+
+          run_case terminated 3 "VERIFY PARTIAL"
+          run_case unterminated 1 "digest mismatch at line 73"
+```
+
 ## Expected (measured 2026-10-10)
 
 ### terminated.jsonl
