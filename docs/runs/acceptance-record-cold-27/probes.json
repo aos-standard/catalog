@@ -1,0 +1,547 @@
+{
+ "q00-control-verified": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q01-accepted_at-no-fraction": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q02-accepted_at-offset-plus09-same-instant": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q03-accepted_at-offset-plus09-earlier-instant": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_precedes_outcome"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q04-digest-uppercase-hex": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q05-record-digest-over-5-fields-no-record_id": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_record_digest_mismatch"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_record_digest_mismatch"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_record_digest_mismatch"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q06-record-without-record_id-digest-matches": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q07-complete-omitted": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q08-complete-as-string-true": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 3,
+   "result": "input_error"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q09-duplicate-kid-second-key-is-signer": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "signature_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 3,
+   "result": "input_error"
+  },
+  "reference": {
+   "conditions": [
+    "signature_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q10-kid-delegated-to-both-parties": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_signer_is_issuer"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_signer_is_issuer"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_signer_is_issuer"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q11-confirming_party-whitespace": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_authority_unresolved"
+   ],
+   "disposition": "accepted",
+   "exit": 2,
+   "result": "unknown"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_authority_unresolved"
+   ],
+   "disposition": "accepted",
+   "exit": 2,
+   "result": "unknown"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_authority_unresolved"
+   ],
+   "disposition": "accepted",
+   "exit": 2,
+   "result": "unknown"
+  }
+ },
+ "q12-disposition-capitalised": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q13-alg-ES256-in-header": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q14-header-without-kid": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q15-unknown-extra-member": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q16-version-v1": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q17-payload-non-canonical-json-spaces": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  }
+ },
+ "q18-key-unresolved-and-digest-mismatch-together": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  }
+ },
+ "q19-outcome_at-no-fraction-same-instant": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": "accepted",
+   "exit": 0,
+   "result": "verified"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 3,
+   "result": "input_error"
+  },
+  "reference": {
+   "conditions": [
+    "acceptance_member_invalid"
+   ],
+   "disposition": null,
+   "exit": 1,
+   "result": "malformed"
+  }
+ },
+ "q20-key-unresolved-complete-as-string-true": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 3,
+   "result": "input_error"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  }
+ },
+ "q21-key-unresolved-complete-as-int-1": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 3,
+   "result": "input_error"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  }
+ },
+ "q22-key-unresolved-complete-true-bool": {
+  "actaseal": null,
+  "mine": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "omega": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  },
+  "reference": {
+   "conditions": [],
+   "disposition": null,
+   "exit": 2,
+   "result": "key_unresolved"
+  }
+ }
+}

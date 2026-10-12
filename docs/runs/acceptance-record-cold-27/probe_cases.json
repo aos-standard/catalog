@@ -1,0 +1,927 @@
+{
+ "q00-control-verified": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "PKI_vsMRPBgbva8OyHc6e3VlKFaY9yprEX56DxSIPRQ7RFFyuXCAnT_j3d1xKZrxlr0TWRmHHUR6THlZrlSvAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q01-accepted_at-no-fraction": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMFoiLCJhY2NlcHRlZF9yZWNvcmRfc2hhMjU2IjoiOWNiZGRhMjFmODFhYTgzYjg5MThmNDA3YmUwMzY0OWU1MTE2OGZhY2JiNmE1ZDBjNTdiNDI5Y2ZlNDlhMGIwNyIsImNvbmZpcm1pbmdfcGFydHkiOiJkaWQ6cHJvYmU6Y3AiLCJkaXNwb3NpdGlvbiI6ImFjY2VwdGVkIiwib3V0Y29tZV9zaGEyNTYiOiIyNWE2M2U1MmE5OGY2ZmRhYTYxODdkYTU1OWEwYTNhNTVkODQ1ZDAzMjJjYTE4M2FkNmFkNWUwMDZjNGVkNjQ2IiwidGVybXNfc2hhMjU2IjoiNTFkMjM2MWY0ZmFlYTNiYzhmOWZhY2RiYzdkOTlhYmI1NTU1OTZhMmU1MWY3YjI1ZmQzYjQxYzkzNTg3ZTYxNiJ9",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "Bm7Z0OnbPTH0YB26Dm14crPG7PyyHmN7dAH8nxO5U7u5Yo8FCTbywmY2rfVZW0nNn9JjlW5m0ykkIK7Hwz9tDw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q02-accepted_at-offset-plus09-same-instant": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNVQwMzowNTowMC4wMDArMDk6MDAiLCJhY2NlcHRlZF9yZWNvcmRfc2hhMjU2IjoiOWNiZGRhMjFmODFhYTgzYjg5MThmNDA3YmUwMzY0OWU1MTE2OGZhY2JiNmE1ZDBjNTdiNDI5Y2ZlNDlhMGIwNyIsImNvbmZpcm1pbmdfcGFydHkiOiJkaWQ6cHJvYmU6Y3AiLCJkaXNwb3NpdGlvbiI6ImFjY2VwdGVkIiwib3V0Y29tZV9zaGEyNTYiOiIyNWE2M2U1MmE5OGY2ZmRhYTYxODdkYTU1OWEwYTNhNTVkODQ1ZDAzMjJjYTE4M2FkNmFkNWUwMDZjNGVkNjQ2IiwidGVybXNfc2hhMjU2IjoiNTFkMjM2MWY0ZmFlYTNiYzhmOWZhY2RiYzdkOTlhYmI1NTU1OTZhMmU1MWY3YjI1ZmQzYjQxYzkzNTg3ZTYxNiJ9",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "Z9ieRTTMhYbBMU4QSL7_hIQ8gOUFTGfL_ROsgCP--1WckDnBHi-2ZV6fZYTuN5jAc9CJ2hfUEJRFxijlNHucAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q03-accepted_at-offset-plus09-earlier-instant": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDArMDk6MDAiLCJhY2NlcHRlZF9yZWNvcmRfc2hhMjU2IjoiOWNiZGRhMjFmODFhYTgzYjg5MThmNDA3YmUwMzY0OWU1MTE2OGZhY2JiNmE1ZDBjNTdiNDI5Y2ZlNDlhMGIwNyIsImNvbmZpcm1pbmdfcGFydHkiOiJkaWQ6cHJvYmU6Y3AiLCJkaXNwb3NpdGlvbiI6ImFjY2VwdGVkIiwib3V0Y29tZV9zaGEyNTYiOiIyNWE2M2U1MmE5OGY2ZmRhYTYxODdkYTU1OWEwYTNhNTVkODQ1ZDAzMjJjYTE4M2FkNmFkNWUwMDZjNGVkNjQ2IiwidGVybXNfc2hhMjU2IjoiNTFkMjM2MWY0ZmFlYTNiYzhmOWZhY2RiYzdkOTlhYmI1NTU1OTZhMmU1MWY3YjI1ZmQzYjQxYzkzNTg3ZTYxNiJ9",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "kwoewIZqJsFTfspubNpZXlWNmArC5dms-GxF8agDHlbfxiCmD5kvIPSap7BtbEjB2F6SuHqhvSIfUliDpBESBA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q04-digest-uppercase-hex": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxRDIzNjFGNEZBRUEzQkM4RjlGQUNEQkM3RDk5QUJCNTU1NTk2QTJFNTFGN0IyNUZEM0I0MUM5MzU4N0U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "FLqCrxSKNasMPMski66QbixBD_7IKdub8F1_KQXQRXm7SUCit_oAd6yRues0oMTJcsnQZPk1E8UWtKMZ2bjcCw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q05-record-digest-over-5-fields-no-record_id": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6ImZiNTU5ZjkzNjgwNjIxNTY2MzJjMDA3YjFmNTg1OWM4ZGVhMjIyMWVmNThiYmQzZTg4MTRlNWYxMWRkZTMwMGIiLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "zTSRBThKYqvbJfT_j5R0Bmdc9Fl2lBAP6i6crqU9qKzyd9zHgY06JWc7yeNdW7xhdLVDCGp1xYRVfR8OjM5yAw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q06-record-without-record_id-digest-matches": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6ImZiNTU5ZjkzNjgwNjIxNTY2MzJjMDA3YjFmNTg1OWM4ZGVhMjIyMWVmNThiYmQzZTg4MTRlNWYxMWRkZTMwMGIiLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "zTSRBThKYqvbJfT_j5R0Bmdc9Fl2lBAP6i6crqU9qKzyd9zHgY06JWc7yeNdW7xhdLVDCGp1xYRVfR8OjM5yAw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q07-complete-omitted": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "PKI_vsMRPBgbva8OyHc6e3VlKFaY9yprEX56DxSIPRQ7RFFyuXCAnT_j3d1xKZrxlr0TWRmHHUR6THlZrlSvAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  }
+ },
+ "q08-complete-as-string-true": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "PKI_vsMRPBgbva8OyHc6e3VlKFaY9yprEX56DxSIPRQ7RFFyuXCAnT_j3d1xKZrxlr0TWRmHHUR6THlZrlSvAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": "true"
+ },
+ "q09-duplicate-kid-second-key-is-signer": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "PKI_vsMRPBgbva8OyHc6e3VlKFaY9yprEX56DxSIPRQ7RFFyuXCAnT_j3d1xKZrxlr0TWRmHHUR6THlZrlSvAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "yFOtDwzSthmuqSzuxP1Wok1kmdWEznklfkXP2BObYKc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q10-kid-delegated-to-both-parties": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "PKI_vsMRPBgbva8OyHc6e3VlKFaY9yprEX56DxSIPRQ7RFFyuXCAnT_j3d1xKZrxlr0TWRmHHUR6THlZrlSvAA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p",
+    "cp-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q11-confirming_party-whitespace": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiICAgIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "04tvzCkQw4SPpJNUhzKqLC31ATotwt-tqMU4F2LTN93iJtENMWEx8CVu8poJGNVWLypi6U1zHQhTmySWBJfZDg"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q12-disposition-capitalised": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJBY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "nxXE0j59YeZEXfeFXGEkScxmG3ivyHBijoLK0pNttJwuwgFA2g3r7krachHfVLo0U-ptvp1LLZsof0nzd4K1CQ"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q13-alg-ES256-in-header": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImNwLXAifQ",
+   "signature": "Fn2oBaVXG9Tu6Kh33phgoMyKGioyeIQeO7wfkWD7euFkYKJsGJiYIMD-Euv470dz1Kvj-CKerxQL2a6UDtscBg"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q14-header-without-kid": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSJ9",
+   "signature": "DBg4gLiaS20K7UdnwR3q7vL6dWI-ZxNX1bFJE18qWEUU58PkjAPI3us3K_w5KquvxSuf6Lp3OOMOQzF5znwnCQ"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q15-unknown-extra-member": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm5vdGUiOiJoZWxsbyIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "1Z_oCmo_fetkTl2fi9F5zecNprTpTdjvV-X-yggjFQL5PKKxMu-MddL1yiz3OFgzJTylH07kyKAhq9Ko_9pLDw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q16-version-v1": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MSIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "qTv2Ve2NUzogpC0shIo-iaSHZCD-G-E8zEZg-OYS7dQvCnPrV2fMNiOwWpONBxW7gWFzxGM7ljRKExdfPavPCA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q17-payload-non-canonical-json-spaces": {
+  "acceptance": {
+   "payload": "ewogImFjY2VwdGFuY2VfdmVyc2lvbiI6ICJhY2NlcHRhbmNlLXJlY29yZC12MCIsCiAiYWNjZXB0ZWRfYXQiOiAiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwKICJhY2NlcHRlZF9yZWNvcmRfc2hhMjU2IjogIjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLAogImNvbmZpcm1pbmdfcGFydHkiOiAiZGlkOnByb2JlOmNwIiwKICJkaXNwb3NpdGlvbiI6ICJhY2NlcHRlZCIsCiAib3V0Y29tZV9zaGEyNTYiOiAiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsCiAidGVybXNfc2hhMjU2IjogIjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYiCn0",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "lPaMuRmOAP767ihAyLz4OTJlnJhoy8RNcT_-PAv45u7YspcxzvGIVGEroc4qzHniv4Ekf-HMHuCfw-QbG2qhCw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q18-key-unresolved-and-digest-mismatch-together": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6Imdob3N0In0",
+   "signature": "M4iPIduen6kpmw_EmX-GwLdFCoOrWopNuWOgKvgjDimJr3E3WaHiJUkGd1tNkZuEbFbC8KXSH6MCTP9pQqksCg"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q19-outcome_at-no-fraction-same-instant": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6ImI5MDVhY2IwZDhkNzQyMGYwYzg3ZmMzMWVlMzJkZjRjZTRiOWRjNDI3Y2M0ODVmZWNmZDVjM2ZkMjc1Y2FiYjAiLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImNwLXAifQ",
+   "signature": "4VL3dH76g4BWSTlRXH2vVLWA82KvoAG_-b0ML5JlsZgrOoIdGm4tMKHHMARCDyEUPocB-ODdAQYjXn1gYsYPAw"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:05:00Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": false
+ },
+ "q20-key-unresolved-complete-as-string-true": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6Imdob3N0In0",
+   "signature": "fOrZqodJRbixXtQtfcynqdOn16cB4RxWJrlV01x2dAmnF3X0zCW4a8QwZOeVAFJFhUpTa7TPbNusNkPOlAP5BA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": "true"
+ },
+ "q21-key-unresolved-complete-as-int-1": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6Imdob3N0In0",
+   "signature": "fOrZqodJRbixXtQtfcynqdOn16cB4RxWJrlV01x2dAmnF3X0zCW4a8QwZOeVAFJFhUpTa7TPbNusNkPOlAP5BA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": 1
+ },
+ "q22-key-unresolved-complete-true-bool": {
+  "acceptance": {
+   "payload": "eyJhY2NlcHRhbmNlX3ZlcnNpb24iOiJhY2NlcHRhbmNlLXJlY29yZC12MCIsImFjY2VwdGVkX2F0IjoiMjAyNi0xMC0wNFQxODowNTowMC4wMDBaIiwiYWNjZXB0ZWRfcmVjb3JkX3NoYTI1NiI6IjljYmRkYTIxZjgxYWE4M2I4OTE4ZjQwN2JlMDM2NDllNTExNjhmYWNiYjZhNWQwYzU3YjQyOWNmZTQ5YTBiMDciLCJjb25maXJtaW5nX3BhcnR5IjoiZGlkOnByb2JlOmNwIiwiZGlzcG9zaXRpb24iOiJhY2NlcHRlZCIsIm91dGNvbWVfc2hhMjU2IjoiMjVhNjNlNTJhOThmNmZkYWE2MTg3ZGE1NTlhMGEzYTU1ZDg0NWQwMzIyY2ExODNhZDZhZDVlMDA2YzRlZDY0NiIsInRlcm1zX3NoYTI1NiI6IjUxZDIzNjFmNGZhZWEzYmM4ZjlmYWNkYmM3ZDk5YWJiNTU1NTk2YTJlNTFmN2IyNWZkM2I0MWM5MzU4N2U2MTYifQ",
+   "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6Imdob3N0In0",
+   "signature": "fOrZqodJRbixXtQtfcynqdOn16cB4RxWJrlV01x2dAmnF3X0zCW4a8QwZOeVAFJFhUpTa7TPbNusNkPOlAP5BA"
+  },
+  "accepted_record": {
+   "issuer": "did:probe:issuer",
+   "issuer_kid": "iss-p",
+   "outcome_at": "2026-10-04T18:00:00.000Z",
+   "outcome_sha256": "25a63e52a98f6fdaa6187da559a0a3a55d845d0322ca183ad6ad5e006c4ed646",
+   "record_id": "receipt-p1",
+   "terms_sha256": "51d2361f4faea3bc8f9facdbc7d99abb555596a2e51f7b25fd3b41c93587e616"
+  },
+  "delegation": {
+   "did:probe:cp": [
+    "cp-p"
+   ],
+   "did:probe:issuer": [
+    "iss-p"
+   ]
+  },
+  "trust_material": {
+   "keys": [
+    {
+     "crv": "Ed25519",
+     "kid": "iss-p",
+     "kty": "OKP",
+     "x": "IBLLkMpg6OXY2vZuInLSIz4EhtVX6MZhQe2JIBd9frc"
+    },
+    {
+     "crv": "Ed25519",
+     "kid": "cp-p",
+     "kty": "OKP",
+     "x": "wFDFY3pE-oYp__PMzOIwDLNipj2Z2V_FQUUmb0MyRFo"
+    }
+   ]
+  },
+  "trust_material_complete": true
+ }
+}

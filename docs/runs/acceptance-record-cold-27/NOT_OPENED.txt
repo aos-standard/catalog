@@ -1,0 +1,6 @@
+Declared before writing any code — 2026-10-12T02:45:40Z
+Corpus pin: babyblueviper1/preaction-governance-conformance d750291d9f06fe26455196efed748388f9f46adb (vectors.json sha256 4d01f3e72bdcbcca9e3e2a883ced0a87ae6c969f5cf6de4ef754dc63eb8ced0e, 27 vectors)
+Files NOT opened at any point while writing the checker:
+  tools/acceptance_record_check.py  tools/_ed25519.py  examples/acceptance-record-cold/build_vectors.py  examples/acceptance-record-cold/run_vectors.py
+  actaseal/x402-acceptance-check-cold: checker.py  ed25519_verify.py  run_vectors.py
+Read: examples/acceptance-record-cold/README.md (prose, incl. its stated readings), vectors.json inputs and expectations, tsc#4 condition table (Shodai 2026-10-04), draft-krausz-verification-state-03 §5.3.2/§5.4.1/§5.4.2, actaseal REPORT.md (prose).
