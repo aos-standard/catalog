@@ -1,0 +1,60 @@
+{
+ "acceptance": {
+  "issuerFields": [
+   "issuer",
+   "keyId",
+   "publicKeyPem",
+   "scheme",
+   "signingInput",
+   "testSeedHex"
+  ],
+  "status": "not_checked",
+  "why": "no 32-byte Ed25519 public key field found"
+ },
+ "cases": {
+  "case-00-exact-call-observed-match": {
+   "availabilityCode": null,
+   "bindingReasonCodes": [],
+   "bound": true
+  },
+  "case-01-call-target-mismatch": {
+   "availabilityCode": null,
+   "bindingReasonCodes": [
+    "CALL_TARGET_MISMATCH"
+   ],
+   "bound": false
+  },
+  "case-02-calldata-mismatch": {
+   "availabilityCode": null,
+   "bindingReasonCodes": [
+    "CALLDATA_MISMATCH"
+   ],
+   "bound": false
+  },
+  "case-03-transaction-value-mismatch": {
+   "availabilityCode": null,
+   "bindingReasonCodes": [
+    "TRANSACTION_VALUE_MISMATCH"
+   ],
+   "bound": false
+  },
+  "case-04-execution-evidence-unavailable": {
+   "availabilityCode": "EXECUTION_UNAVAILABLE",
+   "bindingReasonCodes": [],
+   "bound": true
+  }
+ },
+ "eip712": {
+  "declaredAuthorizer": "0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a",
+  "digest": "0x9e404bfc63c56cda555b71c4e59237178edc7a428de7f50738804a1f092cf5b1",
+  "jsonTypesSeen": {
+   "expiresAt": "int",
+   "issuedAt": "int",
+   "maxUses": "str",
+   "notBefore": "int"
+  },
+  "recovered": "0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a",
+  "signerMatches": true
+ },
+ "reader": "independent-python-stdlib"
+}

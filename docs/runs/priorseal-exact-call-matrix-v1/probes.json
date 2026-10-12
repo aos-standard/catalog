@@ -1,0 +1,212 @@
+{
+ "p1-unavailable-and-target-mismatch": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "CALL_TARGET_MISMATCH"
+   ],
+   "availabilityCode": "EXECUTION_UNAVAILABLE"
+  },
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "CALL_TARGET_MISMATCH",
+    "EXECUTION_UNAVAILABLE"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "CALL_TARGET_MISMATCH",
+    "EXECUTION_UNAVAILABLE"
+   ],
+   "complianceStatus": "NOT_ASSESSABLE",
+   "complianceReasonCodes": [
+    "EXECUTION_UNAVAILABLE"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p2-nativeValue-as-json-number": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "TRANSACTION_VALUE_MISMATCH"
+   ],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": true,
+   "reasonCodes": []
+  },
+  "profile": {
+   "bound": true,
+   "reasonCodes": [],
+   "complianceStatus": "COMPLIANT",
+   "complianceReasonCodes": [],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p3-nonce-as-json-number": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "NONCE_MISMATCH"
+   ],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": true,
+   "reasonCodes": []
+  },
+  "profile": {
+   "bound": true,
+   "reasonCodes": [],
+   "complianceStatus": "COMPLIANT",
+   "complianceReasonCodes": [],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p4-observed-nonce-absent": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "NONCE_MISMATCH"
+   ],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "NONCE_MISMATCH"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "NONCE_MISMATCH"
+   ],
+   "complianceStatus": "NOT_ASSESSABLE",
+   "complianceReasonCodes": [
+    "NONCE_MISMATCH"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p5-target-uppercase-hex": {
+  "independent": {
+   "bound": true,
+   "reasonCodes": [],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": true,
+   "reasonCodes": []
+  },
+  "profile": {
+   "bound": true,
+   "reasonCodes": [],
+   "complianceStatus": "COMPLIANT",
+   "complianceReasonCodes": [],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p6-chainId-as-string": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "CHAIN_MISMATCH"
+   ],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "CHAIN_MISMATCH"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "CHAIN_MISMATCH"
+   ],
+   "complianceStatus": "NON_COMPLIANT",
+   "complianceReasonCodes": [
+    "CHAIN_MISMATCH"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p7-executedAt-absent-observedAt-late": {
+  "independent": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_TIME_WINDOW"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "complianceStatus": "NON_COMPLIANT",
+   "complianceReasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p8-executedAt-equals-validUntil": {
+  "independent": {
+   "bound": true,
+   "reasonCodes": [],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": true,
+   "reasonCodes": []
+  },
+  "profile": {
+   "bound": true,
+   "reasonCodes": [],
+   "complianceStatus": "COMPLIANT",
+   "complianceReasonCodes": [],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p9-executedAt-null-observedAt-late": {
+  "independent": {
+   "bound": true,
+   "reasonCodes": [],
+   "availabilityCode": null
+  },
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_TIME_WINDOW"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "complianceStatus": "NON_COMPLIANT",
+   "complianceReasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "outcome": "COMPLETED"
+  }
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "p10-executedAt-late-observedAt-late": {
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_TIME_WINDOW"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "complianceStatus": "NON_COMPLIANT",
+   "complianceReasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p11-executedAt-late-observedAt-in-window": {
+  "labReader": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_TIME_WINDOW"
+   ]
+  },
+  "profile": {
+   "bound": false,
+   "reasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "complianceStatus": "NON_COMPLIANT",
+   "complianceReasonCodes": [
+    "OUTSIDE_AUTHORIZATION_WINDOW",
+    "OUTSIDE_TIME_WINDOW"
+   ],
+   "outcome": "COMPLETED"
+  }
+ },
+ "p12-executedAt-in-window-observedAt-late": {
+  "labReader": {
+   "bound": true,
+   "reasonCodes": []
+  },
+  "profile": {
+   "bound": true,
+   "reasonCodes": [],
+   "complianceStatus": "COMPLIANT",
+   "complianceReasonCodes": [],
+   "outcome": "COMPLETED"
+  }
+ }
+}
