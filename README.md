@@ -15,7 +15,7 @@ Machine-readable product catalog and trust artifacts for [AOS-v0.1](https://gith
 | [`CONDUCT.jsonl`](CONDUCT.jsonl) | **Verification conduct ledger** — append-only record of self-found defects, external breaks, refutations, and tag-integrity events. Free. **Not a KPI** (row count is not a score). How to read: [`CONDUCT.md`](CONDUCT.md). A paid SKU, if offered later, is third-party artifact judgment — not this ledger |
 | [`CONDUCT.md`](CONDUCT.md) | Reader guide for `CONDUCT.jsonl`: `public` vs `internal_only` evidence, limits, and non-KPI framing |
 | [`docs/cases/`](docs/cases/) | **Runnable cases** for `anchors_verify.py` — each a pinned pair of inputs with the measured verdict and stop reason. First: [`unterminated-final-line`](docs/cases/unterminated-final-line/) (`anchors-verify-v0.12`) |
-| [`docs/runs/`](docs/runs/) | **Independent runs** of other projects' published fixtures — reader, inputs, outputs and what the run does not establish. [`priorseal-exact-call-matrix-v1`](docs/runs/priorseal-exact-call-matrix-v1/) · [`acceptance-record-cold-27`](docs/runs/acceptance-record-cold-27/) |
+| [`docs/runs/`](docs/runs/) | **Independent runs** of other projects' published fixtures — reader, inputs, outputs and what the run does not establish. [`priorseal-exact-call-matrix-v1`](docs/runs/priorseal-exact-call-matrix-v1/) · [`acceptance-record-cold-27`](docs/runs/acceptance-record-cold-27/) · [`priorseal-exact-call-matrix-v1.0.1-cold-run`](docs/runs/priorseal-exact-call-matrix-v1.0.1-cold-run/) |
 
 **Audit badge program:** Free, opt-in, 90-day attestations — see [mcp-blast-radius BADGE_CRITERIA.md](https://github.com/aos-standard/mcp-blast-radius/blob/main/BADGE_CRITERIA.md).
 

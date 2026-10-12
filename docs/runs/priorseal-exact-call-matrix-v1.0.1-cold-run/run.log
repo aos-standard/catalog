@@ -1,0 +1,14 @@
+HEAD ok
+v20.20.2
+10.8.2
+Linux 6.8.0-111-generic x86_64
+
+Run `npm audit` for details.
+npm ci rc=0
+verify rc=0
+cmp: byte-identical
+223db1554639f242eae559b1f010dcabe3e9466e610cfa95aefe2e1ce564a363
+0
+summary {'cases': 6, 'envelopeBindingCases': 5, 'evidenceAvailabilityCases': 1, 'result': 'PASS'}
+case-04-execution-evidence-unavailable {"observed": "fixture/observed/case-04-execution-evidence-unavailable.json", "reader": {"bound": true, "mismatchCodes": [], "availabilityCodes": ["EXECUTION_UNAVAILABLE"]}, "profile": {"receiptClaimsValid": true, "rawBinding": {"bound": false, "reasonCodes": ["EXECUTION_UNAVAILABLE"]}, "partitionedBinding": {"bound": true, "mismatchCodes": [], "availabilityCodes": ["EXECUTION_UNAVAILABLE"]}, "complianceStatus": "NOT_ASSESSABLE", "complianceReasonCodes": ["EXECUTION_UNAVAILABLE"], "outcome": "UNDETERMINED"}, "expected": {"bound": true, "reasonCodes": [], "availabilityCodes": ["EXECUTION_UNAVAIL
+case-05-time-window-expired {"observed": "fixture/observed/case-05-time-window-expired.json", "reader": {"bound": false, "mismatchCodes": ["OUTSIDE_AUTHORIZATION_WINDOW", "OUTSIDE_TIME_WINDOW"], "availabilityCodes": []}, "profile": {"receiptClaimsValid": true, "rawBinding": {"bound": false, "reasonCodes": ["OUTSIDE_AUTHORIZATION_WINDOW", "OUTSIDE_TIME_WINDOW"]}, "partitionedBinding": {"bound": false, "mismatchCodes": ["OUTSIDE_AUTHORIZATION_WINDOW", "OUTSIDE_TIME_WINDOW"], "availabilityCodes": []}, "complianceStatus": "NON_COMPLIANT", "complianceReasonCodes": ["OUTSIDE_AUTHORIZATION_WINDOW", "OUTSIDE_TIME_WINDOW"], "outc
