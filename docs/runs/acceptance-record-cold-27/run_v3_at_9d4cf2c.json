@@ -1,0 +1,856 @@
+{
+ "agree": 50,
+ "disagree": [],
+ "n": 50,
+ "rows": [
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "accepted",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-accepted-verified"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "rejected",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "rejected",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-rejected-verified"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "disputed",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "disputed",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-disputed-verified"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "not_responded",
+    "result": "no_record"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "not_responded",
+    "key_step": null,
+    "result": "no_record"
+   },
+   "id": "acc-no-record-not-responded"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "confirming_party_absent"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "confirming_party_absent"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-confirming-party-absent"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "confirming_party_absent"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "confirming_party_absent"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-confirming-party-empty"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-signer-is-issuer-same-kid"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-signer-is-issuer-reused-key-new-kid"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_signer_is_issuer"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-signer-is-issuer-same-party"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_terms_digest_mismatch"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_terms_digest_mismatch"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-terms-digest-mismatch"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_outcome_digest_mismatch"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_outcome_digest_mismatch"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-outcome-digest-mismatch"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_precedes_outcome"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_precedes_outcome"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-precedes-outcome"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "accepted",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-same-instant-as-outcome-ok"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_authority_unresolved"
+    ],
+    "disposition": "accepted",
+    "result": "unknown"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_authority_unresolved"
+    ],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "unknown"
+   },
+   "id": "acc-authority-unresolved"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_precedes_outcome",
+     "acceptance_terms_digest_mismatch"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_precedes_outcome",
+     "acceptance_terms_digest_mismatch"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-report-all-two-mismatches"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-illtyped-digest-suppresses-mismatch"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-signed-not-responded"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_outcome_digest_mismatch"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_outcome_digest_mismatch"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-malformed-plus-authority"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "accepted",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-record-digest-matches-second-receipt"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_record_digest_mismatch"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_record_digest_mismatch"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-record-digest-mismatch-replayed"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-record-digest-absent"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-key-unresolved"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "policy_refusal": true,
+    "result": "key_unresolved"
+   },
+   "id": "acc-key-unresolved-declared-complete"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-signature-invalid"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-signature-invalid-declared-complete"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-key-unresolved-valid-signature-kid-not-in-trust-material"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-signature-invalid-one-byte-flipped"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-accepted-at-no-fraction"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-accepted-at-offset-same-instant"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-outcome-at-no-fraction"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": null,
+    "result": "malformed"
+   },
+   "id": "acc-header-alg-not-eddsa"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": null,
+    "result": "malformed"
+   },
+   "id": "acc-header-no-kid"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-complete-not-boolean"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "disposition": "accepted",
+    "result": "verified"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "verified"
+   },
+   "id": "acc-extra-signed-member-ignored"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": null,
+    "result": "malformed"
+   },
+   "id": "acc-envelope-signature-padded"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": null,
+    "result": "malformed"
+   },
+   "id": "acc-envelope-signature-standard-alphabet"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": null,
+    "result": "malformed"
+   },
+   "id": "acc-envelope-protected-not-json-object"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-envelope-payload-not-json-object"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-envelope-payload-not-json-object-signature-invalid"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-version-absent"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-version-not-string"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_member_invalid"
+    ],
+    "disposition": null,
+    "key_step": "key_resolved",
+    "result": "malformed"
+   },
+   "id": "acc-version-other-value"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-small-order-key-identity-forged-signature"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "policy_refusal": true,
+    "result": "key_unresolved"
+   },
+   "id": "acc-small-order-key-identity-declared-complete"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-small-order-key-order-8-genuine-signature"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-small-order-r-real-key"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "acceptance_authority_unresolved"
+    ],
+    "result": "unknown"
+   },
+   "got": {
+    "conditions": [
+     "acceptance_authority_unresolved"
+    ],
+    "disposition": "accepted",
+    "key_step": "key_resolved",
+    "result": "unknown"
+   },
+   "id": "acc-confirming-party-whitespace-only"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-mixed-order-key-accepted-by-both-equations"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [],
+    "result": "key_unresolved"
+   },
+   "got": {
+    "conditions": [],
+    "disposition": null,
+    "key_step": "key_unresolved",
+    "result": "key_unresolved"
+   },
+   "id": "acc-mixed-order-key-equations-disagree"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "result": "malformed"
+   },
+   "got": {
+    "conditions": [
+     "signature_invalid"
+    ],
+    "disposition": null,
+    "key_step": "signature_invalid",
+    "result": "malformed"
+   },
+   "id": "acc-mixed-order-r-real-key"
+  }
+ ],
+ "vectors_sha256": "c5d0a142cf22b1cfff366fb1b6689de0b0d88ba0ad5cf846db9027204f0c138a"
+}
