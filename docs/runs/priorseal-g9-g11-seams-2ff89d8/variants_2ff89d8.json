@@ -1,0 +1,68 @@
+{
+ "reader_sha256": "a7aa5099515afab8000c04ad56f05ec57a4efc5f02c0f5984149276ad633fbf8",
+ "results": [
+  {
+   "case00": {
+    "availabilityCode": null,
+    "bindingReasonCodes": [],
+    "bound": true
+   },
+   "case00_input_sha256": "960ebbe8ea7a1c756732da379a93778f67d1d830fa56533de00e2d088e58ac19",
+   "eip712_signerMatches": true,
+   "exit": 0,
+   "other_cases": {
+    "case-01-call-target-mismatch": false,
+    "case-02-calldata-mismatch": false,
+    "case-03-transaction-value-mismatch": false,
+    "case-04-execution-evidence-unavailable": true,
+    "case-05-time-window-expired": false
+   },
+   "variant": "baseline"
+  },
+  {
+   "case00": {
+    "availabilityCode": null,
+    "bindingReasonCodes": [],
+    "bound": true
+   },
+   "case00_input_sha256": "3ca26835e640fcb5e039ae4062c959ee4b488c4370784f830dcc6a4b0b3facec",
+   "eip712_signerMatches": true,
+   "exit": 0,
+   "other_cases": {
+    "case-01-call-target-mismatch": false,
+    "case-02-calldata-mismatch": false,
+    "case-03-transaction-value-mismatch": false,
+    "case-04-execution-evidence-unavailable": true,
+    "case-05-time-window-expired": false
+   },
+   "variant": "no executedAt, no observedAt"
+  },
+  {
+   "case00_input_sha256": "091bd6a3f506edcbaa5034e5ececaaa9d68f6af068be651bdb866170a79ada34",
+   "exit": 1,
+   "stderr_tail": "TypeError: '>' not supported between instances of 'str' and 'int'",
+   "variant": "executedAt: \"late\""
+  },
+  {
+   "case00": {
+    "availabilityCode": null,
+    "bindingReasonCodes": [
+     "CHAIN_MISMATCH"
+    ],
+    "bound": false
+   },
+   "case00_input_sha256": "275cbccc4e8782fc2ad317d70258237360917ee460dd5e88e72a54de8d795cba",
+   "eip712_signerMatches": true,
+   "exit": 0,
+   "other_cases": {
+    "case-01-call-target-mismatch": false,
+    "case-02-calldata-mismatch": false,
+    "case-03-transaction-value-mismatch": false,
+    "case-04-execution-evidence-unavailable": true,
+    "case-05-time-window-expired": false
+   },
+   "variant": "chainId as a JSON string of the same number"
+  }
+ ],
+ "subject": "imokokok/PriorSeal@2ff89d86611257b4440232e5c2793926b3d52043 examples/open-evidence-lab-exact-call-matrix-v1"
+}
