@@ -1,0 +1,17 @@
+{
+ "warning": "TEST keys. Private halves are published so the vectors can be regenerated. Never trust a record signed by them.",
+ "keys": [
+  {
+   "key_id": "hori-cold-test-1",
+   "alg": "Ed25519",
+   "public_key_base64": "7xDnRwtwZjjx1OQQR9JqZn5YpeUo781pIYnQR/+jVtE=",
+   "private_seed_hex": "21b3c0f2bd3e841f716d52917740f0a61c6cd6651dae7f484aadbaab7f0dad1d"
+  },
+  {
+   "key_id": "hori-cold-test-2",
+   "alg": "Ed25519",
+   "public_key_base64": "bTE6ob8genZ5nj47jPiDDolldewOUZGRijS8PcKrYg4=",
+   "private_seed_hex": "468e946d57bbf127b15b5ba428e3213cf23c89f59def87af6c9a0b5f1f3717f9"
+  }
+ ]
+}

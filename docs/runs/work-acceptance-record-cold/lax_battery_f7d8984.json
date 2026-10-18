@@ -1,0 +1,175 @@
+{
+ "baseline": {
+  "agree": 11,
+  "n": 11
+ },
+ "mutations": [
+  {
+   "mutation": "M01 skip signature verification",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M02 drop CHECKER_NOT_SIGNER",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M03 drop PRODUCER_UNDECLARED",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M04 drop KEY_COLLISION",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M05 drop INDEPENDENCE_INCONSISTENT",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M06 drop SELF_CHECKED warning",
+   "applied": true,
+   "agree": 9,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M07 drop criteria hash check",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M08 drop CRITERIA_RESULTS_MISMATCH",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M09 drop receipt token imprint check",
+   "applied": true,
+   "agree": 9,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M10 use a mismatching receipt token's time anyway",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M11 drop criteria token imprint check",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M12 drop CRITERIA_TIME_MISMATCH",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M13 drop CRITERIA_COMMITMENT_UNVERIFIED",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M14 committed-before uses <= instead of <",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M15 commitment compares committed_at, ignores token time",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M16 drop RESULT_VOCABULARY",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M17 drop VERDICT_MISMATCH",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M18 required fail no longer wins",
+   "applied": true,
+   "agree": 10,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M19 treat every criterion as required",
+   "applied": true,
+   "agree": 3,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M20 drop schema/suite refusal",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  },
+  {
+   "mutation": "M21 sign over non-canonical JSON (indent)",
+   "applied": true,
+   "agree": 1,
+   "n": 11,
+   "caught": true
+  },
+  {
+   "mutation": "M22 ignore imprint algorithm OID",
+   "applied": true,
+   "agree": 11,
+   "n": 11,
+   "caught": false
+  }
+ ],
+ "survivors": [
+  "M02 drop CHECKER_NOT_SIGNER",
+  "M03 drop PRODUCER_UNDECLARED",
+  "M05 drop INDEPENDENCE_INCONSISTENT",
+  "M08 drop CRITERIA_RESULTS_MISMATCH",
+  "M10 use a mismatching receipt token's time anyway",
+  "M11 drop criteria token imprint check",
+  "M13 drop CRITERIA_COMMITMENT_UNVERIFIED",
+  "M14 committed-before uses <= instead of <",
+  "M16 drop RESULT_VOCABULARY",
+  "M20 drop schema/suite refusal",
+  "M22 ignore imprint algorithm OID"
+ ]
+}
