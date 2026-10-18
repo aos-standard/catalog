@@ -1,0 +1,221 @@
+{
+ "agree": 26,
+ "n": 26,
+ "rows": [
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "83756968251ab4f82087248e2ff969110383d001caf4a240bb9a9f97a5f9cd80",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchor_invalid"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "68d83c9425083473049daf30c28df1c24af1d68e7aeaf2a5f7545400d7540917",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchor_missing"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "9eae762af48af23216d4bf7a597de230885eadc2de102c81c65e414bad171273",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchor_valid"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "5a68c5951446bbbbcf23ceee8b80896730cd005d6f7e7d345b31e93eff4c837e",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchor_wrong_digest"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "61b2007a13d32a7c72d7cc59292fc6754ab1db2709f2704cd6757f73052053ef",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_copied_token"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "2a6d0a140e783114530aefdfd8f55d84e0e99d0cc03300afc6991ea4825eccd3",
+   "refused": "top level: anchors must be a non-empty list (SPEC §9.1)",
+   "status": "AGREE",
+   "vector": "anchors_empty"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "549062c35c07e894e941fd47841bd57705948d83350bf674b6dcb71cefcfc2e4",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_entry_garbage"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "f15d04454c4347342c93e8dff67beffccf06ed3c27ca83d423ed018b2fea8f89",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_entry_wrong_digest"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "9eae762af48af23216d4bf7a597de230885eadc2de102c81c65e414bad171273",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_min_not_met"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "109232fc71631859f8b4c9b5484c1d1a623cd6cb399ec088af366e4333746eb0",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_only"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "370cb1d3a5d10e1cadf675e43b7feedd921dfca083d329419da69640f61ea737",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "anchors_two_valid"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "38d141a2e121c87e54f4180e06dfdfc35dbcdd69da0f2729b06be1f766872b61",
+   "refused": "anchors[0]: unknown key \"x_unknown_2026\" (SPEC §9.1)",
+   "status": "AGREE",
+   "vector": "anchors_unknown_key"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "636251fc76b89a8cf0474cc0e20f386a6c552fb611d021924d8fc80c5b87ecaf",
+   "refused": "anchors[0]: mechanism \"bitcoin-ots\" is not defined by this revision (SPEC §3.3)",
+   "status": "AGREE",
+   "vector": "anchors_unknown_mechanism"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "e056064e6ca622ef1264f7c21e2691ecc5b72f0f161f9d73492bf0de78bb30f8",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "digest_mismatch"
+  },
+  {
+   "artifact_errors": [
+    "header: \"crit\" present (this format understands no extension, RFC 7515 §4.1.11)"
+   ],
+   "diffs": {},
+   "input_sha256": "ba809b8de15af5d976a2dffab366382ee046887e0e3bc24bba30ccf81384fed5",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "header_crit_unknown"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "cd7b119e4e5e21e74b9e371a287376436129f01dc08947f54c6830ede27bca1d",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "header_param_ignored"
+  },
+  {
+   "artifact_errors": [
+    "KB-JWT typ is not \"kb+jwt\" (RFC 9901 §4.3)"
+   ],
+   "diffs": {},
+   "input_sha256": "556a081236abd8bc19d49cecb26a738ba544b6ee68b68935a8b1f4486dc39cdd",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "kb_jwt_typ_missing"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "ac0ff967d052b4151c79d93b76c655ce40a3bb4cb49862c758f0df074123ed93",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "kb_jwt_valid"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "89726e80f186779d6565d908b3031b69f5221a7fb91e8193413cf35ff1e8bc9d",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "key_jwk_member_ignored"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "07ca345dd3d44847148c14c21dde4c2c27b86dd2494a555e8396d4f8c9fba0b4",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "stripped_signature"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "1221b31a3778a0535b4c55e170d67caedfa9e1d4e8bbd2ab7534f13b417b94e9",
+   "refused": "rfc3161_timestamp: unknown key \"additional_anchors\" (SPEC §9.1)",
+   "status": "AGREE",
+   "vector": "unknown_key_anchor_block"
+  },
+  {
+   "artifact_errors": [
+    "artifacts[0]: unknown key \"issuer_verified\" (SPEC §9.1)"
+   ],
+   "diffs": {},
+   "input_sha256": "f82af673dee941dbe7f219eaf5423d991775ed0e210fe16dfc57978cb3bff7f3",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "unknown_key_artifact"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "db2d2ed5332b3f01b9baa2c86aade760ec5482edea6c4cecbf1d7fabbdd52b4e",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "unknown_key_producer_entry"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "f16f506609419e9943707e464a529a6a09dc01d29d7ffce65ab3b6b9a74f59b3",
+   "refused": "top level: unknown key \"retention_profile\" (SPEC §9.1)",
+   "status": "AGREE",
+   "vector": "unknown_key_top_level"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "0faaae8edd9becf96b9dc58a0c79e802806d5ddcaa952a82e802ccf4b201342d",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "unpinned_producer"
+  },
+  {
+   "artifact_errors": [],
+   "diffs": {},
+   "input_sha256": "68d83c9425083473049daf30c28df1c24af1d68e7aeaf2a5f7545400d7540917",
+   "refused": null,
+   "status": "AGREE",
+   "vector": "valid_signed"
+  }
+ ],
+ "skip": 0
+}
