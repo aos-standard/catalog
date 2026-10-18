@@ -1,0 +1,518 @@
+{
+ "agree": 12,
+ "appendix": {
+  "directory_root": {
+   "preimage_octets": 5905,
+   "root_matches": true,
+   "wrong_projections": {
+    "seven_insertion_order": "23d5a755a17f2b9e1eda158a8c5de73168a11530a16106d0713579157278fbd1",
+    "seven_unsorted_reversed": "d7b1a34dc2bc97c4f931023713137c381974d522bad7f5053de67f6ec7d9f412",
+    "six_without_publishedAt": "0c5c80bc9a971aeb6b619e9e33e53c176b3bffd56a6b904864a117e5b9a54d89",
+    "whole_document": "b781c6532561bae7fe3c855a33203c4c9b882cca53bde9b3fbb6aa2903aeb0c6",
+    "without_signatures_root_inside": "d2b584052f3b4eba60f9623067c6fa899441121ad867985693462750bd231bc1"
+   }
+  },
+  "signature/ed25519": {
+   "alg": "ed25519",
+   "flipped_signature_rejected": true,
+   "jcs_matches": true,
+   "key_canonical_prime_order": true,
+   "key_from_seed_matches": true,
+   "kid_derivation_matches": true,
+   "message_matches": true,
+   "receiptId_matches": true,
+   "signature_verifies": true,
+   "sizes_match": true,
+   "tamper_rejected": true
+  },
+  "signature/ml-dsa-65": {
+   "alg": "ml-dsa-65",
+   "flipped_signature_rejected": true,
+   "jcs_matches": true,
+   "key_from_seed_matches": true,
+   "kid_derivation_matches": true,
+   "message_matches": true,
+   "receiptId_matches": true,
+   "signature_verifies": true,
+   "sizes_match": true,
+   "tamper_rejected": true
+  },
+  "signature/ml-dsa-87": {
+   "alg": "ml-dsa-87",
+   "flipped_signature_rejected": true,
+   "jcs_matches": true,
+   "key_from_seed_matches": true,
+   "kid_derivation_matches": true,
+   "message_matches": true,
+   "receiptId_matches": true,
+   "signature_verifies": true,
+   "sizes_match": true,
+   "tamper_rejected": true
+  },
+  "stream": {
+   "digest_matches": true,
+   "domain_matches": true,
+   "steps_match": true
+  }
+ },
+ "backend": {
+  "ml-dsa-65": true,
+  "ml-dsa-87": true
+ },
+ "n": 14,
+ "runs": [
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "not-evaluated",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": true
+   },
+   "id": "endToEnd/body/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "not-evaluated",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": true
+   },
+   "id": "endToEnd/body/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": true
+   },
+   "id": "endToEnd/reference/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": true
+   },
+   "id": "endToEnd/reference/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {
+    "levels.delivery": {
+     "expected": "pass",
+     "got": "fail"
+    },
+    "reason": {
+     "expected": null,
+     "got": {
+      "code": "STATUS_UNOBSERVED",
+      "detail": "STATUS_UNOBSERVED: payload carries responseStatus but no status was observed",
+      "level": "delivery"
+     }
+    },
+    "valid": {
+     "expected": true,
+     "got": false
+    }
+   },
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "fail",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "not-evaluated",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": {
+     "code": "STATUS_UNOBSERVED",
+     "detail": "STATUS_UNOBSERVED: payload carries responseStatus but no status was observed",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "endToEnd/stream/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "DISAGREE"
+  },
+  {
+   "diffs": {
+    "levels.delivery": {
+     "expected": "pass",
+     "got": "fail"
+    },
+    "reason": {
+     "expected": null,
+     "got": {
+      "code": "STATUS_UNOBSERVED",
+      "detail": "STATUS_UNOBSERVED: payload carries responseStatus but no status was observed",
+      "level": "delivery"
+     }
+    },
+    "valid": {
+     "expected": true,
+     "got": false
+    }
+   },
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "fail",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "not-evaluated",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": {
+     "code": "STATUS_UNOBSERVED",
+     "detail": "STATUS_UNOBSERVED: payload carries responseStatus but no status was observed",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "endToEnd/stream/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "DISAGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": true
+   },
+   "id": "streamSession/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "not-evaluated"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": true
+   },
+   "id": "streamSession/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "none",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "expired"
+    },
+    "reason": {
+     "code": "DELIVERY_UNCONFIRMED",
+     "detail": "DELIVERY_UNCONFIRMED: no observed body",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "deliveryUnconfirmed/no-output/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "none",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "expired"
+    },
+    "reason": {
+     "code": "DELIVERY_UNCONFIRMED",
+     "detail": "DELIVERY_UNCONFIRMED: no observed body",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "deliveryUnconfirmed/no-output/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "expired"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": true
+   },
+   "id": "deliveryUnconfirmed/saved-output/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "outcomes": {
+     "buyerObservedOutput": "captured",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "expired"
+    },
+    "reason": null,
+    "trust": "pinned",
+    "unchecked_algs": [],
+    "valid": true
+   },
+   "id": "deliveryUnconfirmed/saved-output/archival",
+   "informative_diffs": {},
+   "path": "archival",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "none",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "window-open"
+    },
+    "reason": {
+     "code": "DELIVERY_UNCONFIRMED",
+     "detail": "DELIVERY_UNCONFIRMED: no observed body",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "deliveryUnconfirmed/boundary/window-open/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "outcomes": {
+     "buyerObservedOutput": "none",
+     "receiptAvailability": "receiptAvailableToVerifier",
+     "receiptValidity": "valid",
+     "resultRecoverability": "expired"
+    },
+    "reason": {
+     "code": "DELIVERY_UNCONFIRMED",
+     "detail": "DELIVERY_UNCONFIRMED: no observed body",
+     "level": "delivery"
+    },
+    "trust": "pinned",
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "deliveryUnconfirmed/boundary/at-deadline/session",
+   "informative_diffs": {},
+   "path": "session",
+   "status": "AGREE"
+  }
+ ],
+ "source_sha256": "ad195d4c6c176ab138d1eb976a91fe3c00ecdf5d1af3e314bf4bacb10c2c4495"
+}

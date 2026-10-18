@@ -1,0 +1,267 @@
+{
+ "agree": 11,
+ "n": 11,
+ "runs": [
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "not-evaluated",
+     "trusted": "fail"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "KEY_DIRECTORY_DIGEST_MISMATCH",
+     "detail": "KEY_DIRECTORY_DIGEST_MISMATCH: epoch root differs from payload.keyDirectoryDigest",
+     "level": "trusted"
+    },
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "keyDirectoryDigestMismatch/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "not-evaluated",
+     "trusted": "fail"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "KEY_DIRECTORY_DIGEST_MISMATCH",
+     "detail": "KEY_DIRECTORY_DIGEST_MISMATCH: epoch root differs from payload.keyDirectoryDigest",
+     "level": "trusted"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "keyDirectoryDigestMismatch/archival",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "fail",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "SETTLEMENT_MISMATCH",
+     "detail": "SETTLEMENT_MISMATCH: amount differs",
+     "level": "settlement"
+    },
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "amountInflatedResigned/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "fail",
+     "trusted": "pass"
+    },
+    "longTermEvidence": true,
+    "reason": {
+     "code": "SETTLEMENT_MISMATCH",
+     "detail": "SETTLEMENT_MISMATCH: amount differs",
+     "level": "settlement"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "amountInflatedResigned/archival",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "not-evaluated",
+     "delivery": "not-evaluated",
+     "integrity": "fail",
+     "settlement": "not-evaluated",
+     "trusted": "not-evaluated"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "SIGNATURES_SHAPE",
+     "detail": "SIGNATURES_SHAPE: signatures must hold 2–4 entries",
+     "level": "integrity"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "mlDsa65Stripped/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "not-evaluated",
+     "delivery": "not-evaluated",
+     "integrity": "fail",
+     "settlement": "not-evaluated",
+     "trusted": "not-evaluated"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "SIGNATURES_SHAPE",
+     "detail": "SIGNATURES_SHAPE: signatures must hold 2–4 entries",
+     "level": "integrity"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "mlDsa65Stripped/archival",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "pass",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "reason": null,
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": true
+   },
+   "id": "splitVerdict/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "fail",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "not-evaluated",
+     "trusted": "not-evaluated"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "SIGNATURE_INVALID",
+     "detail": "SIGNATURE_INVALID: ml-dsa-65 signature verifies false",
+     "level": "authentic"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "splitVerdict/archival",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "not-evaluated",
+     "integrity": "pass",
+     "settlement": "not-evaluated",
+     "trusted": "fail"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "ISSUED_IN_FUTURE",
+     "detail": "ISSUED_IN_FUTURE: issuedAt beyond the clock-skew allowance",
+     "level": "trusted"
+    },
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "issuedInFuture/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "not-evaluated",
+     "delivery": "not-evaluated",
+     "integrity": "fail",
+     "settlement": "not-evaluated",
+     "trusted": "not-evaluated"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "DELIVERY_FRAMING",
+     "detail": "DELIVERY_FRAMING: unregistered framing 'ndjson'",
+     "level": "integrity"
+    },
+    "unchecked_algs": [],
+    "valid": false
+   },
+   "id": "framingUnregistered/session",
+   "informative": {},
+   "status": "AGREE"
+  },
+  {
+   "diffs": {},
+   "got": {
+    "levels": {
+     "authentic": "pass",
+     "delivery": "fail",
+     "integrity": "pass",
+     "settlement": "pass",
+     "trusted": "pass"
+    },
+    "longTermEvidence": false,
+    "reason": {
+     "code": "EVENTS_AFTER_TERMINAL",
+     "detail": "EVENTS_AFTER_TERMINAL: 1 event(s) after the terminal event",
+     "level": "delivery"
+    },
+    "unchecked_algs": [
+     "ml-dsa-65"
+    ],
+    "valid": false
+   },
+   "id": "eventAfterTerminal/session",
+   "informative": {},
+   "status": "AGREE"
+  }
+ ],
+ "source_sha256": "e376c64b0c5c453b0c815a12d2ec0eb82544b1e4398812c72b36fef0b15dbe8e",
+ "upstream_sha256": "ad195d4c6c176ab138d1eb976a91fe3c00ecdf5d1af3e314bf4bacb10c2c4495"
+}

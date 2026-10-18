@@ -1,0 +1,1066 @@
+{
+ "n": 48,
+ "ok": 45,
+ "not_ok": [],
+ "recorded_only": [
+  [
+   "M13 ml-dsa-65 signature byte flipped on the SESSION path (must still be reported unchecked, not fail)",
+   null,
+   null
+  ],
+  [
+   "M24 signing key status revoked",
+   "authentic",
+   "AUTHENTIC_NO_DIRECTORY"
+  ],
+  [
+   "M26 resourceUrl on another origin than issuer (settlement vs trusted)",
+   "settlement",
+   "SETTLEMENT_MISMATCH"
+  ]
+ ],
+ "rows": [
+  {
+   "mutation": "M01 drop ml-dsa-65 signature entry",
+   "run": "endToEnd/body/archival",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "SIGNATURES_SHAPE",
+    "detail": "SIGNATURES_SHAPE: signatures must hold 2–4 entries"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M02 unregistered alg entry added",
+   "run": "endToEnd/body/archival",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "SIGNATURE_ALG",
+    "detail": "SIGNATURE_ALG: signatures[2].alg 'rsa-pss' is not registered"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M03 extra payload member",
+   "run": "endToEnd/body/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "PAYLOAD_SHAPE",
+    "detail": "PAYLOAD_SHAPE: payload: unknown members ['note']"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M04 float in payload (logIndex 312.0)",
+   "run": "endToEnd/body/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "JCS_SUBSET",
+    "detail": "JCS_SUBSET: payload.logIndex: floating-point number"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M05 non-canonical base64 (unpadded) signature",
+   "run": "endToEnd/body/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "BASE64",
+    "detail": "BASE64: signatures[0].signature: not canonical base64"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M07 reference digest mismatch (document with one byte changed)",
+   "run": "endToEnd/reference/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "REFERENCE_DIGEST",
+    "detail": "REFERENCE_DIGEST: SHA-256 of the served octets differs from digest"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M08 document not JCS (pretty-printed, digest recomputed)",
+   "run": "endToEnd/reference/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "REFERENCE_JCS",
+    "detail": "REFERENCE_JCS: document is not the JCS text of the parsed object"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M09 duplicate member in document (digest recomputed)",
+   "run": "endToEnd/reference/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "REFERENCE_PARSE",
+    "detail": "REFERENCE_PARSE: document is not strict JSON: duplicate member \"payload\""
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M10 receiptUrl on another origin",
+   "run": "endToEnd/reference/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "REFERENCE_URL",
+    "detail": "REFERENCE_URL: receiptUrl must be https, same-origin with the accepted issuer, no query/fragment"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M11 ed25519 signature byte flipped",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "SIGNATURE_INVALID",
+    "detail": "SIGNATURE_INVALID: ed25519 signature verifies false"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M12 ml-dsa-65 signature byte flipped (archival)",
+   "run": "endToEnd/body/archival",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "SIGNATURE_INVALID",
+    "detail": "SIGNATURE_INVALID: ml-dsa-65 signature verifies false"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M13 ml-dsa-65 signature byte flipped on the SESSION path (must still be reported unchecked, not fail)",
+   "run": "endToEnd/body/session",
+   "expected": null,
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": null
+  },
+  {
+   "mutation": "M14 kid points at the other key (alg mismatch)",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "SIGNATURE_ALG",
+    "detail": "SIGNATURE_ALG: signature alg ed25519 differs from the directory entry ml-dsa-65"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M15 unknown kid",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "KID_UNKNOWN",
+    "detail": "KID_UNKNOWN: kid deadbeefdeadbeef not in epoch 1"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M16 payload amount edited (signature stale)",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "SIGNATURE_INVALID",
+    "detail": "SIGNATURE_INVALID: ed25519 signature verifies false"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M17 directory governance ed25519 signature flipped (session)",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "AUTHENTIC_NO_DIRECTORY",
+    "detail": "AUTHENTIC_NO_DIRECTORY: cannot resolve kid without a verified directory (DIRECTORY_SIGNATURE: governance ed25519 signature over the root verifies false)"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M18 directory root edited",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "AUTHENTIC_NO_DIRECTORY",
+    "detail": "AUTHENTIC_NO_DIRECTORY: cannot resolve kid without a verified directory (DIRECTORY_ROOT: root does not recompute (got 40b0560cd3637678…))"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M19 governance key replaced by small-order point",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "AUTHENTIC_NO_DIRECTORY",
+    "detail": "AUTHENTIC_NO_DIRECTORY: cannot resolve kid without a verified directory (DIRECTORY_KEY: governanceKeys[0]: small-order Ed25519 public key)"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M20 pinned governance key differs (trust basis absent)",
+   "run": "endToEnd/body/session",
+   "expected": "trusted",
+   "first_failing_level": "trusted",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "fail",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "trusted",
+    "code": "TRUST_BASIS",
+    "detail": "TRUST_BASIS: governance key is neither pinned nor fetched over TLS (offline copy)"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M21 pinned only ml-dsa-65 while checking ed25519 (session)",
+   "run": "endToEnd/body/session",
+   "expected": "trusted",
+   "first_failing_level": "trusted",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "fail",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "trusted",
+    "code": "TRUST_BASIS",
+    "detail": "TRUST_BASIS: governance key is neither pinned nor fetched over TLS (offline copy)"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M22 payload keyDirectoryDigest differs → KEY_DIRECTORY_DIGEST_MISMATCH (needs re-sign; expect authentic to fail first)",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "SIGNATURE_INVALID",
+    "detail": "SIGNATURE_INVALID: ed25519 signature verifies false"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M23 directory epoch 2 with same content (prevRoot zeros) → shape",
+   "run": "endToEnd/body/session",
+   "expected": "authentic",
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "AUTHENTIC_NO_DIRECTORY",
+    "detail": "AUTHENTIC_NO_DIRECTORY: cannot resolve kid without a verified directory (DIRECTORY_SHAPE: prevRoot is 64 zeros iff epoch is 1)"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M24 signing key status revoked",
+   "run": "endToEnd/body/session",
+   "expected": null,
+   "first_failing_level": "authentic",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "fail",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "authentic",
+    "code": "AUTHENTIC_NO_DIRECTORY",
+    "detail": "AUTHENTIC_NO_DIRECTORY: cannot resolve kid without a verified directory (DIRECTORY_ROOT: root does not recompute (got 10f2968e02c95972…))"
+   },
+   "unchecked_algs": [],
+   "ok": null
+  },
+  {
+   "mutation": "M25 issuedAt far in the future (now moved back)",
+   "run": "endToEnd/body/session",
+   "expected": "trusted",
+   "first_failing_level": "trusted",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "fail",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "trusted",
+    "code": "ISSUED_IN_FUTURE",
+    "detail": "ISSUED_IN_FUTURE: issuedAt beyond the clock-skew allowance"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M26 resourceUrl on another origin than issuer (settlement vs trusted)",
+   "run": "endToEnd/body/session",
+   "expected": null,
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: resourceUrl/method differ from the request made"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": null
+  },
+  {
+   "mutation": "M27 settle transaction differs",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: transaction/network differ from SettleResponse"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M28 settle payer case changed (must still pass)",
+   "run": "endToEnd/body/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M29 settle payer non-string",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: payer differs from SettleResponse"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M30 requirements amount differs",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: amount differs"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M31 settle.amount present and equal (must pass)",
+   "run": "endToEnd/body/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M32 settle.amount present and different",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: amount differs"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M33 method differs",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: resourceUrl/method differ from the request made"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M34 client sent a paymentId but payload has null",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_MISMATCH",
+    "detail": "SETTLEMENT_MISMATCH: paymentId differs from the id the client sent"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M35 offer-receipt in settle disagrees on payer",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "OFFER_RECEIPT_DISAGREES",
+    "detail": "OFFER_RECEIPT_DISAGREES: offer-receipt network/payer differ (§2.1)"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M36 settle success false",
+   "run": "endToEnd/body/session",
+   "expected": "settlement",
+   "first_failing_level": "settlement",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "fail",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "settlement",
+    "code": "SETTLEMENT_NOT_SUCCESS",
+    "detail": "SETTLEMENT_NOT_SUCCESS: a receipt MUST NOT exist for a failed settle"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M37 body differs by one byte",
+   "run": "endToEnd/body/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "BODY_DIGEST_MISMATCH",
+    "detail": "BODY_DIGEST_MISMATCH: SHA-256 of the observed body differs"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M38 no body → DELIVERY_UNCONFIRMED (not-evaluated)",
+   "run": "endToEnd/body/session",
+   "expected": "not-evaluated",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "DELIVERY_UNCONFIRMED",
+    "detail": "DELIVERY_UNCONFIRMED: no observed body"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M39 stream: one frame dropped",
+   "run": "endToEnd/stream/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "STREAM_DIGEST_MISMATCH",
+    "detail": "STREAM_DIGEST_MISMATCH: recomputed (2, 1cc6e8b302db1380…) differs"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M40 stream: frames reordered",
+   "run": "endToEnd/stream/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "STREAM_DIGEST_MISMATCH",
+    "detail": "STREAM_DIGEST_MISMATCH: recomputed (3, 452c62a42e7e3020…) differs"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M41 stream: event after the terminal event",
+   "run": "endToEnd/stream/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "EVENTS_AFTER_TERMINAL",
+    "detail": "EVENTS_AFTER_TERMINAL: 1 event(s) after the terminal event"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M42 stream: CRLF line ends (must pass)",
+   "run": "endToEnd/stream/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M43 stream: comment and retry lines inserted (must pass)",
+   "run": "endToEnd/stream/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M44 stream: terminal event without its blank line (pending, discarded)",
+   "run": "endToEnd/stream/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "RECEIPT_MISSING",
+    "detail": "RECEIPT_MISSING: stream ended without the terminal event"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M45 stream: terminal frameCount edited",
+   "run": "endToEnd/stream/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "TERMINAL_MISMATCH",
+    "detail": "TERMINAL_MISMATCH: terminal frameCount/digest differ from the signed payload"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M46 streamSession observed status 500",
+   "run": "streamSession/session",
+   "expected": "delivery",
+   "first_failing_level": "delivery",
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "fail"
+   },
+   "valid": false,
+   "reason": {
+    "level": "delivery",
+    "code": "STATUS_MISMATCH",
+    "detail": "STATUS_MISMATCH: responseStatus differs from the observed status"
+   },
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M47 streamSession: terminal reference digest edited",
+   "run": "streamSession/session",
+   "expected": "integrity",
+   "first_failing_level": "integrity",
+   "levels": {
+    "integrity": "fail",
+    "authentic": "not-evaluated",
+    "trusted": "not-evaluated",
+    "settlement": "not-evaluated",
+    "delivery": "not-evaluated"
+   },
+   "valid": false,
+   "reason": {
+    "level": "integrity",
+    "code": "REFERENCE_DIGEST",
+    "detail": "REFERENCE_DIGEST: SHA-256 of the served octets differs from digest"
+   },
+   "unchecked_algs": [],
+   "ok": true
+  },
+  {
+   "mutation": "M48 directory keys array reversed (root sorts; must pass)",
+   "run": "endToEnd/body/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  },
+  {
+   "mutation": "M49 directory governanceKeys reversed (must pass)",
+   "run": "endToEnd/body/session",
+   "expected": "pass",
+   "first_failing_level": null,
+   "levels": {
+    "integrity": "pass",
+    "authentic": "pass",
+    "trusted": "pass",
+    "settlement": "pass",
+    "delivery": "pass"
+   },
+   "valid": true,
+   "reason": null,
+   "unchecked_algs": [
+    "ml-dsa-65"
+   ],
+   "ok": true
+  }
+ ]
+}
