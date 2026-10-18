@@ -1,0 +1,70 @@
+{
+ "reader_sha256": "897b56489edbaa2095f48e7ee8a6a18739e724891cc243d7c588005f5412e9aa",
+ "rows": [
+  {
+   "agree": false,
+   "input_sha256": "4fe370d2ece9f1bcebe2c66556eaee348cdd4efc22e484cb6b6c9e7395f77725",
+   "ours": {
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "theirs": {
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "vector": "22-matching-record-token-later-than-issued"
+  },
+  {
+   "agree": true,
+   "input_sha256": "ceceef3596b1d3a2d576113f906c5cbe80e445ad58c0085b533fee060fa82aa6",
+   "ours": {
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "theirs": {
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "vector": "23-criteria-token-imprint-oid-sha384"
+  }
+ ],
+ "source": "babyblueviper1/preaction-governance-conformance@431525f examples/work-acceptance-record-cold/proposed_vectors (data only; war_check.py not opened)"
+}
