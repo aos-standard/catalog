@@ -30,9 +30,10 @@ snapshots chain.
    ```
 
    It checks that the `.ots` proof commits to the sha256 of `MANIFEST.txt` and, once a calendar's commitment is in a
-   block, reports the block height and time. Right after stamping the proof is *pending*; the maintainer runs
-   `ots upgrade` a few hours later and commits the upgraded `.ots`. A pending proof already fixes the hash with the
-   calendars; a complete one needs no calendar.
+   block, reports the block height and time. Right after stamping the proof is *pending*; a few hours later the
+   maintainer runs `ots upgrade` and publishes the result **next to it** as `MANIFEST.txt.upgraded.ots` (the pending
+   file is never rewritten). A pending proof already fixes the hash with the calendars; the upgraded one needs no
+   calendar. Verify whichever is present; the upgraded one is the stronger.
 
 ## What this does and does not show
 
