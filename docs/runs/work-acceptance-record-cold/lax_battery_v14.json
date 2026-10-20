@@ -1,0 +1,78 @@
+{
+ "n": 12,
+ "ok": 12,
+ "rows": [
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M0 unchanged",
+   "got": "verified",
+   "ok": true
+  },
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M1 one bit inside TSTInfo (messageDigest no longer matches)",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M2 one bit inside the first embedded certificate's TBS",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M3 one bit in the last byte (inside the signature)",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M4 empty anchor list passed to step 9",
+   "got": "untrusted",
+   "ok": true
+  },
+  {
+   "vector": "31-tsa-freetsa-verified",
+   "mutation": "M5 the other authority's root as the only anchor",
+   "got": "untrusted",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M0 unchanged",
+   "got": "verified",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M1 one bit inside TSTInfo (messageDigest no longer matches)",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M2 one bit inside the first embedded certificate's TBS",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M3 one bit in the last byte (inside the signature)",
+   "got": "failed",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M4 empty anchor list passed to step 9",
+   "got": "untrusted",
+   "ok": true
+  },
+  {
+   "vector": "32-tsa-digicert-verified",
+   "mutation": "M5 the other authority's root as the only anchor",
+   "got": "untrusted",
+   "ok": true
+  }
+ ]
+}
