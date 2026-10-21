@@ -1,0 +1,23 @@
+{
+ "accepted_as_stated": false,
+ "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+ "criteria_committed_before_check": "yes",
+ "criteria_hash": "match",
+ "independence": "independent",
+ "independence_derived": "independent",
+ "key_rejected": false,
+ "problem_codes": [
+  "CRITERIA_TIMESTAMP_MISMATCH"
+ ],
+ "receipt_timestamp": "imprint_match",
+ "signature_valid": true,
+ "tsa_signature": {
+  "criteria": "verified",
+  "receipt": "verified"
+ },
+ "verdict_recomputed": "pass",
+ "verdict_stated": "pass",
+ "warning_codes": [
+  "CRITERIA_COMMITMENT_UNVERIFIED"
+ ]
+}
