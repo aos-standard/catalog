@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""war_cold_verifier_v141 — v14.1 with step 9 moved to profile 1.4.1 (tsa_check_141.py); nothing else changed.
+"""war_cold_verifier_v141 — v14.1 with step 9 moved to profile 1.4.1 (tsa_check_141.py).
+v141.2 (2026-10-23): JCS numbers in RFC 8785 form (_es_number); before that floats were refused.
 
 v13 docstring follows.
 war_cold_verifier_v13 — the clean-room verifier of war_cold_verifier.py, moved to draft profile 1.3.
@@ -46,6 +47,39 @@ SHA256_OID_HEX = "608648016503040201"
 # ------------------------------------------------------------------ JCS (RFC 8785)
 
 
+def _es_number(v: float) -> str:
+    """ECMAScript Number::toString for a finite double (RFC 8785 §3.2.2.3), from the shortest round-trip digits."""
+    import math
+    if math.isnan(v) or math.isinf(v):
+        raise ValueError("non-finite number")
+    if v == 0:
+        return "0"  # also -0
+    sign = "-" if v < 0 else ""
+    r = repr(abs(v))  # shortest round-trip decimal (Python 3)
+    mant, _, exp = r.partition("e")
+    e = int(exp) if exp else 0
+    if "." in mant:
+        ip, fp = mant.split(".")
+    else:
+        ip, fp = mant, ""
+    digits = (ip + fp).lstrip("0")
+    lead_zeros = len(ip + fp) - len((ip + fp).lstrip("0"))
+    n = len(ip) + e - lead_zeros  # value = 0.d1d2... x 10^n
+    digits = digits.rstrip("0")
+    k = len(digits)
+    if k <= n <= 21:
+        out = digits + "0" * (n - k)
+    elif 0 < n <= 21:
+        out = digits[:n] + "." + digits[n:]
+    elif -6 < n <= 0:
+        out = "0." + "0" * (-n) + digits
+    else:
+        e2 = n - 1
+        es = ("+" if e2 >= 0 else "-") + str(abs(e2))
+        out = (digits[0] + "e" + es) if k == 1 else (digits[0] + "." + digits[1:] + "e" + es)
+    return sign + out
+
+
 def jcs(value) -> bytes:
     def ser(v) -> str:
         if v is None:
@@ -57,7 +91,7 @@ def jcs(value) -> bytes:
         if isinstance(v, int):
             return str(v)
         if isinstance(v, float):
-            raise ValueError("float not expected in these records")
+            return _es_number(v)  # v141.2 (2026-10-23): RFC 8785 §3.2.2.3; v141.1 raised here (vector 52)
         if isinstance(v, str):
             return json.dumps(v, ensure_ascii=False)
         if isinstance(v, list):

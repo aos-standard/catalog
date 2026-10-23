@@ -287,6 +287,18 @@ def _check(tsr_der: bytes, anchors_der: list[bytes]) -> str:
         paths = list(_paths_to_anchor(signer, certs, anchors))
         if not paths:
             untrusted = True
+            # v141.3 (2026-10-23, vector 54): issuer checks also run on a chain that reaches no anchor; an issuer in the
+            # token that signs the chain but is not a CA or not valid at genTime is a failing check -> `failed`.
+            seen, frontier = set(), [signer]
+            while frontier:
+                cur = frontier.pop()
+                for c in certs:
+                    if id(c) in seen or c.subject != cur.issuer or _spki(c) == _spki(cur) or not _cert_sig_ok(c, cur):
+                        continue
+                    seen.add(id(c))
+                    if c.subject != c.issuer and (not _is_ca(c) or not _valid_at(c, gen)):
+                        failed = True
+                    frontier.append(c)
         else:
             def defects(p):
                 return any(not _is_ca(c) or not _valid_at(c, gen) for c in p[:-1]) or not _is_ca(p[-1])
