@@ -1,0 +1,9 @@
+caught no-shape-check               by ['AP-02', 'AP-03', 'AP-04']
+caught accept-any-mechanism         by ['AP-05']
+caught skip-set-digest              by ['AP-06']
+caught skip-proof-sha               by ['AP-07']
+caught ignore-proof-file-digest     by ['AP-09']
+caught pending-counts-as-anchored   by ['AP-10']
+caught ignore-claimed-height        by ['AP-11']
+caught no-root-compare              by ['AP-12', 'AP-13', 'AP-14']
+8/8 lax variants caught

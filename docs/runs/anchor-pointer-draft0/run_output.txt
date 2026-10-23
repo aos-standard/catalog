@@ -1,0 +1,15 @@
+agree  AP-01 expected=anchored                 got=anchored
+agree  AP-02 expected=malformed                got=malformed
+agree  AP-03 expected=malformed                got=malformed
+agree  AP-04 expected=malformed                got=malformed
+agree  AP-05 expected=unsupported_mechanism    got=unsupported_mechanism
+agree  AP-06 expected=set_digest_mismatch      got=set_digest_mismatch
+agree  AP-07 expected=proof_sha_mismatch       got=proof_sha_mismatch
+agree  AP-08 expected=proof_unparseable        got=proof_unparseable
+agree  AP-09 expected=proof_for_other_digest   got=proof_for_other_digest
+agree  AP-10 expected=pending                  got=pending
+agree  AP-11 expected=height_not_in_proof      got=height_not_in_proof
+agree  AP-12 expected=header_unavailable       got=header_unavailable
+agree  AP-13 expected=root_mismatch            got=root_mismatch
+agree  AP-14 expected=root_mismatch            got=root_mismatch
+14/14
