@@ -47,4 +47,4 @@ snapshots chain.
 
 | month | commit | manifest sha256 | stamped (UTC) | status |
 |---|---|---|---|---|
-| 2026-10 | `109a30d` | `f046ca25f491eae46879b4c5b57a68efe89449b0d19af5fe5c6c6f3348cec57c` | 2026-10-19T23:14Z | pending Bitcoin confirmation (4 calendars) |
+| 2026-10 | `109a30d` | `f046ca25f491eae46879b4c5b57a68efe89449b0d19af5fe5c6c6f3348cec57c` | 2026-10-19T23:14Z | Bitcoin block 972227 |
