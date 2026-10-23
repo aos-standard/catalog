@@ -1,0 +1,300 @@
+{
+ "rows": [
+  {
+   "mutant": "lease-ignores-expiry",
+   "mode": "cached_lease",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_model": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "sliding-lease",
+   "mode": "cached_lease",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_model": [
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "differ",
+   "only_declared": [
+    "LRA-04"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "live-fail-open",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "this_model": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "sticky-unavailable",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "this_model": [
+    "LRA-11"
+   ],
+   "status": "differ",
+   "only_declared": [
+    "LRA-03",
+    "LRA-07"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "retrieval-renews-evidence",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_model": [
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "differ",
+   "only_declared": [
+    "LRA-04"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "deny-but-dispatch",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_model": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "deny-everything",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_model": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "live-first-read-only",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11"
+   ],
+   "this_model": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10"
+   ],
+   "status": "differ",
+   "only_declared": [
+    "LRA-11"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "second-worker-stale",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-08"
+   ],
+   "this_model": [
+    "LRA-08"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "fabricated-live-read",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_model": [],
+   "status": "audit_only",
+   "only_declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "selective-not-supported",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_model": [],
+   "status": "audit_only",
+   "only_declared": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "ignore-evidence-binding",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "declared": [
+    "LRA-12"
+   ],
+   "this_model": [
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  }
+ ]
+}

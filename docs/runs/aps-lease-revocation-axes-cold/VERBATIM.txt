@@ -1,0 +1,41 @@
+$ (in fixtures/lease-revocation-axes/revision-2) sha256sum vectors.json oracle-checkpoints.json
+a0a07ea58bcacfd056cbd648e03de4ff14778aa151e8b5d2574e43e31a111ed8  vectors.json
+1a0ed8a70bc7e7583c02855953485230261a8aeb5c0adc105292ab4b6e0916ea  oracle-checkpoints.json
+$ python3 -I run_lra.py vectors.json first_run_b745d25.json
+176/176 call-profiles agree; fields 1584/1584; truth input mismatches 0
+(exit 0)
+$ python3 -I lra_mutants.py vectors.json mutants_b745d25.json
+match      lease-ignores-expiry         declared=5 here=5 only_declared=[] only_here=[]
+differ     sliding-lease                declared=5 here=4 only_declared=['LRA-04'] only_here=[]
+match      live-fail-open               declared=3 here=3 only_declared=[] only_here=[]
+differ     sticky-unavailable           declared=3 here=1 only_declared=['LRA-03', 'LRA-07'] only_here=[]
+differ     retrieval-renews-evidence    declared=4 here=3 only_declared=['LRA-04'] only_here=[]
+match      deny-but-dispatch            declared=11 here=11 only_declared=[] only_here=[]
+match      deny-everything              declared=10 here=10 only_declared=[] only_here=[]
+differ     live-first-read-only         declared=9 here=8 only_declared=['LRA-11'] only_here=[]
+match      second-worker-stale          declared=1 here=1 only_declared=[] only_here=[]
+audit_only fabricated-live-read         declared=11 here=0 only_declared=['LRA-01', 'LRA-02', 'LRA-03', 'LRA-05', 'LRA-06', 'LRA-07', 'LRA-08', 'LRA-09', 'LRA-10', 'LRA-11', 'LRA-12'] only_here=[]
+audit_only selective-not-supported      declared=11 here=0 only_declared=['LRA-02', 'LRA-03', 'LRA-04', 'LRA-05', 'LRA-06', 'LRA-07', 'LRA-08', 'LRA-09', 'LRA-10', 'LRA-11', 'LRA-12'] only_here=[]
+match      ignore-evidence-binding      declared=1 here=1 only_declared=[] only_here=[]
+(exit 0)
+$ python3 -I lra_mutants_alt.py vectors.json mutants_alt_b745d25.json
+match  sliding-lease                declared=['LRA-04', 'LRA-05', 'LRA-07', 'LRA-08', 'LRA-10'] here=['LRA-04', 'LRA-05', 'LRA-07', 'LRA-08', 'LRA-10']
+match  retrieval-renews-evidence    declared=['LRA-04', 'LRA-05', 'LRA-08', 'LRA-10'] here=['LRA-04', 'LRA-05', 'LRA-08', 'LRA-10']
+match  sticky-unavailable           declared=['LRA-03', 'LRA-07', 'LRA-11'] here=['LRA-03', 'LRA-07', 'LRA-11']
+match  live-first-read-only         declared=['LRA-01', 'LRA-02', 'LRA-03', 'LRA-06', 'LRA-07', 'LRA-08', 'LRA-09', 'LRA-10', 'LRA-11'] here=['LRA-01', 'LRA-02', 'LRA-03', 'LRA-06', 'LRA-07', 'LRA-08', 'LRA-09', 'LRA-10', 'LRA-11']
+(exit 0)
+$ python3 -I check_checkpoints.py vectors.json oracle-checkpoints.json checkpoints_b745d25.json
+0 LRA-01-r1 cached_lease exclusive agree 
+1 LRA-02-r4 cached_lease exclusive agree 
+2 LRA-02-r2 live_standing_read exclusive agree 
+3 LRA-03-r2 live_standing_read exclusive agree 
+4 LRA-04-r1 live_standing_read exclusive agree 
+5 LRA-04-r1 live_standing_read exclusive outside_model {"observation": {"checkpoint": {"status": "revoked", "as_of_ms": 121000, "retrieved_at_ms": 121000}, "model": null}, "authority_answer": {"checkpoint": "revoked", "model": "not_established"}, "current_validity": {"checkpoint": "revoked", "model": "not_established"}}
+6 LRA-05-r2 live_standing_read inclusive agree 
+7 LRA-05-r2 live_standing_read exclusive agree 
+8 LRA-09-r1 live_standing_read exclusive agree 
+9 LRA-12-r2 live_standing_read exclusive agree 
+10 LRA-06-r3 live_standing_read exclusive agree 
+11 LRA-07-r2 live_standing_read exclusive agree 
+11/11 non-diagnostic checkpoints agree; 1 diagnostic outside the model
+(exit 0)

@@ -1,0 +1,132 @@
+{
+ "agree": 11,
+ "scored": 11,
+ "total": 12,
+ "rows": [
+  {
+   "index": 0,
+   "call": "LRA-01-r1",
+   "mode": "cached_lease",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 1,
+   "call": "LRA-02-r4",
+   "mode": "cached_lease",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 2,
+   "call": "LRA-02-r2",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 3,
+   "call": "LRA-03-r2",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 4,
+   "call": "LRA-04-r1",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 5,
+   "call": "LRA-04-r1",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": true,
+   "status": "outside_model",
+   "diffs": {
+    "observation": {
+     "checkpoint": {
+      "status": "revoked",
+      "as_of_ms": 121000,
+      "retrieved_at_ms": 121000
+     },
+     "model": null
+    },
+    "authority_answer": {
+     "checkpoint": "revoked",
+     "model": "not_established"
+    },
+    "current_validity": {
+     "checkpoint": "revoked",
+     "model": "not_established"
+    }
+   }
+  },
+  {
+   "index": 6,
+   "call": "LRA-05-r2",
+   "mode": "live_standing_read",
+   "boundary": "inclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 7,
+   "call": "LRA-05-r2",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 8,
+   "call": "LRA-09-r1",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 9,
+   "call": "LRA-12-r2",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 10,
+   "call": "LRA-06-r3",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  },
+  {
+   "index": 11,
+   "call": "LRA-07-r2",
+   "mode": "live_standing_read",
+   "boundary": "exclusive",
+   "diagnostic": false,
+   "status": "agree",
+   "diffs": {}
+  }
+ ]
+}

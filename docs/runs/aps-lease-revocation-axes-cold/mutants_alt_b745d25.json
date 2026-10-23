@@ -1,0 +1,79 @@
+{
+ "post_hoc": true,
+ "rows": [
+  {
+   "mutant": "sliding-lease",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_reading": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match"
+  },
+  {
+   "mutant": "retrieval-renews-evidence",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_reading": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match"
+  },
+  {
+   "mutant": "sticky-unavailable",
+   "declared": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "this_reading": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "status": "match"
+  },
+  {
+   "mutant": "live-first-read-only",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11"
+   ],
+   "this_reading": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11"
+   ],
+   "status": "match"
+  }
+ ]
+}
