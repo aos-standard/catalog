@@ -1,0 +1,32 @@
+positive: recompute the stamped manifest
+manifest sha256 f046ca25f491eae46879b4c5b57a68efe89449b0d19af5fe5c6c6f3348cec57c  (this is the value the .ots proof commits to)
+commit 109a30db666aa60a6df2614f097416aae3522498
+127 match, 0 differ or missing, 1 private (not recomputable here)
+rc=0
+negative A: one hex digit of the CONDUCT.jsonl line changed in a copy of the manifest
+manifest sha256 a6304bc7e86563e1a6faad429dae56e0acd1aef3da0f33492075f6ca4e12a1fe  (this is the value the .ots proof commits to)
+commit 109a30db666aa60a6df2614f097416aae3522498
+DIFFERS CONDUCT.jsonl
+126 match, 1 differ or missing, 1 private (not recomputable here)
+rc=1
+File does not match original!
+rc=1
+negative B: rewrite one byte of CONDUCT.jsonl row 1 at 109a30d on a local branch, rebuild the manifest from it
+4c4
+< ddaeea7a33d0cbac549a61e02158589f9efa6fa20a7f3433781f3fc86ae71cb0  CONDUCT.jsonl
+---
+> 485e3488c9df71c9dcba26e8b99b531389a72b75440010f45bd9bc3f8890c9f3  CONDUCT.jsonl
+File does not match original!
+rc=1
+control: the stamped manifest still verifies in a clone that holds the rewritten branch
+manifest sha256 f046ca25f491eae46879b4c5b57a68efe89449b0d19af5fe5c6c6f3348cec57c  (this is the value the .ots proof commits to)
+commit 109a30db666aa60a6df2614f097416aae3522498
+127 match, 0 differ or missing, 1 private (not recomputable here)
+rc=0
+block: compare the proof's merkle root with two explorers
+    verify BitcoinBlockHeaderAttestation(972227)
+    # Bitcoin block merkle root 14bc2bbfd1477465e98c985b305b7de97fc31a1dcb183ec162bb1288733cfc7b
+blockstream 14bc2bbfd1477465e98c985b305b7de97fc31a1dcb183ec162bb1288733cfc7b
+mempool     14bc2bbfd1477465e98c985b305b7de97fc31a1dcb183ec162bb1288733cfc7b
+append-only: the ledger as stamped is a byte prefix of the current one
+prefix ok (40338 bytes)

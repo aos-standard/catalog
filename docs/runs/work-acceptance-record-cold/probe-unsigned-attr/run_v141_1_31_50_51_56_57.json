@@ -1,0 +1,140 @@
+{
+ "agree": 5,
+ "n": 5,
+ "readme_pin": "d79a737",
+ "rows": [
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "3bdbd6cc0f401fe8a834fba962d3b139830bf3e1807434f6d8d3607cc3ca2862",
+   "vector": "31-tsa-freetsa-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "aa94a0e49022e7d79c70babfcad3485856a11cfc1bff38a711509941635776fd",
+   "vector": "50-criteria-token-imprint-only-in-status-string.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0fcf8cfbf3bd465749197f18e73673d3a8ffb9e9eadbbaba7267d5df3de84a1f",
+   "vector": "51-record-token-imprint-only-in-status-string.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "21c756c2d84fe876bade6973847ec4aea8a7cdd04134b42e34aeb6a997a8b815",
+   "vector": "56-criteria-token-imprint-only-in-unsigned-attribute.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "3d0a99a9639555c9201b7c0defb01723dd23696fa3dc598dde93269aa738d953",
+   "vector": "57-record-token-imprint-only-in-unsigned-attribute.json"
+  }
+ ]
+}

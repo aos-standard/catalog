@@ -1,0 +1,19 @@
+{
+ "criteria_committed_before_check": "yes",
+ "criteria_hash": "match",
+ "independence": "independent",
+ "problem_codes": [
+  "CRITERIA_TIMESTAMP_MISMATCH"
+ ],
+ "receipt_timestamp": "imprint_match",
+ "signature_valid": true,
+ "tsa_signature": {
+  "criteria": "verified",
+  "receipt": "verified"
+ },
+ "verdict_recomputed": "pass",
+ "verdict_stated": "pass",
+ "warning_codes": [
+  "CRITERIA_COMMITMENT_UNVERIFIED"
+ ]
+}

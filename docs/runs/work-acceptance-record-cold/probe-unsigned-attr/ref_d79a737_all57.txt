@@ -1,0 +1,67 @@
+AGREE 01-valid.json
+AGREE 02-criteria-committed-after-issue.json
+AGREE 03-self-checked.json
+AGREE 04-required-not-evaluated.json
+AGREE 05-checker-key-equals-producer-key.json
+AGREE 06-receipt-edited-after-signing.json
+AGREE 07-criteria-file-swapped.json
+AGREE 08-receipt-token-over-another-receipt.json
+AGREE 09-stated-pass-recomputes-incomplete.json
+AGREE 10-committed-at-contradicts-token.json
+AGREE 11-required-criterion-fails.json
+AGREE 12-signer-is-not-the-checker.json
+AGREE 13-independent-but-same-party.json
+AGREE 14-results-not-in-criteria.json
+AGREE 15-criteria-token-over-other-bytes.json
+AGREE 16-no-criteria-token.json
+AGREE 17-committed-at-equals-reference.json
+AGREE 18-mismatching-record-token-later-time.json
+AGREE 19-result-outside-vocabulary.json
+AGREE 20-producer-undeclared.json
+AGREE 21-unknown-schema.json
+AGREE 22-matching-record-token-later-than-issued.json
+AGREE 23-criteria-token-imprint-oid-sha384.json
+AGREE 24-criteria-token-imprint-oid-sha3-256.json
+AGREE 25-criteria-token-imprint-oid-sha512-256.json
+AGREE 26-key-small-order.json
+AGREE 27-key-non-canonical-encoding.json
+AGREE 28-key-file-with-unrelated-bad-entry.json
+AGREE 29-criteria-token-accuracy-flips-commitment.json
+AGREE 30-criteria-token-accuracy-millis-still-before.json
+AGREE 31-tsa-freetsa-verified.json
+AGREE 32-tsa-digicert-verified.json
+AGREE 33-tsa-unrelated-root-untrusted.json
+AGREE 34-tsa-tampered-signature-failed.json
+AGREE 35-tsa-token-without-signer-certificate.json
+AGREE 36-tsa-no-anchors-not-evaluated.json
+AGREE 37-tsa-synthetic-control-verified.json
+AGREE 38-tsa-intermediate-expired-failed.json
+AGREE 39-tsa-content-type-mismatch-failed.json
+AGREE 40-tsa-rsassa-pss-verified.json
+AGREE 41-tsa-ecdsa-p256-verified.json
+AGREE 42-tsa-ecdsa-p521-unsupported.json
+AGREE 43-tsa-empty-anchor-list-not-evaluated.json
+AGREE 44-tsa-unsupported-curve-and-bad-digest-failed.json
+AGREE 45-tsa-no-certificates-and-bad-digest-failed.json
+AGREE 46-tsa-unsupported-curve-and-ess-mismatch-failed.json
+AGREE 47-receipt-payment-x402-exact.json
+AGREE 48-tsa-signer-without-timestamping-eku-failed.json
+AGREE 49-tsa-issuer-not-a-ca-failed.json
+DIFF  50-criteria-token-imprint-only-in-status-string.json
+    problem_codes: expected ['CRITERIA_TIMESTAMP_MISMATCH'] got []
+    warning_codes: expected ['CRITERIA_COMMITMENT_UNVERIFIED'] got []
+DIFF  51-record-token-imprint-only-in-status-string.json
+    receipt_timestamp: expected 'imprint_mismatch' got 'imprint_match'
+DIFF  52-receipt-non-integer-numbers.json
+    problem_codes: expected [] got ['SIGNATURE_INVALID']
+    signature_valid: expected True got False
+DIFF  53-tsa-anchor-same-name-other-key-untrusted.json
+    tsa_signature: expected {'criteria': 'untrusted'} got {'criteria': 'failed'}
+AGREE 54-tsa-expired-intermediate-no-anchor-failed.json
+AGREE 55-receipt-payment-outside-the-form.json
+DIFF  56-criteria-token-imprint-only-in-unsigned-attribute.json
+    problem_codes: expected ['CRITERIA_TIMESTAMP_MISMATCH'] got []
+    warning_codes: expected ['CRITERIA_COMMITMENT_UNVERIFIED'] got []
+DIFF  57-record-token-imprint-only-in-unsigned-attribute.json
+    receipt_timestamp: expected 'imprint_mismatch' got 'imprint_match'
+51/57 agree
