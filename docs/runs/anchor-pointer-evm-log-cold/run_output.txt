@@ -1,0 +1,15 @@
+agree  anchor-pointer-evm-positive-001                            expected=PASS their_mode=None here=anchored {'block': 52987624, 'finalized': 53012531, 'head': 53013050}
+agree  anchor-pointer-evm-positive-002-contract-case              expected=PASS their_mode=None here=anchored {'block': 52987624, 'finalized': 53012531, 'head': 53013050}
+agree  anchor-pointer-evm-positive-003-txhash-case                expected=PASS their_mode=None here=anchored {'block': 52987624, 'finalized': 53012531, 'head': 53013051}
+agree  anchor-pointer-evm-positive-004-explicit-null-proof        expected=PASS their_mode=None here=anchored {'block': 52987624, 'finalized': 53012531, 'head': 53013051}
+agree  anchor-pointer-evm-negative-contract-001                   expected=FAIL their_mode=contract_mismatch here=contract_mismatch {'log_address': '0x49feca52bc634a9ab773226d16619dec547794aa'}
+agree  anchor-pointer-evm-negative-chain-001                      expected=FAIL their_mode=tx_not_found_on_chain here=tx_not_found {}
+agree  anchor-pointer-evm-negative-chain-002-malformed            expected=FAIL their_mode=malformed_chain_id here=malformed {'field': 'chain'}
+agree  anchor-pointer-evm-negative-txhash-001-not-found           expected=FAIL their_mode=tx_not_found here=tx_not_found {}
+agree  anchor-pointer-evm-negative-destination-001                expected=FAIL their_mode=destination_mismatch here=log_not_found {'log_indexes': []}
+agree  anchor-pointer-evm-negative-logindex-001                   expected=FAIL their_mode=log_index_mismatch here=log_not_found {'log_indexes': [59]}
+agree  anchor-pointer-evm-negative-height-001-wrong               expected=FAIL their_mode=height_mismatch here=height_mismatch {'log_block': 52987624}
+agree  anchor-pointer-evm-negative-height-002-unreachable         expected=FAIL their_mode=height_unreachable here=height_unreachable {'head': 53013052}
+agree  anchor-pointer-evm-negative-digest-001-nibble-flip         expected=FAIL their_mode=digest_mismatch here=digest_mismatch {}
+agree  anchor-pointer-evm-negative-digest-002-real-but-wrong-anchor expected=FAIL their_mode=digest_mismatch here=digest_mismatch {}
+14/14 agree on pass/fail

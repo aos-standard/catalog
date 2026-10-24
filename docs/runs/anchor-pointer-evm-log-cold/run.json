@@ -1,0 +1,146 @@
+{
+ "rows": [
+  {
+   "id": "anchor-pointer-evm-positive-001",
+   "expected": "PASS",
+   "their_mode": null,
+   "result": "anchored",
+   "detail": {
+    "block": 52987624,
+    "finalized": 53012531,
+    "head": 53013050
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-002-contract-case",
+   "expected": "PASS",
+   "their_mode": null,
+   "result": "anchored",
+   "detail": {
+    "block": 52987624,
+    "finalized": 53012531,
+    "head": 53013050
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-003-txhash-case",
+   "expected": "PASS",
+   "their_mode": null,
+   "result": "anchored",
+   "detail": {
+    "block": 52987624,
+    "finalized": 53012531,
+    "head": 53013051
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-004-explicit-null-proof",
+   "expected": "PASS",
+   "their_mode": null,
+   "result": "anchored",
+   "detail": {
+    "block": 52987624,
+    "finalized": 53012531,
+    "head": 53013051
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-contract-001",
+   "expected": "FAIL",
+   "their_mode": "contract_mismatch",
+   "result": "contract_mismatch",
+   "detail": {
+    "log_address": "0x49feca52bc634a9ab773226d16619dec547794aa"
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-chain-001",
+   "expected": "FAIL",
+   "their_mode": "tx_not_found_on_chain",
+   "result": "tx_not_found",
+   "detail": {},
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-chain-002-malformed",
+   "expected": "FAIL",
+   "their_mode": "malformed_chain_id",
+   "result": "malformed",
+   "detail": {
+    "field": "chain"
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-txhash-001-not-found",
+   "expected": "FAIL",
+   "their_mode": "tx_not_found",
+   "result": "tx_not_found",
+   "detail": {},
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-destination-001",
+   "expected": "FAIL",
+   "their_mode": "destination_mismatch",
+   "result": "log_not_found",
+   "detail": {
+    "log_indexes": []
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-logindex-001",
+   "expected": "FAIL",
+   "their_mode": "log_index_mismatch",
+   "result": "log_not_found",
+   "detail": {
+    "log_indexes": [
+     59
+    ]
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-height-001-wrong",
+   "expected": "FAIL",
+   "their_mode": "height_mismatch",
+   "result": "height_mismatch",
+   "detail": {
+    "log_block": 52987624
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-height-002-unreachable",
+   "expected": "FAIL",
+   "their_mode": "height_unreachable",
+   "result": "height_unreachable",
+   "detail": {
+    "head": 53013052
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-digest-001-nibble-flip",
+   "expected": "FAIL",
+   "their_mode": "digest_mismatch",
+   "result": "digest_mismatch",
+   "detail": {},
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-digest-002-real-but-wrong-anchor",
+   "expected": "FAIL",
+   "their_mode": "digest_mismatch",
+   "result": "digest_mismatch",
+   "detail": {},
+   "agree": true
+  }
+ ]
+}

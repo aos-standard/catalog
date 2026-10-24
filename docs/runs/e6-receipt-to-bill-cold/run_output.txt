@@ -1,0 +1,17 @@
+fixture: all 89 files match SHA256SUMS; sha256(SHA256SUMS) = 08731bb75416e588a2a0269387731c6643dfbded76ef98b738e0097a99c2ebc3
+run at 2026-10-24T11:45:00Z
+01-matching-bill                             PASS    AGREE  -
+02-missing-receipt                           FAIL    AGREE  coverage_bill_to_receipts=unknown_receipt
+03-receipt-billed-twice-across-lines         FAIL    AGREE  uniqueness=listed_twice_in_bill
+04-receipt-billed-again-on-later-bill        FAIL    AGREE  uniqueness=billed_on_earlier_bill
+05-receipt-neither-billed-nor-excluded       FAIL    AGREE  coverage_receipts_to_bill=unaccounted_receipt
+06-bill-cut-from-different-manifest          FAIL    AGREE  scope=manifest_mismatch
+07-altered-receipt                           FAIL    AGREE  signatures=invalid_signature,chain_break;scope=root_mismatch
+08-unexpected-signer                         FAIL    AGREE  keys=unexpected_signer;signatures=invalid_signature,manifest_signature_invalid
+09-period-mismatch                           FAIL    AGREE  scope=period_mismatch
+10-verifier-unavailable                      ABSTAIN AGREE  keys=verifier_unavailable;signatures=verifier_unavailable
+11-export-truncated                          FAIL    AGREE  scope=count_mismatch,sequence_mismatch,head_mismatch,root_mismatch
+12-manifest-signature-altered                FAIL    AGREE  signatures=manifest_signature_invalid
+agree 12/12
+rc=0
+

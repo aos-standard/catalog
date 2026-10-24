@@ -1,0 +1,56 @@
+case 12 manifest                         this reader=False openssl=False
+case 07 receipt 38                       this reader=False openssl=False
+case 08 receipt 36 (pinned key)          this reader=False openssl=False
+case 08 receipt 37 (pinned key)          this reader=False openssl=False
+case 08 receipt 38 (pinned key)          this reader=False openssl=False
+case 08 receipt 39 (pinned key)          this reader=False openssl=False
+case 08 receipt 40 (pinned key)          this reader=False openssl=False
+case 08 receipt 41 (pinned key)          this reader=False openssl=False
+case 08 receipt 42 (pinned key)          this reader=False openssl=False
+case 08 receipt 43 (pinned key)          this reader=False openssl=False
+case 08 receipt 44 (pinned key)          this reader=False openssl=False
+case 08 receipt 45 (pinned key)          this reader=False openssl=False
+case 08 receipt 46 (pinned key)          this reader=False openssl=False
+case 08 receipt 47 (pinned key)          this reader=False openssl=False
+case 08 receipt 48 (pinned key)          this reader=False openssl=False
+case 08 receipt 49 (pinned key)          this reader=False openssl=False
+case 08 receipt 50 (pinned key)          this reader=False openssl=False
+case 08 receipt 51 (pinned key)          this reader=False openssl=False
+case 08 receipt 52 (pinned key)          this reader=False openssl=False
+case 08 receipt 53 (pinned key)          this reader=False openssl=False
+case 08 receipt 54 (pinned key)          this reader=False openssl=False
+case 08 receipt 55 (pinned key)          this reader=False openssl=False
+case 08 receipt 56 (pinned key)          this reader=False openssl=False
+case 08 receipt 57 (pinned key)          this reader=False openssl=False
+case 08 receipt 58 (pinned key)          this reader=False openssl=False
+case 08 receipt 59 (pinned key)          this reader=False openssl=False
+case 08 receipt 60 (pinned key)          this reader=False openssl=False
+case 08 receipt 61 (pinned key)          this reader=False openssl=False
+case 08 receipt 62 (pinned key)          this reader=False openssl=False
+case 08 receipt 63 (pinned key)          this reader=False openssl=False
+case 08 receipt 64 (pinned key)          this reader=False openssl=False
+case 08 receipt 65 (pinned key)          this reader=False openssl=False
+case 08 receipt 66 (pinned key)          this reader=False openssl=False
+case 08 receipt 67 (pinned key)          this reader=False openssl=False
+case 08 receipt 68 (pinned key)          this reader=False openssl=False
+case 08 receipt 69 (pinned key)          this reader=False openssl=False
+case 08 receipt 70 (pinned key)          this reader=False openssl=False
+case 08 receipt 71 (pinned key)          this reader=False openssl=False
+case 08 receipt 72 (pinned key)          this reader=False openssl=False
+case 08 receipt 73 (pinned key)          this reader=False openssl=False
+case 08 receipt 74 (pinned key)          this reader=False openssl=False
+case 08 receipt 75 (pinned key)          this reader=False openssl=False
+case 08 receipt 76 (pinned key)          this reader=False openssl=False
+case 08 receipt 77 (pinned key)          this reader=False openssl=False
+case 08 receipt 78 (pinned key)          this reader=False openssl=False
+case 08 receipt 79 (pinned key)          this reader=False openssl=False
+case 08 receipt 80 (pinned key)          this reader=False openssl=False
+case 08 receipt 81 (pinned key)          this reader=False openssl=False
+case 08 receipt 82 (pinned key)          this reader=False openssl=False
+case 08 receipt 83 (pinned key)          this reader=False openssl=False
+case 08 receipt 84 (pinned key)          this reader=False openssl=False
+case 08 receipt 85 (pinned key)          this reader=False openssl=False
+case 08 receipt 86 (pinned key)          this reader=False openssl=False
+case 08 manifest (pinned key)            this reader=False openssl=False
+signatures checked 157, disagreements 0, both valid 103, both invalid 54
+rc=0

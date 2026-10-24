@@ -1,0 +1,12 @@
+01-matching-bill                             PASS    AGREE
+02-missing-receipt                           FAIL    AGREE
+03-receipt-billed-twice-across-lines         FAIL    AGREE
+04-receipt-billed-again-on-later-bill        FAIL    AGREE
+05-receipt-neither-billed-nor-excluded       FAIL    AGREE
+06-bill-cut-from-different-manifest          FAIL    AGREE
+07-altered-receipt                           FAIL    DIFFER codes:signatures
+08-unexpected-signer                         FAIL    DIFFER claim:signatures codes:signatures
+09-period-mismatch                           FAIL    AGREE
+10-verifier-unavailable                      ABSTAIN AGREE
+11-export-truncated                          FAIL    AGREE
+12-manifest-signature-altered                PASS    DIFFER verdict claim:signatures claim:coverage_bill_to_receipts claim:coverage_receipts_to_bill claim:uniqueness claim:quantities codes:signatures
