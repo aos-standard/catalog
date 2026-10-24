@@ -1,0 +1,12 @@
+match  lease-ignores-expiry         only_declared=[] only_here=[]
+match  sliding-lease                only_declared=[] only_here=[]
+match  live-fail-open               only_declared=[] only_here=[]
+differ sticky-unavailable           only_declared=['LRA-03', 'LRA-07'] only_here=[]
+match  retrieval-renews-evidence    only_declared=[] only_here=[]
+match  deny-but-dispatch            only_declared=[] only_here=[]
+match  deny-everything              only_declared=[] only_here=[]
+match  live-first-read-only         only_declared=[] only_here=[]
+match  second-worker-stale          only_declared=[] only_here=[]
+skip   fabricated-live-read
+match  selective-not-supported      only_declared=[] only_here=[]
+match  ignore-evidence-binding      only_declared=[] only_here=[]

@@ -1,0 +1,246 @@
+{
+ "readme": "bccef3e",
+ "rows": [
+  {
+   "mutant": "lease-ignores-expiry",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_reading": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "sliding-lease",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_reading": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "live-fail-open",
+   "declared": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "this_reading": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "sticky-unavailable",
+   "declared": [
+    "LRA-03",
+    "LRA-07",
+    "LRA-11"
+   ],
+   "this_reading": [
+    "LRA-11"
+   ],
+   "status": "differ",
+   "only_declared": [
+    "LRA-03",
+    "LRA-07"
+   ],
+   "only_here": []
+  },
+  {
+   "mutant": "retrieval-renews-evidence",
+   "declared": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "this_reading": [
+    "LRA-04",
+    "LRA-05",
+    "LRA-08",
+    "LRA-10"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "deny-but-dispatch",
+   "declared": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_reading": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "deny-everything",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_reading": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "live-first-read-only",
+   "declared": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11"
+   ],
+   "this_reading": [
+    "LRA-01",
+    "LRA-02",
+    "LRA-03",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "second-worker-stale",
+   "declared": [
+    "LRA-08"
+   ],
+   "this_reading": [
+    "LRA-08"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "fabricated-live-read",
+   "status": "not_written"
+  },
+  {
+   "mutant": "selective-not-supported",
+   "declared": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "this_reading": [
+    "LRA-02",
+    "LRA-03",
+    "LRA-04",
+    "LRA-05",
+    "LRA-06",
+    "LRA-07",
+    "LRA-08",
+    "LRA-09",
+    "LRA-10",
+    "LRA-11",
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  },
+  {
+   "mutant": "ignore-evidence-binding",
+   "declared": [
+    "LRA-12"
+   ],
+   "this_reading": [
+    "LRA-12"
+   ],
+   "status": "match",
+   "only_declared": [],
+   "only_here": []
+  }
+ ]
+}
