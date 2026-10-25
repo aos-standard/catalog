@@ -1,0 +1,55 @@
+{
+ "proposed_for": "x402-foundation/x402#3207",
+ "license": "CC0-1.0",
+ "signing": {
+  "kid_of_published_key": "did:web:scvd.store#conformance-test-key",
+  "public_key_hex": "2152f8d19b791d24453242e15f2eab6cb7cffa7b6a5ed30097960e069881db12"
+ },
+ "vectors": [
+  {
+   "name": "offer_unknown_kid",
+   "expect": null,
+   "note": "Signed by the test key, but the header names a kid the verifier holds no key for.",
+   "payload": {
+    "version": 1,
+    "resourceUrl": "https://example.com/api/buy/widget",
+    "scheme": "exact",
+    "network": "eip155:8453",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "payTo": "0x1111111111111111111111111111111111111111",
+    "amount": "10000",
+    "validUntil": 4102444800
+   },
+   "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDp3ZWI6c2N2ZC5zdG9yZSNub3QtYS1wdWJsaXNoZWQta2V5In0.eyJ2ZXJzaW9uIjoxLCJyZXNvdXJjZVVybCI6Imh0dHBzOi8vZXhhbXBsZS5jb20vYXBpL2J1eS93aWRnZXQiLCJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6ODQ1MyIsImFzc2V0IjoiMHg4MzM1ODlmQ0Q2ZURiNkUwOGY0YzdDMzJENGY3MWI1NGJkQTAyOTEzIiwicGF5VG8iOiIweDExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEiLCJhbW91bnQiOiIxMDAwMCIsInZhbGlkVW50aWwiOjQxMDI0NDQ4MDB9.k1urHbghDPtGmIYzheUzcFwXgLdm5H40scb5xPi4MFTBmjnJGaJB1qxkqIaGl1oylMZ8omFDvU33AHWANtJIDQ",
+   "signature_verifies_openssl": true,
+   "this_catalog_verifier": {
+    "accept": false,
+    "stage": "kid",
+    "detail": "kid not among the configured keys"
+   }
+  },
+  {
+   "name": "offer_extra_field",
+   "expect": null,
+   "note": "Correctly signed by the test key; the payload carries one member that §4.2 does not define.",
+   "payload": {
+    "version": 1,
+    "resourceUrl": "https://example.com/api/buy/widget",
+    "scheme": "exact",
+    "network": "eip155:8453",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "payTo": "0x1111111111111111111111111111111111111111",
+    "amount": "10000",
+    "validUntil": 4102444800,
+    "note": "one member outside §4.2"
+   },
+   "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDp3ZWI6c2N2ZC5zdG9yZSNjb25mb3JtYW5jZS10ZXN0LWtleSJ9.eyJ2ZXJzaW9uIjoxLCJyZXNvdXJjZVVybCI6Imh0dHBzOi8vZXhhbXBsZS5jb20vYXBpL2J1eS93aWRnZXQiLCJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6ODQ1MyIsImFzc2V0IjoiMHg4MzM1ODlmQ0Q2ZURiNkUwOGY0YzdDMzJENGY3MWI1NGJkQTAyOTEzIiwicGF5VG8iOiIweDExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEiLCJhbW91bnQiOiIxMDAwMCIsInZhbGlkVW50aWwiOjQxMDI0NDQ4MDAsIm5vdGUiOiJvbmUgbWVtYmVyIG91dHNpZGUgXHUwMGE3NC4yIn0.W-ZsyyF0S6qGNI5Wet5SYRnhJWxeXhbA4l-7wERTRJ3Bg_uBbDHVKCcpF9r8f5H8bUDmYvVg7We5XaL8uEnuBA",
+   "signature_verifies_openssl": true,
+   "this_catalog_verifier": {
+    "accept": false,
+    "stage": "schema",
+    "detail": "unknown field note"
+   }
+  }
+ ]
+}
