@@ -1,0 +1,153 @@
+{
+ "source_sha256": "632a3c8337be990630737a35d1216eb15888097c5ce62d433d806973c2ed00d3",
+ "agree": 14,
+ "total": 14,
+ "rows": [
+  {
+   "id": "anchor-pointer-evm-positive-001",
+   "expected": "PASS",
+   "their_mode": null,
+   "got": {
+    "result": "anchored",
+    "set_checked": false,
+    "finalized": 53049012
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-002-contract-case",
+   "expected": "PASS",
+   "their_mode": null,
+   "got": {
+    "result": "anchored",
+    "set_checked": false,
+    "finalized": 53049012
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-003-txhash-case",
+   "expected": "PASS",
+   "their_mode": null,
+   "got": {
+    "result": "anchored",
+    "set_checked": false,
+    "finalized": 53049012
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-positive-004-explicit-null-proof",
+   "expected": "PASS",
+   "their_mode": null,
+   "got": {
+    "result": "anchored",
+    "set_checked": false,
+    "finalized": 53049012
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-contract-001",
+   "expected": "FAIL",
+   "their_mode": "contract_mismatch",
+   "got": {
+    "result": "contract_mismatch",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-chain-001",
+   "expected": "FAIL",
+   "their_mode": "tx_not_found_on_chain",
+   "got": {
+    "result": "tx_not_found",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-chain-002-malformed",
+   "expected": "FAIL",
+   "their_mode": "malformed_chain_id",
+   "got": {
+    "result": "malformed",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-txhash-001-not-found",
+   "expected": "FAIL",
+   "their_mode": "tx_not_found",
+   "got": {
+    "result": "tx_not_found",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-destination-001",
+   "expected": "FAIL",
+   "their_mode": "destination_mismatch",
+   "got": {
+    "result": "log_not_found",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-logindex-001",
+   "expected": "FAIL",
+   "their_mode": "log_index_mismatch",
+   "got": {
+    "result": "log_not_found",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-height-001-wrong",
+   "expected": "FAIL",
+   "their_mode": "height_mismatch",
+   "got": {
+    "result": "height_mismatch",
+    "set_checked": false,
+    "log_block": 52987624
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-height-002-unreachable",
+   "expected": "FAIL",
+   "their_mode": "height_unreachable",
+   "got": {
+    "result": "height_unreachable",
+    "set_checked": false,
+    "head": 53049444
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-digest-001-nibble-flip",
+   "expected": "FAIL",
+   "their_mode": "digest_mismatch",
+   "got": {
+    "result": "digest_mismatch",
+    "set_checked": false
+   },
+   "agree": true
+  },
+  {
+   "id": "anchor-pointer-evm-negative-digest-002-real-but-wrong-anchor",
+   "expected": "FAIL",
+   "their_mode": "digest_mismatch",
+   "got": {
+    "result": "digest_mismatch",
+    "set_checked": false
+   },
+   "agree": true
+  }
+ ]
+}

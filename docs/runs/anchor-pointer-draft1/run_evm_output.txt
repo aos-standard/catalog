@@ -1,0 +1,15 @@
+agree  anchor-pointer-evm-positive-001                          expected=PASS got={"finalized": 53049012, "result": "anchored", "set_checked": false}
+agree  anchor-pointer-evm-positive-002-contract-case            expected=PASS got={"finalized": 53049012, "result": "anchored", "set_checked": false}
+agree  anchor-pointer-evm-positive-003-txhash-case              expected=PASS got={"finalized": 53049012, "result": "anchored", "set_checked": false}
+agree  anchor-pointer-evm-positive-004-explicit-null-proof      expected=PASS got={"finalized": 53049012, "result": "anchored", "set_checked": false}
+agree  anchor-pointer-evm-negative-contract-001                 expected=FAIL got={"result": "contract_mismatch", "set_checked": false}
+agree  anchor-pointer-evm-negative-chain-001                    expected=FAIL got={"result": "tx_not_found", "set_checked": false}
+agree  anchor-pointer-evm-negative-chain-002-malformed          expected=FAIL got={"result": "malformed", "set_checked": false}
+agree  anchor-pointer-evm-negative-txhash-001-not-found         expected=FAIL got={"result": "tx_not_found", "set_checked": false}
+agree  anchor-pointer-evm-negative-destination-001              expected=FAIL got={"result": "log_not_found", "set_checked": false}
+agree  anchor-pointer-evm-negative-logindex-001                 expected=FAIL got={"result": "log_not_found", "set_checked": false}
+agree  anchor-pointer-evm-negative-height-001-wrong             expected=FAIL got={"log_block": 52987624, "result": "height_mismatch", "set_checked": false}
+agree  anchor-pointer-evm-negative-height-002-unreachable       expected=FAIL got={"head": 53049444, "result": "height_unreachable", "set_checked": false}
+agree  anchor-pointer-evm-negative-digest-001-nibble-flip       expected=FAIL got={"result": "digest_mismatch", "set_checked": false}
+agree  anchor-pointer-evm-negative-digest-002-real-but-wrong-anchor expected=FAIL got={"result": "digest_mismatch", "set_checked": false}
+14/14  (source sha256 632a3c8337be990630737a35d1216eb15888097c5ce62d433d806973c2ed00d3)

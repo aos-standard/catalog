@@ -1,0 +1,4 @@
+agree  HS-142-972686                                            expected=anchored got={"earliest_height": 972686, "result": "anchored", "set_checked": true}
+agree  HS-120-972141                                            expected=anchored got={"earliest_height": 972141, "result": "anchored", "set_checked": true}
+agree  HS-120-972145                                            expected=anchored got={"earliest_height": 972141, "result": "anchored", "set_checked": true}
+3/3  (source sha256 14ad86d9af09917addd10b887c80727317dd76953b3732ff0cf9dbabb6b542ea)

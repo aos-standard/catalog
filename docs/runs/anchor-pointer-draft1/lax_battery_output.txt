@@ -1,0 +1,13 @@
+caught no-shape-check               by ['AP-02', 'AP-03', 'AP-04', 'AP-20', 'AP-21', 'AP-22']
+caught accept-any-mechanism         by ['AP-05']
+caught accept-any-select            by ['AP-19']
+caught no-select-range-check        by ['AP-18']
+caught skip-set-digest              by ['AP-06', 'AP-16', 'AP-17']
+caught skip-proof-sha               by ['AP-07']
+caught ignore-proof-file-digest     by ['AP-09']
+caught pending-counts-as-anchored   by ['AP-10']
+caught ignore-claimed-height        by ['AP-11']
+caught no-root-compare              by ['AP-12', 'AP-13', 'AP-14']
+caught ignore-select                by ['AP-15', 'AP-18', 'AP-19']
+caught earliest-is-claimed          by ['HS-120-972145']
+12/12 lax readers caught
