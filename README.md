@@ -11,6 +11,7 @@ every input. Corrections are added beside a run, never over it. How it is done: 
 | [`aps-lease-revocation-axes-cold`](docs/runs/aps-lease-revocation-axes-cold/) | APS conformance suite, `lease-revocation-axes` revision 2 | 176/176 calls × profiles; declared variant sets reproduced in three published steps |
 | [`work-acceptance-record-cold`](docs/runs/work-acceptance-record-cold/) | work-acceptance-record (x402-foundation/tsc#4), profiles 1.2.1–1.4.1 | 57/57 at `bc5a138`; probes adopted as upstream vectors |
 | [`ap2-evidence-pack-cold`](docs/runs/ap2-evidence-pack-cold/) | ap2-evidence-pack (google-agentic-commerce/AP2#338) | 26/26 at 1.5.3; later versions in its addenda |
+| [`x402-offer-receipt-cold`](docs/runs/x402-offer-receipt-cold/) | x402 Offer and Receipt extension: JWS vectors (x402#3207) and EIP-712 vectors (x402#3533) | 26/26; OpenSSL 20/20 |
 | [`x402-delivery-receipt-cold`](docs/runs/x402-delivery-receipt-cold/) | x402 `delivery-receipt` v0.2.1 | 14/14 |
 | [`e6-receipt-to-bill-cold`](docs/runs/e6-receipt-to-bill-cold/) | VeritasActa E6 receipt-to-bill fixture v1.1.0 | 12/12 |
 | [`anchor-pointer-evm-log-cold`](docs/runs/anchor-pointer-evm-log-cold/) | giskard09's `evm-log` anchor vectors | 14/14, live RPC |

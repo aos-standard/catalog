@@ -1,0 +1,22 @@
+agree  jws    offer_valid                                  {'this_verifier': True, 'openssl': True}
+agree  jws    receipt_valid                                {'this_verifier': True, 'openssl': True}
+agree  jws    offer_expired_but_wellformed                 {'this_verifier': True, 'openssl': True}
+agree  jws    offer_missing_version                        {'this_verifier': True, 'openssl': True}
+agree  jws    offer_wrong_key                              {'this_verifier': False, 'openssl': False}
+agree  jws    offer_tampered_payload                       {'this_verifier': False, 'openssl': False}
+agree  jws    offer_alg_none                               {'this_verifier': False, 'openssl': False}
+agree  jws    offer_alg_confusion_hs256                    {'this_verifier': False, 'openssl': False}
+agree  jws    offer_missing_payTo                          {'this_verifier': True, 'openssl': True}
+agree  jws    receipt_missing_payer                        {'this_verifier': True, 'openssl': True}
+agree  jws    offer_no_kid                                 {'this_verifier': True, 'openssl': True}
+agree  jws    offer_truncated_signature                    {'this_verifier': False, 'openssl': False}
+agree  eip712 offer_valid                                  {'recovered': '0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 receipt_valid_privacy_minimal                {'recovered': '0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 receipt_valid_with_transaction               {'recovered': '0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 offer_expired_but_wellformed                 {'recovered': '0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 offer_domain_chain_id_is_payment_network     {'recovered': '0x01f3c7b07eeac2803f26a577d5b5cfb890c29fbd', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 offer_amount_altered_after_signing           {'recovered': '0x2a1d782fed1385a1b4674b4c49a9b66bf4b60f7b', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 offer_signed_by_unauthorized_key             {'recovered': '0xae72a48c1a36bd18af168541c53037965d26e4a8', 'openssl_verifies_with_recovered_key': True}
+agree  eip712 offer_domain_name_wrong_case                 {'recovered': '0x8e5b8cf0fbdf2d72a7794c09dbb8d68fc8eacaf0', 'openssl_verifies_with_recovered_key': True}
+authorized address from the published seed via openssl: 0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a matches
+20/20 signature decisions agree with openssl

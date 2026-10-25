@@ -1,0 +1,31 @@
+agree  jws    offer_valid                                  expect=accept reject_at=None          got=accept@None  {'payload_matches_vector': True, 'expired': False}
+agree  jws    receipt_valid                                expect=accept reject_at=None          got=accept@None  {'payload_matches_vector': True}
+agree  jws    offer_expired_but_wellformed                 expect=accept reject_at=None          got=accept@None  {'payload_matches_vector': True, 'expired': True}
+agree  jws    offer_missing_version                        expect=reject reject_at=schema        got=reject@schema missing version 
+agree  jws    offer_wrong_key                              expect=reject reject_at=signature     got=reject@signature signature does not verify 
+agree  jws    offer_tampered_payload                       expect=reject reject_at=signature     got=reject@signature signature does not verify 
+agree  jws    offer_alg_none                               expect=reject reject_at=alg           got=reject@alg alg 'none' is not the key's EdDSA 
+agree  jws    offer_alg_confusion_hs256                    expect=reject reject_at=alg           got=reject@alg alg 'HS256' is not the key's EdDSA 
+agree  jws    offer_missing_payTo                          expect=reject reject_at=schema        got=reject@schema missing payTo 
+agree  jws    receipt_missing_payer                        expect=reject reject_at=schema        got=reject@schema missing payer 
+agree  jws    offer_no_kid                                 expect=reject reject_at=kid           got=reject@kid no kid 
+agree  jws    offer_two_segments                           expect=reject reject_at=parse         got=reject@parse not three segments 
+agree  jws    offer_truncated_signature                    expect=reject reject_at=signature     got=reject@signature signature does not verify 
+agree  eip712 offer_valid                                  expect=accept reject_at=None          got=accept@None  {'struct_hash_matches_vector': True, 'expired': False}
+agree  eip712 receipt_valid_privacy_minimal                expect=accept reject_at=None          got=accept@None  {'struct_hash_matches_vector': True}
+agree  eip712 receipt_valid_with_transaction               expect=accept reject_at=None          got=accept@None  {'struct_hash_matches_vector': True}
+agree  eip712 offer_expired_but_wellformed                 expect=accept reject_at=None          got=accept@None  {'struct_hash_matches_vector': True, 'expired': True}
+agree  eip712 offer_domain_chain_id_is_payment_network     expect=reject reject_at=signature     got=reject@authorization recovered signer is not a configured signer 
+agree  eip712 offer_amount_altered_after_signing           expect=reject reject_at=signature     got=reject@authorization recovered signer is not a configured signer 
+agree  eip712 offer_signed_by_unauthorized_key             expect=reject reject_at=authorization got=reject@authorization recovered signer is not a configured signer 
+agree  eip712 offer_optional_field_omitted_not_zeroed      expect=reject reject_at=schema        got=reject@schema missing validUntil 
+agree  eip712 receipt_optional_field_omitted_not_empty     expect=reject reject_at=schema        got=reject@schema missing transaction 
+agree  eip712 offer_domain_name_wrong_case                 expect=reject reject_at=signature     got=reject@authorization recovered signer is not a configured signer 
+agree  eip712 offer_signature_truncated                    expect=reject reject_at=parse         got=reject@parse signature is not 65 hex bytes 
+agree  eip712 offer_signature_v_byte_invalid               expect=reject reject_at=parse         got=reject@parse v byte 7 is not 27, 28, 0 or 1 
+agree  eip712 offer_transmits_a_malicious_schema           expect=reject reject_at=schema        got=reject@schema artifact transmits types or primaryType 
+constant domainSeparator.offer: match
+constant typeHash.offer: match
+constant domainSeparator.receipt: match
+constant typeHash.receipt: match
+26/26 agree on accept/reject (jws 13/13, eip712 13/13)

@@ -1,0 +1,12 @@
+caught jws: alg from the header                         by ['jws/offer_alg_none', 'jws/offer_alg_confusion_hs256']
+caught jws: kid optional                                by ['jws/offer_no_kid']
+caught jws: no signature check                          by ['jws/offer_wrong_key', 'jws/offer_tampered_payload', 'jws/offer_truncated_signature']
+caught both: no payload schema                          by ['jws/offer_missing_version', 'jws/offer_missing_payTo', 'jws/receipt_missing_payer']
+caught both: no receipt schema                          by ['jws/receipt_missing_payer']
+caught both: expired offers rejected                    by ['jws/offer_expired_but_wellformed', 'eip712/offer_expired_but_wellformed']
+caught eip712: chainId from the payment network         by ['eip712/offer_valid', 'eip712/receipt_valid_privacy_minimal', 'eip712/receipt_valid_with_transaction', 'eip712/offer_expired_but_wellformed', 'eip712/offer_domain_chain_id_is_payment_network']
+caught eip712: types taken from the artifact            by ['eip712/offer_transmits_a_malicious_schema']
+caught eip712: omitted optional field signed as empty   by ['eip712/receipt_optional_field_omitted_not_empty']
+caught eip712: signature only, no authorization         by ['eip712/offer_domain_chain_id_is_payment_network', 'eip712/offer_amount_altered_after_signing', 'eip712/offer_signed_by_unauthorized_key', 'eip712/offer_domain_name_wrong_case']
+caught eip712: any v byte                               by ['eip712/offer_signature_v_byte_invalid']
+11/11 lax variants caught

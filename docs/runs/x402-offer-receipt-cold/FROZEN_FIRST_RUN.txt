@@ -1,0 +1,14 @@
+4cafed7066f4f0e08b2c48343ca02323bde722344332d553678a86ab6b54faf5  x402_offer_receipt.py
+9841ad1f322e1a3500cad868a829eafaa3b14cee6d8c5f992ed8a999f492602b  run_offer_receipt.py
+2026-10-25T01:03:41Z
+frozen before the first scored run; R7 and R9 were fixed after the vectors' expect/reject_at had been seen
+b5c6dd807d5bf3518da2ef0d6af185afe8789bdf2c7b23261c02d411461d312a  xcheck_openssl.py
+66d7e92dcaa1a41956cf940b955deea7877cd0232af0838169f09cd4d39877d0  xcheck_openssl.py
+xcheck_openssl.py edited after it crashed before printing anything (skips payloads that fail the schema, as the verifier does); this hash replaces the one above for that file
+a6a5f25aeaffa018226bc03a64aae66a2683baf940b171b01f6cb446d10cab49  xcheck_openssl.py
+xcheck_openssl.py edited again: the SEC1 key DER had a wrong length byte (0x74, not 0x2e), so openssl read no key and the address line compared keccak of nothing; signature rows were unaffected
+f117293e5d795304b403cbc98b874543a413dc063ce276093b3b1de1d27bff75  lax_battery.py
+3ba6afd6e9ee6f58a16bcb31a26acba9065f5cb058f38483a5dd3fadb35e166b  lax_battery.py
+lax_battery.py edited after its first run crashed in the no-schema variant (a crash now counts as not accepted); this hash replaces the one above for that file
+9999823be5611b0771e0be319b299d60f4f564f4c2040ae49116fe72096d27e0  lax_battery.py
+lax_battery.py edited after its second run: two variants were mis-modelled (transmitted-types crashed in expiry reporting on the string validUntil; any-v remapped valid v bytes too); this hash replaces the one above
