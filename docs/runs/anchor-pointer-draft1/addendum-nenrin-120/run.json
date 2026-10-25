@@ -1,0 +1,34 @@
+{
+ "agree": 2,
+ "total": 2,
+ "rows": [
+  {
+   "id": "AP-23",
+   "expected": {
+    "result": "anchored",
+    "earliest_height": 972141,
+    "set_checked": true
+   },
+   "got": {
+    "set_checked": true,
+    "earliest_height": 972141,
+    "result": "anchored"
+   },
+   "agree": true
+  },
+  {
+   "id": "AP-24",
+   "expected": {
+    "result": "anchored",
+    "earliest_height": 972141,
+    "set_checked": true
+   },
+   "got": {
+    "set_checked": true,
+    "earliest_height": 972141,
+    "result": "anchored"
+   },
+   "agree": true
+  }
+ ]
+}

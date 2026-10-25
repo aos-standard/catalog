@@ -1,0 +1,3 @@
+agree  AP-23   expected={"earliest_height": 972141, "result": "anchored", "set_checked": true} got={"earliest_height": 972141, "result": "anchored", "set_checked": true}
+agree  AP-24   expected={"earliest_height": 972141, "result": "anchored", "set_checked": true} got={"earliest_height": 972141, "result": "anchored", "set_checked": true}
+2/2
