@@ -1,0 +1,600 @@
+{
+ "vectors_dir_sha256": "1df322208cb52ad64fef6be9b7cac1d50c5aad2e3617cf6a68116fbb017f85f5",
+ "agree": 68,
+ "n": 87,
+ "rows": [
+  {
+   "vector": "01-valid.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "02-criteria-committed-after-issue.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "03-self-checked.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "04-required-not-evaluated.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "05-checker-key-equals-producer-key.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "06-receipt-edited-after-signing.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "07-criteria-file-swapped.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "08-receipt-token-over-another-receipt.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "09-stated-pass-recomputes-incomplete.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "10-committed-at-contradicts-token.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "11-required-criterion-fails.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "12-signer-is-not-the-checker.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "13-independent-but-same-party.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "14-results-not-in-criteria.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "15-criteria-token-over-other-bytes.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "16-no-criteria-token.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "17-committed-at-equals-reference.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "18-mismatching-record-token-later-time.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "19-result-outside-vocabulary.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "20-producer-undeclared.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "21-unknown-schema.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "22-matching-record-token-later-than-issued.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "23-criteria-token-imprint-oid-sha384.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "24-criteria-token-imprint-oid-sha3-256.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "25-criteria-token-imprint-oid-sha512-256.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "26-key-small-order.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "27-key-non-canonical-encoding.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "28-key-file-with-unrelated-bad-entry.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "29-criteria-token-accuracy-flips-commitment.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "30-criteria-token-accuracy-millis-still-before.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "31-tsa-freetsa-verified.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "32-tsa-digicert-verified.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "33-tsa-unrelated-root-untrusted.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "34-tsa-tampered-signature-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "35-tsa-token-without-signer-certificate.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "36-tsa-no-anchors-not-evaluated.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "37-tsa-synthetic-control-verified.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "38-tsa-intermediate-expired-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "39-tsa-content-type-mismatch-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "40-tsa-rsassa-pss-verified.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "41-tsa-ecdsa-p256-verified.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "42-tsa-ecdsa-p521-unsupported.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "43-tsa-empty-anchor-list-not-evaluated.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "44-tsa-unsupported-curve-and-bad-digest-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "45-tsa-no-certificates-and-bad-digest-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "46-tsa-unsupported-curve-and-ess-mismatch-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "47-receipt-payment-x402-exact.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "48-tsa-signer-without-timestamping-eku-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "49-tsa-issuer-not-a-ca-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "50-criteria-token-imprint-only-in-status-string.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "51-record-token-imprint-only-in-status-string.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "52-receipt-non-integer-numbers.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "53-tsa-anchor-same-name-other-key-untrusted.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "54-tsa-expired-intermediate-no-anchor-failed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "55-receipt-payment-outside-the-form.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "56-third-party-checker-live-receipt.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "57-receipt-integer-valued-doubles.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "58-criteria-token-imprint-only-in-unsigned-attribute.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "59-record-token-imprint-only-in-unsigned-attribute.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "60-signature-base64-invalid-character.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "signature_valid": {
+     "expected": false,
+     "got": true
+    },
+    "problem_codes": {
+     "expected": [
+      "SIGNATURE_INVALID"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "61-signature-base64-internal-whitespace.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "signature_valid": {
+     "expected": false,
+     "got": true
+    },
+    "problem_codes": {
+     "expected": [
+      "SIGNATURE_INVALID"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "62-signature-base64-noncanonical-trailing-bits.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "signature_valid": {
+     "expected": false,
+     "got": true
+    },
+    "problem_codes": {
+     "expected": [
+      "SIGNATURE_INVALID"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "63-signature-base64-missing-padding.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "64-envelope-key-id-differs-from-signed-key-id.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "65-one-public-key-under-two-key-ids.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "KEY_COLLISION"
+     ],
+     "got": [
+      "INDEPENDENCE_INCONSISTENT"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "66-criteria-gentime-fraction-makes-it-after-issue.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "criteria_committed_before_check": {
+     "expected": "no",
+     "got": "yes"
+    },
+    "problem_codes": {
+     "expected": [
+      "CRITERIA_COMMITTED_AFTER_CHECK"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "67-criteria-sha256-upper-case.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "68-criteria-time-equals-issue-time-at-millisecond.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "criteria_committed_before_check": {
+     "expected": "no",
+     "got": "yes"
+    },
+    "problem_codes": {
+     "expected": [
+      "CRITERIA_COMMITTED_AFTER_CHECK"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "69-key-alias-noncanonical-base64-dodges-same-key.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "KEY_REJECTED"
+     ],
+     "got": [
+      "INDEPENDENCE_INCONSISTENT"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "70-criteria-gentime-with-offset.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [],
+     "got": [
+      "CRITERIA_TIMESTAMP_MISMATCH"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "71-criteria-gentime-month-13.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [],
+     "got": [
+      "CRITERIA_TIMESTAMP_MISMATCH"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "72-criteria-gentime-feb-30.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [],
+     "got": [
+      "CRITERIA_TIMESTAMP_MISMATCH"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "73-criteria-gentime-comma-fraction.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [],
+     "got": [
+      "CRITERIA_TIMESTAMP_MISMATCH"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "74-criteria-gentime-trailing-zero-fraction.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "warning_codes": {
+     "expected": [
+      "CRITERIA_COMMITMENT_UNVERIFIED"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "75-duplicate-key-id-in-keys-file.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "signature_valid": {
+     "expected": false,
+     "got": true
+    },
+    "problem_codes": {
+     "expected": [
+      "KEY_REJECTED"
+     ],
+     "got": [
+      "INDEPENDENCE_INCONSISTENT"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "76-committed-at-malformed.json",
+   "status": "CRASH",
+   "error": "ValueError: month must be in 1..12"
+  },
+  {
+   "vector": "77-result-id-is-an-object.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "78-token-imprint-matches-gentime-unusable.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [],
+     "got": [
+      "CRITERIA_TIMESTAMP_MISMATCH"
+     ]
+    }
+   }
+  },
+  {
+   "vector": "79-unrelated-duplicate-key-id.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "KEY_REJECTED"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "80-independent-claim-producer-key-id-empty.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "INDEPENDENCE_INCONSISTENT"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "81-independent-claim-producer-key-id-unknown.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "INDEPENDENCE_INCONSISTENT"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "vector": "82-independent-claim-producer-key-id-absent.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "83-tsa-signer-info-unsigned-attributes-ignored.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "84-receipt-exponent-numbers.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "85-receipt-key-outside-bmp.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "86-envelope-key-id-differs-from-signed.json",
+   "status": "AGREE",
+   "diffs": {}
+  },
+  {
+   "vector": "87-same-key-under-two-ids.json",
+   "status": "DISAGREE",
+   "diffs": {
+    "problem_codes": {
+     "expected": [
+      "KEY_COLLISION"
+     ],
+     "got": [
+      "INDEPENDENCE_INCONSISTENT"
+     ]
+    }
+   }
+  }
+ ]
+}

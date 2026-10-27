@@ -1,0 +1,5 @@
+011168acf05cfc84a925f073feb1b936b869611ce290ac2029a424b24403de5d  war_cold_verifier_v142.py
+3b51efa5b942954625172334982aa7115e10e6edbb54351ee475dad34a139949  tsa_check_141.py
+260d8e08870f0fdb88960ddecee730b9e0975426ac30ea73a96bc348d205ea30  run_vectors_v142.py
+2026-10-27T22:59:49Z
+v142 frozen before its first scored run on the 87 vectors at 85a310d (answer-exposed: v141.3 had been scored on them first)

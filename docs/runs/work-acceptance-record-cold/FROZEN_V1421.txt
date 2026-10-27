@@ -1,0 +1,4 @@
+a0575614bb9e6d0ba69a4f2db62f557ecb93780917bbeb7716a9e24e2fe80d22  war_cold_verifier_v1421.py
+be3a2abb756d36ad81891d00ce059c0f88b3d821993f4449704143ef0e7c0a61  run_vectors_v1421.py
+2026-10-27T23:00:37Z
+v142.1 written after v142's first run showed 66, 68 and 77; frozen before its own run (post hoc for those three)
