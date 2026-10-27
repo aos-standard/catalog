@@ -1,0 +1,11 @@
+Frozen 2026-10-27T23:39:07Z before any run over federation/fixtures/v2 or v1 (autonomous-ot-control 3b7b7e8).
+Answer-exposed: the manifest's expected_verdict per case and a positive-vs-negative field diff of every negative were read before the reader was written.
+90031452020ad9ae1c4a6b0f6c7ec7b7fd8471f6201bb1039f95d1350afc0cd6  otc_effect_evidence_cold.py
+7c906e991baa5c1e06bf2e7654aaec0023e63281d695843a1ac0af03178a6648  compare_to_manifest.py
+33e5c5e93d679023a38c8ee3f9f7a43d87cad018ed549c899913852da74eb028  lax_battery.py
+lax_battery.py (first version, 33e5c5e93d679023...) crashed on M17 (anchor also in the docstring) and let M14 mutate the shared case dicts; replaced by v2 below before its run. The reader is unchanged.
+355a64dec1f02aa60536ab0627d1893d87a888a41bf5ba6891dedceb2f3c4c67  lax_battery.py
+lax_battery.py v2 (355a64dec1f02aa6...) crashed on M18 (same anchor fault); v3 below checks every anchor before running. The reader is unchanged.
+a87ad4ff03f84156d00a72950708abe390ae06f44046e6dee1abd27d5cfa8494  lax_battery.py
+lax_battery.py v3 (a87ad4ff03f84156...) ran, but its M05 and M12 raised into the reader's malformed branch instead of assuming a value, so their SURVIVOR lines were artefacts; v4 below rebuilds them and reports a raising mutant as MISBUILT. The reader is unchanged.
+f4193f428cd9b5a9893dbd661090583e69739fa7156c7f6332303e30889170e4  lax_battery.py

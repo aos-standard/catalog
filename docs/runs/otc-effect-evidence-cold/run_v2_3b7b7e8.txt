@@ -1,0 +1,27 @@
+case                                                         kind     fault                      expected         got              claim_id                   
+neg-denied_but_applied-15391a46-8858-4c4d-a0f3-3bb65914ad3e  negative denied_but_applied         CONTRADICTED     CONTRADICTED     decision_correspondence    ok
+neg-dispatch_time_missing-0332c7b9-0a37-4a37-b8b8-c9f7b30dfe negative dispatch_time_missing      NOT_ESTABLISHED  NOT_ESTABLISHED  observation_after_dispatch ok
+neg-effect_value_not_reached-0332c7b9-0a37-4a37-b8b8-c9f7b30 negative effect_value_not_reached   CONTRADICTED     CONTRADICTED     declared_effect_observed   ok
+neg-evidence_digest_mismatch-08d7d9b6-3bb7-4b27-8a15-2646537 negative evidence_digest_mismatch   CONTRADICTED     CONTRADICTED     evidence_digest_integrity  ok
+neg-executed_without_approval-274d9b03-f7e4-499f-b9f7-8f8972 negative executed_without_approval  CONTRADICTED     CONTRADICTED     decision_correspondence    ok
+neg-execution_count_missing-08d7d9b6-3bb7-4b27-8a15-2646537d negative execution_count_missing    NOT_ESTABLISHED  NOT_ESTABLISHED  single_dispatch            ok
+neg-observation_time_missing-05e55692-c8d8-4558-aec1-5890ad0 negative observation_time_missing   NOT_ESTABLISHED  NOT_ESTABLISHED  observation_after_dispatch ok
+neg-observed_before_dispatch-15391a46-8858-4c4d-a0f3-3bb6591 negative observed_before_dispatch   CONTRADICTED     CONTRADICTED     observation_after_dispatch ok
+neg-proposal_swapped-05e55692-c8d8-4558-aec1-5890ad028480    negative proposal_swapped           CONTRADICTED     CONTRADICTED     call_binding               ok
+neg-replayed_execution-2a271bfa-8ddc-4268-b340-feaf478ddabc  negative replayed_execution         CONTRADICTED     CONTRADICTED     single_dispatch            ok
+pos-0332c7b9-0a37-4a37-b8b8-c9f7b30dfe63                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-05e55692-c8d8-4558-aec1-5890ad028480                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-08d7d9b6-3bb7-4b27-8a15-2646537dbfdb                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-15391a46-8858-4c4d-a0f3-3bb65914ad3e                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-274d9b03-f7e4-499f-b9f7-8f89720559d4                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-2a271bfa-8ddc-4268-b340-feaf478ddabc                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-2b913957-c61e-4a11-964a-c36f3d8cc878                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-346ee3c4-2238-4fa9-838b-e54ba02f7c83                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-371e1786-5bdd-4c98-a663-14d6cab6bc64                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-38f39dcc-0d3c-4625-9a3c-a9879910358a                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-3e234cda-8d8a-4519-906f-fc0ea9b5ebd4                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+pos-3f2191da-5a16-4110-aefe-0175fbee13a7                     positive -                          ESTABLISHED      ESTABLISHED      -                          ok
+
+positives 12/12 established; negatives 10/10 caught; claim_id matches manifest on 10/10 negatives
+unanswered: []
+extra: []

@@ -1,0 +1,247 @@
+{
+  "edge_id": "aos-catalog-cold-reader",
+  "fixtures_sha256": "51e8ce5f25998d98ead5fa5e02c955728c0198e2931bf55b4366390db4d96d16",
+  "schema": "ot-edge-result/v1",
+  "verdicts": [
+    {
+      "case_id": "neg-effect_value_not_reached-0332c7b9-0a37-4a37-b8b8-c9f7b30dfe63",
+      "claim_id": "declared_effect_observed",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "CONTRADICTED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "declared_effect_observed: twin applied 19.0, claim says 20.0",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "neg-evidence_digest_mismatch-08d7d9b6-3bb7-4b27-8a15-2646537dbfdb",
+      "claim_id": "evidence_digest_integrity",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "CONTRADICTED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "evidence_digest_integrity: evidence_sha256 is not the canonical SHA-256 of remora_evidence",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "neg-executed_without_approval-274d9b03-f7e4-499f-b9f7-8f89720559d4",
+      "claim_id": "decision_correspondence",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "CONTRADICTED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "decision_correspondence: executed but decision.approved is false",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "neg-observed_before_dispatch-15391a46-8858-4c4d-a0f3-3bb65914ad3e",
+      "claim_id": "observation_after_dispatch",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "CONTRADICTED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "observation_after_dispatch: observed at 513900 before dispatch at 514800",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "neg-proposal_swapped-05e55692-c8d8-4558-aec1-5890ad028480",
+      "claim_id": "call_binding",
+      "claims": {
+        "call_binding": "CONTRADICTED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "call_binding: twin operation_id is another proposal",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "neg-replayed_execution-2a271bfa-8ddc-4268-b340-feaf478ddabc",
+      "claim_id": "single_dispatch",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "CONTRADICTED"
+      },
+      "reason": "single_dispatch: executions = 2",
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "case_id": "pos-0332c7b9-0a37-4a37-b8b8-c9f7b30dfe63",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-05e55692-c8d8-4558-aec1-5890ad028480",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-08d7d9b6-3bb7-4b27-8a15-2646537dbfdb",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-15391a46-8858-4c4d-a0f3-3bb65914ad3e",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-274d9b03-f7e4-499f-b9f7-8f89720559d4",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-2a271bfa-8ddc-4268-b340-feaf478ddabc",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-2b913957-c61e-4a11-964a-c36f3d8cc878",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-346ee3c4-2238-4fa9-838b-e54ba02f7c83",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-371e1786-5bdd-4c98-a663-14d6cab6bc64",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-38f39dcc-0d3c-4625-9a3c-a9879910358a",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-3e234cda-8d8a-4519-906f-fc0ea9b5ebd4",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "case_id": "pos-3f2191da-5a16-4110-aefe-0175fbee13a7",
+      "claims": {
+        "call_binding": "ESTABLISHED",
+        "decision_correspondence": "ESTABLISHED",
+        "declared_effect_observed": "ESTABLISHED",
+        "evidence_digest_integrity": "ESTABLISHED",
+        "observation_after_dispatch": "ESTABLISHED",
+        "single_dispatch": "ESTABLISHED"
+      },
+      "reason": "all six claims established",
+      "verdict": "ESTABLISHED"
+    }
+  ]
+}

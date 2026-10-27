@@ -1,0 +1,24 @@
+mutation                                                         disagrees on  caught by
+M01 ignore decision.approved                                                1  neg-executed_without_approval
+M02 ignore reviewer.approved on verify/escalate                             0  SURVIVOR
+M03 ignore envelope/evidence binding to the proposal                        0  SURVIVOR
+M03b ignore evidence proposal_id binding                                    0  SURVIVOR
+M04 executed=false with APPLIED twin is only NOT_ESTABLISHED                0  SURVIVOR
+M05 assume executions=1 when absent                                         0  SURVIVOR
+M06 accept any executions count                                             1  neg-replayed_execution
+M07 ignore twin operation_id (call_binding)                                 1  neg-proposal_swapped
+M08 ignore twin status APPLIED                                              0  SURVIVOR
+M09 ignore twin zone_id                                                     0  SURVIVOR
+M10 ignore twin new_setpoint_c (observation only)                           0  SURVIVOR
+M11 ignore observed_setpoint_c (twin only)                                  0  SURVIVOR
+M12 null observation counts as observed                                     0  SURVIVOR
+M13 assume dispatch time = twin sim_time_s when absent                      0  SURVIVOR
+M14 assume observation time = dispatch time when absent                     0  SURVIVOR
+M15 observed == dispatched is a contradiction (strict after)               12  pos
+M16 ignore evidence digest                                                  1  neg-evidence_digest_mismatch
+M17 digest with ensure_ascii=True                                           0  SURVIVOR
+M18 digest without sort_keys                                                0  SURVIVOR
+M19 digest with default separators                                         12  pos
+M20 malformed case answered ESTABLISHED                                     0  SURVIVOR
+
+21 mutants, 6 caught, 15 survivors: ['M02 ignore reviewer.approved on verify/escalate', 'M03 ignore envelope/evidence binding to the proposal', 'M03b ignore evidence proposal_id binding', 'M04 executed=false with APPLIED twin is only NOT_ESTABLISHED', 'M05 assume executions=1 when absent', 'M08 ignore twin status APPLIED', 'M09 ignore twin zone_id', 'M10 ignore twin new_setpoint_c (observation only)', 'M11 ignore observed_setpoint_c (twin only)', 'M12 null observation counts as observed', 'M13 assume dispatch time = twin sim_time_s when absent', 'M14 assume observation time = dispatch time when absent', 'M17 digest with ensure_ascii=True', 'M18 digest without sort_keys', 'M20 malformed case answered ESTABLISHED']

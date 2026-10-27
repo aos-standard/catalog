@@ -1,0 +1,6 @@
+darklordVirtual/autonomous-ot-control, commit 3b7b7e88903a877dd122c533e0d0206e63924fb7 (main at 2026-10-27T23:11:07Z)
+Fetched by sparse checkout (cone): federation/fixtures/v2, federation/fixtures/v1, contracts, docs/federation, plus the repository root files.
+Not fetched: federation/edges/ (adapter.py, the reference verifier), runner/ (edge_check.py, the scorer), twin/, adapter/, deploy/.
+federation/fixtures/v2/manifest.json sha256 38d32f0b72c46dbbbfee2308d93c9a8782da8a8d871025638f1d568dcb3a4c47; package_digest sha256:407a3c57ce2b488ffa0e13c01454fd8b63f6f1f71c382247be09a721cd214b24; 22 files, every per-file sha256 and the package digest recomputed and equal.
+federation/fixtures/v1/manifest.json sha256 51e8ce5f25998d98ead5fa5e02c955728c0198e2931bf55b4366390db4d96d16; package_digest sha256:437cd68da50815aa3e1ab1ea1ab36641d15a46975c57bc4601023ac15bfd387d; 18 files, byte-identical to the same 18 in v2.
+The fixture files are not copied into this catalog: their licence is not yet decided (README, SDD D-01).
