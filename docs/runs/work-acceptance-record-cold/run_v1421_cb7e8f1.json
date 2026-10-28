@@ -1,0 +1,2307 @@
+{
+ "agree": 90,
+ "n": 90,
+ "readme_pin": "85a310d",
+ "rows": [
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "43b398742e51118875250d2d9497665a0ea43d040217ff27956857fd09693420",
+   "vector": "01-valid.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "0eda77f190b25557ec29446d1e013c14d71820e6d0cf9d459b3603135bcb5fa8",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "9e88e743968388df93ffa86354da413af09f4c3f099c47f8809ea60836bf1cca",
+   "vector": "02-criteria-committed-after-issue.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "4814d7a31a856c6f0ad863bb434060267b6b4971d43a72f1525daa311e8f3c1a",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "66ad94db1ca9790c5c6c050478776c5063aa356915ab887f6b038f259ca08166",
+   "vector": "03-self-checked.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "c317f03eb1e997d183a59ede8dfc39a66b4662701a107ce3af791bb12f8609a9",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "incomplete",
+    "verdict_stated": "incomplete",
+    "warning_codes": []
+   },
+   "input_sha256": "9d6b9182632daba50169f801c352c27d063534094a8ff34237320a9701b35da7",
+   "vector": "04-required-not-evaluated.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "37852e955c564be60fc23ef0686f9cce7a6774df0b32833d6fb5f4c371e0d87c",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "problem_codes": [
+     "KEY_COLLISION"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "fb28666bfb0cbd09d748602a64317f6836a156a6c71aa92ee3f40c4a05c7e830",
+   "vector": "05-checker-key-equals-producer-key.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "b8067ddfa022563a9459274593804d1c3a69f332caf4dccf7d402e60a3d43f99",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "50b9c63e3ed8676cfaa80d7d2e805b55ee8acb59ca4669e4164e447696930e32",
+   "vector": "06-receipt-edited-after-signing.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "mismatch",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_HASH_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "ea99e9ff520162596f67e354162c80db3caad319646fceeb0cc74ea634e54fcc",
+   "vector": "07-criteria-file-swapped.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "31fbe8f60b9d2841d484e74365fd5b9a4fc008b5cc3cd8c2f5b5c378cb104e2e",
+   "vector": "08-receipt-token-over-another-receipt.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "7c1d8c6b5541ca548fca1098db3c336daf439330552b79f90afed9c31ee48add",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "VERDICT_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "incomplete",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "6cd7e23f84aa688e27be13845e103f45cf8f6d15c1b6ed827877739f1ebe1973",
+   "vector": "09-stated-pass-recomputes-incomplete.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "f701f2310261fe3d11d1e14ebe8c97264271a27f5de0cb894f0c09a5ae923839",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK",
+     "CRITERIA_TIME_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0feecb3f4ad81d1acfa8f43773982478f4e56ec17f889d5dcc16ec0e0f08ec98",
+   "vector": "10-committed-at-contradicts-token.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "02017342a1cccb561893ecd532b43f57e51f7ee3cf7fa1b7712f15f4b11ac50a",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "fail",
+    "verdict_stated": "fail",
+    "warning_codes": []
+   },
+   "input_sha256": "50b549b7c1c22c002ff9d8b499a0f7770ecf93a1959e07c156e9e2c3514e0947",
+   "vector": "11-required-criterion-fails.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "f113ff3e477fa471910662908e11cfeead778232c5a57224e04803d5d928bceb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CHECKER_NOT_SIGNER"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "e982ab29ad2e653c5b5a52cd42106131f6abce766b0c31328f4a1c29a104bc6b",
+   "vector": "12-signer-is-not-the-checker.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "5998d74e81c387835307d47a779e636f3baba8e1dc11e703bb3436f279846d7b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "problem_codes": [
+     "INDEPENDENCE_INCONSISTENT"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "973ef5174894fe6c7095b5a1b7b977f58b0e38c441a4c16e6389a4bb27e2fb2d",
+   "vector": "13-independent-but-same-party.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "6cabaf81ab3b197cb2bfc394d4c2211a03e34ee50a6b4e61c02916a4b123c36c",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_RESULTS_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "2a5237d143cbe2b830f54c6061289833881eeb413d98e243e4a2c841b0d6288f",
+   "vector": "14-results-not-in-criteria.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "b68bcb3090270cc5ac5654ba5dfffb5c52b44bd5a4b84e096d1e28d1a8bb8847",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "e9fc025c22b413a00cdb5c624f6127c16442e750ffe96e32f34dcac966fe10f8",
+   "vector": "15-criteria-token-over-other-bytes.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "b68bcb3090270cc5ac5654ba5dfffb5c52b44bd5a4b84e096d1e28d1a8bb8847",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "e70f9253cb5d8d74aa81de2a1caf68738bcbadd5ed98dc9ec3e744814e638852",
+   "vector": "16-no-criteria-token.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "37548bb30cb2b031aade263a4645afb549fd60bf7cabd50a4cd6b44611239f9f",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "ff38c1b6848828b98459c9ea16c9fcdf9f231586f719ff17d63833d96f08ccb5",
+   "vector": "17-committed-at-equals-reference.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d4b1af0503a2fa00fe3a7a83ad280286ec9e91a3f5d08822ec99c257f18b45b5",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "c2a597a2ffe6269f725ec63f27e4aa1eb65ae0eacbab7a4199e30237bdc33806",
+   "vector": "18-mismatching-record-token-later-time.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "1514ac6dabca77ca3eff22d5af0b0483215a7c25395f2c086e8d8058ac936558",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "RESULT_VOCABULARY",
+     "VERDICT_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "incomplete",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "605975f2cc7ce4b0981fec7c51361e0f337dc6941563293182cd920c9f4a0274",
+   "vector": "19-result-outside-vocabulary.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "f1cf74b227410fbf2052d4cde53b04eb2cf28ae44c066466645e306ffc7e8b8f",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "undeclared",
+    "key_rejected": false,
+    "problem_codes": [
+     "INDEPENDENCE_INCONSISTENT"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "PRODUCER_UNDECLARED"
+    ]
+   },
+   "input_sha256": "ade5cbb9887cf13b70e5ddb3eed278103983f0cf4fdcf6ff3af543095af2cc17",
+   "vector": "20-producer-undeclared.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "reason": "unknown schema, canonicalization or suite",
+    "refused": true
+   },
+   "input_sha256": "8f36612549bb60c6ce5af4e9b31db6a8fce8dfc6b7f27bc3dc2441ed32678285",
+   "vector": "21-unknown-schema.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "9f8ddfbd2ec647d4dcc89f280e505e11a0be0e303647670f586936fa54f0cea4",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "342a3c5ba4cbc567f35a47f28e3d2a2c22f4645637529d73439830cc7d2ff927",
+   "vector": "22-matching-record-token-later-than-issued.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "129075663f7b0f3f36657585e3cde9e77a96e3f1d6c66a3b25966611b2b18299",
+   "vector": "23-criteria-token-imprint-oid-sha384.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "892d85c340eeeda866666f6e47d38771dbd108dbbe8b01f50c7c443c562a0f61",
+   "vector": "24-criteria-token-imprint-oid-sha3-256.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "5db523b86d17bfe6f2d0616194f5fafe7b83230cd0bc7843ca3d051564e44100",
+   "vector": "25-criteria-token-imprint-oid-sha512-256.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": true,
+    "key_rejected_reason": "small-order point",
+    "problem_codes": [
+     "KEY_REJECTED"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "44321e402f31115ed1a78f3af88f0bcfd86b10f513596c9f1a5564722842ebab",
+   "vector": "26-key-small-order.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": true,
+    "key_rejected_reason": "non-canonical encoding or not on the curve",
+    "problem_codes": [
+     "KEY_REJECTED"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "6100401cda47a283a0f31adedaea7bdcd7546dde976fed4f1499f4fc67a2c74e",
+   "vector": "27-key-non-canonical-encoding.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_file_notes": [
+     "key_id spec-test-bad-entry: small-order point (not the signing key; outcome unaffected)"
+    ],
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "f637d2e15c84889c046b8e72764b169ac09456b3a1446526956e4c03c09bf495",
+   "vector": "28-key-file-with-unrelated-bad-entry.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "ce7bd79fc4accb235020409730649bb3e1a74ba15b1b32fdb25de1dea0dc45c7",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "1597789d2292f37ccc1bf41c8d0cc4d30197e1c9355823bdbbe6c2fef1af5ce1",
+   "vector": "29-criteria-token-accuracy-flips-commitment.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "ce7bd79fc4accb235020409730649bb3e1a74ba15b1b32fdb25de1dea0dc45c7",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "206f53b37189836ae9f17d4aeb6b167a730555a18ec8b0c11de481d69a92a7ec",
+   "vector": "30-criteria-token-accuracy-millis-still-before.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "3bdbd6cc0f401fe8a834fba962d3b139830bf3e1807434f6d8d3607cc3ca2862",
+   "vector": "31-tsa-freetsa-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "83a81b8a02ab780f6e1bd4653ca5c0218cddef55b460d81fd479e9c7409b1859",
+   "vector": "32-tsa-digicert-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "untrusted",
+     "receipt": "untrusted"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "b7ec321a9fa02c4eca55ebdb8dd9730e42af94e6ce40cf2c1ae6c693bc98b023",
+   "vector": "33-tsa-unrelated-root-untrusted.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "f188939d997f0722088072732336c9cabacd41d34d6204f24d1348f5c6ae9552",
+   "vector": "34-tsa-tampered-signature-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "no_signer"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "a1c83e3affe56215da79fb452268a1f3853ad332638b6264ac390c4baee4fbe8",
+   "vector": "35-tsa-token-without-signer-certificate.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "11086ffe57a80825341002c022eaeecbd69ae07397a9a09d2f12df3d7131d051",
+   "vector": "36-tsa-no-anchors-not-evaluated.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "947061326ca8df1b97dee37b7a967b5bf79cc08ef79d9e3d477b8d787dfc019c",
+   "vector": "37-tsa-synthetic-control-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "da8418ecc87f5d1fd7256f4abba070e9cc445c101efd9ecb033737ce1338b95d",
+   "vector": "38-tsa-intermediate-expired-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "ab7889b643cf149f69b239ffce30d648083df57dc3d3695911638af60f2ad9e9",
+   "vector": "39-tsa-content-type-mismatch-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "7e6ddc060ac6eb4cde01c703daa8e20d73a88001e55588296205a3d38893bfaf",
+   "vector": "40-tsa-rsassa-pss-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0096496b6f1761a0db07ded16e79e1a0f3daaec28e16209e3aeb20815e4b5602",
+   "vector": "41-tsa-ecdsa-p256-verified.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "unsupported"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0866be6b41e3701b6ce2e2ab9c6822a230ea2ed77cb1c87cfc24849e6f61651f",
+   "vector": "42-tsa-ecdsa-p521-unsupported.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "6b9ae2c81b0bc1f5a7ae0e7b5bf8696ec59068da05cb0cb9d41e3ae986572db6",
+   "vector": "43-tsa-empty-anchor-list-not-evaluated.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "fe551d3caa4c88232737741cfe8871a984f86e166a19d5fb919b253dca611b1b",
+   "vector": "44-tsa-unsupported-curve-and-bad-digest-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "bb152bb1d9d2b9de4ff393550e0ca19e2247142a317c27b5dac50b7fce7dc25e",
+   "vector": "45-tsa-no-certificates-and-bad-digest-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "c9c282b1a644c999fd022f2c7f44861fbb0531c839f0ec7155b179f48f0d8710",
+   "vector": "46-tsa-unsupported-curve-and-ess-mismatch-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "9f11a1f08e61950760f6576efbf67c42a69df166337ee842bc8897c0374ed0c9",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "809977db97624c016a7eca2597bea079c1f355b6436c97cd05ea13cd7d48f87d",
+   "vector": "47-receipt-payment-x402-exact.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "b6ad25c831e95bb31f219c5e347627e7ead6cab11be0b1af7c1698ac26541e6b",
+   "vector": "48-tsa-signer-without-timestamping-eku-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "9f05407223e979c03402330a4215d4092ea9b3629af89eccc1f76c0a18907f56",
+   "vector": "49-tsa-issuer-not-a-ca-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "aa94a0e49022e7d79c70babfcad3485856a11cfc1bff38a711509941635776fd",
+   "vector": "50-criteria-token-imprint-only-in-status-string.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0fcf8cfbf3bd465749197f18e73673d3a8ffb9e9eadbbaba7267d5df3de84a1f",
+   "vector": "51-record-token-imprint-only-in-status-string.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "c3bd8efc9e04464945d67a91e9f82e62b867e15167a6b6977cbf14c3e5eb46b4",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "205edd3ebb75133b520f6b23ebdce25e2aa5761a9d563434fd799c54a2474d42",
+   "vector": "52-receipt-non-integer-numbers.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "untrusted"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "0895ef2d4538a78e94824bb34c392e7fb4420d34ef2c0ea991032009a3baee52",
+   "vector": "53-tsa-anchor-same-name-other-key-untrusted.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "failed"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "fa801a182ba12f988f2d37415c5778463accc73684ae52d29f0efb4855de1a58",
+   "vector": "54-tsa-expired-intermediate-no-anchor-failed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "37e264d17a22196f2460dfd4219aed32e8e92773c5051db8dd411e17f05505c1",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "12adf89c27fef72fc52f7b80c7bc4ef27db5d4330b8bb52da9d68a51cb2c7147",
+   "vector": "55-receipt-payment-outside-the-form.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "4c7273afcdb5333586b0a41c4238a968f3dedc23f66f71c5a1928ff3d279ab3d",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated",
+     "receipt": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "61dc8906a49c489694c96b93661076500b2d7051d6efa7cdf7bff4d943e9aa91",
+   "vector": "56-third-party-checker-live-receipt.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "bd561063622bbac17b84137687f1acaf65847e584cbe85ec6d8b3b62b6e159bc",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "61007ce1b2f09cd24a0ab7d8eb628ca5e4df9d7372ecb05a152054deca503f26",
+   "vector": "57-receipt-integer-valued-doubles.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "imprint_match",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "50bf2514d0fef2db4db291612edabc0aa87ced9b1bd114d6fae274e02dd2f099",
+   "vector": "58-criteria-token-imprint-only-in-unsigned-attribute.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "imprint_mismatch",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified",
+     "receipt": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "1c1897a6aa943292da7420851f2c1ccd2ab27f27a6f43eed9b55c18fc5778d59",
+   "vector": "59-record-token-imprint-only-in-unsigned-attribute.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "5639b9c168e65dc420e5accec14c13da974c35d2e964bf0f8152b50a48daec7e",
+   "vector": "60-signature-base64-invalid-character.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "012afe529d56ab5eb7a5ade3bdff4ac7b809992c61573bbfaa62789d69cb29c8",
+   "vector": "61-signature-base64-internal-whitespace.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "4b0de78aa49626d5b4fc4bf6f72a09abde13b88dd193a265aebdf757105c1e1d",
+   "vector": "62-signature-base64-noncanonical-trailing-bits.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "28847b5e6fba78e4dc8abf64848cdee2630be0162a7f02a307d3c9460a7c0302",
+   "vector": "63-signature-base64-missing-padding.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "51ede0512199e0009ab337cb371d9b4cbedee61536e6cdc632f30d5d3c559076",
+   "vector": "64-envelope-key-id-differs-from-signed-key-id.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "fdefcf4d1f0312d9f9bf680cf271aaad9e7965eedf4200c578e362775f1f8cba",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "problem_codes": [
+     "KEY_COLLISION"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "58ea149006ecccbae39851e841cd487dfd178987a53e85a81e561ef2e19bd110",
+   "vector": "65-one-public-key-under-two-key-ids.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d78e9ca5809c86b6444aa141b480df632b99c8b2e0a9c9d1211f6069b19338b3",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "9be2ad0e51c27a79bafdad83d06a4dcb913f04c59816fb7dc0111f506b6a9aec",
+   "vector": "66-criteria-gentime-fraction-makes-it-after-issue.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "56dc9a8e75be8039efd9cb4c47894cf4115293bbde62e8301381a530dd5ea18a",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "mismatch",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_HASH_MISMATCH",
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "df6856668b145eff45af23c907b08fa3c3b0e22946af03b86a44b46e361f86d8",
+   "vector": "67-criteria-sha256-upper-case.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "d78e9ca5809c86b6444aa141b480df632b99c8b2e0a9c9d1211f6069b19338b3",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_COMMITTED_AFTER_CHECK"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "dc38db79000df335f23a947dbd0e5460b3cfe2e0e5eab34bc5f8ee03fe947c9b",
+   "vector": "68-criteria-time-equals-issue-time-at-millisecond.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "fdefcf4d1f0312d9f9bf680cf271aaad9e7965eedf4200c578e362775f1f8cba",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "key_rejected_reason": "non-canonical base64 in a party's key entry",
+    "problem_codes": [
+     "KEY_REJECTED"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "ed61ed7ae2d0316ae988cc027912545e42b9c45836448a2bbf6c03d971ada3bc",
+   "vector": "69-key-alias-noncanonical-base64-dodges-same-key.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "3fb3266ab94e15cbd6473602cc49503d7e55b8bd320455649d92eced4c333950",
+   "vector": "70-criteria-gentime-with-offset.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "5981bba1ea09bba04dffb11811285c24b31cd297ae70c21bf90c28a4fe035946",
+   "vector": "71-criteria-gentime-month-13.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "eaa40c01ee35ffed4e20f1861ad8037487388fc9533d6c8919c277687f89764a",
+   "vector": "72-criteria-gentime-feb-30.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "b9377ba0f15450b1d7e20d6f84f0f1b9042c18e2c5c13fd5b511b6053a1938d1",
+   "vector": "73-criteria-gentime-comma-fraction.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "6760dcef0dffe32272f0cb26d8f889e6558a0d938545c3cf2fe4e1d9e8977c2a",
+   "vector": "74-criteria-gentime-trailing-zero-fraction.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "64a4a3aeddbe465ef5dfaff360c23f844cca7e39429f762bc0f57f9a9ffd4952",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_file_notes": [
+     "duplicate key_id spec-test-2f2dfa2f"
+    ],
+    "key_rejected": true,
+    "key_rejected_reason": "repeated key_id: spec-test-2f2dfa2f",
+    "problem_codes": [
+     "KEY_REJECTED"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "5cec6756e1c0496f76a2402a75205bb065d5d4ea4628eb129ef257e0fe331c25",
+   "vector": "75-duplicate-key-id-in-keys-file.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "2aa6a6e6fb4f28b28bdf1c607602b5469218562650dd5bd8c780787c4dd3b818",
+    "criteria_committed_before_check": "no",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "RECEIPT_TIME_UNREADABLE"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "17cebd9f7e44cf0b0b1d5ee1b51b1366f6b04ebc3cc861e0b34a7c6e8bdd6a8f",
+   "vector": "76-committed-at-malformed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "detail": "field of the wrong type",
+    "reason": "unknown schema, canonicalization or suite",
+    "refused": true
+   },
+   "input_sha256": "ed568dec03440d7f9d410c6f79e6a6a894b668a2dd6985f363571fde8cfa8a05",
+   "vector": "77-result-id-is-an-object.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "4a083aae5efa1e52e238b502873dd90c6bb06231d375130a80451cb326f299cb",
+   "vector": "78-token-imprint-matches-gentime-unusable.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "90f274ff7f7537bf21cece150f0b5965fe6029f9e50b1e57603387be294cf8bb",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_file_notes": [
+     "duplicate key_id unrelated-key",
+     "key_id unrelated-key: small-order point (not the signing key; outcome unaffected)"
+    ],
+    "key_rejected": false,
+    "key_rejected_reason": "repeated key_id: unrelated-key",
+    "problem_codes": [
+     "KEY_REJECTED"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "11831f3136c9bba49b2631ed2ae933d05517ce515fdd75c7901cff51055f6e65",
+   "vector": "79-unrelated-duplicate-key-id.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "9a9318de2af243ca52827641918042771a569406e29a48ea227f0835da416934",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "INDEPENDENCE_INCONSISTENT"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "b1679e4fcf4f82c532852a40c3a7d4e968b9a4d6c96e278618ef4eac55f2b1b2",
+   "vector": "80-independent-claim-producer-key-id-empty.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "db8504301da6806af39ec8599e7c53a52370be918a0db02d2df47379f0fb8d59",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "INDEPENDENCE_INCONSISTENT"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "17e7e8db29455dfff99814e8b3c2ed887c1e403219ca67dd2d89b1373964ff42",
+   "vector": "81-independent-claim-producer-key-id-unknown.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "8841cb7f6c11ae0619d29185a2748372dcf33f091fbde100022e1f0830e53dcd",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "07b08989559797376f94e31a1f64c8840de3aac1655744fcf1701c475b5f65f2",
+   "vector": "82-independent-claim-producer-key-id-absent.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "d0149f1ddbbb1864122faf7763015acfc53f925617144dae7ad77978c051f16b",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "verified"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "b1fb392d897419e9802bc15645132b00802d99b509b08c7d45067e4bb29de1e6",
+   "vector": "83-tsa-signer-info-unsigned-attributes-ignored.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "7c2148a5e85f755e368f857a592988d2a0b52d318200fe569e9f6a6fc8643272",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "3049a60fb53c07dbd6cfa93bfee0473ed0a13802467b9452c3fc797941881ae0",
+   "vector": "84-receipt-exponent-numbers.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": true,
+    "canonical_receipt_sha256": "398255e0dd209f20f6b5451622d561de2c5dcf59b670a7132ab59cf0fda39b12",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "8a69c482f07a23ae0179daf6ddae2dd327b5dd13578553724f94ed4938f59c3d",
+   "vector": "85-receipt-key-outside-bmp.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "3e9b1399837b8d10e9d89a86735e9031e3c293519a63ab282db4a404a34ce683",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "SIGNATURE_INVALID"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": false,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "50b7ca94ef10da2c78675a3b3277a8770b8e0437f2e88732dd8bf09a879a6f65",
+   "vector": "86-envelope-key-id-differs-from-signed.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "29e1c43379ba99b7dcbf9be96d527c3f621a45090939e4a4f44574383e62d89f",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "self-checked",
+    "independence_derived": "self-checked",
+    "key_rejected": false,
+    "problem_codes": [
+     "KEY_COLLISION"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "SELF_CHECKED"
+    ]
+   },
+   "input_sha256": "1cabf18b6b2d4816a69228534f610738f66b4736021dc066fa91006d4a5d91d9",
+   "vector": "87-same-key-under-two-ids.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "2e9929b0102ec82b2f65025c9eb0d65e43599d1d14252800a055bed601065c16",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIME_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "1247178b8a45f849c213de7a0bd63ed3986094e16e57781b3b10b168ceec0934",
+   "vector": "88-committed-at-malformed-with-token.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "3e9b1399837b8d10e9d89a86735e9031e3c293519a63ab282db4a404a34ce683",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "mismatch",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_HASH_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": []
+   },
+   "input_sha256": "eba45996f18aaf02ac0bc18839364467e80abb5573133b493a299acc03ad09d8",
+   "vector": "89-criteria-file-base64-noncanonical.json"
+  },
+  {
+   "agree": true,
+   "diffs": {},
+   "got": {
+    "accepted_as_stated": false,
+    "canonical_receipt_sha256": "3e9b1399837b8d10e9d89a86735e9031e3c293519a63ab282db4a404a34ce683",
+    "criteria_committed_before_check": "yes",
+    "criteria_hash": "match",
+    "independence": "independent",
+    "independence_derived": "independent",
+    "key_rejected": false,
+    "problem_codes": [
+     "CRITERIA_TIMESTAMP_MISMATCH"
+    ],
+    "receipt_timestamp": "none",
+    "signature_valid": true,
+    "tsa_signature": {
+     "criteria": "not_evaluated"
+    },
+    "verdict_recomputed": "pass",
+    "verdict_stated": "pass",
+    "warning_codes": [
+     "CRITERIA_COMMITMENT_UNVERIFIED"
+    ]
+   },
+   "input_sha256": "f63532a8b8a4c127338d930891727813db008bc7a7b3c950d3cf9e3f1d65c3b4",
+   "vector": "90-criteria-token-base64-noncanonical.json"
+  }
+ ]
+}
