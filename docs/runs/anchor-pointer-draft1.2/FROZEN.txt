@@ -1,0 +1,5 @@
+f2e5c7fca4b3e07d012cbd35e1822c65d40ccf45ada7fa1654fcd3ddbb4b6268  anchor_pointer_check_d12.py
+a874a41e91ba8fdf7ebf96e00bd00cdeb3ea1ca2e3aa9d81cf38efd166af6f5d  build_vectors_d12.py
+2026-10-28T12:14:15Z
+reader written from the draft 1.1 reader after reading aeoess/ots-anchor-reader 2d721cb's four questions (post hoc for I1, I3, I5); reader and builder frozen before any run over draft 1.2 vectors
+e11b1bd893a40fb44d379401fc7a974b6bfb89e2cbc481d99140280fea2b840b  lax_battery_d12.py

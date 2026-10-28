@@ -1,0 +1,4 @@
+agree  HS-142-972686 expected={"result": "anchored"} got={"earliest_height": 972686, "proof_heights": [972686], "result": "anchored", "set_checked": true, "verified_heights": [972686]}
+agree  HS-120-972141 expected={"result": "anchored"} got={"earliest_height": 972141, "proof_heights": [972141, 972145], "result": "anchored", "set_checked": true, "verified_heights": [972141]}
+agree  HS-120-972145 expected={"result": "anchored"} got={"earliest_height": 972145, "proof_heights": [972141, 972145], "result": "anchored", "set_checked": true, "verified_heights": [972145]}
+3/3

@@ -1,0 +1,62 @@
+{
+ "agree": 3,
+ "total": 3,
+ "rows": [
+  {
+   "id": "HS-142-972686",
+   "expected": {
+    "result": "anchored"
+   },
+   "got": {
+    "set_checked": true,
+    "proof_heights": [
+     972686
+    ],
+    "result": "anchored",
+    "earliest_height": 972686,
+    "verified_heights": [
+     972686
+    ]
+   },
+   "agree": true
+  },
+  {
+   "id": "HS-120-972141",
+   "expected": {
+    "result": "anchored"
+   },
+   "got": {
+    "set_checked": true,
+    "proof_heights": [
+     972141,
+     972145
+    ],
+    "result": "anchored",
+    "earliest_height": 972141,
+    "verified_heights": [
+     972141
+    ]
+   },
+   "agree": true
+  },
+  {
+   "id": "HS-120-972145",
+   "expected": {
+    "result": "anchored"
+   },
+   "got": {
+    "set_checked": true,
+    "proof_heights": [
+     972141,
+     972145
+    ],
+    "result": "anchored",
+    "earliest_height": 972145,
+    "verified_heights": [
+     972145
+    ]
+   },
+   "agree": true
+  }
+ ]
+}
