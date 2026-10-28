@@ -1,0 +1,12 @@
+reader: acp_dispute_check.py
+sha256: 2a5f878e96ab16444743f2db9f518a1ee5cfb5154f18fa1b44b0eb9137cef309
+frozen_at: 2026-10-26T23:33:43Z
+source: agentic-commerce-protocol PR #316 head db048718a4cee1d934894bd5206b3c58b28246db (unmerged; maximusrufus fork); files and sha256 in ~/.claude/work/downloads/acp316_db04871/SHA256SUMS
+rule: cases and their expected results are written after this line and before any scored run
+96d032cd14773be9991b9d85a913610fbde597f3d6e4934e45db9d02d0b1c10c  gen_cases.py
+141cd04bcddbc6baf5c207864fbd7ed7d32cc6a7224af3e6ed1ecfef7bbe308a  cases.json
+cases_frozen_at: 2026-10-26T23:34:29Z
+correction (before any scored run): base epochs were 8 h off (1793520000 is 2026-11-01T08:00Z, so exp fell on 11-02 and D5's 'day after exp' was the same day). Fixed to 1793491200/1793577599; expectations unchanged.
+e69c3b47849d5b2a4a5744b478efb69992e24b8134b0d5b99c70ebcd919c3b55  gen_cases.py
+141cd04bcddbc6baf5c207864fbd7ed7d32cc6a7224af3e6ed1ecfef7bbe308a  cases.json
+cases_refrozen_at: 2026-10-26T23:34:40Z

@@ -1,0 +1,5 @@
+0a4d5979b9009973130caf691d7d0d9cebe8b728454e4728d9b46ef83d20e517  ./rfcs/rfc.dispute_resolution.md
+1f831ba55ca7b0da0502dbc168dd665eb50d2f87341813f557f217f5bd0b4769  ./examples/unreleased/examples.dispute_resolution.json
+cdf62d86f80890e370f773c9de8e3b5a3c2a8b591996d05f01eea37e308d39f3  ./changelog/unreleased/dispute-resolution-extension.md
+e0f576905de7f7ae2f99e42f70ea5ea09eabf754cc608519f549e38e741d87d7  ./spec/unreleased/json-schema/schema.dispute_resolution.json
+aa0fba313feb1f2ded3cc3fae5af1ae36bb179c9c83fc383d36c0722533c6a52  spec/unreleased/json-schema/schema.agentic_checkout.json
