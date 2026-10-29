@@ -1,0 +1,13 @@
+probityai/agent-evidence-vectors, PR #289 merged 2026-10-28T22:09:00Z, merge head 38ed52b00cfc9628f7a4775d7b1cb8ff9c5a9301.
+Fetched by sparse checkout (cone): packaging/agent_evidence_vectors/ot_federation/corpus and docs/guides; the cone brought the
+repository root files and the files directly under packaging/agent_evidence_vectors/ (reader.py, run.py among them) along.
+Opened: ot_federation/README.md, corpus/cases.json, corpus/manifest.json, docs/guides/corpora.md, the PR title and body.
+Not opened: ot_federation/reader.py, ot_federation/run.py, scripts/ot-federation-build.py, scripts/ot-federation-test.py.
+Not run: agent-evidence-vectors==0.29.3 (not installed; --emit-fixtures not run). The cases were read from corpus/cases.json
+with the loader in battery_on_aev289.py instead of from an ot-federation-fixtures/v1 directory.
+corpus/cases.json  sha256 7f942b889b8cabf1460576e8923d86704f0e1b86e6f61207fb17c53f5263403b (42 cases, schema aev-ot-federation-cases/v1)
+corpus/manifest.json sha256 62680e6794763e746a557024d69b403e01d68b3d2c207cab5a9dd77cc8f8f188
+PyPI agent_evidence_vectors-0.29.3-py3-none-any.whl (uploaded 2026-10-28T22:29:33Z, sha256 a36a65b5dc080611144eda430cf060e69b27682266e8f2e10113fc6546816622):
+its agent_evidence_vectors/ot_federation/corpus/cases.json and manifest.json are byte-identical to the two above (same sha256).
+The corpus is not copied into this catalog; the reader, battery and loader here are CC0.
+Pinned 2026-10-29T01:39:31Z.

@@ -1,0 +1,1274 @@
+{
+ "corpus": {
+  "path": "packaging/agent_evidence_vectors/ot_federation/corpus/cases.json",
+  "sha256": "7f942b889b8cabf1460576e8923d86704f0e1b86e6f61207fb17c53f5263403b",
+  "repo": "probityai/agent-evidence-vectors",
+  "commit": "38ed52b00cfc9628f7a4775d7b1cb8ff9c5a9301",
+  "schema": "aev-ot-federation-cases/v1"
+ },
+ "reader_sha256": "90031452020ad9ae1c4a6b0f6c7ec7b7fd8471f6201bb1039f95d1350afc0cd6",
+ "battery_sha256": "f4193f428cd9b5a9893dbd661090583e69739fa7156c7f6332303e30889170e4",
+ "frozen_reader": {
+  "verdict_agrees": 39,
+  "claims_agree": 33,
+  "claims_given": 38,
+  "cases": [
+   {
+    "id": "clean_verify",
+    "fault_shape": "none",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "clean_accept",
+    "fault_shape": "none",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "clean_escalate",
+    "fault_shape": "none",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "clean_observed_at_dispatch",
+    "fault_shape": "boundary",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "clean_envelope_only_binding",
+    "fault_shape": "boundary",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "clean_evidence_only_binding",
+    "fault_shape": "boundary",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "evidence_non_ascii",
+    "fault_shape": "digest_rule",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "evidence_keys_unsorted",
+    "fault_shape": "digest_rule",
+    "expected_verdict": "ESTABLISHED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "decision_not_approved",
+    "fault_shape": "executed_without_approval",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: executed but decision.approved is false"
+   },
+   {
+    "id": "accept_not_approved",
+    "fault_shape": "executed_without_approval",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: executed but decision.approved is false"
+   },
+   {
+    "id": "reviewer_rejected",
+    "fault_shape": "reviewer_overridden",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: executed on verify without an approving reviewer"
+   },
+   {
+    "id": "reviewer_absent",
+    "fault_shape": "reviewer_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": false,
+    "expected_claims": {
+     "decision_correspondence": "NOT_ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": false,
+    "got_reason": "decision_correspondence: executed on verify without an approving reviewer"
+   },
+   {
+    "id": "decision_unknown",
+    "fault_shape": "executed_on_other_decision",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: executed on decision 'deny', not an ACCEPT or an approved VERIFY/ESCALATE"
+   },
+   {
+    "id": "envelope_other_proposal",
+    "fault_shape": "decision_bound_elsewhere",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: envelope request_id is not the proposal"
+   },
+   {
+    "id": "evidence_other_proposal",
+    "fault_shape": "decision_bound_elsewhere",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: evidence proposal_id is not the proposal"
+   },
+   {
+    "id": "decision_unbound",
+    "fault_shape": "decision_binding_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "NOT_ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "NOT_ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "decision_correspondence: neither envelope nor evidence names the proposal"
+   },
+   {
+    "id": "denied_but_applied",
+    "fault_shape": "denied_but_applied",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "NOT_ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": false,
+    "got_reason": "decision_correspondence: executed is false but the twin recorded APPLIED or an effect was observed"
+   },
+   {
+    "id": "not_executed_but_observed",
+    "fault_shape": "denied_but_observed",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "NOT_ESTABLISHED",
+     "call_binding": "NOT_ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "CONTRADICTED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "NOT_ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": false,
+    "got_reason": "decision_correspondence: executed is false but the twin recorded APPLIED or an effect was observed"
+   },
+   {
+    "id": "replayed_execution",
+    "fault_shape": "replayed_execution",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "CONTRADICTED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "CONTRADICTED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "single_dispatch: executions = 2"
+   },
+   {
+    "id": "execution_count_missing",
+    "fault_shape": "execution_count_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "NOT_ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "NOT_ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "single_dispatch: execution.executions absent"
+   },
+   {
+    "id": "twin_record_missing",
+    "fault_shape": "twin_record_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "NOT_ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "NOT_ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "call_binding: no twin operation record"
+   },
+   {
+    "id": "twin_other_operation",
+    "fault_shape": "proposal_swapped",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "CONTRADICTED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "CONTRADICTED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "call_binding: twin operation_id is another proposal"
+   },
+   {
+    "id": "twin_requested_other_value",
+    "fault_shape": "request_swapped",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "ESTABLISHED",
+    "verdict_agrees": false,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "CONTRADICTED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": false,
+    "got_reason": "all six claims established"
+   },
+   {
+    "id": "twin_not_applied",
+    "fault_shape": "twin_status",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: twin status 'REJECTED', not APPLIED"
+   },
+   {
+    "id": "twin_other_zone",
+    "fault_shape": "twin_zone",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: twin zone differs from the claimed zone"
+   },
+   {
+    "id": "twin_value_differs_observation_matches",
+    "fault_shape": "effect_value_split",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: twin applied 23.0, claim says 21.5"
+   },
+   {
+    "id": "observation_differs_twin_matches",
+    "fault_shape": "effect_value_split",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: observed 23.0, claim says 21.5"
+   },
+   {
+    "id": "twin_value_missing",
+    "fault_shape": "effect_value_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": false,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "CONTRADICTED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": false,
+    "got_reason": "declared_effect_observed: twin applied None, claim says 21.5"
+   },
+   {
+    "id": "observation_null",
+    "fault_shape": "effect_not_observed",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: effect not observed"
+   },
+   {
+    "id": "observed_value_missing",
+    "fault_shape": "effect_value_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "NOT_ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "declared_effect_observed: observation has no observed_setpoint_c"
+   },
+   {
+    "id": "dispatch_time_missing",
+    "fault_shape": "dispatch_time_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "observation_after_dispatch: dispatched_at_sim_s absent or null"
+   },
+   {
+    "id": "observation_time_missing",
+    "fault_shape": "observation_time_missing",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "NOT_ESTABLISHED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "observation_after_dispatch: observed_at_sim_s absent"
+   },
+   {
+    "id": "observed_before_dispatch",
+    "fault_shape": "observed_before_dispatch",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "CONTRADICTED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "CONTRADICTED",
+     "evidence_digest_integrity": "ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "observation_after_dispatch: observed at 7199 before dispatch at 7200"
+   },
+   {
+    "id": "evidence_digest_mismatch",
+    "fault_shape": "evidence_digest_mismatch",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "claims_agree": true,
+    "got_reason": "evidence_digest_integrity: evidence_sha256 is not the canonical SHA-256 of remora_evidence"
+   },
+   {
+    "id": "evidence_digest_escaped",
+    "fault_shape": "digest_rule",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "claims_agree": true,
+    "got_reason": "evidence_digest_integrity: evidence_sha256 is not the canonical SHA-256 of remora_evidence"
+   },
+   {
+    "id": "evidence_digest_unsorted",
+    "fault_shape": "digest_rule",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "claims_agree": true,
+    "got_reason": "evidence_digest_integrity: evidence_sha256 is not the canonical SHA-256 of remora_evidence"
+   },
+   {
+    "id": "evidence_digest_spaced",
+    "fault_shape": "digest_rule",
+    "expected_verdict": "CONTRADICTED",
+    "got_verdict": "CONTRADICTED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "CONTRADICTED"
+    },
+    "claims_agree": true,
+    "got_reason": "evidence_digest_integrity: evidence_sha256 is not the canonical SHA-256 of remora_evidence"
+   },
+   {
+    "id": "evidence_digest_not_hex",
+    "fault_shape": "digest_form",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "NOT_ESTABLISHED"
+    },
+    "got_claims": {
+     "decision_correspondence": "ESTABLISHED",
+     "single_dispatch": "ESTABLISHED",
+     "call_binding": "ESTABLISHED",
+     "declared_effect_observed": "ESTABLISHED",
+     "observation_after_dispatch": "ESTABLISHED",
+     "evidence_digest_integrity": "NOT_ESTABLISHED"
+    },
+    "claims_agree": true,
+    "got_reason": "evidence_digest_integrity: evidence_sha256 is not a 64-hex digest"
+   },
+   {
+    "id": "malformed_setpoint_string",
+    "fault_shape": "malformed",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": null,
+    "got_claims": null,
+    "claims_agree": null,
+    "got_reason": "malformed: not an ot-federation-case/v1 of the schema's shape"
+   },
+   {
+    "id": "malformed_execution_missing",
+    "fault_shape": "malformed",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": null,
+    "got_claims": null,
+    "claims_agree": null,
+    "got_reason": "malformed: not an ot-federation-case/v1 of the schema's shape"
+   },
+   {
+    "id": "malformed_schema",
+    "fault_shape": "malformed",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": null,
+    "got_claims": null,
+    "claims_agree": null,
+    "got_reason": "malformed: not an ot-federation-case/v1 of the schema's shape"
+   },
+   {
+    "id": "malformed_executions_bool",
+    "fault_shape": "malformed",
+    "expected_verdict": "NOT_ESTABLISHED",
+    "got_verdict": "NOT_ESTABLISHED",
+    "verdict_agrees": true,
+    "expected_claims": null,
+    "got_claims": null,
+    "claims_agree": null,
+    "got_reason": "malformed: not an ot-federation-case/v1 of the schema's shape"
+   }
+  ]
+ },
+ "mutants": [
+  {
+   "mutation": "M01 ignore decision.approved",
+   "disagrees_on": [
+    "decision_not_approved",
+    "accept_not_approved",
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M02 ignore reviewer.approved on verify/escalate",
+   "disagrees_on": [
+    "reviewer_rejected",
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M03 ignore envelope/evidence binding to the proposal",
+   "disagrees_on": [
+    "reviewer_absent",
+    "envelope_other_proposal",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M03b ignore evidence proposal_id binding",
+   "disagrees_on": [
+    "reviewer_absent",
+    "evidence_other_proposal",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M04 executed=false with APPLIED twin is only NOT_ESTABLISHED",
+   "disagrees_on": [
+    "reviewer_absent",
+    "denied_but_applied",
+    "not_executed_but_observed",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M05 assume executions=1 when absent",
+   "disagrees_on": [
+    "reviewer_absent",
+    "execution_count_missing",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M06 accept any executions count",
+   "disagrees_on": [
+    "reviewer_absent",
+    "replayed_execution",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M07 ignore twin operation_id (call_binding)",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_other_operation",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M08 ignore twin status APPLIED",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_not_applied",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M09 ignore twin zone_id",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_other_zone",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M10 ignore twin new_setpoint_c (observation only)",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_differs_observation_matches",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M11 ignore observed_setpoint_c (twin only)",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "observation_differs_twin_matches",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M12 null observation counts as observed",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M13 assume dispatch time = twin sim_time_s when absent",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "dispatch_time_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M14 assume observation time = dispatch time when absent",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "observation_time_missing"
+   ],
+   "raises_on": [
+    "observation_null"
+   ],
+   "status": "MISBUILT"
+  },
+  {
+   "mutation": "M15 observed == dispatched is a contradiction (strict after)",
+   "disagrees_on": [
+    "clean_observed_at_dispatch",
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M16 ignore evidence digest",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "evidence_digest_mismatch",
+    "evidence_digest_escaped",
+    "evidence_digest_unsorted",
+    "evidence_digest_spaced"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M17 digest with ensure_ascii=True",
+   "disagrees_on": [
+    "evidence_non_ascii",
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "evidence_digest_escaped"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M18 digest without sort_keys",
+   "disagrees_on": [
+    "evidence_keys_unsorted",
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "evidence_digest_unsorted"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M19 digest with default separators",
+   "disagrees_on": [
+    "clean_verify",
+    "clean_accept",
+    "clean_escalate",
+    "clean_observed_at_dispatch",
+    "clean_envelope_only_binding",
+    "clean_evidence_only_binding",
+    "evidence_non_ascii",
+    "evidence_keys_unsorted",
+    "reviewer_absent",
+    "decision_unbound",
+    "execution_count_missing",
+    "twin_record_missing",
+    "twin_value_missing",
+    "observation_null",
+    "observed_value_missing",
+    "dispatch_time_missing",
+    "observation_time_missing",
+    "evidence_digest_spaced"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  },
+  {
+   "mutation": "M20 malformed case answered ESTABLISHED",
+   "disagrees_on": [
+    "reviewer_absent",
+    "twin_requested_other_value",
+    "twin_value_missing",
+    "malformed_setpoint_string",
+    "malformed_execution_missing",
+    "malformed_schema",
+    "malformed_executions_bool"
+   ],
+   "raises_on": [],
+   "status": "CAUGHT"
+  }
+ ],
+ "survivors": [],
+ "misbuilt": [
+  "M14 assume observation time = dispatch time when absent"
+ ]
+}
