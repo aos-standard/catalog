@@ -1,0 +1,80 @@
+{
+ "record": {
+  "dispute_id": "dsp_0001",
+  "policy_version": "ATDRP-0.1",
+  "claimant": "payer",
+  "checkout_hash": "h_7f3a",
+  "payment_mandate": {
+   "transaction_id": "h_7f3a",
+   "payee": "merchant_123",
+   "payment_amount": 330,
+   "iat": 1793491200,
+   "exp": 1793577599,
+   "execution_date": "2026-11-01"
+  },
+  "checkout_receipt": {
+   "status": "success",
+   "reference": "h_7f3a",
+   "iat": 1793491300,
+   "order_id": "ord_abc123"
+  },
+  "payment_receipt": {
+   "status": "success",
+   "reference": "h_7f3a",
+   "iat": 1793491400,
+   "payment_id": "pay_123",
+   "psp_confirmation_id": "psp_123",
+   "network_confirmation_id": "net_123"
+  },
+  "order": {
+   "id": "ord_abc123",
+   "status": "canceled",
+   "line_items": [
+    {
+     "id": "a",
+     "title": "A",
+     "quantity": {
+      "ordered": 1,
+      "current": 1,
+      "fulfilled": 0
+     },
+     "subtotal": 200
+    },
+    {
+     "id": "b",
+     "title": "B",
+     "quantity": {
+      "ordered": 1,
+      "current": 1,
+      "fulfilled": 0
+     },
+     "subtotal": 100
+    }
+   ],
+   "adjustments": [
+    {
+     "id": "adj1",
+     "type": "exchange",
+     "status": "completed",
+     "occurred_at": "2026-11-02T00:00:00Z",
+     "amount": 300,
+     "currency": "usd"
+    }
+   ],
+   "fulfillments": [
+    {
+     "id": "f1",
+     "type": "shipping",
+     "status": "delivered"
+    }
+   ]
+  },
+  "claim": {
+   "line_ids": [
+    "a"
+   ],
+   "ground": "performance",
+   "statement": "The order was canceled by the merchant and no refund was issued."
+  }
+ }
+}

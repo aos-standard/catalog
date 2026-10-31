@@ -1,0 +1,9 @@
+agentic-commerce-protocol/agentic-commerce-protocol, PR #316 (OPEN), head 089d8f91369371da54237ab3a7b9f18a94b242ef (2026-10-29T15:08:02Z, maximusrufus).
+Fetched raw by the GitHub contents API at that ref, into upstream_089d8f9/ (not copied into the catalog):
+95ac8919bbb585efce18dd826417714045c55e25f052bff8028cf69d2f643775  rfcs/rfc.dispute_resolution.md
+774eb08a569d038538be80976fe0623cbc78ba2a5b51f671913d1ce73ee5aac2  spec/unreleased/json-schema/schema.dispute_resolution.json
+c5c6c33b7393622e2fae304040fa4c4d1110d9d31f701c0412e64503dc6f77e8  examples/unreleased/examples.dispute_resolution.json
+Also read: the compare view db04871...089d8f9 (6 files; the checkout schema and OpenAPI copies of DisputeDetermination changed in step with the dispute schema and were not re-read in full), and the two comments 6500234054 and 6500539207 on PR #316.
+Not opened: scripts/validate-consistency.js, the reference implementation SEP #303 describes, the AP2 sample.
+The db04871 example used by case U1 is the file pinned in ../upstream_pins_db04871.txt (sha256 1f831ba5...).
+Pinned 2026-10-31T00:53:53Z.

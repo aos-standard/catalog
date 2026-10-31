@@ -1,0 +1,116 @@
+{
+ "record": {
+  "dispute_id": "dsp_0001",
+  "policy_version": "ATDRP-0.1",
+  "claimant": "payer",
+  "checkout_hash": "h_7f3a",
+  "payment_mandate": {
+   "transaction_id": "h_7f3a",
+   "payee": "merchant_123",
+   "payment_amount": 330,
+   "iat": 1793491200,
+   "exp": 1793577599,
+   "execution_date": "2026-11-01"
+  },
+  "checkout_receipt": {
+   "status": "success",
+   "reference": "h_7f3a",
+   "iat": 1793491300,
+   "order_id": "ord_abc123"
+  },
+  "payment_receipt": {
+   "status": "success",
+   "reference": "h_7f3a",
+   "iat": 1793491400,
+   "payment_id": "pay_123",
+   "psp_confirmation_id": "psp_123",
+   "network_confirmation_id": "net_123"
+  },
+  "order": {
+   "id": "ord_abc123",
+   "status": "canceled",
+   "line_items": [
+    {
+     "id": "line_item_123",
+     "title": "Tee",
+     "quantity": {
+      "ordered": 1,
+      "current": 1,
+      "fulfilled": 1
+     },
+     "subtotal": 330
+    }
+   ],
+   "adjustments": [],
+   "fulfillments": [
+    {
+     "id": "f1",
+     "type": "shipping",
+     "status": "delivered"
+    }
+   ]
+  },
+  "claim": {
+   "line_ids": [
+    "line_item_123"
+   ],
+   "ground": "performance",
+   "statement": "The order was canceled by the merchant and no refund was issued."
+  }
+ },
+ "determination": {
+  "determination_id": "det_0001",
+  "dispute_id": "dsp_0001",
+  "policy_version": "ATDRP-0.1",
+  "per_line": [
+   {
+    "line_id": "line_item_123",
+    "outcome": "overturn",
+    "amount": {
+     "amount": 330,
+     "currency": "usd"
+    },
+    "reasons": [
+     "merchant_canceled_without_completed_adjustment"
+    ]
+   }
+  ],
+  "factors": {
+   "mandate_scope": {
+    "finding": "n/a"
+   },
+   "intent_fidelity": {
+    "finding": "n/a"
+   },
+   "merchant_performance": {
+    "finding": "n/a"
+   },
+   "adjustments_already_made": {
+    "finding": "n/a"
+   },
+   "agent_platform_conduct": {
+    "finding": "n/a"
+   }
+  },
+  "prohibited_screened": true,
+  "drafted_by": "ai_assisted_human_reviewed",
+  "signer": {
+   "name": "A. Neutral",
+   "credential": "Provider-published arbitrator credential"
+  },
+  "opened_at": "2026-11-12T09:00:00Z",
+  "issued_at": "2026-11-20T15:00:00Z",
+  "seal": {
+   "record_hash": "sha256:ab12",
+   "chain_head": "sha256:cd34",
+   "verify_url": "https://provider.example/verify/det_0001"
+  },
+  "fee_disposition": {
+   "paid_by": "merchant",
+   "amount": {
+    "amount": 500,
+    "currency": "usd"
+   }
+  }
+ }
+}

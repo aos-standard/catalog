@@ -1,0 +1,14 @@
+reader: acp_dispute_check_089d8f9.py
+sha256: b519d178bc7682d54958f8d0034794ff0e478b7b4a0cf3b6ee646ddede87f732
+frozen_at: 2026-10-31T00:52:01Z
+derived_from: acp_dispute_check.py 2a5f878e96ab16444743f2db9f518a1ee5cfb5154f18fa1b44b0eb9137cef309 (db04871), five named edits E-R3, E-R5, E-R6, E-4.5a, E-4.5b
+source: agentic-commerce-protocol PR #316 head 089d8f91369371da54237ab3a7b9f18a94b242ef (OPEN; maximusrufus); files and sha256 in upstream_pins_089d8f9.txt
+answer-exposed: the RFC text, schema and example at 089d8f9 were read before the edits; the published example pair is case U2 and its determination was seen
+rule: cases and their expected results are written after this line and before any scored run
+3c3d089df7fd78defca84a523cf76b618fbdefe8241392e73c31c8fe6da9d4a2  gen_cases_089d8f9.py
+80823ff184e31048e3f8f81666c9afe4b84d1e0c70cd9368f103028070032158  cases.json
+cases_frozen_at: 2026-10-31T00:53:15Z
+correction (after the first scored run; expectations and case inputs unchanged, only the note on E7): the note said the db04871 reader would not find E7 moot; it does (the exchange counts for that reader, and 300 allocated pro rata gives 200 to line a, equal to its amount). Both runs rerun unchanged: 34/34 and 26/34.
+e82d89ba11a40a349c3fdbaf92e19601afc39fd44ff244568cc859d51be578b0  gen_cases_089d8f9.py
+1ca423302f3a3c46dc61d0ea7ae3d6ca19e54c8838bc78857f999c32f793cd38  cases.json
+cases_refrozen_at: 2026-10-31T00:53:53Z
