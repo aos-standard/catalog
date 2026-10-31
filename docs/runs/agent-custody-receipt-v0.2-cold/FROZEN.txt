@@ -1,0 +1,23 @@
+reader: ac_receipt_check.py
+sha256: e857689a8b4e70a04a8f8ac17312c92139f5f3fa7c682f2f79c600cf8d1e3495
+frozen_at: 2026-10-31T01:19:44Z
+source: svayatta/agent-custody bd57844be2db50ade7b5ce991f29c1522060e3e4, site/receipt/v0.2.md (sha256 1dd1c103bf9b2754b8acf190c5dda7dcdbdf819330799f021d2b82b9a157f807) and site/receipt/vectors.md (f4862c60...)
+not opened: packages/receipts/src/verify.ts, site/verifier/*, packages/python/*, packages/receipts/scripts/vectors.ts, packages/receipts/test/*
+answer-exposed before writing: expected.failing names and the description of every case in receipts.json and audit.json; the shapes of eleven decoded bundles (fields, not verdict logic)
+rule: the scored runs over the four vector files follow this line; the vectors are the upstream's and are not edited
+
+v1 first scored run (run_bd57844_v1.json): canonical all ok, merkle all ok, audit 3/4, receipts 78/97 exact (92/97 on the verdict), 3 raised.
+v2 (2026-10-31T01:22:40Z), sha256 074b3503cb643d9c5cc971bbf68c2d1f988917b79acbf814538f2c5ca5174fe5, file ac_receipt_check.py; v1 kept as ac_receipt_check_v1.py. Eight edits, from the first run, none from the reference code:
+  A  upstream contentDigest: isError defaults to false when absent (the page says "{ content, isError }"; the receipt's result carries no isError)
+  B  a hash-only log copy has lines {"hash": hex}; v1 raised on them
+  C  audit: when the order check fails, the extends check is not evaluated
+  D1 "signer observations" are the keyids on the envelope's own signatures, not the trusted-and-verified set
+  D2 a malformed approval payload fails the signatures check only; binding and window are not evaluated
+  D5 the precommit's approval is judged on forwarded calls only, like the receipt's
+  D6 an envelope withheld beside arguments in clear fails the signatures check only
+  D7 "authorization logged before execution" is evaluated only when the authorization's own inclusion proof holds
+
+v2 second scored run (run_bd57844_v2.json): canonical all ok, merkle all ok, audit 4/4, receipts 93/97 exact (97/97 on the verdict), 0 raised.
+v3 (2026-10-31T01:23:25Z), sha256 08b19955796ee59e584329558e53e45a47a0b9f171119cd3f44a7d4c14251d59, file ac_receipt_check.py; v2 kept as ac_receipt_check_v2.py. Two edits, from the second run, none from the reference code:
+  E1 reverts D7: "authorization logged before execution" is read from the two proofs' leaf indexes whether or not the authorization's proof verifies (gateway-precommit-reordered swaps the proof itself)
+  E2 the precommit's approval envelope is judged by its own shape (envelope or commitment), not by the receipt's capture note (resigned-approval-envelope-withheld-beside-clear-args withholds only the receipt's copy)

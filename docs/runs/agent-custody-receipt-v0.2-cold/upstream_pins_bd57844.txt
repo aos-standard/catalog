@@ -1,0 +1,11 @@
+svayatta/agent-custody, main at bd57844be2db50ade7b5ce991f29c1522060e3e4 (2026-10-29T18:42:14Z). Issue #185 (ch4r10t33r, 2026-10-26) is the thread.
+Fetched raw by the GitHub contents API at that ref, into upstream_bd57844/ (not copied into the catalog; the vectors ship in the npm package too):
+1dd1c103bf9b2754b8acf190c5dda7dcdbdf819330799f021d2b82b9a157f807  site/receipt/v0.2.md
+f4862c6008bc90111cc747d9f564d1f58c98d4af6378371e7569d748d155ca0f  site/receipt/vectors.md
+ff0f7444652a19a58043285c16fb8b20c3bea10b6e061ee1591d03361b3251be  packages/receipts/vectors/canonical.json
+f65445278b76bae636f742b0cf4e94e2af688367768f665fae31212d00a22b58  packages/receipts/vectors/merkle.json
+7ff9f9dd3f54653aeb80d133879c530dc9853e25e6419e34abaceecc577f85c5  packages/receipts/vectors/audit.json
+0dc34d2918d7012716b991ba715a86b3f9936549ff7f070965c11435f5c478c1  packages/receipts/vectors/receipts.json (97 cases, generated 2026-10-24T21:43:16Z)
+Also read: SECURITY.md, README.md (first screen), the repository tree listing.
+Not opened: packages/receipts/src/verify.ts, site/verifier/verify-web.ts and its test, packages/python/*, packages/receipts/scripts/vectors.ts and fixture scripts, packages/receipts/test/*, packages/receipts/docs/*.
+Pinned 2026-10-31.

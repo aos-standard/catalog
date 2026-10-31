@@ -1,0 +1,1770 @@
+{
+ "reader_sha256": "e857689a8b4e70a04a8f8ac17312c92139f5f3fa7c682f2f79c600cf8d1e3495",
+ "files": {
+  "canonical.json": "ff0f7444652a19a58043285c16fb8b20c3bea10b6e061ee1591d03361b3251be",
+  "merkle.json": "f65445278b76bae636f742b0cf4e94e2af688367768f665fae31212d00a22b58",
+  "audit.json": "7ff9f9dd3f54653aeb80d133879c530dc9853e25e6419e34abaceecc577f85c5",
+  "receipts.json": "0dc34d2918d7012716b991ba715a86b3f9936549ff7f070965c11435f5c478c1"
+ },
+ "canonical": {
+  "rows": [
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "{\"b\": 1, \"a\": [3, {\"z\": null, \"y\": \"ÿ\"}]}"
+   },
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "\"plain\""
+   },
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "42"
+   },
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "[1, 2, 3]"
+   },
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "{\"nested\": {\"deep\": {\"deeper\": true}}}"
+   },
+   {
+    "kind": "value",
+    "canonical_ok": true,
+    "digest_ok": true,
+    "value": "{}"
+   },
+   {
+    "kind": "keyid",
+    "ok": true
+   },
+   {
+    "kind": "dsse",
+    "pae_ok": true,
+    "pae_given": false,
+    "signature_ok": true,
+    "keyid_matches": true
+   }
+  ],
+  "all_ok": true
+ },
+ "merkle": {
+  "leafHashes_ok": true,
+  "roots_ok": true,
+  "inclusion": [
+   {
+    "leafIndex": 0,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 1,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 2,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 3,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 4,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 5,
+    "treeSize": 7,
+    "ok": true
+   },
+   {
+    "leafIndex": 6,
+    "treeSize": 7,
+    "ok": true
+   }
+  ],
+  "consistency": [
+   {
+    "oldSize": 0,
+    "newSize": 7,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 1,
+    "newSize": 7,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 2,
+    "newSize": 5,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 3,
+    "newSize": 7,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 4,
+    "newSize": 7,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 5,
+    "newSize": 6,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 7,
+    "newSize": 7,
+    "expected": true,
+    "got": true,
+    "ok": true,
+    "note": null
+   },
+   {
+    "oldSize": 3,
+    "newSize": 7,
+    "expected": false,
+    "got": false,
+    "ok": true,
+    "note": null
+   }
+  ],
+  "all_ok": true
+ },
+ "audit": {
+  "rows": [
+   {
+    "name": "remote-log-extends",
+    "expected": [],
+    "got": [],
+    "agree": true
+   },
+   {
+    "name": "remote-log-wrong-order",
+    "expected": [
+     "older is not larger than newer"
+    ],
+    "got": [
+     "newer log extends older log",
+     "older is not larger than newer"
+    ],
+    "agree": false
+   },
+   {
+    "name": "remote-log-wrong-key",
+    "expected": [
+     "newer tree head signature",
+     "older tree head signature"
+    ],
+    "got": [
+     "newer tree head signature",
+     "older tree head signature"
+    ],
+    "agree": true
+   },
+   {
+    "name": "remote-log-bad-proof",
+    "expected": [
+     "newer log extends older log"
+    ],
+    "got": [
+     "newer log extends older log"
+    ],
+    "agree": true
+   }
+  ],
+  "agree": 3,
+  "n": 4
+ },
+ "receipts": {
+  "n": 97,
+  "agree": 78,
+  "verdict_agree": 92,
+  "by_class": {
+   "PAGE_NAMED": {
+    "n": 71,
+    "agree": 64
+   },
+   "VECTOR_NAMED": {
+    "n": 26,
+    "agree": 14
+   }
+  },
+  "raised": 3,
+  "rows": [
+   {
+    "name": "gateway-executed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-strict",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-strict-required",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "strict mode in force",
+     "strict: call precommitted before forwarding"
+    ],
+    "got": [
+     "strict mode in force",
+     "strict: call precommitted before forwarding"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-strict-authorization-removed",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "strict: call precommitted before forwarding"
+    ],
+    "got": [
+     "log inclusion proof",
+     "strict: call precommitted before forwarding"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-strict-claimed-without-precommit",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "strict: call precommitted before forwarding"
+    ],
+    "got": [
+     "log inclusion proof",
+     "strict: call precommitted before forwarding"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-two-humans",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-used",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-payload-changed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-expired",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-without-human-trust",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization approval was valid"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "approval signatures (human keys)",
+     "authorization approval was valid"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval consistent with execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-only-one-human-trusted",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization approval was valid"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "approval signatures (human keys)",
+     "authorization approval was valid"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval consistent with execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-approved-amount-changed",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approved-currency-changed",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approved-beneficiary-changed",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approved-extra-changed",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-consumed-after-expiry",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "approval payload binding",
+     "approval valid at forward time",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval valid at forward time",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [
+     "approval payload binding"
+    ],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-checked-before-issuance",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval consistent with execution",
+     "approval valid at forward time",
+     "authorization approval was valid",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval valid at forward time",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [
+     "approval consistent with execution",
+     "authorization approval was valid"
+    ],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-not-consumed",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "approval consistent with execution",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-denied-but-forwarded",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "approval consistent with execution",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-execution-array-status",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-array-status",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-withheld",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-precommit-approval-status",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "log inclusion proof"
+    ],
+    "got": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "authorization logged before execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-precommit-approval-checkedAt",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "log inclusion proof"
+    ],
+    "got": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "authorization logged before execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-precommit-approval-approverKeyids",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "log inclusion proof"
+    ],
+    "got": [
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "authorization logged before execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-human-approval-fractional-amount",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval signatures (human keys)",
+     "approval valid at forward time",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval valid at forward time"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-human-approval-unknown-field",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval signatures (human keys)",
+     "approval valid at forward time",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval valid at forward time"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-human-approval-bad-date",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval signatures (human keys)",
+     "approval valid at forward time",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval consistent with execution",
+     "approval payload binding",
+     "approval valid at forward time"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-cedar-denied",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-cedar-denied-private-args",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-private-args",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-revoked-after-consumption",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [
+     "authorization approval was valid"
+    ],
+    "agree": false,
+    "verdict_agree": false,
+    "missing": [],
+    "extra": [
+     "authorization approval was valid"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-approval-revoked-after-consumption-private-args",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-args-clear-result-private",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-envelope-withheld-beside-clear-args",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "approval signatures (human keys)",
+     "approval valid at forward time",
+     "authorization approval was valid",
+     "authorization carries this approval",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval payload binding",
+     "approval valid at forward time",
+     "authorization approval was valid"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-precommit-approval-envelope-withheld-beside-clear-args",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "approval signatures (human keys)",
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "log inclusion proof"
+    ],
+    "got": [
+     "approval payload binding",
+     "approval signatures (human keys)",
+     "approval valid at forward time",
+     "authorization approval was valid",
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "approval payload binding",
+     "approval valid at forward time",
+     "authorization logged before execution"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-approved-args-all-clear-listed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-approval-checked-at-no-offset",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-proto-key",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-private-clear-result-upstream-attested",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [
+     "upstream signature (upstream key)"
+    ],
+    "agree": false,
+    "verdict_agree": false,
+    "missing": [],
+    "extra": [
+     "upstream signature (upstream key)"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-private-clear-result-upstream-wrong-key",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "upstream signature (upstream key)"
+    ],
+    "got": [
+     "upstream signature (upstream key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-private",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-malformed-commitment-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "got": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-array-hash-commitment-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "got": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-array-keyid-commitment-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "got": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-undeclared-envelope-commitment-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "upstream signature (upstream key)"
+    ],
+    "got": [
+     "log inclusion proof",
+     "upstream signature (upstream key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-status-withheld",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-tool-withheld",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-delegation-withheld",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-note-malformed",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-note-path-twice",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-note-path-proto",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "withheld __proto__.x"
+    ],
+    "got": [
+     "log inclusion proof",
+     "upstream signature (upstream key)",
+     "withheld __proto__.x"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [
+     "upstream signature (upstream key)"
+    ],
+    "raised": null
+   },
+   {
+    "name": "resigned-clear-result-envelope-withheld",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "upstream signature (upstream key)"
+    ],
+    "got": [
+     "log inclusion proof",
+     "upstream signature (upstream key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-note-path-string",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-policy-no-digest",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-principal-no-keyid",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-private-short-tag-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "got": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-custody-shaped-data-resigned",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "execution result digest",
+     "log inclusion proof"
+    ],
+    "got": [
+     "execution result digest",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-denied-expired-grant",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-denied",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-upstream-attested",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [
+     "upstream signature (upstream key)"
+    ],
+    "agree": false,
+    "verdict_agree": false,
+    "missing": [],
+    "extra": [
+     "upstream signature (upstream key)"
+    ],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-upstream-wrong-key",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "upstream signature (upstream key)"
+    ],
+    "got": [
+     "upstream signature (upstream key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-no-log-copy",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "wrong-issuer-key",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "receipt signature (issuer key)"
+    ],
+    "got": [
+     "receipt signature (issuer key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "tampered-payload",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "receipt signature (issuer key)"
+    ],
+    "got": [
+     "receipt signature (issuer key)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-tool-out-of-scope",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "executed tool within delegated scope",
+     "log inclusion proof"
+    ],
+    "got": [
+     "executed tool within delegated scope",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-policy-inconsistent",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "policy decision consistent with execution"
+    ],
+    "got": [
+     "log inclusion proof",
+     "policy decision consistent with execution"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-args-digest",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "got": [
+     "log inclusion proof",
+     "request args digest"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-body-note-without-commitment",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "execution result digest",
+     "log inclusion proof",
+     "withheld execution.upstream.rawBody"
+    ],
+    "got": [
+     "execution result digest",
+     "log inclusion proof",
+     "withheld execution.upstream.rawBody"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-result-digest",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "execution result digest",
+     "log inclusion proof"
+    ],
+    "got": [
+     "execution result digest",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "inclusion-proof-wrong-index",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof"
+    ],
+    "got": [
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "log-copy-from-another-log",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log file root matches tree head"
+    ],
+    "got": [
+     "log file root matches tree head"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-chain-executed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-chain-offset-window-resigned",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "delegation chain to the principal",
+     "delegation signature (principal key)",
+     "log inclusion proof"
+    ],
+    "got": [
+     "delegation chain to the principal",
+     "delegation signature (principal key)",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-chain-escalated-resigned",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "delegation chain to the principal",
+     "delegation signature (principal key)",
+     "log inclusion proof"
+    ],
+    "got": [
+     "delegation chain to the principal",
+     "delegation signature (principal key)",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-observe-denied",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-observe-flag-stripped",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "policy decision consistent with execution"
+    ],
+    "got": [
+     "log inclusion proof",
+     "policy decision consistent with execution"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-precommit-executed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-precommit-spliced",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "got": [
+     "authorization names this call",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-precommit-reordered",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "got": [
+     "authorization log inclusion proof",
+     "authorization logged before execution",
+     "log inclusion proof"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-authorization-no-inclusion",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-authorization-no-tree-head",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "structural parts in clear"
+    ],
+    "got": [
+     "structural parts in clear"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-stripe-webhook",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "resigned-provider-bound-value-missing",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "upstream signature (provider secret)"
+    ],
+    "got": [
+     "log inclusion proof",
+     "upstream signature (provider secret)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-stripe-webhook-wrong-secret",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "upstream signature (provider secret)"
+    ],
+    "got": [
+     "upstream signature (provider secret)"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "gateway-executed-stripe-webhook-no-secret",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-executed",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "sdk-denied",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "remote-log-with-log-key",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [
+     "<raised TypeError>"
+    ],
+    "agree": false,
+    "verdict_agree": false,
+    "missing": [],
+    "extra": [
+     "<raised TypeError>"
+    ],
+    "raised": "TypeError('expected string or bytes-like object')"
+   },
+   {
+    "name": "remote-log-expected-id",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [
+     "<raised TypeError>"
+    ],
+    "agree": false,
+    "verdict_agree": false,
+    "missing": [],
+    "extra": [
+     "<raised TypeError>"
+    ],
+    "raised": "TypeError('expected string or bytes-like object')"
+   },
+   {
+    "name": "remote-log-wrong-id",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "tree head names the expected log"
+    ],
+    "got": [
+     "<raised TypeError>"
+    ],
+    "agree": false,
+    "verdict_agree": true,
+    "missing": [
+     "tree head names the expected log"
+    ],
+    "extra": [
+     "<raised TypeError>"
+    ],
+    "raised": "TypeError('expected string or bytes-like object')"
+   },
+   {
+    "name": "remote-log-without-log-key",
+    "class": "PAGE_NAMED",
+    "expected": [
+     "tree head signature"
+    ],
+    "got": [
+     "tree head signature"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "financial-unknown",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "financial-reconciled",
+    "class": "PAGE_NAMED",
+    "expected": [],
+    "got": [],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "financial-wrong-operation",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "reconciliation links the original operation"
+    ],
+    "got": [
+     "log inclusion proof",
+     "reconciliation links the original operation"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "financial-remapped-provider-state",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "reconciliation lookup matches authorization",
+     "reconciliation provider status"
+    ],
+    "got": [
+     "log inclusion proof",
+     "reconciliation lookup matches authorization",
+     "reconciliation provider status"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   },
+   {
+    "name": "financial-unrelated-provider-record",
+    "class": "VECTOR_NAMED",
+    "expected": [
+     "log inclusion proof",
+     "reconciliation provider status"
+    ],
+    "got": [
+     "log inclusion proof",
+     "reconciliation provider status"
+    ],
+    "agree": true,
+    "verdict_agree": true,
+    "missing": [],
+    "extra": [],
+    "raised": null
+   }
+  ]
+ }
+}
