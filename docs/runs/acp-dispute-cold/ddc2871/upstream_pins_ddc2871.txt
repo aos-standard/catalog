@@ -1,0 +1,9 @@
+agentic-commerce-protocol/agentic-commerce-protocol, PR #316 (OPEN), head ddc2871eab3ebe177b82e9f08f4df975069d1003 (2026-10-31T03:30:43Z, maximusrufus).
+Fetched raw by the GitHub contents API at that ref, into upstream_ddc2871/ (not copied into the catalog):
+e1adefd85749bb00b71f67b0323947a5c66b6def375704bcb4159168caadb820  rfcs/rfc.dispute_resolution.md
+774eb08a569d038538be80976fe0623cbc78ba2a5b51f671913d1ce73ee5aac2  spec/unreleased/json-schema/schema.dispute_resolution.json
+eadd5fc0aa49b799a6bac8092dd01309da6a5932c56c6d68f085457b06ad6fbf  examples/unreleased/examples.dispute_resolution.json
+Compare 089d8f9...ddc2871: one commit, two files (rfc +3 -3, examples +3 -1); the schema is byte-identical to 089d8f9.
+Also read: comment 6538458147 on PR #316 (maximusrufus, 2026-10-31T03:33:04Z).
+Not opened: scripts/validate-consistency.js, the reference implementation SEP #303 describes, the AP2 sample.
+Pinned 2026-10-31T11:17:38Z.

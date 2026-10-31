@@ -1,0 +1,7 @@
+Rerun at ddc2871 (PR #316 head, 2026-10-31T03:30:43Z, maximusrufus).
+Reader: ../089d8f9/acp_dispute_check_089d8f9.py, unchanged, sha256 b519d178bc7682d54958f8d0034794ff0e478b7b4a0cf3b6ee646ddede87f732.
+No edit: ddc2871 changes rule 3 to the reading the reader already took (R6b) and adds subtotal 330 to the example line item.
+Cases: the 34 of ../089d8f9/ byte for byte, plus U3 (the ddc2871 example pair). U3's expectation written from the ddc2871
+text at 2026-10-31T11:17:06Z, before any scored run. Answer exposure: I wrote R6b and the example note the maintainer adopted; U3's expectation
+is the outcome the maintainer's comment states, so a pass shows the reader and the published pair agree, not more.
+cases.json sha256 abea72432b2c37c762a714ee11cd8b00ee979089997eb3d32a813a8f49c7c8a9

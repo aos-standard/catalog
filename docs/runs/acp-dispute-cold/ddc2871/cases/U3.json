@@ -1,0 +1,104 @@
+{
+ "determination": {
+  "determination_id": "det_0001",
+  "dispute_id": "dsp_0001",
+  "drafted_by": "ai_assisted_human_reviewed",
+  "factors": {
+   "adjustments_already_made": {
+    "finding": "none"
+   },
+   "agent_platform_conduct": {
+    "finding": "none"
+   },
+   "intent_fidelity": {
+    "finding": "instruction_not_retained"
+   },
+   "mandate_scope": {
+    "finding": "within_mandate"
+   },
+   "merchant_performance": {
+    "finding": "canceled_without_completed_adjustment"
+   }
+  },
+  "fee_disposition": {
+   "amount": {
+    "amount": 500,
+    "currency": "usd"
+   },
+   "paid_by": "merchant"
+  },
+  "issued_at": "2026-11-20T15:00:00Z",
+  "opened_at": "2026-11-12T09:00:00Z",
+  "per_line": [
+   {
+    "amount": {
+     "amount": 330,
+     "currency": "usd"
+    },
+    "line_id": "line_item_123",
+    "outcome": "overturn",
+    "reasons": [
+     "merchant_canceled_without_completed_adjustment"
+    ]
+   }
+  ],
+  "policy_version": "ATDRP-0.1",
+  "prohibited_screened": true,
+  "seal": {
+   "chain_head": "sha256:cd34",
+   "record_hash": "sha256:ab12",
+   "verify_url": "https://provider.example/verify/det_0001"
+  },
+  "signer": {
+   "credential": "Provider-published arbitrator credential",
+   "name": "A. Neutral"
+  }
+ },
+ "opened_at": "2026-11-12T09:00:00Z",
+ "record": {
+  "checkout_hash": "h_7f3a",
+  "checkout_receipt": {
+   "iat": 1790000100,
+   "order_id": "ord_abc123",
+   "reference": "h_7f3a",
+   "status": "success"
+  },
+  "claim": {
+   "ground": "performance",
+   "line_ids": [
+    "line_item_123"
+   ],
+   "statement": "The order was canceled by the merchant and no refund was issued."
+  },
+  "claimant": "payer",
+  "dispute_id": "dsp_0001",
+  "order": {
+   "adjustments": [],
+   "id": "ord_abc123",
+   "line_items": [
+    {
+     "id": "line_item_123",
+     "subtotal": 330
+    }
+   ],
+   "status": "canceled"
+  },
+  "payment_mandate": {
+   "execution_date": "2026-11-01",
+   "exp": 1794096000,
+   "iat": 1790000000,
+   "payee": "merchant_123",
+   "payment_amount": 330,
+   "transaction_id": "h_7f3a"
+  },
+  "payment_receipt": {
+   "iat": 1790000200,
+   "network_confirmation_id": "net_123",
+   "payment_id": "pay_123",
+   "psp_confirmation_id": "psp_123",
+   "reference": "h_7f3a",
+   "status": "success"
+  },
+  "policy_version": "ATDRP-0.1"
+ }
+}
