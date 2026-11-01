@@ -1,0 +1,15 @@
+openabdev/openab-computer main at 80942779b4f85ca11ac093ed3bdb7a9e730843f0 (2026-10-30T01:14:33Z).
+Fetched raw by the contents API (not copied into the catalog):
+c6911decfe298337d7378ded45e4db432544c61d83da846e185b0bf633d0dc1a  README.md
+5decac0a828fe74ccf8abdb5abebefca8109e0b68736ce99a845c19dba71f4d7  conformance/README.md
+9afe0ab4a48186fdb4045dd91d2b9f7f4f34d44b1d2a754acb0f4e738a461a19  conformance/auth_vectors.json
+53f689b24aa8b257bf5c2fe538486d40e8935fbe6c9f265fdd8272165892bc46  conformance/reverse_attach_vectors.json
+e44eafad5037902b4f4dd354062ef3ab309b9481686fd33331c75e1439e17ace  conformance/mcp_wire_vectors.json
+c1a3718296be1ad3afc086fc70a2ea47ed4ec790a37abd9069ec6dd5f0211c7d  docs/requirements/authn.md
+3cd8c889ed742dc13e57736260885e2cd885ff41c2603d30416ac94a0f51ff6f  docs/tool-profiles.md
+df6c808eecea2dcaf8f0d2311875859bdabb87a0555dcf74d46d0755a0c47257  docs/adr/reverse-attach.md
+openabdev/openab-pty main at 411d28c814b0c33be51bb879ee620d3f4f512278:
+483b628b9c02028e5bb0ea16111e0e2b7c92d2445d72241b1133232818f9be43  runtime/CLIENT-CONTRACT.md
+Also read before the freeze: issue #24 and its three comments (2026-09-27, 09-27, 09-29). External specs: MCP 2025-06-18 (lifecycle, tools), JSON-RPC 2.0, RFC 9110 (5.5, 11.1).
+Not opened: any .swift, .rs or .py file of either repository, scripts/, poc/.
+Runtime: /usr/bin/python3 -I -B, standard library only. Pinned 2026-11-01T23:21:54Z.

@@ -1,0 +1,690 @@
+{
+ "reader_sha256": "361fe44399408f5364bfb769a7d342103ae08e082d9774016a8974297794ccee",
+ "by_set": {
+  "auth": {
+   "kind": "17/19",
+   "exact": "6/19"
+  },
+  "close_code": {
+   "kind": "7/9",
+   "exact": "7/9"
+  },
+  "handshake": {
+   "kind": "8/11",
+   "exact": "8/11"
+  },
+  "attach_url": {
+   "kind": "3/3",
+   "exact": "3/3"
+  },
+  "wire": {
+   "kind": "12/12",
+   "exact": "12/12"
+  }
+ },
+ "rows": [
+  {
+   "set": "auth",
+   "name": "no-auth-configured validate() must fail",
+   "expected": "error",
+   "got": "error",
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "token ok -> allow token",
+   "expected": {
+    "allow": "token"
+   },
+   "got": {
+    "allow": "token"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "token missing header -> deny",
+   "expected": {
+    "deny": "missing Authorization header"
+   },
+   "got": {
+    "deny": "missing bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "token wrong -> deny bad token",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "deny": "bad bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "token wrong length -> deny (constant-time len check)",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "deny": "bad bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "auth not Bearer -> deny",
+   "expected": {
+    "deny": "Authorization must be Bearer"
+   },
+   "got": {
+    "deny": "authorization is not a bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "Bearer prefix case-insensitive",
+   "expected": {
+    "allow": "token"
+   },
+   "got": {
+    "allow": "token"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "wrong token beats allowlisted login (bearer checked first)",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "deny": "bad bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "login allowed",
+   "expected": {
+    "allow": "you@example.com"
+   },
+   "got": {
+    "allow": "you@example.com"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "login allowed case-insensitive",
+   "expected": {
+    "allow": "you@example.com"
+   },
+   "got": {
+    "deny": "login not allowed"
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "login not in allowlist -> deny",
+   "expected": {
+    "deny": "login evil@example.com not allowed"
+   },
+   "got": {
+    "deny": "login not allowed"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "allowlist set but no identity -> deny",
+   "expected": {
+    "deny": "no Tailscale identity on request"
+   },
+   "got": {
+    "deny": "missing Tailscale-User-Login"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "allowlist + no identity + loopback + insecure-local -> allow local",
+   "expected": {
+    "allow": "local"
+   },
+   "got": {
+    "allow": "local"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "insecure-local but has x-forwarded-for -> deny (not truly local)",
+   "expected": {
+    "deny": "no Tailscale identity on request"
+   },
+   "got": {
+    "deny": "missing Tailscale-User-Login"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "insecure-local only, loopback, no headers -> allow local",
+   "expected": {
+    "allow": "local"
+   },
+   "got": {
+    "allow": "local"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "auth",
+   "name": "insecure-local only but not loopback -> deny",
+   "expected": {
+    "deny": "unauthenticated"
+   },
+   "got": {
+    "deny": "not a bare loopback request"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "token same length, one byte differs -> deny bad token",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "deny": "bad bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "token case changed -> deny bad token (byte compare, not case-folded)",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "deny": "bad bearer token"
+   },
+   "kind": true,
+   "exact": false
+  },
+  {
+   "set": "auth",
+   "name": "token with trailing space -> deny bad token (no trimming)",
+   "expected": {
+    "deny": "bad token"
+   },
+   "got": {
+    "allow": "token"
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "close_code",
+   "name": "4001",
+   "expected": {
+    "stop": "grantExpired"
+   },
+   "got": {
+    "stop": "grantExpired"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "4002",
+   "expected": {
+    "stop": "replaced"
+   },
+   "got": {
+    "stop": "replaced"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "4004",
+   "expected": {
+    "stop": "sessionEnded"
+   },
+   "got": {
+    "stop": "sessionEnded"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "4010",
+   "expected": {
+    "stop": "revoked"
+   },
+   "got": {
+    "stop": "revoked"
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "4006",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "1000",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "1006",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "close_code",
+   "name": "4999",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "stop": "close4999"
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "close_code",
+   "name": "4003",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "stop": "close4003"
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "handshake",
+   "name": "101",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "200",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "204",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "429",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "500",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "503",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "599",
+   "expected": {
+    "redial": true
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "401",
+   "expected": {
+    "stop_rejected": 401
+   },
+   "got": {
+    "stop_rejected": 401
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "handshake",
+   "name": "403",
+   "expected": {
+    "stop_rejected": 403
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "handshake",
+   "name": "404",
+   "expected": {
+    "stop_rejected": 404
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "handshake",
+   "name": "400",
+   "expected": {
+    "stop_rejected": 400
+   },
+   "got": {
+    "redial": true
+   },
+   "kind": false,
+   "exact": false
+  },
+  {
+   "set": "attach_url",
+   "name": "ws://100.111.174.31:8090 abc",
+   "expected": "ws://100.111.174.31:8090/tools/attach/abc",
+   "got": "ws://100.111.174.31:8090/tools/attach/abc",
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "attach_url",
+   "name": "wss://pod.tail.ts.net s1",
+   "expected": "wss://pod.tail.ts.net/tools/attach/s1",
+   "got": "wss://pod.tail.ts.net/tools/attach/s1",
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "attach_url",
+   "name": "ws://host:9/base/ x",
+   "expected": "ws://host:9/base/tools/attach/x",
+   "got": "ws://host:9/base/tools/attach/x",
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "initialize negotiates 2024-11-05",
+   "expected": {
+    "response": true,
+    "result_subset": {
+     "protocolVersion": "2024-11-05"
+    }
+   },
+   "got": {
+    "result": {
+     "protocolVersion": "2024-11-05"
+    }
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "initialize negotiates 2025-06-18",
+   "expected": {
+    "response": true,
+    "result_subset": {
+     "protocolVersion": "2025-06-18"
+    }
+   },
+   "got": {
+    "result": {
+     "protocolVersion": "2025-06-18"
+    }
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "initialize with unknown version falls back to 2025-06-18",
+   "expected": {
+    "response": true,
+    "result_subset": {
+     "protocolVersion": "2025-06-18"
+    }
+   },
+   "got": {
+    "result": {
+     "protocolVersion": "2025-06-18"
+    }
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "ping returns an empty result",
+   "expected": {
+    "response": true,
+    "result_subset": {}
+   },
+   "got": {
+    "result": {}
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "tools/list returns tools with name, description and inputSchema",
+   "expected": {
+    "response": true,
+    "result_tools_shape": true
+   },
+   "got": {
+    "result": {
+     "tools": [
+      {
+       "name": "sys_info",
+       "description": "…",
+       "inputSchema": {
+        "type": "object"
+       }
+      }
+     ]
+    }
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "tools/call unknown tool is invalid params",
+   "expected": {
+    "response": true,
+    "error": -32602
+   },
+   "got": {
+    "error": -32602
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "tools/call missing name is invalid params",
+   "expected": {
+    "response": true,
+    "error": -32602
+   },
+   "got": {
+    "error": -32602
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "unknown method is method not found",
+   "expected": {
+    "response": true,
+    "error": -32601
+   },
+   "got": {
+    "error": -32601
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "notification gets no response",
+   "expected": {
+    "response": false
+   },
+   "got": null,
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "malformed JSON is a parse error",
+   "expected": {
+    "response": true,
+    "error": -32700
+   },
+   "got": {
+    "error": -32700
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "jsonrpc other than 2.0 is an invalid request",
+   "expected": {
+    "response": true,
+    "error": -32600
+   },
+   "got": {
+    "error": -32600
+   },
+   "kind": true,
+   "exact": true
+  },
+  {
+   "set": "wire",
+   "name": "batch array is an invalid request (batches removed in 2025-06-18)",
+   "expected": {
+    "response": true,
+    "error": -32600
+   },
+   "got": {
+    "error": -32600
+   },
+   "kind": true,
+   "exact": true
+  }
+ ]
+}
