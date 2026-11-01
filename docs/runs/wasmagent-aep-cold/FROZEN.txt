@@ -1,0 +1,9 @@
+v1 frozen 2026-11-01T07:37:42Z, before any scored run.
+reader/aep_check_v1.py sha256 ad7194c8e77b988484e22bd1ad301aa1415637756637ea51029ca5a35b99b4b1
+reader/run_corpus.py   sha256 1780401704578be562000bdad9e98c87c0dfeddf83403c8002a49f00d32566ea
+Read before writing: conformance/aep/README.md, IMPLEMENTER.md, verifier-result-contract.md, schemas/aep/aep-record.schema.json,
+docs/standards-readiness/security-considerations.md, and manifest.json in full (including every fixture's expected verdicts and notes,
+which IMPLEMENTER.md names as a source). Fixture bytes opened before freezing: dsse/js-signed-v05.json, chain/intact-3.jsonl (head),
+chain/singleton-with-prev.jsonl (head); and a probe (probe/hyp.py) that hashed valid fixtures only (js-signed, rust-signed,
+js-default-emitter, intact-dsse-3, intact-3) to fix readings R1-R3. No negative fixture's bytes were opened before this freeze.
+Not opened: index.js, bin/, scripts/, wasmagent-js, trace-pipeline, wasmagent-proxy.

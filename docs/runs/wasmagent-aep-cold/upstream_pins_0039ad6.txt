@@ -1,0 +1,17 @@
+WasmAgent/wasmagent-protocol main at 0039ad692bc027c6e8b0d86024181d32b3df92b5 (2026-10-01T05:21:29Z).
+Fetched raw by the GitHub contents API at that ref (93 files: conformance/aep/ without scripts, schemas/aep/, docs/standards-readiness/,
+docs/aep-assurance-language.md, docs/CONTRACT-CHANGE-PROCESS.md, README.md). Not copied into the catalog. Key files:
+1b0b22049226ecd37ea9f108beebe25d1113530f42c476e6e743a076ebb22f48  conformance/aep/manifest.json
+fd24ecd63e8181c97a20e0ec66fcfd11a8834f98b8a2efe3c876efb5e27f8aa2  schemas/aep/aep-record.schema.json
+94b1967a8859bb77403ac7ba8c781dd786ead2460b5d300fdb0efaa6d8e97b4f  conformance/aep/IMPLEMENTER.md
+66e9b3ce8ce35bf7e841fbb1897d1d1294d53ed574804c29a1800e58ab108ba5  conformance/aep/README.md
+87aa3e0cffef14282b70be69663bb23873c4c06284a1cdb5524603d3ec274e3b  conformance/aep/verifier-result-contract.md
+a2b1af799f7e7a20f4e8c323e1f215a01c4321ce1388e049e6e39635dca64d71  conformance/aep/dsse/js-verify-key.hex
+1eab85bfc34210bc555cc9cd0ce0b8b0dd8c530e42318c6b68d5950a5bbcc36e  conformance/aep/dsse/rust-fixture-verify-key.hex
+Certified target in that tree: aep-certified-2026-09-16-01 (protocol 16f9db2). Its manifest (sha256 fa9a7537...) lists 30 targets;
+0039ad6 adds dsse/tampered-created-at.json and invalid-schema/missing-required-field.json (adequacy repair, PRs #255-#256) for 32.
+Not opened: index.js, index.d.ts, bin/, scripts/ (incl. run-aep-conformance-corpus.py, verifier-result-contract.mjs), adequacy/*.mjs,
+WasmAgent/wasmagent-js, trace-pipeline, wasmagent-proxy. Read after the scored run, for the comparison in README: adequacy/faults-v1.json,
+adequacy/reports/aep-adequacy-v4-closure.md, external-evidence/aps-conformance-suite-pr-94.json, certified-target.json.
+Runtime: /usr/bin/python3 -I -B (Python 3.10 system), cryptography 3.4.8 (Ubuntu package) for Ed25519. No WasmAgent package installed.
+Pinned 2026-11-01T07:39:48Z.
