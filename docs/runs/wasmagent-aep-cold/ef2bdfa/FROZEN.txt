@@ -1,0 +1,14 @@
+v1 frozen 2026-11-01T07:37:42Z, before any scored run.
+reader/aep_check_v1.py sha256 ad7194c8e77b988484e22bd1ad301aa1415637756637ea51029ca5a35b99b4b1
+reader/run_corpus.py   sha256 1780401704578be562000bdad9e98c87c0dfeddf83403c8002a49f00d32566ea
+Read before writing: conformance/aep/README.md, IMPLEMENTER.md, verifier-result-contract.md, schemas/aep/aep-record.schema.json,
+docs/standards-readiness/security-considerations.md, and manifest.json in full (including every fixture's expected verdicts and notes,
+which IMPLEMENTER.md names as a source). Fixture bytes opened before freezing: dsse/js-signed-v05.json, chain/intact-3.jsonl (head),
+chain/singleton-with-prev.jsonl (head); and a probe (probe/hyp.py) that hashed valid fixtures only (js-signed, rust-signed,
+js-default-emitter, intact-dsse-3, intact-3) to fix readings R1-R3. No negative fixture's bytes were opened before this freeze.
+Not opened: index.js, bin/, scripts/, wasmagent-js, trace-pipeline, wasmagent-proxy.
+
+v2 2026-11-01T08:26:45Z, after #262 (ef2bdfa) added prev_record_hash to the canonical schema with oneOf + pattern.
+The frozen v1 reader raises on schema keywords it does not implement (by design) and stopped on 19 of 33 fixtures at ef2bdfa
+(runs/run_ef2bdfa_v1.json). One edit, E1: implement oneOf (exactly one branch) and pattern (Python re on the one ASCII pattern).
+No other change. reader/aep_check_v2.py sha256 b8f056aa6fde83ebbf550646016e216f402cecedd0e34c42584ccec0e03af454

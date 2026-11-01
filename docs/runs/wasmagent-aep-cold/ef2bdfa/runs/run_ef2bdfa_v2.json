@@ -1,0 +1,1345 @@
+{
+ "reader": "aep_check_v2.py",
+ "reader_sha256": "b8f056aa6fde83ebbf550646016e216f402cecedd0e34c42584ccec0e03af454",
+ "manifest_sha256": "3deae7ad4a7a0082e6d2a471d35356aef23a3f18dc83dabdaa1a6bd148657e2a",
+ "fixtures": 33,
+ "fixtures_all_agree": 33,
+ "by_layer": {
+  "structural": "33/33",
+  "semantic": "33/33",
+  "authenticity": "17/17",
+  "chain": "7/7"
+ },
+ "errors": 0,
+ "rows": [
+  {
+   "path": "valid/unsigned-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "valid/default-emitter-build-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/js-default-emitter-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": "dsse-valid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "valid/minimal-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "valid/proto-key-preserved.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-roundup.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "floor:not-weakest"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-not-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "floor:not-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/unknown-attribution-grade.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.attribution_backing: enum"
+     ]
+    ],
+    "semantic": [
+     [
+      "vocabulary:attribution_backing"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/duplicate-observed-grade.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.run_attribution_backing_observed: uniqueItems"
+     ]
+    ],
+    "semantic": [
+     [
+      "observed:duplicate"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/negative-authorization-evidence-count.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.authorization_evidence_count: minimum"
+     ]
+    ],
+    "semantic": [
+     [
+      "count:negative-or-non-integer"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-without-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:floor-without-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-with-empty-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:floor-without-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/observed-without-floor.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:observed-without-floor"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/empty-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:observed-without-floor"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/js-signed-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": "dsse-valid",
+     "scored": true,
+     "agree": true
+    },
+    "chain": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/rust-signed-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": "dsse-valid",
+     "scored": true,
+     "agree": true
+    },
+    "chain": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/tampered-run-id.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "binding:predicate-differs-from-record",
+      "subject:name-not-this-run",
+      "subject:digest"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/wrong-payload-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "envelope:payloadType",
+      "legacy-field:not-derived-from-envelope"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/wrong-predicate-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "statement:predicateType",
+      "legacy-field:not-derived-from-envelope"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/wrong-statement-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "statement:_type",
+      "legacy-field:not-derived-from-envelope"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/missing-subject-name-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "subject:name-missing",
+      "legacy-field:not-derived-from-envelope"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/wrong-subject-name-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "subject:name-not-this-run",
+      "legacy-field:not-derived-from-envelope"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/multiple-signatures.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "envelope:signature-count"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/intact-dsse-3.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": "dsse-valid",
+     "scored": true,
+     "agree": true
+    },
+    "chain": {
+     "expected": "intact",
+     "got": "intact",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {}
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/intact-3.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "intact",
+     "got": "intact",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {}
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/missing-all.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "not-present",
+     "got": "not-present",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {}
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/partial-last.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "partial",
+     "got": "partial",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {
+     "missing": [
+      2
+     ]
+    }
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/partial-middle.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "partial",
+     "got": "partial",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {
+     "missing": [
+      1
+     ]
+    }
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/broken-middle.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "broken",
+     "got": "broken",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     []
+    ],
+    "chain": {
+     "brokenAt": 0,
+     "broken": [
+      1
+     ]
+    }
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/singleton-with-prev.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "orphaned",
+     "got": "orphaned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ],
+    "chain": {}
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-schema/missing-required-field.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$: required run_id"
+     ]
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/tampered-created-at.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "binding:predicate-differs-from-record",
+      "subject:digest"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/tampered-sig-only.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     [
+      "signature:ed25519"
+     ]
+    ]
+   },
+   "all_scored_agree": true
+  }
+ ]
+}

@@ -1,0 +1,1083 @@
+{
+ "reader": "aep_check_v1.py",
+ "reader_sha256": "ad7194c8e77b988484e22bd1ad301aa1415637756637ea51029ca5a35b99b4b1",
+ "manifest_sha256": "3deae7ad4a7a0082e6d2a471d35356aef23a3f18dc83dabdaa1a6bd148657e2a",
+ "fixtures": 33,
+ "fixtures_all_agree": 14,
+ "by_layer": {
+  "structural": "14/33",
+  "semantic": "14/33",
+  "authenticity": "3/17",
+  "chain": "1/7"
+ },
+ "errors": 19,
+ "rows": [
+  {
+   "path": "valid/unsigned-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "valid/default-emitter-build-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/js-default-emitter-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "valid/minimal-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "valid/proto-key-preserved.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "unsigned",
+     "got": "unsigned",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-roundup.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "floor:not-weakest"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-not-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "floor:not-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/unknown-attribution-grade.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.attribution_backing: enum"
+     ]
+    ],
+    "semantic": [
+     [
+      "vocabulary:attribution_backing"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/duplicate-observed-grade.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.run_attribution_backing_observed: uniqueItems"
+     ]
+    ],
+    "semantic": [
+     [
+      "observed:duplicate"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/negative-authorization-evidence-count.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$.authorization_evidence_count: minimum"
+     ]
+    ],
+    "semantic": [
+     [
+      "count:negative-or-non-integer"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-without-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:floor-without-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/floor-with-empty-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:floor-without-observed"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/observed-without-floor.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:observed-without-floor"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "invalid-semantic/empty-observed.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     [
+      "pair:observed-without-floor"
+     ]
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/js-signed-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "chain": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/rust-signed-v05.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": "dsse-valid",
+     "scored": true,
+     "agree": true
+    },
+    "chain": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     []
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/tampered-run-id.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/wrong-payload-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/wrong-predicate-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/wrong-statement-type-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/missing-subject-name-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/wrong-subject-name-resigned.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/multiple-signatures.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/intact-dsse-3.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "dsse-valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "chain": {
+     "expected": "intact",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/intact-3.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    },
+    "chain": {
+     "expected": "intact",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/missing-all.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    },
+    "chain": {
+     "expected": "not-present",
+     "got": "not-present",
+     "scored": true,
+     "agree": true
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [],
+     [],
+     []
+    ],
+    "semantic": [
+     [],
+     [],
+     []
+    ],
+    "authenticity": [
+     [],
+     [],
+     []
+    ],
+    "chain": {}
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "chain/partial-last.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    },
+    "chain": {
+     "expected": "partial",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/partial-middle.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    },
+    "chain": {
+     "expected": "partial",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/broken-middle.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    },
+    "chain": {
+     "expected": "broken",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "chain/singleton-with-prev.jsonl",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": null,
+     "scored": false
+    },
+    "chain": {
+     "expected": "orphaned",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "invalid-schema/missing-required-field.json",
+   "layers": {
+    "structural": {
+     "expected": "invalid",
+     "got": "invalid",
+     "scored": true,
+     "agree": true
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": "valid",
+     "scored": true,
+     "agree": true
+    },
+    "authenticity": {
+     "expected": "not-checked",
+     "got": "unsigned",
+     "scored": false
+    }
+   },
+   "error": null,
+   "detail": {
+    "structural": [
+     [
+      "$: required run_id"
+     ]
+    ],
+    "semantic": [
+     []
+    ],
+    "authenticity": [
+     []
+    ]
+   },
+   "all_scored_agree": true
+  },
+  {
+   "path": "dsse/tampered-created-at.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  },
+  {
+   "path": "dsse/tampered-sig-only.json",
+   "layers": {
+    "structural": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "semantic": {
+     "expected": "valid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    },
+    "authenticity": {
+     "expected": "invalid",
+     "got": null,
+     "scored": true,
+     "agree": false
+    }
+   },
+   "error": "ValueError: schema keyword not implemented: ['oneOf'] at $.prev_record_hash",
+   "detail": null,
+   "all_scored_agree": false
+  }
+ ]
+}

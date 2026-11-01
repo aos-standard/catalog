@@ -1,0 +1,9 @@
+WasmAgent/wasmagent-protocol main at ef2bdfa78c86ae65956771503b34aea00bb53d9c, the merge of PR #262 (2026-11-01T09:12:27Z, telleroutlook).
+Fetched raw by the contents API at that ref: conformance/aep/ and schemas/aep/ without code files. Key files:
+3deae7ad4a7a0082e6d2a471d35356aef23a3f18dc83dabdaa1a6bd148657e2a  conformance/aep/manifest.json
+8c443ea66401b78d9859a2c02caf3798743d4471f41cae8d681df92c36359635  schemas/aep/aep-record.schema.json
+9c85e101dccc1ad61d1c832e012d4ba539bc5819244a9fe0d50cfc84af69dd20  conformance/aep/IMPLEMENTER.md
+e77ae0f8820c86506c0fd74d9fb5a9c94c35ace507bc479260db766911632af5  conformance/aep/dsse/tampered-sig-only.json
+243e1a6f079e71bc6cd093aea7e3cd5b108686a5b67f184ae22f96321e672dea  conformance/aep/dsse/sig-tampered-verify-key-01.hex
+Also read: issue #261 comment 6555314789 and the PR #262 description and file list. Not opened: scripts/, tests/, *.js, *.mjs, the other repos.
+Pinned 2026-11-01T08:27:08Z.
