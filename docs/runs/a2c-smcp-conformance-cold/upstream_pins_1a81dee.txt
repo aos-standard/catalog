@@ -1,0 +1,12 @@
+A2C-SMCP/a2c-smcp-protocol develop at 1a81deeb686839dbefa11c4b192fe5c3044e20cf (fetched 2026-11-02).
+Fetched raw by the contents API (31 files under docs/, not copied into the catalog). Key files:
+f0e76497e2985e9437fd46285d8eb22ec86fb5985b4aa7bad65875fc50d71958  specification/data-structures.md
+ebe10f5d52819d742dd87e8d81aa20c14967b6cbe6b4c279584528520cffa20b  specification/blob-transfer.md
+bc494008f89669e7e88ea5bc8889621cd4af807ce9078fbf31c9c279c49b29c1  guides/computer-mcp-config-guide.md
+1a03c3a02feb98a129ff5843cc4b1f53e84cb2da53c82c381d38a8358ba21d96  specification/computer-management/conformance-tests.md
+fd9cf87e81f8d30700536dab8a3b4163cb850a227950e554d049a37b59ce800e  specification/fixtures/bundle_id_conformance_vectors.json
+c2489f25b896eeae28fd82fa92d39719c85c78cee97fb0e59e47f78bcd8953de  specification/fixtures/env_segment_conformance_vectors.json
+176582498b4b09b6603a418f352eecd552e23efc44fea4b552d3576fa02d4cb7  specification/fixtures/canonical_path_conformance_vectors.json
+f4052ec3a1d6019013206681627bce969320d24cf4d245747d6e697ea3bc080e  specification/fixtures/auth_error_conformance_vectors.json
+Also read: A2C-SMCP/python-sdk issue #231. Not opened: python-sdk or rust-sdk source (a2c_smcp/utils/bundle_id.py, env_segment.py and their tests were listed, not opened).
+Runtime: /usr/bin/python3 -I -B, standard library only. Pinned 2026-11-02T05:22:44Z.

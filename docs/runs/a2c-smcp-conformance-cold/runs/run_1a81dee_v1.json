@@ -1,0 +1,661 @@
+{
+ "reader_sha256": "9e7b99c6163cc69c487e326826416179b9905d02ba0129e8802acdff1898bc7f",
+ "by_set": {
+  "bundle_id": "16/16",
+  "env_segment": "16/16",
+  "canonical_path": "49/49"
+ },
+ "rows": [
+  {
+   "set": "bundle_id",
+   "id": "everything",
+   "expected": "everything",
+   "got": "everything",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "My Server!",
+   "expected": "My_Server",
+   "got": "My_Server",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "a__b",
+   "expected": "a_b",
+   "got": "a_b",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "a.b.c",
+   "expected": "a_b_c",
+   "got": "a_b_c",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "a-b--c",
+   "expected": "a-b--c",
+   "got": "a-b--c",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "__lead_trail__",
+   "expected": "lead_trail",
+   "got": "lead_trail",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "MyServer",
+   "expected": "MyServer",
+   "got": "MyServer",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "whatever",
+   "expected": "custom_id",
+   "got": "custom_id",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "你好世界",
+   "expected": "bundle_8d2a9232fa76e8a5",
+   "got": "bundle_8d2a9232fa76e8a5",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "!!!@@@",
+   "expected": "bundle_62515edd7632e701",
+   "got": "bundle_62515edd7632e701",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "服务器",
+   "expected": "bundle_05020ad7c2cc048d",
+   "got": "bundle_05020ad7c2cc048d",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "",
+   "expected": "bundle_b413b61fe2e77b15",
+   "got": "bundle_b413b61fe2e77b15",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "",
+   "expected": "bundle_0706e7b45613df7a",
+   "got": "bundle_0706e7b45613df7a",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "",
+   "expected": "bundle_e1d7b1216a270815",
+   "got": "bundle_e1d7b1216a270815",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "",
+   "expected": "bundle_68ae00fea9122c01",
+   "got": "bundle_68ae00fea9122c01",
+   "agree": true
+  },
+  {
+   "set": "bundle_id",
+   "id": "",
+   "expected": "bundle_6366b4fd89f56f6a",
+   "got": "bundle_6366b4fd89f56f6a",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "bare-id",
+   "expected": "A2C_SMCP_api_key",
+   "got": "A2C_SMCP_api_key",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "with-bundle",
+   "expected": "A2C_SMCP_api_key_feishu_mcp",
+   "got": "A2C_SMCP_api_key_feishu_mcp",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "with-bundle-and-tool",
+   "expected": "A2C_SMCP_token_MyServer_auth",
+   "got": "A2C_SMCP_token_MyServer_auth",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "prefixed-pool-id",
+   "expected": "A2C_SMCP_frontend_team_figma_token",
+   "got": "A2C_SMCP_frontend_team_figma_token",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "case-preserved-upper",
+   "expected": "A2C_SMCP_token_MyServer",
+   "got": "A2C_SMCP_token_MyServer",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "case-preserved-lower",
+   "expected": "A2C_SMCP_token_myserver",
+   "got": "A2C_SMCP_token_myserver",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "no-upper-already-upper",
+   "expected": "A2C_SMCP_API_KEY",
+   "got": "A2C_SMCP_API_KEY",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "no-upper-mixed-case",
+   "expected": "A2C_SMCP_Figma_Token",
+   "got": "A2C_SMCP_Figma_Token",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "no-fold-consecutive",
+   "expected": "A2C_SMCP_a__b",
+   "got": "A2C_SMCP_a__b",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "no-trim-edges",
+   "expected": "A2C_SMCP__lead_trail_",
+   "got": "A2C_SMCP__lead_trail_",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "collision-pair-hyphen",
+   "expected": "A2C_SMCP_a_b",
+   "got": "A2C_SMCP_a_b",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "collision-pair-underscore",
+   "expected": "A2C_SMCP_a_b",
+   "got": "A2C_SMCP_a_b",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "dot-normalized",
+   "expected": "A2C_SMCP_api_key",
+   "got": "A2C_SMCP_api_key",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "cjk-per-codepoint",
+   "expected": "A2C_SMCP___",
+   "got": "A2C_SMCP___",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "astral-single-codepoint",
+   "expected": "A2C_SMCP_a_b",
+   "got": "A2C_SMCP_a_b",
+   "agree": true
+  },
+  {
+   "set": "env_segment",
+   "id": "tool-segment-normalized",
+   "expected": "A2C_SMCP_token_srv_get_file",
+   "got": "A2C_SMCP_token_srv_get_file",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-plain",
+   "expected": "/home/u/a.txt",
+   "got": "/home/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-dup-slash",
+   "expected": "/home/u/a.txt",
+   "got": "/home/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-dot",
+   "expected": "/home/u/a.txt",
+   "got": "/home/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-dotdot",
+   "expected": "/home/v/a.txt",
+   "got": "/home/v/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-dotdot-clamp-root",
+   "expected": "/a.txt",
+   "got": "/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-trailing-slash",
+   "expected": "/home/u/dir",
+   "got": "/home/u/dir",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-root",
+   "expected": "/",
+   "got": "/",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-no-percent-decode",
+   "expected": "/home/u/a%20b.txt",
+   "got": "/home/u/a%20b.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-no-percent-encode",
+   "expected": "/home/u/文件 1.txt",
+   "got": "/home/u/文件 1.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-backslash-literal",
+   "expected": "/home/u/a\\b.txt",
+   "got": "/home/u/a\\b.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-drive-like-literal",
+   "expected": "/C:/x",
+   "got": "/C:/x",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-case-preserved",
+   "expected": "/Home/U/A.TXT",
+   "got": "/Home/U/A.TXT",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-relative",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-dot-relative",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-tilde",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-empty",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-nul",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-backslash",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-lower-drive",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-forward-slash",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-canonical-roundtrip",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-canonical-lower-drive",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-mixed-separators",
+   "expected": "/C:/Users/u/a.txt",
+   "got": "/C:/Users/u/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-dot-dotdot",
+   "expected": "/C:/Users/v/a.txt",
+   "got": "/C:/Users/v/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-dotdot-clamp-drive",
+   "expected": "/C:/a.txt",
+   "got": "/C:/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-dup-separator",
+   "expected": "/C:/a/b",
+   "got": "/C:/a/b",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-trailing-separator",
+   "expected": "/C:/Users/U/Docs",
+   "got": "/C:/Users/U/Docs",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-case-preserved",
+   "expected": "/D:/Data/ABC.Txt",
+   "got": "/D:/Data/ABC.Txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-drive-root",
+   "expected": "/C:/",
+   "got": "/C:/",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-canonical-drive-root-bare",
+   "expected": "/C:/",
+   "got": "/C:/",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-verbatim-prefix",
+   "expected": "/C:/Users/a.txt",
+   "got": "/C:/Users/a.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-no-percent-encode",
+   "expected": "/C:/用户/a b.txt",
+   "got": "/C:/用户/a b.txt",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-drive-only",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-drive-relative",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-rooted-no-drive",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-posix-style-no-drive",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-relative",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-unc",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-verbatim-unc",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-empty",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-nul",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "posix-triple-dot-is-name",
+   "expected": "/home/u/...",
+   "got": "/home/u/...",
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-device-prefix",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-ads-stream",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-trailing-dot-segment",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-trailing-space-dotdot",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-triple-dot",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-reserved-char",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  },
+  {
+   "set": "canonical_path",
+   "id": "win-control-char",
+   "expected": {
+    "error": "invalid_path"
+   },
+   "got": {
+    "error": "invalid_path"
+   },
+   "agree": true
+  }
+ ]
+}

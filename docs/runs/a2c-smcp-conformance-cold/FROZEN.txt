@@ -1,0 +1,8 @@
+v1 frozen 2026-11-02T05:21:52Z, before any scored run.
+reader/a2c_check_v1.py sha256 9e7b99c6163cc69c487e326826416179b9905d02ba0129e8802acdff1898bc7f
+reader/score.py        sha256 c49d0e06770309f72cd7e131be0b52f8806433c95eb12a36ee5ae99d8f7e9d1e
+Read before writing: data-structures.md (BundleID model, connection-identity), guides/computer-mcp-config-guide.md (env var naming),
+blob-transfer.md (canonical_path), conformance-tests.md 2.7/2.8 and 4.8, issue python-sdk#231, each fixture's $schema_note and
+algorithm block, and the vector INPUTS (name/config, input_id/bundle_id/tool_name, path/platform). Not seen before the freeze:
+expected_bundle_id, expected_env_var_name, expected/error, ids and desc. Not opened: python-sdk or rust-sdk source.
+auth_error_conformance_vectors.json is not scored: it requires a real MCP server over a real transport (conformance-tests 4.8).

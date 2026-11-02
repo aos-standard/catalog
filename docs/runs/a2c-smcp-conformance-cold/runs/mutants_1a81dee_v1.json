@@ -1,0 +1,366 @@
+{
+ "reader_sha256": "9e7b99c6163cc69c487e326826416179b9905d02ba0129e8802acdff1898bc7f",
+ "mutants": [
+  {
+   "mutant": "B1 no fold of '_' runs",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:a__b"
+   ]
+  },
+  {
+   "mutant": "B2 '-' folded too",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:a-b--c"
+   ]
+  },
+  {
+   "mutant": "B3 no trim",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:My Server!",
+    "bundle_id:__lead_trail__",
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器"
+   ]
+  },
+  {
+   "mutant": "B4 trim '_' only",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "B5 lower-cased",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:My Server!",
+    "bundle_id:MyServer"
+   ]
+  },
+  {
+   "mutant": "B6 Unicode \\w kept",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:服务器"
+   ]
+  },
+  {
+   "mutant": "B7 iterate UTF-8 bytes",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "T1 map keys unsorted",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:服务器"
+   ]
+  },
+  {
+   "mutant": "T2 list without count",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器",
+    "bundle_id:"
+   ]
+  },
+  {
+   "mutant": "T3 map without count",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:"
+   ]
+  },
+  {
+   "mutant": "T4 little-endian lengths",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:"
+   ]
+  },
+  {
+   "mutant": "T5 hash first 4 bytes",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:"
+   ]
+  },
+  {
+   "mutant": "T6 type omitted",
+   "survives": false,
+   "caught_by": [
+    "bundle_id:你好世界",
+    "bundle_id:!!!@@@",
+    "bundle_id:服务器",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:",
+    "bundle_id:"
+   ]
+  },
+  {
+   "mutant": "T7 args sorted",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "T8 explicit bundle_id normalized",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "E1 env folds '_' runs",
+   "survives": false,
+   "caught_by": [
+    "env_segment:no-fold-consecutive",
+    "env_segment:cjk-per-codepoint"
+   ]
+  },
+  {
+   "mutant": "E2 env trims",
+   "survives": false,
+   "caught_by": [
+    "env_segment:no-trim-edges",
+    "env_segment:cjk-per-codepoint"
+   ]
+  },
+  {
+   "mutant": "E3 env upper-cases",
+   "survives": false,
+   "caught_by": [
+    "env_segment:bare-id",
+    "env_segment:with-bundle",
+    "env_segment:with-bundle-and-tool",
+    "env_segment:prefixed-pool-id",
+    "env_segment:case-preserved-upper",
+    "env_segment:case-preserved-lower",
+    "env_segment:no-upper-mixed-case",
+    "env_segment:no-fold-consecutive",
+    "env_segment:no-trim-edges",
+    "env_segment:collision-pair-hyphen",
+    "env_segment:collision-pair-underscore",
+    "env_segment:dot-normalized",
+    "env_segment:astral-single-codepoint",
+    "env_segment:tool-segment-normalized"
+   ]
+  },
+  {
+   "mutant": "E4 env keeps '-'",
+   "survives": false,
+   "caught_by": [
+    "env_segment:with-bundle",
+    "env_segment:no-fold-consecutive",
+    "env_segment:collision-pair-hyphen",
+    "env_segment:tool-segment-normalized"
+   ]
+  },
+  {
+   "mutant": "E5 env per UTF-8 byte",
+   "survives": false,
+   "caught_by": [
+    "env_segment:cjk-per-codepoint",
+    "env_segment:astral-single-codepoint"
+   ]
+  },
+  {
+   "mutant": "E6 env per UTF-16 unit",
+   "survives": false,
+   "caught_by": [
+    "env_segment:cjk-per-codepoint",
+    "env_segment:astral-single-codepoint"
+   ]
+  },
+  {
+   "mutant": "E7 tool segment dropped",
+   "survives": false,
+   "caught_by": [
+    "env_segment:with-bundle-and-tool",
+    "env_segment:tool-segment-normalized"
+   ]
+  },
+  {
+   "mutant": "E8 old prefix",
+   "survives": false,
+   "caught_by": [
+    "env_segment:bare-id",
+    "env_segment:with-bundle",
+    "env_segment:with-bundle-and-tool",
+    "env_segment:prefixed-pool-id",
+    "env_segment:case-preserved-upper",
+    "env_segment:case-preserved-lower",
+    "env_segment:no-upper-already-upper",
+    "env_segment:no-upper-mixed-case",
+    "env_segment:no-fold-consecutive",
+    "env_segment:no-trim-edges",
+    "env_segment:collision-pair-hyphen",
+    "env_segment:collision-pair-underscore",
+    "env_segment:dot-normalized",
+    "env_segment:cjk-per-codepoint",
+    "env_segment:astral-single-codepoint",
+    "env_segment:tool-segment-normalized"
+   ]
+  },
+  {
+   "mutant": "P1 NUL accepted",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-nul",
+    "canonical_path:win-nul"
+   ]
+  },
+  {
+   "mutant": "P2 '..' at root not clamped (error)",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-dotdot-clamp-root",
+    "canonical_path:win-dotdot-clamp-drive"
+   ]
+  },
+  {
+   "mutant": "P3 trailing '/' kept",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-trailing-slash"
+   ]
+  },
+  {
+   "mutant": "P4 drive letter kept as given",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-lower-drive",
+    "canonical_path:win-canonical-lower-drive",
+    "canonical_path:win-case-preserved"
+   ]
+  },
+  {
+   "mutant": "P5 \\\\.\\ accepted",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "P6 UNC after \\\\?\\ accepted",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "P7 UNC check case-sensitive",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "P8 '/X:' canonical form not stripped",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-canonical-roundtrip",
+    "canonical_path:win-canonical-lower-drive",
+    "canonical_path:win-canonical-drive-root-bare"
+   ]
+  },
+  {
+   "mutant": "P9 bare '/X:' not completed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-canonical-drive-root-bare"
+   ]
+  },
+  {
+   "mutant": "P10 component ':' allowed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-ads-stream"
+   ]
+  },
+  {
+   "mutant": "P11 control chars allowed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-control-char"
+   ]
+  },
+  {
+   "mutant": "P12 trailing '.' allowed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-trailing-dot-segment",
+    "canonical_path:win-triple-dot"
+   ]
+  },
+  {
+   "mutant": "P13 trailing space allowed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-trailing-space-dotdot"
+   ]
+  },
+  {
+   "mutant": "P14 component check after '..' pop (skips '..'-adjacent)",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-trailing-space-dotdot",
+    "canonical_path:win-triple-dot"
+   ]
+  },
+  {
+   "mutant": "P15 '?' allowed",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:win-reserved-char"
+   ]
+  },
+  {
+   "mutant": "P16 '<' '>' '|' '\"' '*' allowed",
+   "survives": true,
+   "caught_by": []
+  },
+  {
+   "mutant": "P17 posix backslash as separator",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-backslash-literal"
+   ]
+  },
+  {
+   "mutant": "P18 posix relative accepted",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-relative",
+    "canonical_path:posix-dot-relative",
+    "canonical_path:posix-tilde"
+   ]
+  },
+  {
+   "mutant": "P19 percent-decoding",
+   "survives": false,
+   "caught_by": [
+    "canonical_path:posix-no-percent-decode"
+   ]
+  }
+ ]
+}
