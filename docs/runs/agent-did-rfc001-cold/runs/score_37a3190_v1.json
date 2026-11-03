@@ -1,0 +1,338 @@
+{
+ "summary": {
+  "jcs_documents": "6/6",
+  "jcs_numbers": "26/26",
+  "document_ref": "1/1",
+  "hmac": "4/4",
+  "legacy": "1/1",
+  "http_signature_base": "2/2",
+  "content_digest": "2/2",
+  "http_verdict": "2/2",
+  "message_verdict": "2/2"
+ },
+ "mismatches": [],
+ "rows": [
+  {
+   "group": "jcs_documents",
+   "case": 0,
+   "expected": "[56,{\"1\":[],\"10\":null,\"d\":true}]",
+   "got": "[56,{\"1\":[],\"10\":null,\"d\":true}]",
+   "agree": true
+  },
+  {
+   "group": "jcs_documents",
+   "case": 1,
+   "expected": "{\"peach\":\"This sorting order\",\"péché\":\"is wrong according to French\",\"pêche\":\"but canonicalization MUST\",\"sin\":\"ignore locale\"}",
+   "got": "{\"peach\":\"This sorting order\",\"péché\":\"is wrong according to French\",\"pêche\":\"but canonicalization MUST\",\"sin\":\"ignore locale\"}",
+   "agree": true
+  },
+  {
+   "group": "jcs_documents",
+   "case": 2,
+   "expected": "{\"\":\"empty\",\"1\":{\"\\n\":56,\"f\":{\"F\":5,\"f\":\"hi\"}},\"10\":{},\"111\":[{\"E\":\"no\",\"e\":\"yes\"}],\"A\":{},\"a\":{}}",
+   "got": "{\"\":\"empty\",\"1\":{\"\\n\":56,\"f\":{\"F\":5,\"f\":\"hi\"}},\"10\":{},\"111\":[{\"E\":\"no\",\"e\":\"yes\"}],\"A\":{},\"a\":{}}",
+   "agree": true
+  },
+  {
+   "group": "jcs_documents",
+   "case": 3,
+   "expected": "{\"Unnormalized Unicode\":\"Å\"}",
+   "got": "{\"Unnormalized Unicode\":\"Å\"}",
+   "agree": true
+  },
+  {
+   "group": "jcs_documents",
+   "case": 4,
+   "expected": "{\"literals\":[null,true,false],\"numbers\":[333333333.3333333,1e+30,4.5,0.002,1e-27],\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\"}",
+   "got": "{\"literals\":[null,true,false],\"numbers\":[333333333.3333333,1e+30,4.5,0.002,1e-27],\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\"}",
+   "agree": true
+  },
+  {
+   "group": "jcs_documents",
+   "case": 5,
+   "expected": "{\"\\n\":\"Newline\",\"\\r\":\"Carriage Return\",\"1\":\"One\",\"</script>\":\"Browser Challenge\",\"\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😂\":\"Smiley\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}",
+   "got": "{\"\\n\":\"Newline\",\"\\r\":\"Carriage Return\",\"1\":\"One\",\"</script>\":\"Browser Challenge\",\"\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😂\":\"Smiley\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 0,
+   "expected": "0",
+   "got": "0",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 1,
+   "expected": "0",
+   "got": "0",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 2,
+   "expected": "5e-324",
+   "got": "5e-324",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 3,
+   "expected": "-5e-324",
+   "got": "-5e-324",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 4,
+   "expected": "1.7976931348623157e+308",
+   "got": "1.7976931348623157e+308",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 5,
+   "expected": "-1.7976931348623157e+308",
+   "got": "-1.7976931348623157e+308",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 6,
+   "expected": "9007199254740992",
+   "got": "9007199254740992",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 7,
+   "expected": "-9007199254740992",
+   "got": "-9007199254740992",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 8,
+   "expected": "295147905179352830000",
+   "got": "295147905179352830000",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 9,
+   "expected": "reject",
+   "got": "reject",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 10,
+   "expected": "reject",
+   "got": "reject",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 11,
+   "expected": "9.999999999999997e+22",
+   "got": "9.999999999999997e+22",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 12,
+   "expected": "1e+23",
+   "got": "1e+23",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 13,
+   "expected": "1.0000000000000001e+23",
+   "got": "1.0000000000000001e+23",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 14,
+   "expected": "999999999999999700000",
+   "got": "999999999999999700000",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 15,
+   "expected": "999999999999999900000",
+   "got": "999999999999999900000",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 16,
+   "expected": "1e+21",
+   "got": "1e+21",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 17,
+   "expected": "9.999999999999997e-7",
+   "got": "9.999999999999997e-7",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 18,
+   "expected": "0.000001",
+   "got": "0.000001",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 19,
+   "expected": "333333333.3333332",
+   "got": "333333333.3333332",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 20,
+   "expected": "333333333.33333325",
+   "got": "333333333.33333325",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 21,
+   "expected": "333333333.3333333",
+   "got": "333333333.3333333",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 22,
+   "expected": "333333333.3333334",
+   "got": "333333333.3333334",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 23,
+   "expected": "333333333.33333343",
+   "got": "333333333.33333343",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 24,
+   "expected": "-0.0000033333333333333333",
+   "got": "-0.0000033333333333333333",
+   "agree": true
+  },
+  {
+   "group": "jcs_numbers",
+   "case": 25,
+   "expected": "1424953923781206.2",
+   "got": "1424953923781206.2",
+   "agree": true
+  },
+  {
+   "group": "document_ref",
+   "case": 0,
+   "expected": "hash://sha256/9bb9d869ba8861acf18456dd051ad7a28bf23b0074c37c5a22e67901daa80d4b",
+   "got": "hash://sha256/9bb9d869ba8861acf18456dd051ad7a28bf23b0074c37c5a22e67901daa80d4b",
+   "agree": true
+  },
+  {
+   "group": "hmac",
+   "case": 0,
+   "expected": "hash://hmac-sha256/6b2fbcb88fbe15cd34d89c0dd441dabb3e62187c539b160a9b4902e09084b37f",
+   "got": "hash://hmac-sha256/6b2fbcb88fbe15cd34d89c0dd441dabb3e62187c539b160a9b4902e09084b37f",
+   "agree": true
+  },
+  {
+   "group": "hmac",
+   "case": 1,
+   "expected": "hash://hmac-sha256/8fcbb0380d2eea70c64359db1b2c656531053918685e3f37a9f65043d6ecdd39",
+   "got": "hash://hmac-sha256/8fcbb0380d2eea70c64359db1b2c656531053918685e3f37a9f65043d6ecdd39",
+   "agree": true
+  },
+  {
+   "group": "hmac",
+   "case": 2,
+   "expected": "hash://hmac-sha256/69754766f64bc47454201cd0f53053f27fbe72f9a69bcd63ab23609e59c5c88c",
+   "got": "hash://hmac-sha256/69754766f64bc47454201cd0f53053f27fbe72f9a69bcd63ab23609e59c5c88c",
+   "agree": true
+  },
+  {
+   "group": "hmac",
+   "case": 3,
+   "expected": "hash://hmac-sha256/3d56bd211adf6ffb288075296a1ad9a643217239283dc990e54a4e03cf9fbd7a",
+   "got": "hash://hmac-sha256/3d56bd211adf6ffb288075296a1ad9a643217239283dc990e54a4e03cf9fbd7a",
+   "agree": true
+  },
+  {
+   "group": "legacy",
+   "case": 0,
+   "expected": "hash://sha256/75357d685f238b6afd7738be9786fdafde641eb6ca9a3be7471939715a68a4de",
+   "got": "hash://sha256/75357d685f238b6afd7738be9786fdafde641eb6ca9a3be7471939715a68a4de",
+   "agree": true
+  },
+  {
+   "group": "http_signature_base",
+   "case": "legacy",
+   "expected": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:agent:polygon:0xinteropfixture\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:agent:polygon:0xinteropfixture#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "got": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:agent:polygon:0xinteropfixture\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:agent:polygon:0xinteropfixture#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "agree": true
+  },
+  {
+   "group": "content_digest",
+   "case": "legacy",
+   "expected": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "got": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "agree": true
+  },
+  {
+   "group": "http_verdict",
+   "case": "legacy",
+   "expected": true,
+   "got": true,
+   "agree": true
+  },
+  {
+   "group": "message_verdict",
+   "case": "legacy",
+   "expected": true,
+   "got": true,
+   "agree": true
+  },
+  {
+   "group": "http_signature_base",
+   "case": "webvh",
+   "expected": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "got": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "agree": true
+  },
+  {
+   "group": "content_digest",
+   "case": "webvh",
+   "expected": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "got": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "agree": true
+  },
+  {
+   "group": "http_verdict",
+   "case": "webvh",
+   "expected": true,
+   "got": true,
+   "agree": true
+  },
+  {
+   "group": "message_verdict",
+   "case": "webvh",
+   "expected": true,
+   "got": true,
+   "agree": true
+  }
+ ]
+}

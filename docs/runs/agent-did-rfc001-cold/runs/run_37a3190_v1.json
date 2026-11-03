@@ -1,0 +1,73 @@
+{
+ "now": 1793746419,
+ "jcs_documents": [
+  "[56,{\"1\":[],\"10\":null,\"d\":true}]",
+  "{\"peach\":\"This sorting order\",\"péché\":\"is wrong according to French\",\"pêche\":\"but canonicalization MUST\",\"sin\":\"ignore locale\"}",
+  "{\"\":\"empty\",\"1\":{\"\\n\":56,\"f\":{\"F\":5,\"f\":\"hi\"}},\"10\":{},\"111\":[{\"E\":\"no\",\"e\":\"yes\"}],\"A\":{},\"a\":{}}",
+  "{\"Unnormalized Unicode\":\"Å\"}",
+  "{\"literals\":[null,true,false],\"numbers\":[333333333.3333333,1e+30,4.5,0.002,1e-27],\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\"}",
+  "{\"\\n\":\"Newline\",\"\\r\":\"Carriage Return\",\"1\":\"One\",\"</script>\":\"Browser Challenge\",\"\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😂\":\"Smiley\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}"
+ ],
+ "jcs_numbers": [
+  "0",
+  "0",
+  "5e-324",
+  "-5e-324",
+  "1.7976931348623157e+308",
+  "-1.7976931348623157e+308",
+  "9007199254740992",
+  "-9007199254740992",
+  "295147905179352830000",
+  {
+   "error": "JcsError: NaN or Infinity"
+  },
+  {
+   "error": "JcsError: NaN or Infinity"
+  },
+  "9.999999999999997e+22",
+  "1e+23",
+  "1.0000000000000001e+23",
+  "999999999999999700000",
+  "999999999999999900000",
+  "1e+21",
+  "9.999999999999997e-7",
+  "0.000001",
+  "333333333.3333332",
+  "333333333.33333325",
+  "333333333.3333333",
+  "333333333.3333334",
+  "333333333.33333343",
+  "-0.0000033333333333333333",
+  "1424953923781206.2"
+ ],
+ "document_ref": "hash://sha256/9bb9d869ba8861acf18456dd051ad7a28bf23b0074c37c5a22e67901daa80d4b",
+ "hmac": [
+  "hash://hmac-sha256/6b2fbcb88fbe15cd34d89c0dd441dabb3e62187c539b160a9b4902e09084b37f",
+  "hash://hmac-sha256/8fcbb0380d2eea70c64359db1b2c656531053918685e3f37a9f65043d6ecdd39",
+  "hash://hmac-sha256/69754766f64bc47454201cd0f53053f27fbe72f9a69bcd63ab23609e59c5c88c",
+  "hash://hmac-sha256/3d56bd211adf6ffb288075296a1ad9a643217239283dc990e54a4e03cf9fbd7a"
+ ],
+ "legacy": [
+  "hash://sha256/75357d685f238b6afd7738be9786fdafde641eb6ca9a3be7471939715a68a4de"
+ ],
+ "interop": {
+  "legacy": {
+   "message_valid": true,
+   "content_digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "http": {
+    "valid": true,
+    "reason": "ok",
+    "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:agent:polygon:0xinteropfixture\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:agent:polygon:0xinteropfixture#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+   }
+  },
+  "webvh": {
+   "message_valid": true,
+   "content_digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+   "http": {
+    "valid": true,
+    "reason": "ok",
+    "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/interop\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:00 GMT\n\"signature-agent\": did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"signature-agent\");created=1704067200;expires=2704067199;nonce=\"ff7a4ab6fdb94f71cb93c3bb77cd85aa\";keyid=\"did:webvh:QmInteropFixtureScid:interop.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+   }
+  }
+ }
+}

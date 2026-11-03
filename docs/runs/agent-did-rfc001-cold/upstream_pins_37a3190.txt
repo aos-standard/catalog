@@ -1,0 +1,21 @@
+edisonduran/agent-did at 37a3190 (main, 2026-11-03T21:47:06Z, docs moved to 1.0.0-rc.3), fetched through the contents API
+
+Opened before the freeze:
+f0eb3efd05b11b096af3d5d224456f1254300f5c1555eb0e3673c3e03d304cd2  docs/RFC-001-Agent-DID-Specification.md
+9648fd7e42b179185d3d98d737692dc19a295919a3d87a54076f635da853a2a1  docs/Anti-Replay-HTTP-Signatures.md
+420069da2e7f26aa3783ea726aa801716a8918fa2f38bb6c14d96e5f468431b4  docs/RFC-001-Compliance-Checklist.md
+
+Fetched; inputs read through reader/split_inputs.py, expected values sealed until scoring:
+65636f1e47bc7e9a557ce934a5bc737a4492148de19a957b188794647009f156  fixtures/jcs-vectors.json
+cffb2f13d778c2ec1d9201aa2db7547b84d4948ccc3758a1471f68eeba971695  fixtures/canonical-document-reference.json
+30e59bb7b2c02563bfafa31a954522b046a316c2d300265bdbbed9747342d9d6  fixtures/metadata-commitment-vectors.json
+7f0801acd4d193f9549743e79e1cbcbd46e15e1332674918fe41401b9256a0ac  fixtures/interop-vectors.json
+
+Fetched, key structure only (not scored in this record):
+a419df0d41db82cf4bad628ec7bfd273f4c5f9eae41c0de4e750ac590d5b5f7d  fixtures/webvh-log-vectors.json
+ea098267d6dfcd2d04576162add99250466164b49438a22c10016bb89d120be8  fixtures/didwebvh-test-suite.json
+
+Fetched, not opened: docs/RFC-001-A2A-Identity-Composition-Contract.md, docs/RFC-001-EVM-Profile.md, README.md. SECURITY.md: section 1 only (reporting channel), read after the run.
+Not fetched, not opened, not run: sdk/, sdk-python/, integrations/, scripts/, contracts/, any test file, CI workflows.
+
+Exposure before the freeze: the inputs of every vector (documents, values, salts, keys, signatures, request headers), the source notes of jcs-vectors.json, and the fact that 2 of the 26 number vectors carry an error key instead of an expected value.

@@ -1,0 +1,187 @@
+[
+ {
+  "mutant": "J1 sort keys by code point, not UTF-16",
+  "caught": true,
+  "by": [
+   "jcs_documents:5"
+  ]
+ },
+ {
+  "mutant": "J2 escape non-ASCII as \\u",
+  "caught": true,
+  "by": [
+   "jcs_documents:1",
+   "jcs_documents:3",
+   "jcs_documents:4",
+   "jcs_documents:5"
+  ]
+ },
+ {
+  "mutant": "J3 numbers as Python repr",
+  "caught": true,
+  "by": [
+   "jcs_documents:4"
+  ]
+ },
+ {
+  "mutant": "J4 exponent without '+'",
+  "caught": true,
+  "by": [
+   "jcs_documents:4",
+   "jcs_numbers:4",
+   "jcs_numbers:5",
+   "jcs_numbers:11",
+   "jcs_numbers:12",
+   "jcs_numbers:13"
+  ]
+ },
+ {
+  "mutant": "J5 -0 kept as -0",
+  "caught": true,
+  "by": [
+   "jcs_numbers:1"
+  ]
+ },
+ {
+  "mutant": "J6 exponent form from 1e21 changed to 1e22",
+  "caught": true,
+  "by": [
+   "jcs_numbers:16"
+  ]
+ },
+ {
+  "mutant": "J7 small numbers: exponent from 1e-6",
+  "caught": true,
+  "by": [
+   "jcs_numbers:18",
+   "jcs_numbers:24"
+  ]
+ },
+ {
+  "mutant": "J8 duplicate names accepted",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "J9 control characters other than the named ones kept raw",
+  "caught": true,
+  "by": [
+   "jcs_documents:4"
+  ]
+ },
+ {
+  "mutant": "D1 timestamps normalized before hashing (+00:00 -> Z)",
+  "caught": true,
+  "by": [
+   "document_ref:0"
+  ]
+ },
+ {
+  "mutant": "D2 non-canonical JSON (sorted, Python separators)",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "C1 salt read as UTF-8 text, not hex",
+  "caught": true,
+  "by": [
+   "hmac:0",
+   "hmac:1",
+   "hmac:2",
+   "hmac:3"
+  ]
+ },
+ {
+  "mutant": "C2 HMAC key and message swapped",
+  "caught": true,
+  "by": [
+   "hmac:0",
+   "hmac:1",
+   "hmac:2",
+   "hmac:3"
+  ]
+ },
+ {
+  "mutant": "H1 tag not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H2 alg not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H3 expiry not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H4 created skew not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H5 expires >= created not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H6 keyid need not be under Signature-Agent",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H7 Content-Digest not checked against the body",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H8 components in any order",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H9 signature-agent component optional",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H10 nonce optional",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H11 replay not checked",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H12 @query empty string when there is no query",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H13 @authority keeps the default port",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H14 @signature-params copied from the header, not re-serialized",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "H15 Date header not required",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "S1 message signed over SHA-256 of the payload",
+  "caught": true,
+  "by": [
+   "message_verdict:legacy",
+   "message_verdict:webvh"
+  ]
+ }
+]
