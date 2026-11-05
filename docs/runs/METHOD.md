@@ -38,7 +38,8 @@ its own readers, so its runs are not independent of the reader's author.
 - **Inputs** are pinned by commit and sha256: the upstream commit, the sha256 of each vectors file, and the block
   headers or RPC endpoints the reader trusted. Another project's files are copied here only when their licence
   allows it or their owner agreed. Otherwise they are referenced by commit and hash and fetched by whoever reruns.
-- **Outputs.** Every file of a run is listed in `SHA256SUMS`. Runs are reproducible from the command lines in the run
+- **Outputs.** Every file of a run is listed in `SHA256SUMS` or in a `SHA256SUMS-<ref>` beside it. Runs that
+  were published without one received `SHA256SUMS-20261105` ([`AUDIT-20261105.md`](AUDIT-20261105.md)). Runs are reproducible from the command lines in the run
   page (`python3 -I`, standard library unless stated).
 - **Links** in posts point to a shelf commit, not to `main`. A copy of each public comment is kept under
   `docs/evidence/`, with the body's sha256.
@@ -59,6 +60,12 @@ its own readers, so its runs are not independent of the reader's author.
 Examples on this shelf: `aps-lease-revocation-axes-cold/` (first run, addendum, clarification, correction — the
 APS suite recorded all three commits in its interop record) and `work-acceptance-record-cold/` (several versions of
 one verifier, each with its addendum and lineage).
+
+## Checking this page against the runs
+
+[`AUDIT-20261105.md`](AUDIT-20261105.md) records where the runs fell short of this page on 2026-11-05, what was
+added and what was left as it is. Six reader runs there do not state the blind / answer-exposed label, and three
+have no `FROZEN` file. Those runs make no claim about what was on screen.
 
 ## Mutation batteries
 
