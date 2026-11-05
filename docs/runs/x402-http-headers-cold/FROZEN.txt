@@ -1,0 +1,5 @@
+reader v1 frozen 2026-11-05T12:58:24Z before any note or expectation was read
+7e921ed7aa83c372f5cb3ba30c01042c2f4f71a011480426c71499b2233feea4  reader/x402_header_check_v1.py
+0623e893c6c5861a918313c248ff448df545b34dac8dface79b5b445d6f3b765  reader/run_blind.py
+e4db89aa54b82691ba9a10187acfc42d98d41f07c915b3acf14d93505d9277be  reader/split_inputs.py
+649be92a91eaef2ddc934d90468cb30ebe180fc955f990f94c75f8f0b599e5df  blind/inputs.json

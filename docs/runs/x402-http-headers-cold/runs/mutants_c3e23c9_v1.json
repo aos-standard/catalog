@@ -1,0 +1,116 @@
+[
+ {
+  "mutant": "A1 lenient base64: characters outside the alphabet discarded (Python default)",
+  "caught": true,
+  "by": [
+   "alphabet-space"
+  ]
+ },
+ {
+  "mutant": "A2 URL-safe alphabet accepted as well ('-' read as '+', '_' as '/')",
+  "caught": true,
+  "by": [
+   "alphabet-base64url"
+  ]
+ },
+ {
+  "mutant": "A1b lenient like Node Buffer.from(s, 'base64'): non-alphabet characters and '=' dropped, length not checked",
+  "caught": true,
+  "by": [
+   "alphabet-space"
+  ]
+ },
+ {
+  "mutant": "A9 value percent-decoded before base64 (as if it were a URL component)",
+  "caught": true,
+  "by": [
+   "alphabet-percent-encoded-pad"
+  ]
+ },
+ {
+  "mutant": "A3 missing padding accepted",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "A4 non-zero pad bits rejected",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "A5 value trimmed of spaces and tabs before decoding",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "A6 CR and LF ignored (MIME-style line breaks)",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "A7 '=' inside the value accepted (concatenated quanta)",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "A8 padding after a full quantum accepted",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "U1 invalid UTF-8 replaced, not rejected",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "U2 latin-1 instead of UTF-8",
+  "caught": true,
+  "by": [
+   "utf8-text"
+  ]
+ },
+ {
+  "mutant": "U3 leading BOM stripped",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "U4 bytes handed to the JSON parser (UTF-16/32 auto-detected)",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "J1 NaN and Infinity accepted",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "J2 any JSON value accepted (no object check)",
+  "caught": true,
+  "by": [
+   "json-array",
+   "json-false",
+   "json-null",
+   "json-number",
+   "json-string",
+   "json-true"
+  ]
+ },
+ {
+  "mutant": "J3 arrays accepted as well as objects",
+  "caught": true,
+  "by": [
+   "json-array"
+  ]
+ },
+ {
+  "mutant": "J4 duplicate member names rejected",
+  "caught": false,
+  "by": []
+ },
+ {
+  "mutant": "J5 trailing data after the JSON value accepted",
+  "caught": false,
+  "by": []
+ }
+]

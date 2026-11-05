@@ -1,0 +1,206 @@
+{
+ "alphabet-base64url|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "non-alphabet character"
+ },
+ "alphabet-percent-encoded-pad|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "non-alphabet character"
+ },
+ "alphabet-space|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "non-alphabet character"
+ },
+ "json-array|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-array|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-array|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-false|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-false|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-false|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-null|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-null|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-null|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-number|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-number|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-number|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-string|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-string|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-string|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-true|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-true|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-true|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not a JSON object"
+ },
+ "json-truncated|PAYMENT-REQUIRED": {
+  "reject": true,
+  "why": "not JSON"
+ },
+ "json-truncated|PAYMENT-RESPONSE": {
+  "reject": true,
+  "why": "not JSON"
+ },
+ "json-truncated|PAYMENT-SIGNATURE": {
+  "reject": true,
+  "why": "not JSON"
+ },
+ "json-whitespace|PAYMENT-RESPONSE": {
+  "json": {
+   "network": "eip155:84532",
+   "payer": "0x857b06519E91e3A54538791bDbb0E22373e36b66",
+   "success": true,
+   "transaction": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+  }
+ },
+ "spec-payment-required|PAYMENT-REQUIRED": {
+  "json": {
+   "accepts": [
+    {
+     "amount": "10000",
+     "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+     "extra": {
+      "name": "USDC",
+      "version": "2"
+     },
+     "maxTimeoutSeconds": 60,
+     "network": "eip155:84532",
+     "payTo": "0x209693Bc6afc0C5328bA36FaF03C514EF312287C",
+     "scheme": "exact"
+    }
+   ],
+   "error": "PAYMENT-SIGNATURE header is required",
+   "resource": {
+    "description": "Access to premium market data",
+    "mimeType": "application/json",
+    "url": "https://api.example.com/premium-data"
+   },
+   "x402Version": 2
+  }
+ },
+ "spec-payment-response-failure|PAYMENT-RESPONSE": {
+  "json": {
+   "errorReason": "insufficient_funds",
+   "network": "eip155:84532",
+   "payer": "0x857b06519E91e3A54538791bDbb0E22373e36b66",
+   "success": false,
+   "transaction": ""
+  }
+ },
+ "spec-payment-response-success|PAYMENT-RESPONSE": {
+  "json": {
+   "network": "eip155:84532",
+   "payer": "0x857b06519E91e3A54538791bDbb0E22373e36b66",
+   "success": true,
+   "transaction": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+  }
+ },
+ "spec-payment-signature|PAYMENT-SIGNATURE": {
+  "json": {
+   "accepted": {
+    "amount": "10000",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "extra": {
+     "name": "USDC",
+     "version": "2"
+    },
+    "maxTimeoutSeconds": 60,
+    "network": "eip155:84532",
+    "payTo": "0x209693Bc6afc0C5328bA36FaF03C514EF312287C",
+    "scheme": "exact"
+   },
+   "payload": {
+    "authorization": {
+     "from": "0x857b06519E91e3A54538791bDbb0E22373e36b66",
+     "nonce": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f13480",
+     "to": "0x209693Bc6afc0C5328bA36FaF03C514EF312287C",
+     "validAfter": "1740672089",
+     "validBefore": "1740672154",
+     "value": "10000"
+    },
+    "signature": "0x2d6a7588d6acca505cbf0d9a4a227e0c52c6c34008c8e8986a1283259764173608a2ce6496642e377d6da8dbbf5836e9bd15092f9ecab05ded3d6293af148b571c"
+   },
+   "resource": {
+    "description": "Access to premium market data",
+    "mimeType": "application/json",
+    "url": "https://api.example.com/premium-data"
+   },
+   "x402Version": 2
+  }
+ },
+ "utf8-text|PAYMENT-REQUIRED": {
+  "json": {
+   "accepts": [
+    {
+     "amount": "10000",
+     "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+     "extra": {
+      "name": "USDC",
+      "version": "2"
+     },
+     "maxTimeoutSeconds": 60,
+     "network": "eip155:84532",
+     "payTo": "0x209693Bc6afc0C5328bA36FaF03C514EF312287C",
+     "scheme": "exact"
+    }
+   ],
+   "error": "PAYMENT-SIGNATURE header is required",
+   "resource": {
+    "description": "Données de marché — 市场数据 📈",
+    "mimeType": "application/json",
+    "url": "https://api.example.com/premium-data"
+   },
+   "x402Version": 2
+  }
+ }
+}
