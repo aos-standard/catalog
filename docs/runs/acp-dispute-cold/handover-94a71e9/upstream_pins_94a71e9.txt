@@ -1,0 +1,9 @@
+agentic-commerce-protocol/agentic-commerce-protocol PR #316 (open), head 94a71e94616e8428291cb004207a48a11e47fd95 (2026-11-03T04:57:20Z, maximusrufus, branch maximusrufus:sep-303-atdrp).
+Fetched raw by the GitHub contents API at that ref on 2026-11-06 (not copied into the catalog):
+206f3907e4f7784f226fddc7ccd8c33b69dcb39e619b3125fb13425709088acc  rfcs/rfc.dispute_resolution.md
+774eb08a569d038538be80976fe0623cbc78ba2a5b51f671913d1ce73ee5aac2  spec/unreleased/json-schema/schema.dispute_resolution.json
+eadd5fc0aa49b799a6bac8092dd01309da6a5932c56c6d68f085457b06ad6fbf  examples/unreleased/examples.dispute_resolution.json
+528627ac1b254b58544111216cbde8be18ad2ba883ebd2288ba790f50d8160a3  scripts/validate-consistency.js
+Compare ddc2871...94a71e9: one commit, rfcs/rfc.dispute_resolution.md +17 -0 (Section 7.4a requirement 6, delivery receipts; a checklist line; a changelog line). The schema and the examples file are byte-identical to ddc2871.
+Validator run with ajv 8.20.0 and ajv-formats 3.0.1 from a local npm cache (the repository asks for ajv ^8.17.1, ajv-formats ^3.0.1); schema_check.py uses Python jsonschema (draft 2020-12).
+Also read: CONTRIBUTING.md and legal/cla/INDIVIDUAL.md on main (a CLA is required for contributions).

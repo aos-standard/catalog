@@ -1,0 +1,128 @@
+{
+ "D0": {
+  "record": []
+ },
+ "D1a": {
+  "record": []
+ },
+ "D1b": {
+  "record": []
+ },
+ "D1c": {
+  "record": []
+ },
+ "D1d": {
+  "record": []
+ },
+ "D2": {
+  "record": []
+ },
+ "D3a": {
+  "record": []
+ },
+ "D3b": {
+  "record": []
+ },
+ "D4": {
+  "record": []
+ },
+ "D4b": {
+  "record": []
+ },
+ "D4c": {
+  "record": []
+ },
+ "D4d": {
+  "record": []
+ },
+ "D5": {
+  "record": []
+ },
+ "D5b": {
+  "record": []
+ },
+ "D6": {
+  "record": []
+ },
+ "D7": {
+  "record": []
+ },
+ "D8": {
+  "record": []
+ },
+ "D8b": {
+  "record": []
+ },
+ "D8c": {
+  "record": []
+ },
+ "D8d": {
+  "record": []
+ },
+ "E1": {
+  "record": []
+ },
+ "E2": {
+  "record": []
+ },
+ "E3": {
+  "record": []
+ },
+ "E4": {
+  "record": []
+ },
+ "E5": {
+  "record": [],
+  "determination": [
+   "factors: 'intent_fidelity' is a required property",
+   "factors: 'agent_platform_conduct' is a required property"
+  ]
+ },
+ "E6": {
+  "record": [],
+  "determination": [
+   "(root): 'opened_at' is a required property"
+  ]
+ },
+ "E7": {
+  "record": []
+ },
+ "T0": {
+  "record": [],
+  "determination": []
+ },
+ "T1": {
+  "record": [],
+  "determination": []
+ },
+ "T2": {
+  "record": [],
+  "determination": []
+ },
+ "T3": {
+  "record": [],
+  "determination": [
+   "factors: Additional properties are not allowed ('party_reputation' was unexpected)"
+  ]
+ },
+ "T4": {
+  "record": [],
+  "determination": []
+ },
+ "U1": {
+  "record": [],
+  "determination": [
+   "(root): 'opened_at' is a required property",
+   "factors: 'intent_fidelity' is a required property",
+   "factors: 'agent_platform_conduct' is a required property"
+  ]
+ },
+ "U2": {
+  "record": [],
+  "determination": []
+ },
+ "U3": {
+  "record": [],
+  "determination": []
+ }
+}
