@@ -1,0 +1,8 @@
+108/115 agree
+105-gentime-fraction-not-digits.json {"tsa_signature": {"receipt": {"expected": "failed", "got": "no_signer"}}}
+107-gentime-without-z.json {"tsa_signature": {"receipt": {"expected": "failed", "got": "no_signer"}}}
+110-producer-key-only-in-issuer-keys.json {"problem_codes": {"expected": ["INDEPENDENCE_INCONSISTENT"], "got": []}}
+112-relying-party-key-non-canonical-base64.json {"problem_codes": {"expected": ["INDEPENDENCE_INCONSISTENT"], "got": []}}
+114-producer-key-neutral-point.json {"problem_codes": {"expected": ["INDEPENDENCE_INCONSISTENT"], "got": []}}
+115-neutral-point-from-unrelated-list.json {"problem_codes": {"expected": ["INDEPENDENCE_INCONSISTENT"], "got": []}}
+95-issued-utc-fraction-one-digit.json {"criteria_committed_before_check": {"expected": "yes", "got": "no"}, "problem_codes": {"expected": [], "got": ["RECEIPT_TIME_UNREADABLE"]}}
