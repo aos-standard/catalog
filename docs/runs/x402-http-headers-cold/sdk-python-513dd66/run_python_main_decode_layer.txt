@@ -1,0 +1,8 @@
+python 3.10.12 | decode layer of x402 python main 513dd66 (base64.b64decode without validate, .decode('utf-8'), json.loads); model validation not run
+pad-extra | expect {'reject': True} | accept (dict)
+pad-inside | expect {'reject': True} | reject: JSONDecodeError
+line-break | expect {'reject': True} | accept (dict)
+utf16-json | expect {'reject': True} | reject: UnicodeDecodeError
+json-nan | expect {'reject': True} | accept (dict)
+json-trailing | expect {'reject': True} | reject: JSONDecodeError
+pad-bits-nonzero | expect None | accept (dict)

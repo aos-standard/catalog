@@ -1,0 +1,7 @@
+pad-extra accept
+pad-inside reject Error: Non-base64 digit found
+line-break reject Error: Non-base64 digit found
+utf16-json reject UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid 
+json-nan accept
+json-trailing reject JSONDecodeError: Extra data: line 1 column 179 (char 178)
+pad-bits-nonzero accept
