@@ -1,0 +1,5 @@
+PR: https://github.com/x402-foundation/x402/pull/3727 (open, unmerged)
+pr_head 63d5640d26a4a89a91fa029426b671c1bfb19a1f fetched 2026-11-09T11:09:26Z
+ca2f15de5da384bef362f5ed298cbc3408a18f3d60439536086241423d1be050  spec/scheme_exact_lnbtc.md
+a58fa6a5402c89fa560cab6b9e95cd2ac80a1c1675c50ac00a92b52144a6ea7b  spec/README.md
+a89b478f1901c446d8b17a9f3da386a204f8063d214d0f852def546f8914fa38  sealed/exact_lnbtc.json

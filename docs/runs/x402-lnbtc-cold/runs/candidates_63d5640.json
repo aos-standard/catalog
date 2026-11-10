@@ -1,0 +1,42 @@
+{
+ "candidate_for": "specs/schemes/exact/vectors/exact_lnbtc.json mcp_binding (x402 PR #3727 at 63d5640)",
+ "mcp_binding": [
+  {
+   "id": "arguments-duplicate-member",
+   "note": "A repeated member name in arguments. Description Hash Encoding: implementations MUST reject inputs outside the JCS data model, including duplicate object member names.",
+   "input": {
+    "server": "https://api.example.com/mcp",
+    "bound_metadata": [],
+    "params_json": "{\"name\":\"get_article\",\"arguments\":{\"x\":1,\"x\":2}}"
+   },
+   "expect": {
+    "error": "invalid_exact_lnbtc_request_binding"
+   }
+  },
+  {
+   "id": "arguments-nan",
+   "note": "NaN is not JSON (RFC 8259 section 6), but several parsers accept it by default. JCS cannot serialize it.",
+   "input": {
+    "server": "https://api.example.com/mcp",
+    "bound_metadata": [],
+    "params_json": "{\"name\":\"get_article\",\"arguments\":{\"x\":NaN}}"
+   },
+   "expect": {
+    "error": "invalid_exact_lnbtc_request_binding"
+   }
+  },
+  {
+   "id": "arguments-utf16-key-order",
+   "note": "Keys U+E000 and U+1F600. JCS sorts by UTF-16 code units (RFC 8785 section 3.2.3), so U+1F600 (0xD83D...) comes first; code-point order would put U+E000 first.",
+   "input": {
+    "server": "https://api.example.com/mcp",
+    "bound_metadata": [],
+    "params_json": "{\"name\":\"get_article\",\"arguments\":{\"\\ue000\":1,\"\\ud83d\\ude00\":2}}"
+   },
+   "expect": {
+    "request_hash": "33cd0ef1fb222147f47746b523ecc9d78e498af43e42a1db287ac12b41df8d86",
+    "canonical_description": "{\"arguments\":{\"😀\":2,\"\":1},\"domain\":\"x402:exact:lnbtc:bolt11:mcp:1\",\"metadata\":[],\"method\":\"tools/call\",\"name\":\"get_article\",\"server\":\"https://api.example.com/mcp\"}"
+   }
+  }
+ ]
+}

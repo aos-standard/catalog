@@ -1,0 +1,8 @@
+reader v1 frozen 2026-11-10T23:16:45Z before any expect, note, open_questions, Case groups, Not covered or the spec's Request Binding Test Vectors section was read
+2373c67088d6c55773277f83747d84e9225ba25264e8a76bd7b78770dee12f68  reader/lnbtc_binding_v1.py
+b2d820b7d73fc85dc4394eabc40f63566d604d0afed189c1d363c154888d827e  reader/lnbtc_payment_v1.py
+d95b4c28bbb27f1035cfbc50eec8d4e8bb29321750f7ce7f7b840e3d146d8cec  reader/run_blind.py
+4d19c5c743105aef2992f43f8296ef8137de26a9b7f2bf3227123d6dff415aca  reader/score.py
+3e0eb222eb34417f97258e422348a90dfc3e806a6d57ae230461cf7f46d2a1db  blind/inputs.json
+scored 2026-11-10T23:16:54Z
+scorer v1 crashed on open outcomes (dict, not list) and per-step settle expectations; score_v2.py written 2026-11-10T23:17:24Z after seeing those shapes, sha256 242b15cf75f3d7d468612d9da036c459e9102933b244c1df2d45bdfdecb01bb8. Run file unchanged: 144cf260573fba4d0a31c68422c414ab45f2ee9b42480310f79cbb041d3e7f09

@@ -1,0 +1,293 @@
+{
+ "baseline_outcome": 194,
+ "mutants": [
+  {
+   "mutant": "field value: lines not trimmed",
+   "caught": true,
+   "by": [
+    "http_binding/header-repeated-lines"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "field value: control and non-ASCII characters accepted",
+   "caught": true,
+   "by": [
+    "raised UnicodeEncodeError"
+   ]
+  },
+  {
+   "mutant": "bound header names: order not checked",
+   "caught": true,
+   "by": [
+    "http_binding/bound-names-duplicate",
+    "http_binding/bound-names-unsorted"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "bound header names: payment-signature allowed",
+   "caught": true,
+   "by": [
+    "http_binding/bound-payment-signature"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "absent header hashed as present-and-empty",
+   "caught": true,
+   "by": [
+    "http_binding/header-bound-absent",
+    "http_binding/header-two-bound-sorted"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "JCS numbers as Python repr",
+   "caught": true,
+   "by": [
+    "mcp_binding/integer-2-53-plus-1",
+    "mcp_binding/integer-2-64"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "JCS keys sorted by code point, not UTF-16",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "duplicate member names accepted",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "lone surrogates accepted",
+   "caught": true,
+   "by": [
+    "raised UnicodeEncodeError"
+   ]
+  },
+  {
+   "mutant": "NaN/Infinity literals accepted by the parser",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "excluded metadata names allowed",
+   "caught": true,
+   "by": [
+    "mcp_binding/metadata-progress-token",
+    "mcp_binding/metadata-x402-payment"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "null or non-object arguments treated as {}",
+   "caught": true,
+   "by": [
+    "mcp_binding/arguments-array",
+    "mcp_binding/arguments-null"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "non-object _meta treated as {}",
+   "caught": true,
+   "by": [
+    "mcp_binding/meta-null"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "URL fragment allowed",
+   "caught": true,
+   "by": [
+    "http_binding/url-fragment"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "authority userinfo / path / backslash allowed",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "port range not checked",
+   "caught": true,
+   "by": [
+    "http_binding/url-port-65536"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "method token not checked",
+   "caught": true,
+   "by": [
+    "http_binding/method-not-token"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "adapter: request authority not compared with the configured origin",
+   "caught": true,
+   "by": [
+    "http_server_adapter/host-differs-from-url"
+   ],
+   "newly_agree": [
+    "http_server_adapter/forwarded-host-hop"
+   ]
+  },
+  {
+   "mutant": "created_in_future without the skew",
+   "caught": true,
+   "by": [
+    "facilitator_settle/created-at-skew-boundary"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "settle expiry boundary exclusive",
+   "caught": true,
+   "by": [
+    "facilitator_settle/expiry-at-end-plus-skew"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "settle expiry without the skew grace",
+   "caught": true,
+   "by": [
+    "facilitator_settle/expiry-at-end-plus-skew"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "replay key without the network",
+   "caught": true,
+   "by": [
+    "facilitator_settle/created-at-skew-boundary",
+    "facilitator_settle/defaults-and-additive-fields",
+    "facilitator_settle/expiry-at-end-plus-skew",
+    "facilitator_settle/expiry-at-invoice-end",
+    "facilitator_settle/fresh-requirements-invoice",
+    "facilitator_settle/mcp-settles",
+    "facilitator_settle/payee-field-present",
+    "facilitator_settle/preimage-63-chars-does-not-consume"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "replay retention without the skew",
+   "caught": true,
+   "by": [
+    "facilitator_settle/created-at-skew-boundary",
+    "facilitator_settle/defaults-and-additive-fields",
+    "facilitator_settle/expiry-at-end-plus-skew",
+    "facilitator_settle/expiry-at-invoice-end",
+    "facilitator_settle/fresh-requirements-invoice",
+    "facilitator_settle/mcp-settles",
+    "facilitator_settle/payee-field-present",
+    "facilitator_settle/preimage-63-chars-does-not-consume"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "preimage: uppercase hex accepted",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "invoice signer not compared with payTo (settle)",
+   "caught": true,
+   "by": [
+    "facilitator_settle/invoice-nonzero-padding",
+    "facilitator_settle/invoice-other-signer"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "inline description accepted beside the hash",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "other extra fields not compared",
+   "caught": true,
+   "by": [
+    "facilitator_settle/server-declared-extra"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "params compared without JCS (raw equality)",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "client: resource URL not checked",
+   "caught": true,
+   "by": [
+    "client/resource-url-differs"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "client: MCP server identity not checked",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "client: expiry with the skew grace",
+   "caught": true,
+   "by": [
+    "client/invoice-expired"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "client: payer amount not checked",
+   "caught": true,
+   "by": [
+    "client/payer-other-amount"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "BOLT11: bech32 checksum not checked",
+   "caught": true,
+   "by": [
+    "facilitator_settle/invoice-bad-checksum"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "BOLT11: mixed case accepted",
+   "caught": true,
+   "by": [
+    "facilitator_settle/invoice-mixed-case"
+   ],
+   "newly_agree": []
+  },
+  {
+   "mutant": "BOLT11: p multiplier last digit not checked",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  },
+  {
+   "mutant": "BOLT11: second payment hash ignored",
+   "caught": false,
+   "by": [],
+   "newly_agree": []
+  }
+ ]
+}
