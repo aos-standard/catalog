@@ -1,0 +1,299 @@
+{
+ "cases": "conformance_cases_7cab286.json",
+ "n": 33,
+ "agree": 27,
+ "rows": [
+  {
+   "id": "D0",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D1a",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D1b",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D1c",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D1d",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D2",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D3a",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D3b",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D4",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D4b",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D4c",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D4d",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D5",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D5b",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D6",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D7",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D8",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D8b",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D8c",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "D8d",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "T0",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "T1",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "T2",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "T3",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "T4",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "E1",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "per_line": {
+     "expected": [
+      {
+       "line_id": "line_item_123",
+       "outcome": "overturn",
+       "amount": 330,
+       "rule": "3_canceled",
+       "finding": null
+      }
+     ],
+     "got": [
+      {
+       "line_id": "line_item_123",
+       "outcome": "uphold",
+       "amount": 0,
+       "rule": "1_moot",
+       "finding": null
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "E2",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "per_line": {
+     "expected": [
+      {
+       "line_id": "line_item_123",
+       "outcome": "overturn",
+       "amount": 330,
+       "rule": "3_canceled",
+       "finding": null
+      }
+     ],
+     "got": [
+      {
+       "line_id": "line_item_123",
+       "outcome": "uphold",
+       "amount": 0,
+       "rule": "1_moot",
+       "finding": null
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "E3",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  },
+  {
+   "id": "E4",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "eligible": {
+     "expected": false,
+     "got": true
+    },
+    "not_eligible": {
+     "expected": "line_amount_missing",
+     "got": null
+    }
+   }
+  },
+  {
+   "id": "E5",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "det_ok": {
+     "expected": false,
+     "got": true
+    },
+    "det_problems": {
+     "expected": [
+      "factors_absent:intent_fidelity,agent_platform_conduct"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "id": "E6",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "det_ok": {
+     "expected": false,
+     "got": true
+    },
+    "det_problems": {
+     "expected": [
+      "missing:opened_at"
+     ],
+     "got": []
+    }
+   }
+  },
+  {
+   "id": "E7",
+   "agree": false,
+   "error": null,
+   "diffs": {
+    "per_line": {
+     "expected": [
+      {
+       "line_id": "a",
+       "outcome": "overturn",
+       "amount": 200,
+       "rule": "3_canceled",
+       "finding": null
+      }
+     ],
+     "got": [
+      {
+       "line_id": "a",
+       "outcome": "uphold",
+       "amount": 0,
+       "rule": "1_moot",
+       "finding": null
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "U3",
+   "agree": true,
+   "error": null,
+   "diffs": {}
+  }
+ ]
+}
