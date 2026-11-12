@@ -1,0 +1,5 @@
+2026-11-12T23:55:59Z
+73fbcafd696325e8697db25cb469b33a36d76f5f87001e58883635b1edc5d5e3  reader/war_cold_verifier_v1412p.py
+346b5e853a41e12a5a0b31eb12f65c187e34ea39b3db06d2ad199e0c2ad09031  reader/run_vectors_v1412p.py
+3b51efa5b942954625172334982aa7115e10e6edbb54351ee475dad34a139949  reader/tsa_check_141.py
+note: an earlier freeze line (2026-11-12T23:55:44Z, sha b6f05f0f...) was taken after a failed header edit and is superseded; nothing was run under it (FROZEN_V1412P_superseded.txt)
