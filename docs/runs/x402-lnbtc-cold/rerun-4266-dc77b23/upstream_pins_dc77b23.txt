@@ -1,0 +1,7 @@
+pr: https://github.com/x402-foundation/x402/pull/4266 (draft, stacked on #3727)
+head: dc77b23a9757a4d4a4aa91e074587799ec022b61 (kychee-com/x402)
+fetched: 2026-11-14 08:03Z
+02999ccebc0fdea590fc0e5b909db6be5905a8ae5c7624c510bdac0bcd3f27d3  specs/schemes/exact/vectors/exact_lnbtc.json
+aff0584fa8246e930eebcb89bbd61232e5a8798664f415bf5d6c42ff226f6c76  specs/schemes/exact/vectors/README.md
+ca2f15de5da384bef362f5ed298cbc3408a18f3d60439536086241423d1be050  specs/schemes/exact/scheme_exact_lnbtc.md (same bytes as at 63d5640)
+4fe04f77b795b0daeecb6b0fce8dc46c8f1df03476a50fff4e34bc5ee119ec61  inputs.json (split_inputs.py output, not kept)
