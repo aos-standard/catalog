@@ -1,0 +1,81 @@
+{
+  "$comment": "Profile rules, Directory signatures: tag=\"http-message-signatures-directory\". The signature is otherwise valid. Catches a verifier that checks the directory signature without its tag, so a request signature's tag would also pass as a directory signature.",
+  "name": "The signer's directory is signed with tag=\"web-bot-auth\" instead of the directory tag",
+  "tier": "profile",
+  "spec": "WEB_BOT_AUTH.md",
+  "spec_reference": "https://github.com/IABTechLab/iab-agentic-primitives/blob/main/WEB_BOT_AUTH.md#profile-rules",
+  "signing_profile": "web-bot-auth",
+  "reference_now": 1794052810,
+  "operation": {
+    "op": "verify_request",
+    "request": {
+      "method": "POST",
+      "url": "https://seller.example.com/proposals/prop_7/commit",
+      "headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "Content-Digest",
+          "sha-256=:EuXs53uWxD5UR8fAISA74MZj5Zon8wxJPPpMOnOt0qQ=:"
+        ],
+        [
+          "Signature-Agent",
+          "sig1=\"https://buyer.example.com/.well-known/http-message-signatures-directory\""
+        ],
+        [
+          "Signature-Input",
+          "sig1=(\"@method\" \"@target-uri\" \"@authority\" \"content-type\" \"content-digest\" \"signature-agent\";key=\"sig1\");created=1794052805;keyid=\"T5rd7MzhvzHtrBDE04NVTnFpBFb63tjmy9o0JrtFH84\";alg=\"ed25519\";expires=1794053105;nonce=\"29iwgSzRlR-CQsnjLUoXVMa_uA0wUX1aSPCDDNxrX-Qp6bGd_Td-2czemv74fRZ4jzAkzDvYE6J5UtlwcXKKRw\";tag=\"web-bot-auth\""
+        ],
+        [
+          "Signature",
+          "sig1=:4utWXZ8+Q+AAKlF2+gNopPxniuSJoKhNR8kL07WDbckMTdBwCyYrzdiAPJBIdoo+s6wkLGTfM9XmPjRc4nGHDg==:"
+        ]
+      ],
+      "body": "{\"entry\":{\"role\":\"commitment\",\"version\":3,\"record_digest\":\"sha256:b88664b8699501cb1b984959d4eb663a2036b223400796f269f8ae4c0762ec9f\",\"line_item_ids\":[\"li_1\"],\"at\":\"2026-11-07T12:00:00Z\",\"idempotency_key\":\"ba1fd8f3-d695-4e8d-8629-ee4073b4f184\"},\"writes\":{\"li_1\":{\"commitment\":{\"flight\":{\"start\":\"2026-12-01T00:00:00Z\",\"end\":\"2026-12-31T23:59:59Z\"}}}}}"
+    },
+    "authority": "seller.example.com",
+    "now": 1794052810,
+    "prior": [],
+    "directories": {
+      "https://buyer.example.com": {
+        "url": "https://buyer.example.com/.well-known/http-message-signatures-directory",
+        "status": 200,
+        "headers": [
+          [
+            "Content-Type",
+            "application/http-message-signatures-directory+json"
+          ],
+          [
+            "Cache-Control",
+            "max-age=300"
+          ],
+          [
+            "Content-Digest",
+            "sha-256=:sUHrMjQsBZ1gtBzN6hY0J17RIkyWE9GveUwZ09Yz+KU=:"
+          ],
+          [
+            "Signature-Input",
+            "key1=(\"@authority\";req \"content-digest\");created=1794052810;keyid=\"T5rd7MzhvzHtrBDE04NVTnFpBFb63tjmy9o0JrtFH84\";alg=\"ed25519\";expires=1794139210;tag=\"web-bot-auth\""
+          ],
+          [
+            "Signature",
+            "key1=:tfr26AilftIkKUbMIBQKbWZrOt2JyOGRhzM+O3JVWmkM6+J4dzF4MqLwD1ggTGbpzXdEQHMGNd251c/RlXraAw==:"
+          ]
+        ],
+        "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"OKP\",\n      \"crv\": \"Ed25519\",\n      \"kid\": \"T5rd7MzhvzHtrBDE04NVTnFpBFb63tjmy9o0JrtFH84\",\n      \"x\": \"eaZpKteR6m0v7GQPeK0Hv4B0DdvqI99SsTPztodAE5w\",\n      \"use\": \"sig\"\n    }\n  ]\n}"
+      }
+    }
+  },
+  "replay_cache_entries": [],
+  "expected_signature_base": {
+    "sig1": "\"@method\": POST\n\"@target-uri\": https://seller.example.com/proposals/prop_7/commit\n\"@authority\": seller.example.com\n\"content-type\": application/json\n\"content-digest\": sha-256=:EuXs53uWxD5UR8fAISA74MZj5Zon8wxJPPpMOnOt0qQ=:\n\"signature-agent\";key=\"sig1\": \"https://buyer.example.com/.well-known/http-message-signatures-directory\"\n\"@signature-params\": (\"@method\" \"@target-uri\" \"@authority\" \"content-type\" \"content-digest\" \"signature-agent\";key=\"sig1\");created=1794052805;keyid=\"T5rd7MzhvzHtrBDE04NVTnFpBFb63tjmy9o0JrtFH84\";alg=\"ed25519\";expires=1794053105;nonce=\"29iwgSzRlR-CQsnjLUoXVMa_uA0wUX1aSPCDDNxrX-Qp6bGd_Td-2czemv74fRZ4jzAkzDvYE6J5UtlwcXKKRw\";tag=\"web-bot-auth\""
+  },
+  "expected": {
+    "ok": false,
+    "status": 403,
+    "rule": "directory-tag",
+    "rationale": "proposed by an independent implementation; see $comment"
+  }
+}

@@ -1,0 +1,4 @@
+scenario_harness.py sha256 90e60cdf00c4b1a6b1df50b82578da3bd4e5d69f3402c51b2958ba73c0a42a18
+frozen_at 2026-11-16T22:38:52Z
+verifier unchanged: wba_cold_verifier.py sha256 64d3510db7e6cd1340b053f7999271de724a84d5d914217c2b08a67659f52d84 (FROZEN_V1.txt)
+read before freezing: the scenarios with expected, basis, tier, name and $comment removed (inputs/scenarios_inputs.json). One trial run before this freeze was inspected only for harness exceptions (none) and then deleted.

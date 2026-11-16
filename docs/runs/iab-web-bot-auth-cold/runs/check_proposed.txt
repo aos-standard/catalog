@@ -1,0 +1,3 @@
+x01-response-other-origin.json | frozen: {"ok": false, "status": 403, "rule": "origin-mismatch"} | expected: origin-mismatch | M15 response signer origin not checked: {"ok": true, "identity": "https://other.example.com"}
+x02-directory-kid-not-thumbprint.json | frozen: {"ok": false, "status": 403, "rule": "directory-kid"} | expected: directory-kid | M24 directory kid not checked against thumbprint: {"ok": true, "identity": "https://buyer.example.com"}
+x03-directory-signature-wrong-tag.json | frozen: {"ok": false, "status": 403, "rule": "directory-tag"} | expected: directory-tag | M28 directory signature tag not checked: {"ok": true, "identity": "https://buyer.example.com"}

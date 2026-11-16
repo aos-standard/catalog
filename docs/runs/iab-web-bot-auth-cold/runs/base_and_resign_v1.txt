@@ -1,0 +1,25 @@
+seed buyer-request d_matches True x_matches True kid_is_thumbprint True
+seed other-request d_matches True x_matches True kid_is_thumbprint True
+seed seller-response d_matches True x_matches True kid_is_thumbprint True
+neg-001 sig1 base_equal True resign_equal True
+neg-002 sig1 base_equal True resign_equal True
+neg-003 sig1 base_equal True resign_equal True
+neg-004 sig1 base_equal True resign_equal True
+neg-005 parse refusal parse labels in expected base: []
+neg-006 sig1 base_equal True resign_equal True
+neg-006 sig2 base_equal True resign_equal True
+neg-007 sig1 base_equal True resign_equal True
+neg-008 sig1 base_equal True resign_equal True
+pos-001 sig1 base_equal True resign_equal True
+pos-002 directory op; expected base labels ['key1']
+pos-003 sig1 base_equal True resign_equal True
+pos-004 sig1 base_equal True resign_equal True
+pos-005 sig1 base_equal True resign_equal True
+pos-006 sig1 base_equal True resign_equal True
+pos-007 sig1 base_equal True resign_equal True
+pos-008 sig1 base_equal True resign_equal True
+pos-009 sig1 base_equal True resign_equal True
+pos-010 sig1 base_equal True resign_equal True
+pos-011 sig1 base_equal True resign_equal True
+pos-012 sig1 base_equal True resign_equal True
+bases 19 / 19 re-signed byte-equal 19

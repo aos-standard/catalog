@@ -1,0 +1,344 @@
+{
+ "D00": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "D01": {
+  "ok": false,
+  "rule": "directory-signature",
+  "status": 403
+ },
+ "D02": {
+  "ok": false,
+  "rule": "directory-content-digest",
+  "status": 403
+ },
+ "D03": {
+  "ok": false,
+  "rule": "directory-one-signature-per-key",
+  "status": 403
+ },
+ "D04": {
+  "ok": false,
+  "rule": "directory-window",
+  "status": 403
+ },
+ "D05": {
+  "ok": false,
+  "rule": "directory-components",
+  "status": 403
+ },
+ "D06": {
+  "ok": false,
+  "rule": "directory-window",
+  "status": 403
+ },
+ "D07": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "D08": {
+  "ok": false,
+  "rule": "directory-media-type",
+  "status": 403
+ },
+ "D09": {
+  "ok": false,
+  "rule": "directory-window",
+  "status": 403
+ },
+ "D10": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "P00": {
+  "identity": "https://seller.example.com",
+  "ok": true
+ },
+ "P01": {
+  "ok": false,
+  "rule": "content-digest",
+  "status": 403
+ },
+ "P02": {
+  "ok": false,
+  "rule": "signature-invalid",
+  "status": 403
+ },
+ "P03": {
+  "ok": false,
+  "rule": "response-not-bound",
+  "status": 403
+ },
+ "P04": {
+  "ok": false,
+  "rule": "signature-invalid",
+  "status": 403
+ },
+ "P05": {
+  "ok": false,
+  "rule": "components",
+  "status": 403
+ },
+ "P06": {
+  "ok": false,
+  "rule": "lifetime",
+  "status": 403
+ },
+ "P07": {
+  "identity": "https://seller.example.com",
+  "ok": true
+ },
+ "P08": {
+  "ok": false,
+  "rule": "signature-missing",
+  "status": 403
+ },
+ "R00": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R01": {
+  "ok": false,
+  "rule": "content-digest",
+  "status": 403
+ },
+ "R02": {
+  "ok": false,
+  "rule": "signature-invalid",
+  "status": 403
+ },
+ "R03": {
+  "ok": false,
+  "rule": "expired",
+  "status": 403
+ },
+ "R04": {
+  "ok": false,
+  "rule": "created-in-future",
+  "status": 403
+ },
+ "R05": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R06": {
+  "ok": false,
+  "rule": "lifetime",
+  "status": 403
+ },
+ "R07": {
+  "ok": false,
+  "rule": "nonce-invalid",
+  "status": 403
+ },
+ "R08": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R09": {
+  "ok": false,
+  "rule": "nonce-invalid",
+  "status": 403
+ },
+ "R10": {
+  "ok": false,
+  "rule": "alg",
+  "status": 403
+ },
+ "R11": {
+  "ok": false,
+  "rule": "alg",
+  "status": 403
+ },
+ "R12": {
+  "ok": false,
+  "rule": "components",
+  "status": 403
+ },
+ "R13": {
+  "ok": false,
+  "rule": "components",
+  "status": 403
+ },
+ "R13b": {
+  "ok": false,
+  "rule": "components",
+  "status": 403
+ },
+ "R14": {
+  "ok": false,
+  "rule": "signature-missing",
+  "status": 403
+ },
+ "R15": {
+  "ok": false,
+  "rule": "parse",
+  "status": 400
+ },
+ "R16": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R16b": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17a": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17b": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17c": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17d": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17e": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17f": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17g": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17h": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17i": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R17j": {
+  "ok": false,
+  "rule": "signature-agent-value",
+  "status": 403
+ },
+ "R18": {
+  "ok": false,
+  "rule": "signature-agent-parameters",
+  "status": 403
+ },
+ "R18c": {
+  "ok": false,
+  "rule": "signature-agent-parameters",
+  "status": 403
+ },
+ "R18d": {
+  "ok": false,
+  "rule": "signature-agent-parameters",
+  "status": 403
+ },
+ "R18e": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R19": {
+  "ok": false,
+  "rule": "signature-agent-missing",
+  "status": 403
+ },
+ "R20": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R20b": {
+  "ok": false,
+  "rule": "parse",
+  "status": 400
+ },
+ "R21": {
+  "ok": false,
+  "rule": "multiple-signature-agents",
+  "status": 403
+ },
+ "R22": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R23": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R24": {
+  "ok": false,
+  "rule": "nonce-missing",
+  "status": 403
+ },
+ "R25": {
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "R26": {
+  "ok": false,
+  "rule": "authority",
+  "status": 403
+ },
+ "U01": {
+  "computed_wire": "https://seller.example.com/proposals?ids[]=1",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U02": {
+  "computed_wire": "https://seller.example.com/proposals?f=a|b",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U03": {
+  "computed_wire": "https://seller.example.com/proposals?q={json}",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U04": {
+  "computed_wire": "https://seller.example.com/proposals?q=a^b",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U05": {
+  "computed_wire": "https://seller.example.com/proposals/a%20b",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U06": {
+  "computed_wire": "https://seller.example.com/proposals/prop_7",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U07": {
+  "computed_wire": "https://seller.example.com/proposals/prop_7",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ },
+ "U08": {
+  "computed_wire": "https://seller.example.com/proposals/prop_7",
+  "identity": "https://buyer.example.com",
+  "ok": true
+ }
+}

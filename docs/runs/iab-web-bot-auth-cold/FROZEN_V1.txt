@@ -1,0 +1,4 @@
+wba_cold_verifier.py sha256 64d3510db7e6cd1340b053f7999271de724a84d5d914217c2b08a67659f52d84
+frozen_at 2026-11-16T22:35:43Z
+upstream 3bcfb963bfa53a3c2fa598019dc8b052025620de (KonstantinMirin/iab-agentic-primitives, IABTechLab/iab-agentic-primitives PR #4)
+read before freezing: WEB_BOT_AUTH.md, vectors/README.md, keys.json, refusals.json, and the inputs (operation, reference_now) of the 20 vectors. Not opened: the module code, tests, conformance/PROTOCOL.md, scenarios.json, and the expected / expected_signature_base / $comment / name members. Exposure: the README lists each negative vector with its status and rule, and the file layout says which vectors are positive.

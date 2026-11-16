@@ -1,0 +1,1044 @@
+{
+ "agree": 71,
+ "cases": 71,
+ "groups": {
+  "directory_scenarios": [
+   11,
+   11
+  ],
+  "request_scenarios": [
+   43,
+   43
+  ],
+  "response_scenarios": [
+   9,
+   9
+  ],
+  "target_uris": [
+   8,
+   8
+  ]
+ },
+ "rows": [
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R00",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "content-digest",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "content-digest",
+    "status": 403
+   },
+   "id": "R01",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "id": "R02",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "expired",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "expired",
+    "status": 403
+   },
+   "id": "R03",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "created-in-future",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "created-in-future",
+    "status": 403
+   },
+   "id": "R04",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R05",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "lifetime",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "lifetime",
+    "status": 403
+   },
+   "id": "R06",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "nonce-invalid",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "nonce-invalid",
+    "status": 403
+   },
+   "id": "R07",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R08",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "nonce-invalid",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "nonce-invalid",
+    "status": 403
+   },
+   "id": "R09",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "alg",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "alg",
+    "status": 403
+   },
+   "id": "R10",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "alg",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "alg",
+    "status": 403
+   },
+   "id": "R11",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "id": "R12",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "id": "R13",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "id": "R13b",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-missing",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-missing",
+    "status": 403
+   },
+   "id": "R14",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R23",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "nonce-missing",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "nonce-missing",
+    "status": 403
+   },
+   "id": "R24",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R25",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   },
+   "got": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   },
+   "id": "R15",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R16",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R16b",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17a",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17b",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17c",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17d",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17e",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17f",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17g",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17h",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17i",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-value",
+    "status": 403
+   },
+   "id": "R17j",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "id": "R18",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "id": "R18c",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-parameters",
+    "status": 403
+   },
+   "id": "R18d",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R18e",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-missing",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-missing",
+    "status": 403
+   },
+   "id": "R19",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "multiple-signature-agents",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "multiple-signature-agents",
+    "status": 403
+   },
+   "id": "R21",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R22",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "R20",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   },
+   "got": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   },
+   "id": "R20b",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "authority",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "authority",
+    "status": 403
+   },
+   "id": "R26",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "D00",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-signature",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-signature",
+    "status": 403
+   },
+   "id": "D01",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-content-digest",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-content-digest",
+    "status": 403
+   },
+   "id": "D02",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-one-signature-per-key",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-one-signature-per-key",
+    "status": 403
+   },
+   "id": "D03",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "id": "D04",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-components",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-components",
+    "status": 403
+   },
+   "id": "D05",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "id": "D06",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "D07",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-media-type",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-media-type",
+    "status": 403
+   },
+   "id": "D08",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "directory-window",
+    "status": 403
+   },
+   "id": "D09",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "D10",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   },
+   "id": "P00",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "content-digest",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "content-digest",
+    "status": 403
+   },
+   "id": "P01",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "id": "P02",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "response-not-bound",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "response-not-bound",
+    "status": 403
+   },
+   "id": "P03",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-invalid",
+    "status": 403
+   },
+   "id": "P04",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "components",
+    "status": 403
+   },
+   "id": "P05",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "lifetime",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "lifetime",
+    "status": 403
+   },
+   "id": "P06",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   },
+   "id": "P07",
+   "tier": "wba"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": false,
+    "rule": "signature-missing",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-missing",
+    "status": 403
+   },
+   "id": "P08",
+   "tier": "profile"
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals?ids[]=1",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U01",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals?f=a|b",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U02",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals?q={json}",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U03",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals?q=a^b",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U04",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals/a%20b",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U05",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals/prop_7",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U06",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals/prop_7",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U07",
+   "tier": null
+  },
+  {
+   "agree": true,
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "computed_wire": "https://seller.example.com/proposals/prop_7",
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "id": "U08",
+   "tier": null
+  }
+ ]
+}

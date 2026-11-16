@@ -1,0 +1,260 @@
+{
+ "agree": 20,
+ "cases": 20,
+ "rows": [
+  {
+   "agree": true,
+   "case": "neg-001",
+   "expected": {
+    "ok": false,
+    "rule": "nonce-missing",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "nonce-missing",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-002",
+   "expected": {
+    "ok": false,
+    "rule": "nonce-replayed",
+    "status": 429
+   },
+   "got": {
+    "ok": false,
+    "rule": "nonce-replayed",
+    "status": 429
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-003",
+   "expected": {
+    "ok": false,
+    "rule": "signature-agent-not-covered",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "signature-agent-not-covered",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-004",
+   "expected": {
+    "ok": false,
+    "rule": "key-not-found",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "key-not-found",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-005",
+   "expected": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   },
+   "got": {
+    "ok": false,
+    "rule": "parse",
+    "status": 400
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-006",
+   "expected": {
+    "ok": false,
+    "rule": "multiple-signatures",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "multiple-signatures",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-007",
+   "expected": {
+    "ok": false,
+    "rule": "response-not-bound",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "response-not-bound",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "neg-008",
+   "expected": {
+    "ok": false,
+    "rule": "key-not-found",
+    "status": 403
+   },
+   "got": {
+    "ok": false,
+    "rule": "key-not-found",
+    "status": 403
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-001",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-002",
+   "expected": {
+    "ok": true
+   },
+   "got": {
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-003",
+   "expected": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://seller.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-004",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-005",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-006",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-007",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-008",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-009",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-010",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-011",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  },
+  {
+   "agree": true,
+   "case": "pos-012",
+   "expected": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   },
+   "got": {
+    "identity": "https://buyer.example.com",
+    "ok": true
+   }
+  }
+ ]
+}

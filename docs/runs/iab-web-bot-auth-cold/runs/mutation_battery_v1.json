@@ -1,0 +1,462 @@
+{
+ "frozen_sha256": "64d3510db7e6cd1340b053f7999271de724a84d5d914217c2b08a67659f52d84",
+ "mutants": [
+  {
+   "killed": true,
+   "killed_by": [
+    "R24",
+    "neg-001"
+   ],
+   "mutant": "M01 nonce optional",
+   "outcomes": {
+    "R24": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "neg-001": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "neg-002"
+   ],
+   "mutant": "M02 no replay state",
+   "outcomes": {
+    "neg-002": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "neg-003"
+   ],
+   "mutant": "M03 Signature-Agent coverage not checked",
+   "outcomes": {
+    "neg-003": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "neg-004",
+    "neg-008"
+   ],
+   "mutant": "M04 key looked up by keyid alone",
+   "outcomes": {
+    "neg-004": {
+     "identity": "https://other.example.com",
+     "ok": true
+    },
+    "neg-008": {
+     "identity": "https://other.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "neg-006"
+   ],
+   "mutant": "M05 two web-bot-auth signatures allowed (first wins)",
+   "outcomes": {
+    "neg-006": {
+     "ok": false,
+     "rule": "multiple-signature-agents",
+     "status": 403
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "P03",
+    "neg-007"
+   ],
+   "mutant": "M06 response binding not required",
+   "outcomes": {
+    "P03": {
+     "identity": "https://seller.example.com",
+     "ok": true
+    },
+    "neg-007": {
+     "identity": "https://seller.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "P01",
+    "R01"
+   ],
+   "mutant": "M07 Content-Digest not compared with body",
+   "outcomes": {
+    "P01": {
+     "identity": "https://seller.example.com",
+     "ok": true
+    },
+    "R01": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R26"
+   ],
+   "mutant": "M08 authority not checked",
+   "outcomes": {
+    "R26": {
+     "ok": false,
+     "rule": "signature-invalid",
+     "status": 403
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R04"
+   ],
+   "mutant": "M09 created in the future accepted",
+   "outcomes": {
+    "R04": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R03"
+   ],
+   "mutant": "M10 expired accepted",
+   "outcomes": {
+    "R03": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "P06",
+    "R06"
+   ],
+   "mutant": "M11 lifetime over 300 s accepted",
+   "outcomes": {
+    "P06": {
+     "identity": "https://seller.example.com",
+     "ok": true
+    },
+    "R06": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R10",
+    "R11"
+   ],
+   "mutant": "M12 alg not checked",
+   "outcomes": {
+    "R10": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R11": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R12",
+    "R13",
+    "R13b"
+   ],
+   "mutant": "M13 required request components not checked",
+   "outcomes": {
+    "R12": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R13": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R13b": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R17",
+    "R17a",
+    "R17b",
+    "R17c",
+    "R17g",
+    "R17h"
+   ],
+   "mutant": "M14 any https Signature-Agent value accepted",
+   "outcomes": {
+    "R17": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R17a": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R17b": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R17c": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R17g": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R17h": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": false,
+   "killed_by": [],
+   "mutant": "M15 response signer origin not checked",
+   "outcomes": {}
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D01"
+   ],
+   "mutant": "M16 directory signatures not verified",
+   "outcomes": {
+    "D01": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D08"
+   ],
+   "mutant": "M17 directory media type not checked",
+   "outcomes": {
+    "D08": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D02"
+   ],
+   "mutant": "M18 directory Content-Digest not checked",
+   "outcomes": {
+    "D02": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D04",
+    "D06",
+    "D09"
+   ],
+   "mutant": "M19 directory window not checked",
+   "outcomes": {
+    "D04": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "D06": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "D09": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "U08",
+    "pos-012"
+   ],
+   "mutant": "M20 target URI as written (no normalization)",
+   "outcomes": {
+    "U08": {
+     "ok": false,
+     "rule": "signature-invalid",
+     "status": 403
+    },
+    "pos-012": {
+     "ok": false,
+     "rule": "signature-invalid",
+     "status": 403
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R18",
+    "R18c",
+    "R18d"
+   ],
+   "mutant": "M21 Signature-Agent member parameters not ignored",
+   "outcomes": {
+    "R18": {
+     "ok": false,
+     "rule": "signature-agent-value",
+     "status": 403
+    },
+    "R18c": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R18d": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R21"
+   ],
+   "mutant": "M22 two Signature-Agent members allowed",
+   "outcomes": {
+    "R21": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R07",
+    "R09"
+   ],
+   "mutant": "M23 nonce form not checked",
+   "outcomes": {
+    "R07": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    },
+    "R09": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": false,
+   "killed_by": [],
+   "mutant": "M24 directory kid not checked against thumbprint",
+   "outcomes": {}
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "R15"
+   ],
+   "mutant": "M25 lenient Signature-Agent parse (bare string accepted)",
+   "outcomes": {
+    "R15": {
+     "ok": false,
+     "rule": "signature-agent-not-covered",
+     "status": 403
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D03"
+   ],
+   "mutant": "M26 directory key without its own signature accepted",
+   "outcomes": {
+    "D03": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "D05"
+   ],
+   "mutant": "M27 directory signature components not checked",
+   "outcomes": {
+    "D05": {
+     "identity": "https://buyer.example.com",
+     "ok": true
+    }
+   }
+  },
+  {
+   "killed": false,
+   "killed_by": [],
+   "mutant": "M28 directory signature tag not checked",
+   "outcomes": {}
+  },
+  {
+   "killed": true,
+   "killed_by": [
+    "P05"
+   ],
+   "mutant": "M29 response @status not required",
+   "outcomes": {
+    "P05": {
+     "identity": "https://seller.example.com",
+     "ok": true
+    }
+   }
+  }
+ ]
+}
