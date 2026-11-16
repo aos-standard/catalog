@@ -1,0 +1,5 @@
+# w3c-cg/atp main 8e4f7ac4237a98d31457cf26c9f1d3be6b923a43, fetched 2026-11-16T22:43:02Z
+40c04709628e17f20e7474722a803e89d3d2b02770dd7d6164cc70e74755f00f  specs/did-atp/index.html
+60885eaf94fcdacb60e49e40c65a9d2c34f6d22de6ce2810511d8a56656c0802  specs/did-atp/test-vectors.json
+b837d8806894537988ec8b98f1fe177a490d572222317c94214c965137def2f5  README.md
+git blob of test-vectors.json: c42a2d50a7d70ff2acff24faadafc39f30238120

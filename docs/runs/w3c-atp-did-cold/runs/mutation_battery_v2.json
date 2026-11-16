@@ -1,0 +1,58 @@
+{
+ "reader_sha256": "8e65e82972a8c8342cab02bc4ac4e85718d518492540e4de99b510820857bb48",
+ "mutants": [
+  {
+   "mutant": "N1 uppercase domain accepted",
+   "killed": true,
+   "killed_by": [
+    "invalidIdentifiers[0]"
+   ]
+  },
+  {
+   "mutant": "N2 method name compared case-insensitively",
+   "killed": false,
+   "killed_by": []
+  },
+  {
+   "mutant": "N3 fingerprint length not checked",
+   "killed": true,
+   "killed_by": [
+    "invalidIdentifiers[3]"
+   ]
+  },
+  {
+   "mutant": "N4 fingerprint alphabet not checked",
+   "killed": false,
+   "killed_by": []
+  },
+  {
+   "mutant": "N5 path-type DID with no path segment accepted",
+   "killed": false,
+   "killed_by": []
+  },
+  {
+   "mutant": "N6 pq1_ segment optional",
+   "killed": true,
+   "killed_by": [
+    "invalidIdentifiers[1]"
+   ]
+  },
+  {
+   "mutant": "N7 master secret shorter than 32 bytes accepted",
+   "killed": false,
+   "killed_by": []
+  },
+  {
+   "mutant": "N8 salt ignored",
+   "killed": true,
+   "killed_by": [
+    "pairwiseIdentifiers[2]"
+   ]
+  },
+  {
+   "mutant": "N9 domain port form not checked",
+   "killed": false,
+   "killed_by": []
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "agree": 10,
+ "cases": 11,
+ "rows": [
+  {
+   "agree": true,
+   "checks": {
+    "did": true
+   },
+   "group": "rootIdentifiers",
+   "i": 0
+  },
+  {
+   "agree": true,
+   "checks": {
+    "did": true,
+    "e1": true,
+    "ed25519Jwk": true,
+    "mlDsa65Jwk": true,
+    "pq1": true
+   },
+   "group": "pathIdentifiers",
+   "i": 0
+  },
+  {
+   "agree": true,
+   "checks": {
+    "did": true,
+    "e1": true,
+    "ed25519Jwk": true,
+    "mlDsa65Jwk": true,
+    "pq1": true
+   },
+   "group": "pathIdentifiers",
+   "i": 1
+  },
+  {
+   "agree": true,
+   "checks": {
+    "did": true,
+    "peerSegment": true
+   },
+   "group": "pairwiseIdentifiers",
+   "i": 0
+  },
+  {
+   "agree": true,
+   "checks": {
+    "did": true,
+    "peerSegment": true
+   },
+   "group": "pairwiseIdentifiers",
+   "i": 1
+  },
+  {
+   "agree": false,
+   "checks": {
+    "did": false,
+    "peerSegment": false,
+    "saltHex": false
+   },
+   "group": "pairwiseIdentifiers",
+   "i": 2
+  },
+  {
+   "agree": true,
+   "checks": {
+    "refused": true
+   },
+   "group": "invalidIdentifiers",
+   "i": 0
+  },
+  {
+   "agree": true,
+   "checks": {
+    "refused": true
+   },
+   "group": "invalidIdentifiers",
+   "i": 1
+  },
+  {
+   "agree": true,
+   "checks": {
+    "refused": true
+   },
+   "group": "invalidIdentifiers",
+   "i": 2
+  },
+  {
+   "agree": true,
+   "checks": {
+    "refused": true
+   },
+   "group": "invalidIdentifiers",
+   "i": 3
+  },
+  {
+   "agree": true,
+   "checks": {
+    "refused": true
+   },
+   "group": "invalidIdentifiers",
+   "i": 4
+  }
+ ]
+}

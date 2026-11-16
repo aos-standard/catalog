@@ -1,0 +1,25 @@
+{
+  "$comment": "Proposed additions, not part of the upstream file. Each value or input MUST be refused.",
+  "invalidIdentifiers": [
+    {
+      "description": "uppercase method name (Method Name: the prefix MUST be lowercase did:atp:)",
+      "value": "did:ATP:agents.example.com"
+    },
+    {
+      "description": "e1_ fingerprint with a character outside base64url (ABNF base64url-char)",
+      "value": "did:atp:agents.example.com:billing:e1_+jQqQ5rPyNTQOLOqRzDIXdAApgt4BxtxZ0guwMUtkBM:pq1_Xw89-ZsOxuyc6wUFSDpxy_CzM0T4x3_G4sdM0rIJpm0"
+    },
+    {
+      "description": "path-type DID with no path segment before the bindings (ABNF 1*(\":\" path-segment))",
+      "value": "did:atp:agents.example.com:e1_kjQqQ5rPyNTQOLOqRzDIXdAApgt4BxtxZ0guwMUtkBM:pq1_Xw89-ZsOxuyc6wUFSDpxy_CzM0T4x3_G4sdM0rIJpm0"
+    }
+  ],
+  "invalidPairwiseInputs": [
+    {
+      "description": "master secret of 31 bytes (Recommended Derivation: MUST be at least 32 bytes)",
+      "domain": "agents.example.com",
+      "masterSecretHex": "09090909090909090909090909090909090909090909090909090909090909",
+      "peerId": "did:example:relying-party-1"
+    }
+  ]
+}

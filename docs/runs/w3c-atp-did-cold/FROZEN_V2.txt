@@ -1,0 +1,3 @@
+atp_did_reader.py (v2) sha256 8e65e82972a8c8342cab02bc4ac4e85718d518492540e4de99b510820857bb48
+frozen_at 2026-11-16T22:44:32Z
+v1 (atp_did_reader_v1.py, sha256 7a986fb7...) scored 10/11. The miss was pairwise vector 2, whose saltHex the input split had filed with the answers. Seen before this freeze: that saltHex exists on that vector, and that its did and peerSegment differed. Not seen: their expected values. Only change: run() passes saltHex to pairwise().

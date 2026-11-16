@@ -1,0 +1,4 @@
+atp_did_reader.py sha256 7a986fb70f26ac35276049ad741dd0de5aa0daaf87b272759034f5b88cc7726e
+frozen_at 2026-11-16T22:44:08Z
+upstream w3c-cg/atp 8e4f7ac4237a98d31457cf26c9f1d3be6b923a43
+read before freezing: specs/did-atp/index.html (as text), README.md, and the inputs of test-vectors.json (inputs/given.json: domain, path, public key hex, master secret, peerId, the invalid values, primitives). Not opened: scripts/gen-did-atp-vectors.ts, /proof, the ATP SDK, and the vectors' description, JWK, e1, pq1, did and peerSegment members.

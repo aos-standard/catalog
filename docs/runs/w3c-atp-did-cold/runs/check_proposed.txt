@@ -1,0 +1,4 @@
+uppercase method name (Method Name: the prefix MUST be lowercase did:atp:) | frozen: refused: not a did:atp identifier | N2 method name compared case-insensitively: accepted
+e1_ fingerprint with a character outside base64url (ABNF base64url-char) | frozen: refused: not a did:atp identifier | N4 fingerprint alphabet not checked: accepted
+path-type DID with no path segment before the bindings (ABNF 1*(":" path-segment)) | frozen: refused: not a did:atp identifier | N5 path-type DID with no path segment accepted: accepted
+master secret of 31 bytes (Recommended Derivation: MUST be at least 32 bytes) | frozen: refused: master secret shorter than 32 bytes | N7: accepted
