@@ -1,0 +1,4 @@
+# fetched 2026-11-17T22:41:45Z from johnInarti/x402 (head of x402-foundation/x402 PR #4298)
+33bddb0b2ee50b990249961a899f271b27332fe1efadf0a3a7025f97f8a7710e  delivery-receipt.vectors.json  @d9027a5
+8794902289cb39cc39b9b4f6ee21fdf7e57878798c7c22a95674c4714cb9c6a6  delivery-receipt.md  @d9027a5
+ad195d4c6c176ab138d1eb976a91fe3c00ecdf5d1af3e314bf4bacb10c2c4495  base_e82f684.vectors.json  = specs/extensions/delivery-receipt.vectors.json @e82f684 (#3783)

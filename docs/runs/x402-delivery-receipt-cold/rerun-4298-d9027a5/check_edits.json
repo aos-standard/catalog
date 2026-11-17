@@ -1,0 +1,283 @@
+{
+ "base_members_unchanged": {
+  "deliveryUnconfirmed": true,
+  "endToEnd": true,
+  "generator": true,
+  "signatures": true,
+  "spec": true,
+  "stream": true,
+  "streamSession": true
+ },
+ "earlier_runs_unchanged": true,
+ "fixtures_equal_modulo_ref": {
+  "amountInflatedResigned": true,
+  "eventAfterTerminal": true,
+  "framingUnregistered": true,
+  "issuedInFuture": true,
+  "keyDirectoryDigestMismatch": true,
+  "mlDsa65Stripped": true,
+  "splitVerdict": true
+ },
+ "new_top_level_members": [
+  "negative"
+ ],
+ "our_runs": [
+  {
+   "dropped_only_after_first": true,
+   "id": "keyDirectoryDigestMismatch/session",
+   "levels_dropped": [
+    "delivery",
+    "settlement"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "keyDirectoryDigestMismatch/archival",
+   "levels_dropped": [
+    "delivery",
+    "settlement"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "amountInflatedResigned/session",
+   "levels_dropped": [
+    "delivery"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true,
+    "settlement": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "amountInflatedResigned/archival",
+   "levels_dropped": [
+    "delivery"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true,
+    "settlement": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "mlDsa65Stripped/session",
+   "levels_dropped": [
+    "authentic",
+    "delivery",
+    "settlement",
+    "trusted"
+   ],
+   "levels_kept_equal": {
+    "integrity": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "mlDsa65Stripped/archival",
+   "levels_dropped": [
+    "authentic",
+    "delivery",
+    "settlement",
+    "trusted"
+   ],
+   "levels_kept_equal": {
+    "integrity": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "splitVerdict/session",
+   "levels_dropped": [],
+   "levels_kept_equal": {
+    "authentic": true,
+    "delivery": true,
+    "integrity": true,
+    "settlement": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "note": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "splitVerdict/archival",
+   "levels_dropped": [
+    "delivery",
+    "settlement",
+    "trusted"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "issuedInFuture/session",
+   "levels_dropped": [
+    "delivery",
+    "settlement"
+   ],
+   "levels_kept_equal": {
+    "authentic": true,
+    "integrity": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "framingUnregistered/session",
+   "levels_dropped": [
+    "authentic",
+    "delivery",
+    "settlement",
+    "trusted"
+   ],
+   "levels_kept_equal": {
+    "integrity": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  },
+  {
+   "dropped_only_after_first": true,
+   "id": "eventAfterTerminal/session",
+   "levels_dropped": [],
+   "levels_kept_equal": {
+    "authentic": true,
+    "delivery": true,
+    "integrity": true,
+    "settlement": true,
+    "trusted": true
+   },
+   "other_members_equal": {
+    "id": true,
+    "inputs": true,
+    "longTermEvidence": true,
+    "offline": true,
+    "path": true,
+    "reason": true,
+    "valid": true,
+    "vector": true
+   }
+  }
+ ]
+}
