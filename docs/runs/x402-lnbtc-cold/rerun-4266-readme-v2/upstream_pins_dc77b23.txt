@@ -1,0 +1,5 @@
+# kychee-com/x402, head of x402-foundation/x402 PR #4266
+aff0584fa8246e930eebcb89bbd61232e5a8798664f415bf5d6c42ff226f6c76  dc77b23/README.md
+02999ccebc0fdea590fc0e5b909db6be5905a8ae5c7624c510bdac0bcd3f27d3  dc77b23/exact_lnbtc.json
+ca2f15de5da384bef362f5ed298cbc3408a18f3d60439536086241423d1be050  dc77b23/scheme_exact_lnbtc.md
+# b19934b (head on 2026-11-18, a merge of main) has the same three files byte for byte

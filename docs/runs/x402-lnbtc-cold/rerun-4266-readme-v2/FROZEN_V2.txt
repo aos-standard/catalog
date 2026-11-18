@@ -1,0 +1,5 @@
+reader v2 frozen 2026-11-18T12:48:43Z
+9e112b1b8ae0df2e7c5bcc96eff1a998d5e6414438eb9fb2afecb319eba86d54  reader/lnbtc_binding_v2.py (lnbtc_binding_v1.py 2373c670... plus the trusted_proxy handling of http_server_adapter, from the vectors README Inputs sentence only)
+b2d820b7d73fc85dc4394eabc40f63566d604d0afed189c1d363c154888d827e  reader/lnbtc_payment_v1.py (unchanged)
+Exposure: the five forwarded-header cases' expected outcomes were known before v2 was written (PR #4266 description, and the 2026-11-14 rerun at dc77b23, where they differed). v2 was written from the README sentence, not fitted case by case; no case was run before this freeze.
+2373c67088d6c55773277f83747d84e9225ba25264e8a76bd7b78770dee12f68  reader/lnbtc_binding_v1.py (unchanged; lnbtc_payment_v1.py imports it for shared helpers)
