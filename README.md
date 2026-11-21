@@ -6,6 +6,8 @@ every input. Corrections are added beside a run, never over it. How it is done: 
 
 ## Runs
 
+Where each run stands in the other project's thread (open, merged, replied), measured on a stated date: [`docs/runs/STATUS.md`](docs/runs/STATUS.md).
+
 | run | target | result |
 |---|---|---|
 | [`wimse-http-signature-cold`](docs/runs/wimse-http-signature-cold/) | IETF WIMSE HTTP signature test vectors (draft-miao-wimse-http-signature-test-vectors-00; seed corpus of ITU-T FG-TIDA themes#66) | 26/26 applicable of 29; 10 proposed negative vectors |
