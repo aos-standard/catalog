@@ -1,0 +1,21 @@
+N-01                             reject  coverage_missing_@query
+N-02                             reject  connect_covers_path_or_query
+N-03                             reject  content_digest_missing
+N-04                             reject  content_digest_mismatch
+N-05                             reject  param_missing_expires
+N-06                             reject  param_forbidden_keyid
+N-07                             reject  param_forbidden_alg
+N-08                             reject  multiple_wimse_signatures
+N-09                             reject  wit_expired
+N-09b@T0+300                     accept  
+N-09b@T0+301                     reject  outside_validity_window
+N-10                             reject  audience_mismatch
+N-11                             reject  param_missing_wimse-aud
+N-12                             reject  param_missing_wimse-req-nonce
+N-13                             reject  req_nonce_mismatch
+N-14                             reject  signed_response_required
+N-15                             reject  signature_invalid
+N-20 probe                       reject  wit_expired
+N-21                             reject  connect_response_covers_path_or_query
+N-21 contrast (no @path;req)     accept  
+N-15 signature verifies under svcC ES256 key: True

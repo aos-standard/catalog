@@ -1,0 +1,39 @@
+M01 WIT issuer signature not checked                               SURVIVES
+M02 WIT typ not checked                                            SURVIVES
+M03 WIT exp not checked                                            SURVIVES
+M04 cnf.jwk.alg policy/consistency not checked                     SURVIVES
+M05 WIT sub not checked                                            SURVIVES
+M06 created in the future accepted                                 SURVIVES
+M07 expires treated as exclusive                                   CAUGHT by N-09b@T0+300
+M08 expires not checked                                            CAUGHT by N-09b@T0+301
+M09 nonce not required                                             SURVIVES
+M10 created not required                                           SURVIVES
+M11 keyid allowed                                                  CAUGHT by N-06
+M12 alg allowed                                                    CAUGHT by N-07
+M13 @method coverage not required (request)                        SURVIVES
+M14 @path/@query coverage not required                             SURVIVES
+M15 only @query coverage required (not @path)                      SURVIVES
+M16 Authorization coverage not required                            SURVIVES
+M17 Workload-Identity-Token coverage not required (request)        SURVIVES
+M18 Content-Type coverage not required (request)                   SURVIVES
+M19 Content-Digest coverage not required (request)                 SURVIVES
+M20 Content-Digest presence not required                           SURVIVES
+M21 Content-Digest value not compared                              CAUGHT by N-04
+M22 CONNECT may cover @path/@query                                 SURVIVES
+M23 CONNECT @authority not required                                SURVIVES
+M24 wimse-aud not required                                         CAUGHT by N-11
+M25 wimse-aud compared after URI normalization                     CAUGHT by N-10
+M26 wimse-aud not compared                                         CAUGHT by N-10
+M27 more than one WIMSE signature: first one used                  SURVIVES
+M28 signature chosen by label (first), not by tag                  CAUGHT by P-06
+M29 response: wimse-req-nonce not required                         CAUGHT by N-12
+M30 response: wimse-req-nonce not compared                         CAUGHT by N-13
+M31 response: unsigned accepted even when required                 CAUGHT by N-14
+M32 response: @status / @method;req not required                   SURVIVES
+M33 response: @path;req/@query;req not required                    SURVIVES
+M34 response: CONNECT may cover @path;req                          SURVIVES
+M35 response: Workload-Identity-Token coverage not required        SURVIVES
+M36 response: Content-Type/Digest coverage not required            SURVIVES
+M37 signature verified with any known key type (not cnf.jwk.alg)   CAUGHT by N-15
+M39 expires not required                                           SURVIVES
+M38 message signature not checked                                  CAUGHT by N-15

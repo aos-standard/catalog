@@ -1,0 +1,7 @@
+issuer kid issuer-key | placeholders expanded: True
+P-01 accept  | base==given(expanded): True
+P-02 accept  | base==given(expanded): True
+P-03 accept  | base==given(expanded): True
+P-04 accept  | base==given(expanded): True
+P-05 accept  | base==given(expanded): True
+P-06 reject sig_malformed | base==given(expanded): None

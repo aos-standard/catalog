@@ -1,0 +1,112 @@
+{
+ "X01": {
+  "id": "X01",
+  "title": "N-01 with the signature regenerated: @query not covered",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:SzoPV3m8AzGPp5EU7mvNyTLNRY7kiAAE7vXG8CKdAgrp3NO/Uc/upB8n+JaHgUvn3HGCNRQwUyQNNuiEsJLFDg==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: @method, @path and @query MUST be signed",
+  "isolates": "M14"
+ },
+ "X02": {
+  "id": "X02",
+  "title": "N-03 with the signature regenerated: body without Content-Digest",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "POST /inventory/cones HTTP/1.1\nHost: svcb.example.com\nContent-Type: application/json\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVTMjU2IiwiY3J2IjoiUC0yNTYiLCJraWQiOiJ2ZWMtYy1rZXkiLCJrdHkiOiJFQyIsIngiOiJqWmpmVUJRZ0QxbDlSX2xtNG56bzFyUDgycEdWREJ4SEQ2WW1Pb194b0NvIiwieSI6IkNCR3Y5YjhoQi1sMG1vdjlybHUyMjNnLXZORV9TcXVDQzJJaFBpMkl3ZUUifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1jLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0MifQ.8-bmHNavOVSxyr2hAtnKfrC-kdm5L4XMP4n1cGGMLh5DjSPmdjTWkpKtTO9tPZfKMIfLVC7xGaDvoJXUdizGCg\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\" \"content-type\");created=1795000000;expires=1795000300;nonce=\"c51d7a2e8f093b46a5c1d2e3f4a5b6c7\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/inventory/cones\"\nSignature: sig1=:28RLDJyRuAyO78zrxPqpZor7niVntaDznxK4VRJLRCYQ5HFCHy/GqU2YEW484sG3OEw+JtDq1igLOoyEbSQ5Ag==:\n\n{\"flavor\":\"vanilla\",\"amount\":1}",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: a message with a body MUST carry Content-Digest",
+  "isolates": "M20"
+ },
+ "X03": {
+  "id": "X03",
+  "title": "N-05 with the signature regenerated: expires missing",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:AmlKIZjXFeI9ze1zz8hhtvIIXF8F+u16mGy9k+MM4sBxhorXRhxowpNsYCyBJFfv7sYvv2zRj+jvSai16ii7BA==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: created, expires, nonce and tag MUST be included",
+  "isolates": "M39"
+ },
+ "X04": {
+  "id": "X04",
+  "title": "WIT issuer signature invalid (one bit flipped); message re-signed over the changed WIT",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCg\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:CLSFHZRe1zHnH/cSd5UZZlsvkVRRwC8Hh5WoSZ0cTl9UhpQl4VciDpHT6B7SgSzRf3BswajA/VoSjYbDhcZtAw==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: the WIT MUST be validated (workload-creds-03 5.1.3: the JWS signature is valid under the trust anchors)",
+  "isolates": "M01"
+ },
+ "X05": {
+  "id": "X05",
+  "title": "WIT typ is JWT instead of wit+jwt; otherwise identical, validly issued",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IkpXVCJ9.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.5irgwplHkvU9oewdfQURLgMi9y_lNLN4dYNUkqo5v3XW5WrSbeHcS_jrL7oh9-P-0aHtL9zEaiKYyJwQMRiICQ\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:phlQ0XbCl6YVHwiZx5btHxxmGrffcaj6bx4atBZjhnmbIAsDxWcaplJw9W3bso2yNMaknoo4an5P1Pqi7f50CQ==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "workload-creds-03 5.1.3: the typ JOSE header parameter conveys a media type of wit+jwt",
+  "isolates": "M02"
+ },
+ "X06": {
+  "id": "X06",
+  "title": "WIT expired (exp = T0+30) while the signature window is valid (verified at T0+60)",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMDAzMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.T3hJWtjAIzg75q2GEBZjJgdYALmCeBEcIO8sN5E4hdAF-jC0LHf999Kh_onDGtQ7Tn1nfFd5g4-Q5MvUQ4bPBw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:oyZjSqF3fX4D5kpeE9tuexP0KL2EHG1c7TnebHKvEOXhJhJxES8Q6xeymL9uah9ktPnQPrf6QHBoxYiYLABCBA==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3 / workload-creds: an expired WIT fails validation; this isolates exp from the signature window (N-09 does not)",
+  "isolates": "M03"
+ },
+ "X07": {
+  "id": "X07",
+  "title": "Request does not cover Workload-Identity-Token; signature regenerated",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:U/EJKIU2WkPbF0AekQ7J/nWUyxIgdwFBVqyJCB/+zYy0OxljxzAlFd3TXyb1+nhJN9ZgrrnuBCf8QCTt3kT5CQ==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: Workload-Identity-Token MUST be signed when it exists",
+  "isolates": "M17"
+ },
+ "X08": {
+  "id": "X08",
+  "title": "Signed response does not cover Workload-Identity-Token; signature regenerated",
+  "kind": "response",
+  "verification_time": 1795000060,
+  "message": "HTTP/1.1 404 Not Found\nContent-Type: text/plain\nContent-Digest: sha-256=:uJC3qmCc7n6/6w4N2I0vAfj1cd/hTOAhxLEYXmPbNno=:\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWIta2V5Iiwia3R5IjoiT0tQIiwieCI6IjRqVkF6Z0VQTzVuLTZqdWpTaXlRTUU1dC10SXpaQXBiaFI1Y1RQb2VkSUkifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1iLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0IifQ.iBAAT-2xF6Polfa49cDu4THgh3zhCdbAitBM5JIgxuuCEdbjMKglKVskt7E78jdE42i3FMMP9-Lw0PLRXwXaBQ\nSignature-Input: sig1=(\"@status\" \"content-type\" \"content-digest\" \"@method\";req \"@path\";req \"@query\";req);created=1795000002;expires=1795000302;nonce=\"2b8e4f0a9d1c3756e0a2b4c6d8f0a1b3\";tag=\"wimse-workload-to-workload\";wimse-req-nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\"\nSignature: sig1=:UP8tXtUk8ltF9Lhki/NJH4tTX0PE5UauA/YRjfO5cbtsCp/5l8biDznELaz9CCvetMs1T2b1fGseQaoB7y9SDw==:\n\nNo ice cream today.\n",
+  "request": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:qrIGE6wS80/UvhJx96iDiz90OIYmUX8CFO4vOeK/40D7pnukeikqvsYGDs6aqXx099ILxgZliEepCw1P5M7YDg==:",
+  "expected": "reject",
+  "requirement": "Section 3: a signed response MUST cover Workload-Identity-Token",
+  "isolates": "M35"
+ },
+ "X09": {
+  "id": "X09",
+  "title": "created in the future: created = T0+120, expires = T0+420, verified at T0+60",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000120;expires=1795000420;nonce=\"7f3a9c1e5b284d06a1f4e8c2b6d50937\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\";wimse-sign-response\nSignature: sig1=:BGAuvR2bQbohVpNhKImLgLAyhNhyLV5YHKhg3hLJeMw0qsTZF4p8FNKRCIHGX2im+bWTAk5oSfFsZAnFQZrPAg==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: recipients MUST reject signatures outside their validity window [created, expires]",
+  "isolates": "M06"
+ },
+ "X10": {
+  "id": "X10",
+  "title": "N-08 with both WIMSE-tagged signatures made by vec-a-key (the WIT's key)",
+  "kind": "request",
+  "verification_time": 1795000060,
+  "message": "GET /gimme-ice-cream?flavor=vanilla HTTP/1.1\nHost: svcb.example.com\nWorkload-Identity-Token: eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3QifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWWhkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzYwMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9vvN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw\nSignature-Input: sig1=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"0123456789abcdef0123456789abcdef\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\", sig2=(\"@method\" \"@path\" \"@query\" \"workload-identity-token\");created=1795000000;expires=1795000300;nonce=\"f0e1d2c3b4a5968778695a4b3c2d1e0f\";tag=\"wimse-workload-to-workload\";wimse-aud=\"https://svcb.example.com/gimme-ice-cream\"\nSignature: sig1=:5NqTvIRR8b9626EDlLVDj4MWHbsHmWgMpBzbzau8RHyGIQMXdi/9HKvMoA4fpxjGBf6q5C8EpWETHeDiQSdeAQ==:, sig2=:Dyr5ErLhw5LmeYIztg6QZmfARn96ucIGuMXUgsyGj9MMc4Y9cQmQ6345/c8/n584kmlk1TfL7xmNVDQKkG7EAw==:",
+  "request": null,
+  "expected": "reject",
+  "requirement": "Section 3: if more than one signature has the WIMSE tag, the recipient MUST reject; here each one alone verifies",
+  "isolates": "M27"
+ }
+}

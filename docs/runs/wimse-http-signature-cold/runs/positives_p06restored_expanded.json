@@ -1,0 +1,32 @@
+{
+ "P-01": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ },
+ "P-02": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ },
+ "P-03": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ },
+ "P-04": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ },
+ "P-05": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ },
+ "P-06": {
+  "outcome": "accept",
+  "reason": null,
+  "base_equals_given_expanded": true
+ }
+}

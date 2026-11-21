@@ -1,0 +1,122 @@
+{
+ "X01": {
+  "frozen": [
+   "reject",
+   "coverage_missing_@query"
+  ],
+  "mutant": "M14 @path/@query coverage not required",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X02": {
+  "frozen": [
+   "reject",
+   "content_digest_missing"
+  ],
+  "mutant": "M20 Content-Digest presence not required",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X03": {
+  "frozen": [
+   "reject",
+   "param_missing_expires"
+  ],
+  "mutant": "M39 expires not required",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X04": {
+  "frozen": [
+   "reject",
+   "wit_signature"
+  ],
+  "mutant": "M01 WIT issuer signature not checked",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X05": {
+  "frozen": [
+   "reject",
+   "wit_typ"
+  ],
+  "mutant": "M02 WIT typ not checked",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X06": {
+  "frozen": [
+   "reject",
+   "wit_expired"
+  ],
+  "mutant": "M03 WIT exp not checked",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X07": {
+  "frozen": [
+   "reject",
+   "coverage_missing_workload-identity-token"
+  ],
+  "mutant": "M17 Workload-Identity-Token coverage not required (request)",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X08": {
+  "frozen": [
+   "reject",
+   "coverage_missing_workload-identity-token"
+  ],
+  "mutant": "M35 response: Workload-Identity-Token coverage not required",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X09": {
+  "frozen": [
+   "reject",
+   "outside_validity_window"
+  ],
+  "mutant": "M06 created in the future accepted",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ },
+ "X10": {
+  "frozen": [
+   "reject",
+   "multiple_wimse_signatures"
+  ],
+  "mutant": "M27 more than one WIMSE signature: first one used",
+  "mutant_outcome": [
+   "accept",
+   null
+  ],
+  "isolates": true
+ }
+}

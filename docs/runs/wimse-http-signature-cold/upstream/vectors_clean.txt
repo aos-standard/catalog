@@ -1,0 +1,1044 @@
+
+Individual Submission                                            J. Miao
+Intended status: Informational                          18 November 2026
+Expires: 22 May 2027
+
+      Test Vectors for the WIMSE HTTP Message Signatures Protocol
+            draft-miao-wimse-http-signature-test-vectors-00
+
+Abstract
+
+   This document provides a set of test vectors for the WIMSE Workload-
+   to-Workload Authentication protocol based on HTTP Message Signatures,
+   as specified in draft-ietf-wimse-http-signature.  The collection
+   comprises six positive test cases, twenty-three negative test cases
+   each mapped to a specific normative requirement of that
+   specification, and three documented observations.  All key material
+   is test-only and fully published in this document, so that every
+   vector can be recomputed independently.  This document defines no new
+   protocol behavior.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 22 May 2027.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
+   2.  Conventions and Usage . . . . . . . . . . . . . . . . . . . .   4
+   3.  Test Key Material . . . . . . . . . . . . . . . . . . . . . .   5
+   4.  Positive Test Vectors . . . . . . . . . . . . . . . . . . . .   7
+     4.1.  P-01 - Signed request, Ed25519 (svcA to svcB, requesting a
+           signed response)  . . . . . . . . . . . . . . . . . . . .   7
+     4.2.  P-02 - Signed response (svcB to svcA, answering P-01) . .   8
+     4.3.  P-03 - Signed request with body, ES256 (svcC to svcB) . .   9
+     4.4.  P-04 - CONNECT request, the exception case (svcA to
+           svcB) . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+     4.5.  P-05 - Request without a query component (@query is
+           "?")  . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+     4.6.  P-06 - Multiple signatures; selection by tag  . . . . . .  11
+   5.  Negative Test Vectors . . . . . . . . . . . . . . . . . . . .  12
+     5.1.  N-01 - Missing @query coverage  . . . . . . . . . . . . .  13
+     5.2.  N-02 - CONNECT request covering @path . . . . . . . . . .  13
+     5.3.  N-03 - Body without Content-Digest  . . . . . . . . . . .  13
+     5.4.  N-04 - Content-Digest does not match the body . . . . . .  13
+     5.5.  N-05 - Missing expires parameter  . . . . . . . . . . . .  14
+     5.6.  N-06 - keyid parameter present  . . . . . . . . . . . . .  14
+     5.7.  N-07 - alg parameter present  . . . . . . . . . . . . . .  14
+     5.8.  N-08 - Two signatures carrying the WIMSE tag  . . . . . .  15
+     5.9.  N-09 - Verification outside the validity window . . . . .  15
+     5.10. N-09b - Validity-window boundary: one second past
+            expires  . . . . . . . . . . . . . . . . . . . . . . . .  15
+     5.11. N-10 - wimse-aud differing only by URI normalization  . .  16
+     5.12. N-11 - Request missing wimse-aud  . . . . . . . . . . . .  16
+     5.13. N-12 - Signed response missing wimse-req-nonce  . . . . .  16
+     5.14. N-13 - wimse-req-nonce not equal to the request nonce . .  17
+     5.15. N-14 - Signed response required, response unsigned  . . .  17
+     5.16. N-15 - Signature algorithm does not match cnf.jwk.alg . .  17
+     5.17. N-16 - Insufficient nonce entropy (sender behavior) . . .  18
+     5.18. N-17 - Error surface distinguishes failures, or uses 401
+            (server behavior)  . . . . . . . . . . . . . . . . . . .  18
+     5.19. N-18 - Successful unsigned response where a signed response
+            is required (server behavior)  . . . . . . . . . . . . .  19
+     5.20. N-19 - Accept-Signature requesting weaker-than-profile
+            coverage (sender behavior) . . . . . . . . . . . . . . .  19
+     5.21. N-20 - Processing before the WIT is validated (verifier
+            behavior)  . . . . . . . . . . . . . . . . . . . . . . .  19
+     5.22. N-21 - CONNECT signed response covering @path;req . . . .  20
+
+     5.23. N-22 - Signature selection by label (verifier
+            behavior)  . . . . . . . . . . . . . . . . . . . . . . .  20
+   6.  Observations  . . . . . . . . . . . . . . . . . . . . . . . .  20
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  21
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  21
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  21
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  22
+   Appendix A.  Acknowledgments  . . . . . . . . . . . . . . . . . .  22
+   Appendix B.  Change Log . . . . . . . . . . . . . . . . . . . . .  22
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  23
+
+1.  Introduction
+
+   This document provides test vectors for the Workload-to-Workload
+   Authentication protocol based on HTTP Message Signatures, as
+   specified in [WIMSE-HTTPSig].  It defines no new protocol behavior;
+   it records a fixed, publicly reproducible set of messages, signature
+   bases, and expected verification outcomes against which
+   implementations of that specification can be checked.
+
+   The set was first published on 6 November 2026 as a public comment in
+   the issue tracker of the base specification (issue #419 of ietf-wg-
+   wimse/draft-ietf-wimse-s2s-protocol) and announced on the WIMSE
+   mailing list.  Earlier versions were reproduced in full by two
+   independent implementers with complete agreement, and the full set
+   was additionally validated by a third-party implementation (cred-
+   ninja).  Review by a co-author of the base specification led to the
+   corrections recorded in the Change Log (Appendix A).  The current
+   version of the set (v4) is archived as a dataset at Zenodo, DOI
+   10.5281/zenodo.24203971; this document is the Internet-Draft form of
+   that version.
+
+   Each negative vector is constructed as a single mutation of a
+   positive vector (or as a described implementation behavior) and is
+   mapped to the specific normative requirement it exercises, quoted
+   from the base specification.  Three further entries are observations:
+   points at which the base specification's text, read literally, does
+   not support a pass/fail judgment; they are recorded for the working
+   group's attention and are not part of the judged set.
+
+2.  Conventions and Usage
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.  Most occurrences in this document appear
+   inside quotations of, or references to, the requirements of the base
+   specification.
+
+   Fixed verification clock.  All vectors use T0 = 1795000000 (Unix
+   seconds) as the created baseline.  The default verification time is
+   T0+60; any deviation is stated in the vector itself.  The expires
+   value is in every case created+300, consistent with the base
+   specification's guidance that the validity window be on the order of
+   minutes.
+
+   Key material.  All key material, including private keys, is test-only
+   and is published in full in the Test Key Material section, so that
+   every vector can be recomputed independently.  Keys are derived
+   deterministically from fixed seeds, as stated there.
+
+   Placeholders.  Message material that would otherwise repeat the full
+   text of a Workload Identity Token appears in messages and signature
+   bases as a placeholder of the form [WIT-x, full text in the Test Key
+   Material section].  The placeholder is retained verbatim in the
+   signed material; deterministic expansion substitutes the full token
+   text where a verifier needs the component value.
+
+   Signature bases.  Each positive vector gives its complete signature
+   base (constructed per [RFC9421], Section 2.5), so verification can be
+   reproduced without the author's code.  Ed25519 signatures are
+   computed per [RFC8032]; ES256 signatures use the deterministic nonce
+   generation of [RFC6979] and are therefore byte-for-byte reproducible
+   from the same input.
+
+   Literal and regenerated signatures.  Positive vectors and N-15 give
+   their Signature values literally.  In the remaining negative vectors
+   whose construction is a textual mutation, the signature is
+   regenerated by the test runner: the stated mutation is applied to the
+   base message and the result is re-signed as in Section 3.1 of the
+   base specification with the key bound by the WIT's cnf.jwk.  Because
+   both signature algorithms used here are deterministic, regenerated
+   values are exactly reproducible.  Each affected entry states that its
+   signature is regenerated; entries whose Signature value is carried
+   over unchanged from the base vector state that instead.
+
+   Expected outcomes.  For message vectors, the expected outcome is
+   stated as acceptance, rejection with the error surface of Section 3.6
+   of the base specification (HTTP 400 with problem type
+   https://iana.org/assignments/http-problem-types#wimse-signature-
+   invalid, unless a different outcome is stated), or client rejection
+   of a response.  For behavior vectors (N-16 through N-22 in part), the
+   expected outcome is a conformance judgment about the implementation
+   under test, and the procedure for reaching it is stated in the entry.
+
+   Set-level rule.  Entries prefixed O- are observations.  They are not
+   part of the judged set and produce no pass/fail outcome.  The judged
+   set is the 6 positive and 23 negative vectors: 29 in total.
+
+   Folding.  Long lines in the artwork of this document are folded
+   following the convention of [RFC8792]: a backslash at the end of a
+   line marks a fold, and removing the backslash, the line break, and
+   the leading whitespace of the continuation line restores the exact
+   original line.  Folding is presentational only.
+
+3.  Test Key Material
+
+   Derivation: an Ed25519 seed is SHA-256("s01-validation-
+   vectors:<name>"), and the JWK parameter d is the base64url encoding
+   of the seed.  The svcC P-256 private scalar is SHA-256("s01-
+   validation-vectors:svcC") mod (n-1) + 1.  All values below are test-
+   only.
+
+   *Issuer (WIT issuer), Ed25519, kid = issuer-key*
+
+   Public JWK: {"alg":"Ed25519","crv":"Ed25519","kid":"issuer-key","kt\
+     y":"OKP","x":"QH_Zu0pnwyO8xdFQm9upOUFAbpb4nhMrGc29L3uJXDA"}
+   Private d: 4nRAPQQyr8cUgAtCESLc4ZIGIxZT9-guqxcc3wV-2NI
+
+   *svcA, Ed25519, kid = vec-a-key (sub = wimse://example.com/svcA)*
+
+   Public JWK: {"alg":"Ed25519","crv":"Ed25519","kid":"vec-a-key","kty\
+     ":"OKP","x":"O3OfVmPJ3peYhdDrMweNIiBOQU6JZCNcYMK2kjV0i3Y"}
+   Private d: F8BhX5poMswcVwTgEMGETOhdN72PaxIiwuGYWrzSUvk
+
+   *svcB, Ed25519, kid = vec-b-key (sub = wimse://example.com/svcB)*
+
+   Public JWK: {"alg":"Ed25519","crv":"Ed25519","kid":"vec-b-key","kty\
+     ":"OKP","x":"4jVAzgEPO5n-6jujSiyQME5t-tIzZApbhR5cTPoedII"}
+   Private d: 4MaIKp1h5mkTS7ZSawz6QYN6FYA_rOYBPDfGEZCpPDg
+
+   *svcC, ES256 / P-256, kid = vec-c-key (sub = wimse://example.com/
+   svcC)*
+
+   Public JWK: {"alg":"ES256","crv":"P-256","kid":"vec-c-key","kty":"E\
+     C","x":"jZjfUBQgD1l9R_lm4nzo1rP82pGVDBxHD6YmOo_xoCo","y":"CBGv9b8\
+     hB-l0mov9rlu223g-vNE_SquCC2IhPi2IweE"}
+   Private d: X94ti7AkOiC4JcxdbSmLkwWEzyEU4wMqBX_9LHfXQaU
+
+   *other (decoy signer in P-06), Ed25519, kid = other-key*
+
+   Public JWK: {"alg":"Ed25519","crv":"Ed25519","kid":"other-key","kty\
+     ":"OKP","x":"Lo6grJBjN252d2huS1-ckJIql2FZR2vrTOF2qKRBTm4"}
+   Private d: KL4_B1CdV7qwZkVYvyK0I5SrsEzv6yb1p1PNAfbC7LY
+
+   *WIT-A* (iat = T0-60, exp = T0+3600, jti = wit-a-1795000000.  The WIT
+   lifetime is longer than the signature lifetime, as noted in Section 3
+   of the base specification.)
+
+   eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3Q\
+     ifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5I\
+     iwia2lkIjoidmVjLWEta2V5Iiwia3R5IjoiT0tQIiwieCI6Ik8zT2ZWbVBKM3BlWW\
+     hkRHJNd2VOSWlCT1FVNkpaQ05jWU1LMmtqVjBpM1kifX0sImV4cCI6MTc5NTAwMzY\
+     wMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lz\
+     c3VlciIsImp0aSI6IndpdC1hLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4Y\
+     W1wbGUuY29tL3N2Y0EifQ.JCh9sN__1Al9xVB-K7CFafw1tDV8PCeZvyKdFyMmb9v\
+     vN4mK2ZGNbC6VLFpNzpVsgGBV0FwmzerDAFuikSJBCw
+
+   *WIT-B* (iat = T0-60, exp = T0+3600, jti = wit-b-1795000000.)
+
+   eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3Q\
+     ifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVkMjU1MTkiLCJjcnYiOiJFZDI1NTE5I\
+     iwia2lkIjoidmVjLWIta2V5Iiwia3R5IjoiT0tQIiwieCI6IjRqVkF6Z0VQTzVuLT\
+     ZqdWpTaXlRTUU1dC10SXpaQXBiaFI1Y1RQb2VkSUkifX0sImV4cCI6MTc5NTAwMzY\
+     wMCwiaWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lz\
+     c3VlciIsImp0aSI6IndpdC1iLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4Y\
+     W1wbGUuY29tL3N2Y0IifQ.iBAAT-2xF6Polfa49cDu4THgh3zhCdbAitBM5JIgxuu\
+     CEdbjMKglKVskt7E78jdE42i3FMMP9-Lw0PLRXwXaBQ
+
+   *WIT-C* (iat = T0-60, exp = T0+3600, jti = wit-c-1795000000.)
+
+   eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoiaXNzdWVyLWtleSIsInR5cCI6IndpdCtqd3Q\
+     ifQ.eyJjbmYiOnsiandrIjp7ImFsZyI6IkVTMjU2IiwiY3J2IjoiUC0yNTYiLCJra\
+     WQiOiJ2ZWMtYy1rZXkiLCJrdHkiOiJFQyIsIngiOiJqWmpmVUJRZ0QxbDlSX2xtNG\
+     56bzFyUDgycEdWREJ4SEQ2WW1Pb194b0NvIiwieSI6IkNCR3Y5YjhoQi1sMG1vdjl\
+     ybHUyMjNnLXZORV9TcXVDQzJJaFBpMkl3ZUUifX0sImV4cCI6MTc5NTAwMzYwMCwi\
+     aWF0IjoxNzk0OTk5OTQwLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3Vlc\
+     iIsImp0aSI6IndpdC1jLTE3OTUwMDAwMDAiLCJzdWIiOiJ3aW1zZTovL2V4YW1wbG\
+     UuY29tL3N2Y0MifQ.8-bmHNavOVSxyr2hAtnKfrC-kdm5L4XMP4n1cGGMLh5DjSPm\
+     djTWkpKtTO9tPZfKMIfLVC7xGaDvoJXUdizGCg
+
+   Trusted configuration (shared by all vectors unless an entry states
+   otherwise): the verifier at svcB trusts the wimse-aud set
+   {"https://svcb.example.com/gimme-ice-cream",
+   "https://svcb.example.com/inventory/cones",
+   "https://svcb.example.com/status", "https://svcb.example.com"}; the
+   trust anchor for WITs is the Issuer public key above.
+
+4.  Positive Test Vectors
+
+4.1.  P-01 - Signed request, Ed25519 (svcA to svcB, requesting a signed
+      response)
+
+   *P-01.* Exercises: the Section 3 coverage list (@method, @path,
+   @query, plus present headers that must be signed), the required
+   signature parameters (created, expires, nonce, tag, and, for
+   requests, wimse-aud), and wimse-sign-response (Section 3.3).  The
+   @query component value carries the leading '?' per RFC 9421,
+   Section 2.2.7.
+
+   Message:
+
+   GET /gimme-ice-cream?flavor=vanilla HTTP/1.1
+   Host: svcb.example.com
+   Workload-Identity-Token: [WIT-A，§2 全文]
+   Signature-Input: sig1=("@method" "@path" "@query" "workload-identit\
+     y-token");created=1795000000;expires=1795000300;nonce="7f3a9c1e5b\
+     284d06a1f4e8c2b6d50937";tag="wimse-workload-to-workload";wimse-au\
+     d="https://svcb.example.com/gimme-ice-cream";wimse-sign-response
+   Signature: sig1=:qrIGE6wS80/UvhJx96iDiz90OIYmUX8CFO4vOeK/40D7pnukei\
+     kqvsYGDs6aqXx099ILxgZliEepCw1P5M7YDg==:
+
+   Signature base:
+
+   "@method": GET
+   "@path": /gimme-ice-cream
+   "@query": ?flavor=vanilla
+   "workload-identity-token": [WIT-A，§2 全文]
+   "@signature-params": ("@method" "@path" "@query" "workload-identity\
+     -token");created=1795000000;expires=1795000300;nonce="7f3a9c1e5b2\
+     84d06a1f4e8c2b6d50937";tag="wimse-workload-to-workload";wimse-aud\
+     ="https://svcb.example.com/gimme-ice-cream";wimse-sign-response
+
+   Expected: the request verifies, and because wimse-sign-response is
+   true the server is obliged to sign its response (see P-02).
+   Procedure: validate the WIT first (issuer signature, exp after the
+   verification time); verify the signature with the cnf.jwk key
+   (Ed25519, vec-a-key) per Section 3.1; check the coverage list and
+   required parameters item by item; compare wimse-aud against the
+
+   trusted configuration by Simple String Comparison (Section 3.2);
+   confirm the verification time (T0+60) falls within [created,
+   expires].  Any failure is reported through the Section 3.6 error
+   surface without distinguishing which check failed.
+
+4.2.  P-02 - Signed response (svcB to svcA, answering P-01)
+
+   *P-02.* Exercises: the Section 3 response coverage list (@status, the
+   ;req components, Workload-Identity-Token, and Content-Type / Content-
+   Digest where present), wimse-req-nonce (Section 3.4), and response
+   verification (Section 3.5).  The response body is "No ice cream
+   today.\n" (20 bytes); its Content-Digest value agrees byte-for-byte
+   with the corresponding example in Section 3.7.1 of the base
+   specification, an independent cross-check of the generation pipeline
+   against the specification's own examples.
+
+   Message:
+
+   HTTP/1.1 404 Not Found
+   Content-Type: text/plain
+   Content-Digest: sha-256=:uJC3qmCc7n6/6w4N2I0vAfj1cd/hTOAhxLEYXmPbNn\
+     o=:
+   Workload-Identity-Token: [WIT-B，§2 全文]
+   Signature-Input: sig1=("@status" "workload-identity-token" "content\
+     -type" "content-digest" "@method";req "@path";req "@query";req);c\
+     reated=1795000002;expires=1795000302;nonce="2b8e4f0a9d1c3756e0a2b\
+     4c6d8f0a1b3";tag="wimse-workload-to-workload";wimse-req-nonce="7f\
+     3a9c1e5b284d06a1f4e8c2b6d50937"
+   Signature: sig1=:XugjjXCtpc0lkt5QSnjVF/OcQwqhQAqAzuykBUw36FsGV6BmXc\
+     MKfY0YZTMTnvpsjIZkmOeTN+PvQEzAb/veDQ==:
+
+   No ice cream today.
+
+   Signature base:
+
+   "@status": 404
+   "workload-identity-token": [WIT-B，§2 全文]
+   "content-type": text/plain
+   "content-digest": sha-256=:uJC3qmCc7n6/6w4N2I0vAfj1cd/hTOAhxLEYXmPb\
+     Nno=:
+   "@method";req: GET
+   "@path";req: /gimme-ice-cream
+   "@query";req: ?flavor=vanilla
+   "@signature-params": ("@status" "workload-identity-token" "content-\
+     type" "content-digest" "@method";req "@path";req "@query";req);cr\
+     eated=1795000002;expires=1795000302;nonce="2b8e4f0a9d1c3756e0a2b4\
+     c6d8f0a1b3";tag="wimse-workload-to-workload";wimse-req-nonce="7f3\
+     a9c1e5b284d06a1f4e8c2b6d50937"
+
+   Expected: the client verifies and accepts the response.  Procedure:
+   validate WIT-B; verify the signature; confirm wimse-req-nonce is
+   present and equals the nonce of P-01 (Section 3.5); recompute the
+   Content-Digest of the body and compare; confirm the verification time
+   (T0+60) falls within the response's [created, expires].
+
+4.3.  P-03 - Signed request with body, ES256 (svcC to svcB)
+
+   *P-03.* Exercises: algorithm selection by cnf.jwk.alg (Section 3.1)
+   and the rule that a message with a body carries Content-Digest, with
+   Content-Type and Content-Digest signed when present.  The request
+   body is {"flavor":"vanilla","amount":1} (31 bytes); its Content-
+   Digest value agrees byte-for-byte with the example in Section 3.7.2
+   of the base specification.
+
+   Message:
+
+   POST /inventory/cones HTTP/1.1
+   Host: svcb.example.com
+   Content-Type: application/json
+   Content-Digest: sha-256=:TzKXT0tUEfiTFkjRzwE8nCFnQljMuX5xwJaJgJCp+1\
+     g=:
+   Workload-Identity-Token: [WIT-C，§2 全文]
+   Signature-Input: sig1=("@method" "@path" "@query" "workload-identit\
+     y-token" "content-type" "content-digest");created=1795000000;expi\
+     res=1795000300;nonce="c51d7a2e8f093b46a5c1d2e3f4a5b6c7";tag="wims\
+     e-workload-to-workload";wimse-aud="https://svcb.example.com/inven\
+     tory/cones"
+   Signature: sig1=:n7QUfcBz5ruH3anRYFpW7drn1CInZfV4TZPxlqBIlHg1g78FnR\
+     hk7CQudkHN8kNGAHfsBTgIvfHGJMZ8f2QTbQ==:
+
+   Signature base:
+
+   "@method": POST
+   "@path": /inventory/cones
+   "@query": ?
+   "workload-identity-token": [WIT-C，§2 全文]
+   "content-type": application/json
+   "content-digest": sha-256=:TzKXT0tUEfiTFkjRzwE8nCFnQljMuX5xwJaJgJCp\
+     +1g=:
+   "@signature-params": ("@method" "@path" "@query" "workload-identity\
+     -token" "content-type" "content-digest");created=1795000000;expir\
+     es=1795000300;nonce="c51d7a2e8f093b46a5c1d2e3f4a5b6c7";tag="wimse\
+     -workload-to-workload";wimse-aud="https://svcb.example.com/invent\
+     ory/cones"
+
+   Expected: the request verifies.  Procedure: validate WIT-C; verify
+   the ES256 signature with the P-256 public key (the signature value is
+   the raw r||s concatenation); recompute the body digest and compare;
+   compare wimse-aud; check the validity window.
+
+4.4.  P-04 - CONNECT request, the exception case (svcA to svcB)
+
+   *P-04.* Exercises: the Section 3 CONNECT exception: a CONNECT request
+   covers @method and @authority instead of @path and @query, and must
+   not cover @path or @query.  The @authority component value is
+   normalized per RFC 9421, Section 2.2.3 (lowercase host, default port
+   omitted): the request line and Host carry svcb.example.com:443 as the
+   message's original form, while the derived component value is
+   svcb.example.com, 443 being the default port for https.  The wimse-
+   aud value "https://svcb.example.com" follows the deployment-specific
+   provision of Section 3.2, the CONNECT target being in authority form.
+
+   Message:
+
+   CONNECT svcb.example.com:443 HTTP/1.1
+   Host: svcb.example.com:443
+   Workload-Identity-Token: [WIT-A，§2 全文]
+   Signature-Input: sig1=("@method" "@authority" "workload-identity-to\
+     ken");created=1795000000;expires=1795000300;nonce="9a0b1c2d3e4f50\
+     61728394a5b6c7d8e9";tag="wimse-workload-to-workload";wimse-aud="h\
+     ttps://svcb.example.com"
+   Signature: sig1=:oQvU3xBjXSOTm2zDvjGMWa/lsOGPyB8+AYxoA9aNd1Dgx2ulyM\
+     ynph+/lR6d6Vkdl1rXR62kHuaG0sG4q3m2AQ==:
+
+   Signature base:
+
+   "@method": CONNECT
+   "@authority": svcb.example.com
+   "workload-identity-token": [WIT-A，§2 全文]
+   "@signature-params": ("@method" "@authority" "workload-identity-tok\
+     en");created=1795000000;expires=1795000300;nonce="9a0b1c2d3e4f506\
+     1728394a5b6c7d8e9";tag="wimse-workload-to-workload";wimse-aud="ht\
+     tps://svcb.example.com"
+
+   Expected: the request verifies.  Procedure: recognize CONNECT; check
+   the coverage list against the exception set (@method and @authority
+   present, @path and @query absent); then proceed as in P-01.
+
+4.5.  P-05 - Request without a query component (@query is "?")
+
+   *P-05.* Exercises: the Section 3 rule that @query is covered even
+   when the request has no query component, in which case its value is
+   the single character '?'  (RFC 9421, Section 2.2.7).
+
+   Message:
+
+   GET /status HTTP/1.1
+   Host: svcb.example.com
+   Workload-Identity-Token: [WIT-A，§2 全文]
+   Signature-Input: sig1=("@method" "@path" "@query" "workload-identit\
+     y-token");created=1795000000;expires=1795000300;nonce="13579bdf24\
+     68ace013579bdf2468ace0";tag="wimse-workload-to-workload";wimse-au\
+     d="https://svcb.example.com/status"
+   Signature: sig1=:62NICDRikwhl4IlI2ls8cGIACVyuFNtmSZdYOZKiO88AqsKZLQ\
+     uybOkQx5SQYkREcB0OiU4xT+qn9/hoAj1LAg==:
+
+   Signature base:
+
+   "@method": GET
+   "@path": /status
+   "@query": ?
+   "workload-identity-token": [WIT-A，§2 全文]
+   "@signature-params": ("@method" "@path" "@query" "workload-identity\
+     -token");created=1795000000;expires=1795000300;nonce="13579bdf246\
+     8ace013579bdf2468ace0";tag="wimse-workload-to-workload";wimse-aud\
+     ="https://svcb.example.com/status"
+
+   Expected: the request verifies.  Procedure: as in P-01, with the
+   @query component value required to be exactly "?".
+
+4.6.  P-06 - Multiple signatures; selection by tag
+
+   *P-06.* Exercises: the Section 3 rule that the recipient uses the tag
+   to find the WIMSE signature and must not choose by label (see also
+   RFC 9421, Section 7.2.5), and the provision of Section 5.2 of the
+   base specification under which intermediaries may add their own
+   signatures.  Here sig1 is a non-WIMSE signature by 'other', appearing
+   first; sig2 is the WIMSE signature.
+
+   Message:
+
+   GET /gimme-ice-cream?flavor=vanilla HTTP/1.1
+   Host: svcb.example.com
+   Workload-Identity-Token: [WIT-A，§2 全文]
+   Signature-Input: sig1=("@method" "@path");created=1795000000;keyid=\
+     "other-key";tag="example-other", sig2=("@method" "@path" "@query"\
+      "workload-identity-token");created=1795000000;expires=1795000300\
+     ;nonce="f0e1d2c3b4a5968778695a4b3c2d1e0f";tag="wimse-workload-to-\
+     workload";wimse-aud="https://svcb.example.com/gimme-ice-cream"
+   Signature: sig1=:C9vDZlqwPqD3dPtkwhQDz0cmpsy0Z2tSE/ewIHjMCdgmdNN7nq\
+     rZTLLZqGobMOjswZF43HMaJXGGjFVuRYB5BQ==:, sig2=:Dyr5ErLhw5LmeYIztg\
+     6QZmfARn96ucIGuMXUgsyGj9MMc4Y9cQmQ6345/c8/n584kmlk1TfL7xmNVDQKkG7\
+     EAw==:
+
+   Signature base:
+
+   "@method": GET
+   "@path": /gimme-ice-cream
+   "@query": ?flavor=vanilla
+   "workload-identity-token": [WIT-A，§2 全文]
+   "@signature-params": ("@method" "@path" "@query" "workload-identity\
+     -token");created=1795000000;expires=1795000300;nonce="f0e1d2c3b4a\
+     5968778695a4b3c2d1e0f";tag="wimse-workload-to-workload";wimse-aud\
+     ="https://svcb.example.com/gimme-ice-cream"
+
+   Signature base (sig1, the decoy signature):
+
+   "@method": GET
+   "@path": /gimme-ice-cream
+   "@signature-params": ("@method" "@path");created=1795000000;keyid="\
+     other-key";tag="example-other"
+
+   Expected: the verifier selects sig2 by its tag and the WIMSE
+   verification passes; sig1 does not enter the WIMSE judgment.
+   Procedure: enumerate all signatures; select the unique one whose tag
+   is "wimse-workload-to-workload"; apply the P-01 procedure to it.  An
+   implementation that selects sig1 by label order fails this vector's
+   companion behavior case, N-22.
+
+5.  Negative Test Vectors
+
+   Each entry states its construction as a mutation of a base vector
+   (or, for behavior cases, as a described implementation behavior), the
+   normative requirement it exercises, and the expected outcome.  Unless
+   an entry states otherwise, rejection means HTTP 400 with the problem
+   type https://iana.org/assignments/http-problem-types#wimse-signature-
+   invalid and no distinction between failing checks.
+
+5.1.  N-01 - Missing @query coverage
+
+   *Construction.* Base P-01.  Mutation: "@query" is removed from the
+   coverage list.  The Signature value is carried over unchanged from
+   P-01.
+
+   *Requirement.* Section 3: "The following derived components MUST be
+   signed: @method, @path, @query".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  The coverage check fails on the missing component; signature
+   verification is not reached.
+
+5.2.  N-02 - CONNECT request covering @path
+
+   *Construction.* Base P-04.  Mutation: "@path" is added to the
+   coverage list (its value would be "/").  The signature is regenerated
+   (see Conventions).
+
+   *Requirement.* Section 3: "For a CONNECT request, senders MUST cover
+   @method and @authority instead of @path and @query, and MUST NOT
+   cover @path or @query".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  In the CONNECT branch, the presence of @path or @query in the
+   coverage list fails the check.
+
+5.3.  N-03 - Body without Content-Digest
+
+   *Construction.* Base P-03.  Mutation: the Content-Digest header and
+   its coverage entry are removed.  The Signature value is carried over
+   unchanged from P-03.
+
+   *Requirement.* Section 3: "if the request or response includes a
+   body, the sender MUST include (and the receiver MUST verify) a
+   Content-Digest header".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  A body is present and the Content-Digest header is absent.
+
+5.4.  N-04 - Content-Digest does not match the body
+
+   *Construction.* Base P-03.  Mutation: the body is replaced with
+   {"flavor":"chocolate","amount":1}; the Content-Digest header value is
+   unchanged.  The Signature value is carried over unchanged from P-03.
+
+   *Requirement.* Section 3: "the receiver MUST compute the Content-
+   Digest value for the message content received and compare it with the
+   Content-Digest value provided".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  The recomputed digest differs.  (The mutation also invalidates
+   the signature; the error surface must not distinguish the failing
+   check - see N-17.)
+
+5.5.  N-05 - Missing expires parameter
+
+   *Construction.* Base P-01.  Mutation: expires is removed from
+   Signature-Input.  The Signature value is carried over unchanged from
+   P-01.
+
+   *Requirement.* Section 3: "the following signature parameters MUST be
+   included: created, expires, nonce, tag".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  The required-parameter check fails.
+
+5.6.  N-06 - keyid parameter present
+
+   *Construction.* Base P-01.  Mutation: keyid="vec-a-key" is added to
+   the parameter set and the signature is regenerated over the mutated
+   base, so the signature is cryptographically valid for the message as
+   sent.
+
+   *Requirement.* Section 3: "The following signature parameters in the
+   Signature-Input header MUST NOT be used: keyid".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  The presence of keyid fails the check regardless of
+   cryptographic validity: the signature does not constitute a
+   conforming WIMSE signature.  This reading was confirmed by a co-
+   author of the base specification on the WIMSE mailing list on 7
+   November 2026.
+
+5.7.  N-07 - alg parameter present
+
+   *Construction.* Base P-01.  Mutation: alg="ed25519" is added to the
+   parameter set and the signature is regenerated.
+
+   *Requirement.* Section 3 (the MUST NOT list includes alg) and
+   Section 3.1: "The alg signature parameter MUST NOT be used".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type, as in N-06; the co-author confirmation recorded there applies
+   equally.
+
+5.8.  N-08 - Two signatures carrying the WIMSE tag
+
+   *Construction.* Base P-06.  Mutation: the decoy signature sig1 has
+   its tag set to "wimse-workload-to-workload"; its coverage and
+   signature are regenerated accordingly.
+
+   *Requirement.* Section 3: "If more than one signature has that tag
+   value, the recipient MUST reject the message".
+
+   *Expected.* Reject the whole message: HTTP 400 with the wimse-
+   signature-invalid problem type.  The tag match count exceeds one; the
+   failure precedes any signature verification.
+
+5.9.  N-09 - Verification outside the validity window
+
+   *Construction.* Base P-01, message unmodified.  Mutation: the
+   verification time is T0+3600, after expires (T0+300).  The Signature
+   value is as in P-01.
+
+   *Requirement.* Section 3: "Recipients MUST reject signatures that
+   fall outside their validity time window".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  Note: at T0+3600 the WIT has also expired, so this case does
+   not isolate the signature window; N-09b provides the isolated
+   boundary case.
+
+5.10.  N-09b - Validity-window boundary: one second past expires
+
+   *Construction.* Base P-01, message unmodified.  This is a contrast
+   case with two evaluations of the same message: at verification time
+   T0+300 the expected outcome is ACCEPT; at T0+301 it is REJECT.  Every
+   other stage of the decision procedure (WIT validation, selection,
+   parameters, coverage, base, digest, cryptography, audience) is
+   invariant across the two evaluations, and at T0+301 WIT-A remains
+   within its own validity period (exp = T0+3600), so the rejection is
+   attributable solely to the signature validity window.
+
+   *Requirement.* Section 3: "Recipients MUST reject signatures that
+   fall outside their validity time window".
+
+   *Expected.* At T0+300: accept.  At T0+301: reject, HTTP 400 with the
+   wimse-signature-invalid problem type.  Together with N-09 (far
+   outside the window), this brackets the right edge of the closed
+   interval [created, expires] and catches implementations that treat
+   expires as exclusive or round it to a coarser granularity.
+
+5.11.  N-10 - wimse-aud differing only by URI normalization
+
+   *Construction.* Base P-01.  Mutation: wimse-aud is set to
+   "https://svcb.example.com/gimme-ice-cream/" (a trailing slash is
+   added) and the signature is regenerated.
+
+   *Requirement.* Section 3.2: "The recipient MUST verify that wimse-aud
+   matches one of the audience values in its trusted configuration using
+   the Simple String Comparison method of RFC 3986 Section 6.2.1";
+   strings differing only by URI normalization do not match under that
+   method.
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  The byte-for-byte comparison fails; normalization equivalence
+   must not be applied.
+
+5.12.  N-11 - Request missing wimse-aud
+
+   *Construction.* Base P-01.  Mutation: wimse-aud is removed from the
+   parameter set and the signature is regenerated.
+
+   *Requirement.* Section 3: "For requests only, the following signature
+   parameter MUST also be included: wimse-aud".
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.
+
+5.13.  N-12 - Signed response missing wimse-req-nonce
+
+   *Construction.* Base P-02.  Mutation: wimse-req-nonce is removed from
+   the response parameter set and the signature is regenerated.
+
+   *Requirement.* Section 3.4: "Every signed response MUST include
+   wimse-req-nonce"; Section 3 lists it among the required response
+   parameters.
+
+   *Expected.* The client rejects the response.  The response parameter
+   check fails.
+
+5.14.  N-13 - wimse-req-nonce not equal to the request nonce
+
+   *Construction.* Base P-02.  Mutation: wimse-req-nonce is set to
+   "00000000000000000000000000000000" and the signature is regenerated.
+
+   *Requirement.* Section 3.5: "the client MUST verify that wimse-req-
+   nonce is present and equals the nonce from the corresponding
+   request".
+
+   *Expected.* The client rejects the response.  The value differs byte-
+   for-byte from the nonce of the request that triggered it; this
+   binding is the defense against response mix-up and replay across
+   requests.
+
+5.15.  N-14 - Signed response required, response unsigned
+
+   *Construction.* Base P-01 with P-02.  Construction: the server
+   returns the status line and body of P-02 but with no Signature or
+   Signature-Input header at all.
+
+   *Requirement.* Section 3.5: "The client MUST reject an unsigned
+   response when the request's Signature-Input included wimse-sign-
+   response with the Boolean value true".
+
+   *Expected.* The client rejects the response.
+
+5.16.  N-15 - Signature algorithm does not match cnf.jwk.alg
+
+   *Construction.* Independent construction (not a re-signing mutation).
+   The message has the form of P-01 and carries WIT-A, whose cnf
+   declares Ed25519 / vec-a-key; but the signature was produced by
+   svcC's ES256 key over the same signature base and is
+   cryptographically valid under svcC's public key.  The literal message
+   and signature base follow; in the base, the @signature-params line
+   carries nonce "abcdef0123456789abcdef0123456789" and no wimse-sign-
+   response parameter.
+
+   *Requirement.* Section 3.1: "Recipients MUST verify the HTTP message
+   signature using the algorithm identified by cnf.jwk.alg and MUST
+   reject the message if that algorithm is not acceptable".
+
+   Message and signature:
+
+   Signature-Input: sig1=("@method" "@path" "@query" "workload-identit\
+     y-token");created=1795000000;expires=1795000300;nonce="abcdef0123\
+     456789abcdef0123456789";tag="wimse-workload-to-workload";wimse-au\
+     d="https://svcb.example.com/gimme-ice-cream"
+   Signature: sig1=:28GmtKZAQJ1w6QtPGGrrrXMhdSgWXCmMbTVIuFNUh+PvOWS1oy\
+     SwSUAPGhhvoad18zrTZXYh/Dh0ixcHcfB77g==:
+
+   *Expected.* Reject: HTTP 400 with the wimse-signature-invalid problem
+   type.  Verification is performed only with the algorithm and key
+   bound by the WIT's cnf; that the signature verifies under a different
+   key is not a ground for acceptance.
+
+5.17.  N-16 - Insufficient nonce entropy (sender behavior)
+
+   *Construction.* Construction: a sender implementation under test
+   draws its nonces from a 32-bit space (for example, 8 hexadecimal
+   characters).
+
+   *Requirement.* Section 3: "the nonce MUST contain at least 64 bits of
+   entropy" and must be generated from a cryptographically secure random
+   source.
+
+   *Expected.* Conformance judgment on the sender.  A verifier cannot
+   measure entropy from a single nonce; the judgment is made at the
+   test-harness level: collect the nonces of N requests from the
+   implementation, and if their value space or generation distribution
+   provides less than 64 bits of entropy, the implementation is
+   nonconformant.
+
+5.18.  N-17 - Error surface distinguishes failures, or uses 401 (server
+       behavior)
+
+   *Construction.* Construction: a server under test returns different
+   problem types or distinguishable text for an invalid WIT and for an
+   invalid signature, or returns 401 for an authentication failure.
+
+   *Requirement.* Section 3.6: "the server MUST return 400 (Bad
+   Request)"; "The server MUST NOT distinguish in the response which
+   check failed"; 401 is NOT RECOMMENDED.
+
+   *Expected.* Conformance judgment on the server.  Procedure: submit
+   both failure classes; the responses must both be HTTP 400 with the
+   wimse-signature-invalid problem type and must be indistinguishable; a
+   401 response also fails.
+
+5.19.  N-18 - Successful unsigned response where a signed response is
+       required (server behavior)
+
+   *Construction.* Construction: the request carries wimse-sign-response
+   with value true; the server does not support response signing, or
+   this response cannot be signed, yet returns 200 with an unsigned
+   body.
+
+   *Requirement.* Section 3.5: "it MUST NOT return a successful unsigned
+   response; it MUST return an error"; Section 3.6: 501 with wimse-
+   signed-response-unsupported where response signing is not supported,
+   400 with wimse-signed-response-unavailable where it is supported but
+   this response cannot be signed.
+
+   *Expected.* Conformance judgment on the server.  A response with
+   status 200 and no signature is nonconformant; the conforming behavior
+   is the 501 or 400 error, matched to the case.
+
+5.20.  N-19 - Accept-Signature requesting weaker-than-profile coverage
+       (sender behavior)
+
+   *Construction.* Construction: a client sends Accept-Signature in a
+   request, asking that the response cover only "@status".
+
+   *Requirement.* Section 3.5: "Accept-Signature MUST NOT be used to
+   request coverage weaker than this profile".
+
+   *Expected.* Conformance judgment on the sender; a server must not
+   lower the Section 3 response coverage on the basis of such a request.
+   Procedure: if the component set requested by Accept-Signature does
+   not include the full Section 3 response coverage set, the case fails.
+
+5.21.  N-20 - Processing before the WIT is validated (verifier behavior)
+
+   *Construction.* Construction: a verifier implementation under test
+   verifies the message signature first, or allows the message content
+   to reach business processing before validation has fully completed
+   (process first, verify later).  The WIT validation procedure
+   referenced is that of [WORKLOAD-CREDS].
+
+   *Requirement.* Section 3: "Recipients ... MUST validate the WIT as
+   specified in Section 5.1.4 of [workload-creds] before validating the
+   HTTP message signature.  They MUST ensure that the message is not
+   processed further before it has been fully validated".
+
+   *Expected.* Conformance judgment on the verifier.  Probe: present a
+   message whose WIT is expired but whose message signature is
+   cryptographically valid; if processing produces a business side
+
+   effect instead of the 400 rejection, the implementation is
+   nonconformant.  Ordering is additionally assessed by implementation
+   inspection or instrumentation evidence.
+
+5.22.  N-21 - CONNECT signed response covering @path;req
+
+   *Construction.* Base: the P-02 form migrated to a CONNECT exchange.
+   Mutation: "@path";req is added to the response coverage list.  The
+   signature is regenerated (migration construction).
+
+   *Requirement.* Section 3: "When the signed response corresponds to a
+   CONNECT request, senders MUST cover @method;req and @authority;req
+   instead of @path;req and @query;req, and MUST NOT cover @path;req or
+   @query;req".
+
+   *Expected.* The client rejects the response signature.  In the
+   CONNECT response branch, the presence of @path;req or @query;req in
+   the coverage list fails the check.
+
+5.23.  N-22 - Signature selection by label (verifier behavior)
+
+   *Construction.* Base P-06, at the verifier.  Construction: an
+   implementation under test selects the signature to verify by label
+   order (taking sig1 first) or by a fixed label name.
+
+   *Requirement.* Section 3: "recipients MUST use that tag to find the
+   WIMSE signature; they MUST NOT choose by label" (see RFC 9421,
+   Section 7.2.5).
+
+   *Expected.* Conformance judgment on the verifier.  In the P-06
+   scenario, failure to select sig2 (the tag match) is nonconformant.
+   This case is the mirror image of N-08, which exercises the sender
+   side (two signatures with the same tag).
+
+6.  Observations
+
+   *O-1 - The replay cache is a SHOULD.* Section 3 provides that
+   recipients MAY maintain a replay cache and SHOULD reject a message
+   whose nonce they have already seen.  Because this is not a MUST,
+   replay of an identical message is not a negative vector.  It is
+   nevertheless the profile's only replay defense; where verifier caches
+   are not shared, a replay can still succeed, as the base specification
+   itself notes in Sections 3 and 5.1.  Testing guidance for this
+   behavior may merit a note alongside the vector set.
+
+   *O-2 - Example nonces in the base specification versus the entropy
+   MUST.* The examples in Section 3.7 of the base specification use
+   nonces such as "abcd1111" - 8 hexadecimal digits, literally 32 bits -
+
+   against Section 3's requirement of at least 64 bits of entropy.
+   Examples are non-normative and illustrative values are customary, so
+   this is not an error in the specification; but the risk of
+   implementers copying example values is real.  A co-author of the base
+   specification confirmed on 7 November 2026 that an editorial note
+   ("example nonces are illustrative and do not meet the entropy
+   minimum") will be added and tracked in an issue.  This entry is
+   retained until the note appears in the text.
+
+   *O-3 - Covering @authority in non-CONNECT requests.* For ordinary
+   requests the profile does not cover @authority, but Section 3 states
+   no MUST NOT against covering it (the MUST NOT appears only in the
+   CONNECT branch); additional coverage of @authority in an ordinary
+   request is therefore not a negative case.  Its division of labor with
+   wimse-aud (Section 5.1) is left as a deployment-reading observation.
+
+7.  Security Considerations
+
+   All private keys, seeds, and tokens appearing in this document are
+   test material generated exclusively for these test vectors and
+   published intentionally.  They MUST NOT be used in any production
+   system.  The deterministic derivation of the test keys from public
+   seeds means that any party can reproduce them; that is by design, and
+   it is also why they must never be reused elsewhere.  This document
+   introduces no protocol behavior and no new security considerations
+   beyond those of [WIMSE-HTTPSig].
+
+8.  IANA Considerations
+
+   This document has no IANA actions.
+
+9.  References
+
+9.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC6979]  Pornin, T., "Deterministic Usage of the Digital Signature
+              Algorithm (DSA) and Elliptic Curve Digital Signature
+              Algorithm (ECDSA)", RFC 6979, August 2013,
+              <https://www.rfc-editor.org/info/rfc6979>.
+
+   [RFC8032]  Josefsson, S. and I. Liusvaara, "Edwards-Curve Digital
+              Signature Algorithm (EdDSA)", RFC 8032, January 2017,
+              <https://www.rfc-editor.org/info/rfc8032>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, May 2017,
+              <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC9421]  Backman, A., Richter, J., and M. Sporny, "HTTP Message
+              Signatures", RFC 9421, February 2024,
+              <https://www.rfc-editor.org/info/rfc9421>.
+
+   [WIMSE-HTTPSig]
+              Salowey, J. and Y. Sheffer, "Workload-to-Workload
+              Authentication with HTTP Signatures", Work in Progress,
+              Internet-Draft, draft-ietf-wimse-http-signature-08,
+              October 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-wimse-http-signature-08>.
+
+9.2.  Informative References
+
+   [RFC8792]  Leiba, B., "Handling Long Lines in Content of Internet-
+              Drafts and RFCs", RFC 8792, June 2020,
+              <https://www.rfc-editor.org/info/rfc8792>.
+
+   [WORKLOAD-CREDS]
+              Sheffer, Y., "WIMSE Workload Credentials", Work in
+              Progress, Internet-Draft, draft-ietf-wimse-workload-creds,
+              2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              wimse-workload-creds>.
+
+Appendix A.  Acknowledgments
+
+   The author thanks Yaron Sheffer, co-author of the base specification,
+   whose review points led to the corrections recorded in the Change Log
+   and who confirmed the readings relied on in N-06, N-07, and O-2; the
+   independent implementers whose reproductions of the set found the
+   @query defect corrected in v2, including kanywst, who also proposed
+   the P-04 normalization check and the N-09b boundary case; and Kieran
+   Sweeney, whose cred-ninja implementation validated the full set.
+
+Appendix B.  Change Log
+
+   *v1 (6 November 2026).* Initial set published as a public comment in
+   issue #419 of the base specification's repository and announced on
+   the WIMSE mailing list: 28 vectors (6 positive, 22 negative) and 3
+   observations.
+
+   *v2 (November 2026).* Corrections arising from independent
+   reproduction and working-group review: in P-01, P-02, and P-06
+   (sig2), the @query line of the signature base was corrected to
+   include the leading '?' per RFC 9421, Section 2.2.7, and the
+
+   signatures were re-issued; the N-15 signature was recomputed per RFC
+   6979 over the corrected base; N-06 and N-07 were annotated with the
+   co-author confirmation described in those entries; the status note of
+   O-2 was updated.
+
+   *v3 (12 November 2026).* In P-04, the @authority component value was
+   normalized to omit the default port per RFC 9421, Section 2.2.3, and
+   the signature was re-issued.  Archived at Zenodo, DOI 10.5281/
+   zenodo.24184599.
+
+   *v4 (13 November 2026).* Added the N-09b boundary vector and a
+   machine-readable anchor layer supporting automated extraction by the
+   companion conformance suite; no other vector content changed.
+   Archived at Zenodo, DOI 10.5281/zenodo.24203971.
+
+   *This document.* The v4 set presented in Internet-Draft form, as -00.
+
+Author's Address
+
+   Jiahui Miao
+   Vertciti
+   Email: contact@vertciti.com
+

@@ -1,0 +1,3 @@
+strict RFC 8792 unfold has no space: True
+with one space restored: accept None label sig2 base==given: True
+decoy sig1 verifies with other-key: True | decoy base==given: True

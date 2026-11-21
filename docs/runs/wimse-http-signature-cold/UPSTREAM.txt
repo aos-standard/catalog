@@ -1,0 +1,8 @@
+Fetched 2026-11-21 (UTC) from https://www.ietf.org/archive/id/<name>.txt
+55af441a38a38559337a693d1bbfc1f0d04af12dfa1a8e1911bc6702de69acbe  draft-ietf-wimse-http-signature-08.txt
+80af70b9b6f34b799ab9c2889d189ac22693339fbc96aa0799cf4a185b0eda68  draft-ietf-wimse-http-signature-09.txt
+b111e4e85a7f3bc5c844560db87276c184a04db28ffeaccb057c13eb034dbed5  draft-ietf-wimse-workload-creds-02.txt
+a329bbd4a969813914ec9f78b4643d6af24fca831f5272622d0fb864c9bf5538  draft-ietf-wimse-workload-creds-03.txt
+139396326be144233cef2125d53764e6e5e280610134f9fffa3df0b91c4d1438  draft-miao-wimse-http-signature-test-vectors-00.txt
+Zenodo 10.5281/zenodo.24203971: HTTP 403 to this network; not used.
+IETF issue: https://github.com/ietf-wg-wimse/draft-ietf-wimse-s2s-protocol/issues/419 (closed 2026-11-16)

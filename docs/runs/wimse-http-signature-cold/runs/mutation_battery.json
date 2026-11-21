@@ -1,0 +1,147 @@
+{
+ "M01 WIT issuer signature not checked": {
+  "caught_by": []
+ },
+ "M02 WIT typ not checked": {
+  "caught_by": []
+ },
+ "M03 WIT exp not checked": {
+  "caught_by": []
+ },
+ "M04 cnf.jwk.alg policy/consistency not checked": {
+  "caught_by": []
+ },
+ "M05 WIT sub not checked": {
+  "caught_by": []
+ },
+ "M06 created in the future accepted": {
+  "caught_by": []
+ },
+ "M07 expires treated as exclusive": {
+  "caught_by": [
+   "N-09b@T0+300"
+  ]
+ },
+ "M08 expires not checked": {
+  "caught_by": [
+   "N-09b@T0+301"
+  ]
+ },
+ "M09 nonce not required": {
+  "caught_by": []
+ },
+ "M10 created not required": {
+  "caught_by": []
+ },
+ "M11 keyid allowed": {
+  "caught_by": [
+   "N-06"
+  ]
+ },
+ "M12 alg allowed": {
+  "caught_by": [
+   "N-07"
+  ]
+ },
+ "M13 @method coverage not required (request)": {
+  "caught_by": []
+ },
+ "M14 @path/@query coverage not required": {
+  "caught_by": []
+ },
+ "M15 only @query coverage required (not @path)": {
+  "caught_by": []
+ },
+ "M16 Authorization coverage not required": {
+  "caught_by": []
+ },
+ "M17 Workload-Identity-Token coverage not required (request)": {
+  "caught_by": []
+ },
+ "M18 Content-Type coverage not required (request)": {
+  "caught_by": []
+ },
+ "M19 Content-Digest coverage not required (request)": {
+  "caught_by": []
+ },
+ "M20 Content-Digest presence not required": {
+  "caught_by": []
+ },
+ "M21 Content-Digest value not compared": {
+  "caught_by": [
+   "N-04"
+  ]
+ },
+ "M22 CONNECT may cover @path/@query": {
+  "caught_by": []
+ },
+ "M23 CONNECT @authority not required": {
+  "caught_by": []
+ },
+ "M24 wimse-aud not required": {
+  "caught_by": [
+   "N-11"
+  ]
+ },
+ "M25 wimse-aud compared after URI normalization": {
+  "caught_by": [
+   "N-10"
+  ]
+ },
+ "M26 wimse-aud not compared": {
+  "caught_by": [
+   "N-10"
+  ]
+ },
+ "M27 more than one WIMSE signature: first one used": {
+  "caught_by": []
+ },
+ "M28 signature chosen by label (first), not by tag": {
+  "caught_by": [
+   "P-06"
+  ]
+ },
+ "M29 response: wimse-req-nonce not required": {
+  "caught_by": [
+   "N-12"
+  ]
+ },
+ "M30 response: wimse-req-nonce not compared": {
+  "caught_by": [
+   "N-13"
+  ]
+ },
+ "M31 response: unsigned accepted even when required": {
+  "caught_by": [
+   "N-14"
+  ]
+ },
+ "M32 response: @status / @method;req not required": {
+  "caught_by": []
+ },
+ "M33 response: @path;req/@query;req not required": {
+  "caught_by": []
+ },
+ "M34 response: CONNECT may cover @path;req": {
+  "caught_by": []
+ },
+ "M35 response: Workload-Identity-Token coverage not required": {
+  "caught_by": []
+ },
+ "M36 response: Content-Type/Digest coverage not required": {
+  "caught_by": []
+ },
+ "M37 signature verified with any known key type (not cnf.jwk.alg)": {
+  "caught_by": [
+   "N-15"
+  ]
+ },
+ "M39 expires not required": {
+  "caught_by": []
+ },
+ "M38 message signature not checked": {
+  "caught_by": [
+   "N-15"
+  ]
+ }
+}
