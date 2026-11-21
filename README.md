@@ -6,8 +6,11 @@ every input. Corrections are added beside a run, never over it. How it is done: 
 
 ## Runs
 
+Where each run stands in the other project's thread (open, merged, replied), measured on a stated date: [`docs/runs/STATUS.md`](docs/runs/STATUS.md).
+
 | run | target | result |
 |---|---|---|
+| [`wimse-http-signature-cold`](docs/runs/wimse-http-signature-cold/) | IETF WIMSE HTTP signature test vectors (draft-miao-wimse-http-signature-test-vectors-00; seed corpus of ITU-T FG-TIDA themes#66) | 26/26 applicable of 29; 10 proposed negative vectors |
 | [`aps-lease-revocation-axes-cold`](docs/runs/aps-lease-revocation-axes-cold/) | APS conformance suite, `lease-revocation-axes` revision 2 | 176/176 calls × profiles; declared variant sets reproduced in three published steps |
 | [`work-acceptance-record-cold`](docs/runs/work-acceptance-record-cold/) | work-acceptance-record (x402-foundation/tsc#4), profiles 1.2.1–1.4.1 | 57/57 at `bc5a138`; probes adopted as upstream vectors |
 | [`ap2-evidence-pack-cold`](docs/runs/ap2-evidence-pack-cold/) | ap2-evidence-pack (google-agentic-commerce/AP2#338) | 26/26 at 1.5.3; later versions in its addenda |
