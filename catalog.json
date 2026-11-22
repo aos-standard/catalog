@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.1.0",
-  "generated_at": "2026-11-15T23:40:45.745134+00:00",
+  "generated_at": "2026-11-22T23:40:57.054301+00:00",
   "publisher": "aos-standard",
   "maintainers": [
     "Tetsurohhori"
@@ -28,66 +28,6 @@
   },
   "total_products": 2,
   "products": [
-    {
-      "product_id": "mcp-blast-radius",
-      "display_name": "MCP Blast-Radius Auditor",
-      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences. Query bundled business-DNA precedents via list/search/get tools. Conflict-free verification: no phone-home, Ed25519 attestations, and the same audit rules applied to our own tools via public governance.json.",
-      "version": "0.2.8",
-      "limitations": "Static analysis only; findings use confidence labels (observed-static, inferred). Default scan scope excludes tests/, docs/, examples/, scripts/, benchmarks/, .github/, and test_*.py unless --include-peripheral is set.",
-      "aos_compliant": true,
-      "pricing": {
-        "model": "per_run",
-        "unit_price": 1.0,
-        "currency": "USD"
-      },
-      "payment": {
-        "rail": {
-          "chain_caip2": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-          "asset": "USDC",
-          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-          "decimals": 6
-        },
-        "pay_to": "7m3eDYs3FeyG2kp6F4gRd4p2V1g4eQX9RNrBPHRHwYvi",
-        "token_account": "ESLDKS4EvANSkqbF1u3rYnty8FAoRg2vLg4zA1dCvXG9",
-        "amount": {
-          "settlement_asset": "USDC",
-          "usdc_per_usd": 1,
-          "formula": "pricing.unit_price * run_count",
-          "smallest_units_formula": "round(pricing.unit_price * run_count * 10^decimals)"
-        },
-        "correlation": {
-          "method": "include_tx_signature_in_fulfillment_request",
-          "memo_field": "none"
-        },
-        "fulfillment_request": {
-          "channel": "github_issue",
-          "url": "https://github.com/aos-standard/catalog/issues/new",
-          "required_fields": [
-            "product_id",
-            "run_count",
-            "tx_signature",
-            "delivery_destination"
-          ]
-        },
-        "deliverable": "Human-delivered run output for the paid product_id, as specified in the fulfillment request. There is no automatic delivery endpoint.",
-        "turnaround": {
-          "automatic_delivery": false,
-          "human_step": true,
-          "typical": "within 2 business days after on-chain confirmation and a complete fulfillment request that includes the transaction signature",
-          "not_instant": true
-        }
-      },
-      "install": "pip install mcp-blast-radius==0.2.8",
-      "mcp": {
-        "command": "mcp-blast-radius",
-        "transport": "stdio"
-      },
-      "links": {
-        "pypi": "https://pypi.org/project/mcp-blast-radius/",
-        "repository": "https://github.com/aos-standard/mcp-blast-radius",
-        "agent_card": "https://raw.githubusercontent.com/aos-standard/mcp-blast-radius/main/packaging/agent_card.json"
-      }
-    },
     {
       "product_id": "mcp-agent-health",
       "display_name": "MCP Agent Health Reporter",
@@ -146,6 +86,66 @@
         "pypi": "https://pypi.org/project/mcp-agent-health/",
         "repository": "https://github.com/aos-standard/mcp-agent-health",
         "agent_card": "https://raw.githubusercontent.com/aos-standard/mcp-agent-health/main/packaging/agent_card.json"
+      }
+    },
+    {
+      "product_id": "mcp-blast-radius",
+      "display_name": "MCP Blast-Radius Auditor",
+      "description": "See what any MCP server can actually touch \u2014 before you add it to your agent. No manifest? You still get the full blast-radius report. Add a manifest to also catch divergences. Query bundled business-DNA precedents via list/search/get tools. Conflict-free verification: no phone-home, Ed25519 attestations, and the same audit rules applied to our own tools via public governance.json.",
+      "version": "0.2.8",
+      "limitations": "Static analysis only; findings use confidence labels (observed-static, inferred). Default scan scope excludes tests/, docs/, examples/, scripts/, benchmarks/, .github/, and test_*.py unless --include-peripheral is set.",
+      "aos_compliant": true,
+      "pricing": {
+        "model": "per_run",
+        "unit_price": 1.0,
+        "currency": "USD"
+      },
+      "payment": {
+        "rail": {
+          "chain_caip2": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+          "asset": "USDC",
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6
+        },
+        "pay_to": "7m3eDYs3FeyG2kp6F4gRd4p2V1g4eQX9RNrBPHRHwYvi",
+        "token_account": "ESLDKS4EvANSkqbF1u3rYnty8FAoRg2vLg4zA1dCvXG9",
+        "amount": {
+          "settlement_asset": "USDC",
+          "usdc_per_usd": 1,
+          "formula": "pricing.unit_price * run_count",
+          "smallest_units_formula": "round(pricing.unit_price * run_count * 10^decimals)"
+        },
+        "correlation": {
+          "method": "include_tx_signature_in_fulfillment_request",
+          "memo_field": "none"
+        },
+        "fulfillment_request": {
+          "channel": "github_issue",
+          "url": "https://github.com/aos-standard/catalog/issues/new",
+          "required_fields": [
+            "product_id",
+            "run_count",
+            "tx_signature",
+            "delivery_destination"
+          ]
+        },
+        "deliverable": "Human-delivered run output for the paid product_id, as specified in the fulfillment request. There is no automatic delivery endpoint.",
+        "turnaround": {
+          "automatic_delivery": false,
+          "human_step": true,
+          "typical": "within 2 business days after on-chain confirmation and a complete fulfillment request that includes the transaction signature",
+          "not_instant": true
+        }
+      },
+      "install": "pip install mcp-blast-radius==0.2.8",
+      "mcp": {
+        "command": "mcp-blast-radius",
+        "transport": "stdio"
+      },
+      "links": {
+        "pypi": "https://pypi.org/project/mcp-blast-radius/",
+        "repository": "https://github.com/aos-standard/mcp-blast-radius",
+        "agent_card": "https://raw.githubusercontent.com/aos-standard/mcp-blast-radius/main/packaging/agent_card.json"
       }
     }
   ],
