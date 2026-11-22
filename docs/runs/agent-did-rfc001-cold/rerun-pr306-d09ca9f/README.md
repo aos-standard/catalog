@@ -53,6 +53,9 @@ either by the RFC 5952 rule or, with that rule off, on the signature. No vector 
 a verifier that mishandles the brackets is caught only for the non-canonical form, and the fixture never shows it
 accepting a correct one.
 
+The same defect affected one of the rc.5 rerun's proposals: its IPv6 `-literal` vector was signed without brackets.
+See [`../rerun-rc5-76b4f73/CORRECTION_20261123.md`](../rerun-rc5-76b4f73/CORRECTION_20261123.md).
+
 ## Proposed vector (1)
 
 `proposed/proposed_http_vectors_v3.json`, `proposed-accept-ipv6-host`: an accepted request to
