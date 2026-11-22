@@ -1,0 +1,1428 @@
+{
+ "summary": {
+  "verdict": "94/95",
+  "reason": "92/95"
+ },
+ "verdict_mismatch": [
+  {
+   "n": 89,
+   "id": "reject-url-non-canonical-ipv4-literal",
+   "verdict_agree": false,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    true,
+    null
+   ]
+  }
+ ],
+ "reason_mismatch": [
+  {
+   "n": 39,
+   "id": "reject-keyid-not-in-document",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ]
+  },
+  {
+   "n": 80,
+   "id": "reject-url-non-canonical-ipv4",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "n": 0,
+   "id": "valid",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 1,
+   "id": "accept-no-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 2,
+   "id": "accept-explicit-default-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 3,
+   "id": "accept-non-default-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 4,
+   "id": "accept-additional-component",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 5,
+   "id": "accept-reserialized-signature-params",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 6,
+   "id": "accept-header-names-case-insensitive",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 7,
+   "id": "reject-missing-signature",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ]
+  },
+  {
+   "n": 8,
+   "id": "reject-missing-signature-input",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ]
+  },
+  {
+   "n": 9,
+   "id": "reject-missing-agent-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ]
+  },
+  {
+   "n": 10,
+   "id": "reject-legacy-signature-agent",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ]
+  },
+  {
+   "n": 11,
+   "id": "reject-missing-date",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signed_component_missing"
+   ],
+   "got": [
+    false,
+    "signed_component_missing"
+   ]
+  },
+  {
+   "n": 12,
+   "id": "reject-missing-content-digest",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ]
+  },
+  {
+   "n": 13,
+   "id": "reject-digest-mismatch",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ]
+  },
+  {
+   "n": 14,
+   "id": "reject-digest-other-algorithm",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ]
+  },
+  {
+   "n": 15,
+   "id": "reject-digest-with-additional-algorithm",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ]
+  },
+  {
+   "n": 16,
+   "id": "reject-foreign-tag",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "tag_mismatch"
+   ],
+   "got": [
+    false,
+    "tag_mismatch"
+   ]
+  },
+  {
+   "n": 17,
+   "id": "reject-missing-tag",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "tag_mismatch"
+   ],
+   "got": [
+    false,
+    "tag_mismatch"
+   ]
+  },
+  {
+   "n": 18,
+   "id": "reject-other-alg",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "alg_unsupported"
+   ],
+   "got": [
+    false,
+    "alg_unsupported"
+   ]
+  },
+  {
+   "n": 19,
+   "id": "reject-missing-alg",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "alg_unsupported"
+   ],
+   "got": [
+    false,
+    "alg_unsupported"
+   ]
+  },
+  {
+   "n": 20,
+   "id": "reject-missing-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 21,
+   "id": "reject-empty-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 22,
+   "id": "accept-nonce-token-characters",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 23,
+   "id": "accept-nonce-max-length",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 24,
+   "id": "reject-nonce-with-space",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 25,
+   "id": "reject-nonce-forbidden-character",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 26,
+   "id": "reject-nonce-too-long",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 27,
+   "id": "reject-missing-created",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 28,
+   "id": "reject-missing-expires",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 29,
+   "id": "reject-missing-keyid",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ]
+  },
+  {
+   "n": 30,
+   "id": "reject-expired",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "expired"
+   ],
+   "got": [
+    false,
+    "expired"
+   ]
+  },
+  {
+   "n": 31,
+   "id": "accept-at-expires",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 32,
+   "id": "reject-created-in-the-future",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "created_skew"
+   ],
+   "got": [
+    false,
+    "created_skew"
+   ]
+  },
+  {
+   "n": 33,
+   "id": "reject-created-in-the-past",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "created_skew"
+   ],
+   "got": [
+    false,
+    "created_skew"
+   ]
+  },
+  {
+   "n": 34,
+   "id": "accept-created-within-skew",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 35,
+   "id": "reject-expires-before-created",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "expires_before_created"
+   ],
+   "got": [
+    false,
+    "expires_before_created"
+   ]
+  },
+  {
+   "n": 36,
+   "id": "reject-lifetime-exceeded",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "lifetime_exceeded"
+   ],
+   "got": [
+    false,
+    "lifetime_exceeded"
+   ]
+  },
+  {
+   "n": 37,
+   "id": "accept-lifetime-at-cap",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 38,
+   "id": "reject-keyid-under-other-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_bound"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ]
+  },
+  {
+   "n": 39,
+   "id": "reject-keyid-not-in-document",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ]
+  },
+  {
+   "n": 40,
+   "id": "reject-keyagreement-only-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_authorized"
+   ]
+  },
+  {
+   "n": 41,
+   "id": "reject-signature-by-other-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 42,
+   "id": "reject-tampered-signature",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 43,
+   "id": "reject-malformed-signature-input",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ]
+  },
+  {
+   "n": 44,
+   "id": "accept-agent-did-other-members",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 45,
+   "id": "reject-agent-did-not-dictionary",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ]
+  },
+  {
+   "n": 46,
+   "id": "reject-agent-did-no-member-for-label",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signed_component_missing"
+   ],
+   "got": [
+    false,
+    "signed_component_missing"
+   ]
+  },
+  {
+   "n": 47,
+   "id": "reject-agent-did-token-member",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ]
+  },
+  {
+   "n": 48,
+   "id": "reject-agent-did-member-with-parameters",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ]
+  },
+  {
+   "n": 49,
+   "id": "reject-agent-did-swapped",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_bound"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ]
+  },
+  {
+   "n": 50,
+   "id": "reject-agent-did-component-without-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 51,
+   "id": "reject-agent-did-component-other-label",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 52,
+   "id": "reject-component-dropped-method",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 53,
+   "id": "reject-component-dropped-authority",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 54,
+   "id": "reject-component-dropped-path",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 55,
+   "id": "reject-component-dropped-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 56,
+   "id": "reject-component-dropped-content-digest",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 57,
+   "id": "reject-component-dropped-date",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 58,
+   "id": "reject-component-dropped-agent-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ]
+  },
+  {
+   "n": 59,
+   "id": "reject-components-reordered",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ]
+  },
+  {
+   "n": 60,
+   "id": "reject-components-reversed",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ]
+  },
+  {
+   "n": 61,
+   "id": "reject-additional-component-first",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ]
+  },
+  {
+   "n": 62,
+   "id": "reject-method-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 63,
+   "id": "reject-authority-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 64,
+   "id": "reject-path-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 65,
+   "id": "reject-query-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 66,
+   "id": "accept-url-percent-encoded",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 67,
+   "id": "reject-url-space-in-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 68,
+   "id": "reject-url-dot-segment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 69,
+   "id": "reject-url-encoded-dot-segment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 70,
+   "id": "reject-url-non-ascii-path",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 71,
+   "id": "reject-url-non-ascii-host",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 72,
+   "id": "reject-url-uppercase-host",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 73,
+   "id": "reject-url-uppercase-scheme",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 74,
+   "id": "reject-url-fragment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 75,
+   "id": "reject-url-user-info",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 76,
+   "id": "reject-url-empty-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 77,
+   "id": "reject-url-apostrophe-in-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 78,
+   "id": "reject-url-bad-percent-encoding",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 79,
+   "id": "reject-url-backslash",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 80,
+   "id": "reject-url-non-canonical-ipv4",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ]
+  },
+  {
+   "n": 81,
+   "id": "reject-url-non-canonical-ipv6",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 82,
+   "id": "reject-url-leading-zero-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 83,
+   "id": "reject-url-space-in-query-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 84,
+   "id": "reject-url-dot-segment-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 85,
+   "id": "reject-url-encoded-dot-segment-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 86,
+   "id": "reject-url-non-ascii-path-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 87,
+   "id": "reject-url-non-ascii-host-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 88,
+   "id": "reject-url-apostrophe-in-query-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 89,
+   "id": "reject-url-non-canonical-ipv4-literal",
+   "verdict_agree": false,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    true,
+    null
+   ]
+  },
+  {
+   "n": 90,
+   "id": "reject-url-non-canonical-ipv6-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 91,
+   "id": "reject-url-leading-zero-port-literal",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ]
+  },
+  {
+   "n": 92,
+   "id": "reject-replayed-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    [
+     true,
+     false
+    ],
+    [
+     null,
+     "nonce_replayed"
+    ]
+   ],
+   "got": [
+    [
+     true,
+     false
+    ],
+    [
+     null,
+     "nonce_replayed"
+    ]
+   ]
+  },
+  {
+   "n": 93,
+   "id": "accept-valid-after-forged-same-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    [
+     false,
+     "signature_invalid"
+    ],
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ],
+   "got": [
+    [
+     false,
+     "signature_invalid"
+    ],
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ]
+  },
+  {
+   "n": 94,
+   "id": "reject-replayed-at-expires",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ],
+   "got": [
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ]
+  }
+ ]
+}

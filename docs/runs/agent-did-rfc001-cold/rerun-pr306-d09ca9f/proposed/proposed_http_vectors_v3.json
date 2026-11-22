@@ -1,0 +1,24 @@
+{
+ "basedOn": "edisonduran/agent-did fixtures/http-verification-vectors.json at d09ca9f (#306 merged): same keys, DID, clock, Date and body",
+ "vectors": [
+  {
+   "id": "proposed-accept-ipv6-host",
+   "rule": "6.5 item 4 and RFC 9421 2.2.3: @authority of a bracketed IPv6 host keeps the brackets",
+   "description": "An accepted request whose URL host is a bracketed IPv6 address in RFC 5952 form. The 95 vectors have no accepted IPv6 host, so a verifier that drops the brackets from @authority passes them all.",
+   "request": {
+    "method": "POST",
+    "url": "https://[2001:db8::1]/v1/verify?mode=fixture",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"v3ipv6host\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:XKsmCFoAsktUWyCCj9da85LtBlXPW+k59pdzc3gXknS3gY+f3tgL+KF1eAiUtoop84HbxlW59rQIQwruHdTiCw==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": [2001:db8::1]\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"v3ipv6host\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": true
+  }
+ ]
+}

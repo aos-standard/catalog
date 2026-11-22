@@ -1,0 +1,244 @@
+[
+ {
+  "mutant": "(baseline: frozen reader)",
+  "differs_on": [
+   "reject-url-non-canonical-ipv4-literal"
+  ]
+ },
+ {
+  "mutant": "rule off: tag",
+  "caught_by": [
+   "reject-foreign-tag",
+   "reject-missing-tag"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: alg",
+  "caught_by": [
+   "reject-other-alg",
+   "reject-missing-alg"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: nonce_required",
+  "caught_by": [
+   "reject-missing-nonce"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: nonce_grammar",
+  "caught_by": [
+   "reject-empty-nonce",
+   "reject-nonce-with-space",
+   "reject-nonce-forbidden-character",
+   "reject-nonce-too-long"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: keyid_bound",
+  "caught_by": [
+   "reject-keyid-under-other-did"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: required",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "rule off: order",
+  "caught_by": [
+   "reject-components-reordered",
+   "reject-components-reversed",
+   "reject-additional-component-first"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: skew",
+  "caught_by": [
+   "reject-created-in-the-future",
+   "reject-created-in-the-past"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: expires_ge_created",
+  "caught_by": [
+   "reject-expires-before-created"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: lifetime",
+  "caught_by": [
+   "reject-lifetime-exceeded"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: now_le_expires",
+  "caught_by": [
+   "reject-expired"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: url_normalized",
+  "caught_by": [
+   "reject-url-uppercase-host",
+   "reject-url-uppercase-scheme",
+   "reject-url-fragment",
+   "reject-url-user-info",
+   "reject-url-empty-query",
+   "reject-url-bad-percent-encoding",
+   "reject-url-leading-zero-port",
+   "reject-url-space-in-query-literal",
+   "reject-url-dot-segment-literal",
+   "reject-url-encoded-dot-segment-literal",
+   "reject-url-non-ascii-path-literal",
+   "reject-url-non-ascii-host-literal",
+   "reject-url-apostrophe-in-query-literal"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: keyid_in_doc",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "rule off: assertion_method",
+  "caught_by": [
+   "reject-keyagreement-only-key"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: replay",
+  "caught_by": [
+   "reject-replayed-nonce",
+   "accept-valid-after-forged-same-nonce",
+   "reject-replayed-at-expires"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: digest",
+  "caught_by": [
+   "reject-digest-mismatch",
+   "reject-digest-other-algorithm",
+   "reject-digest-with-additional-algorithm"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "Content-Digest: a dictionary is accepted when its sha-256 member matches",
+  "caught_by": [
+   "reject-digest-with-additional-algorithm"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "Agent-DID member accepted when it is a Token or carries parameters",
+  "caught_by": [
+   "reject-agent-did-token-member",
+   "reject-agent-did-member-with-parameters"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "(keyid, nonce) recorded before the signature is checked",
+  "caught_by": [
+   "accept-valid-after-forged-same-nonce"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "replay window ends before expires (store kept until expires - 1)",
+  "caught_by": [
+   "reject-replayed-at-expires"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "nonce grammar allows space",
+  "caught_by": [
+   "reject-nonce-with-space"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "nonce up to 255 characters only",
+  "caught_by": [
+   "accept-nonce-max-length"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "lifetime cap exclusive (expires - created < cap)",
+  "caught_by": [
+   "accept-lifetime-at-cap"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "now < expires (exclusive)",
+  "caught_by": [
+   "accept-at-expires"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "skew compared exclusive",
+  "caught_by": [
+   "accept-created-within-skew"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "skew one-sided (only created in the past checked)",
+  "caught_by": [
+   "reject-created-in-the-future"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "empty query '?' allowed",
+  "caught_by": [
+   "reject-url-empty-query"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "leading-zero port allowed",
+  "caught_by": [
+   "reject-url-leading-zero-port"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "apostrophe allowed in query",
+  "caught_by": [
+   "reject-url-apostrophe-in-query-literal"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "IPv6 not required in RFC 5952 form",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "@signature-params taken from the received text instead of re-serialized",
+  "caught_by": [
+   "accept-reserialized-signature-params"
+  ],
+  "caught": true
+ }
+]

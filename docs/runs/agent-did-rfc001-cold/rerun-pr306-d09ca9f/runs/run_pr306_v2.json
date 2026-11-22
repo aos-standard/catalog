@@ -1,0 +1,598 @@
+{
+ "rules": {},
+ "http": [
+  {
+   "n": 0,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 1,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 2,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 3,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com:8443\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 4,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"content-type\": application/json\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\" \"content-type\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 5,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 6,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 7,
+   "ok": false,
+   "reason": "missing_headers",
+   "base": null
+  },
+  {
+   "n": 8,
+   "ok": false,
+   "reason": "missing_headers",
+   "base": null
+  },
+  {
+   "n": 9,
+   "ok": false,
+   "reason": "missing_headers",
+   "base": null
+  },
+  {
+   "n": 10,
+   "ok": false,
+   "reason": "missing_headers",
+   "base": null
+  },
+  {
+   "n": 11,
+   "ok": false,
+   "reason": "signed_component_missing",
+   "base": null
+  },
+  {
+   "n": 12,
+   "ok": false,
+   "reason": "digest_mismatch",
+   "base": null
+  },
+  {
+   "n": 13,
+   "ok": false,
+   "reason": "digest_mismatch",
+   "base": null
+  },
+  {
+   "n": 14,
+   "ok": false,
+   "reason": "digest_mismatch",
+   "base": null
+  },
+  {
+   "n": 15,
+   "ok": false,
+   "reason": "digest_mismatch",
+   "base": null
+  },
+  {
+   "n": 16,
+   "ok": false,
+   "reason": "tag_mismatch",
+   "base": null
+  },
+  {
+   "n": 17,
+   "ok": false,
+   "reason": "tag_mismatch",
+   "base": null
+  },
+  {
+   "n": 18,
+   "ok": false,
+   "reason": "alg_unsupported",
+   "base": null
+  },
+  {
+   "n": 19,
+   "ok": false,
+   "reason": "alg_unsupported",
+   "base": null
+  },
+  {
+   "n": 20,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 21,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 22,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"AZaz09._~+/=-\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 23,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 24,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 25,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 26,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 27,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 28,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 29,
+   "ok": false,
+   "reason": "params_missing",
+   "base": null
+  },
+  {
+   "n": 30,
+   "ok": false,
+   "reason": "expired",
+   "base": null
+  },
+  {
+   "n": 31,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 32,
+   "ok": false,
+   "reason": "created_skew",
+   "base": null
+  },
+  {
+   "n": 33,
+   "ok": false,
+   "reason": "created_skew",
+   "base": null
+  },
+  {
+   "n": 34,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067250;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 35,
+   "ok": false,
+   "reason": "expires_before_created",
+   "base": null
+  },
+  {
+   "n": 36,
+   "ok": false,
+   "reason": "lifetime_exceeded",
+   "base": null
+  },
+  {
+   "n": 37,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067230;expires=1704067530;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 38,
+   "ok": false,
+   "reason": "keyid_not_bound",
+   "base": null
+  },
+  {
+   "n": 39,
+   "ok": false,
+   "reason": "keyid_not_bound",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-9\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 40,
+   "ok": false,
+   "reason": "keyid_not_authorized",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-2\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 41,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 42,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 43,
+   "ok": false,
+   "reason": "malformed_headers",
+   "base": null
+  },
+  {
+   "n": 44,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 45,
+   "ok": false,
+   "reason": "malformed_headers",
+   "base": null
+  },
+  {
+   "n": 46,
+   "ok": false,
+   "reason": "signed_component_missing",
+   "base": null
+  },
+  {
+   "n": 47,
+   "ok": false,
+   "reason": "malformed_headers",
+   "base": null
+  },
+  {
+   "n": 48,
+   "ok": false,
+   "reason": "malformed_headers",
+   "base": null
+  },
+  {
+   "n": 49,
+   "ok": false,
+   "reason": "keyid_not_bound",
+   "base": null
+  },
+  {
+   "n": 50,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 51,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 52,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 53,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 54,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 55,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 56,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 57,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 58,
+   "ok": false,
+   "reason": "components_missing",
+   "base": null
+  },
+  {
+   "n": 59,
+   "ok": false,
+   "reason": "components_order",
+   "base": null
+  },
+  {
+   "n": 60,
+   "ok": false,
+   "reason": "components_order",
+   "base": null
+  },
+  {
+   "n": 61,
+   "ok": false,
+   "reason": "components_order",
+   "base": null
+  },
+  {
+   "n": 62,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": PUT\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 63,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": evil.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 64,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/admin\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 65,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=other\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 66,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/caf%C3%A9/a:b@c;d=e,f!$&'()*+~_-\n\"@query\": ?q=hello%20world&r=x/y?z:@!$()*+,;=\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 67,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 68,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 69,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 70,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 71,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 72,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 73,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 74,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 75,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 76,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 77,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 78,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 79,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 80,
+   "ok": false,
+   "reason": "signature_invalid",
+   "base": "\"@method\": POST\n\"@authority\": 0x5d.0xb8.0xd8.0x22\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 81,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 82,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 83,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 84,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 85,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 86,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 87,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 88,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 89,
+   "ok": true,
+   "reason": null,
+   "base": "\"@method\": POST\n\"@authority\": 0x5d.0xb8.0xd8.0x22\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"a36ac89f07c664f989ce3dab9eeecb2b\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+  },
+  {
+   "n": 90,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 91,
+   "ok": false,
+   "reason": "url_not_normalized",
+   "base": null
+  },
+  {
+   "n": 92,
+   "sequence": [
+    true,
+    false
+   ],
+   "reasons": [
+    null,
+    "nonce_replayed"
+   ]
+  },
+  {
+   "n": 93,
+   "steps": [
+    [
+     false,
+     "signature_invalid"
+    ],
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ]
+  },
+  {
+   "n": 94,
+   "steps": [
+    [
+     true,
+     null
+    ],
+    [
+     false,
+     "nonce_replayed"
+    ]
+   ]
+  }
+ ]
+}

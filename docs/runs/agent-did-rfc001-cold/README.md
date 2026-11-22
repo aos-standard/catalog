@@ -12,6 +12,10 @@ RFC 8785, RFC 9421 §2, RFC 8941, RFC 9530, RFC 2104, and the multibase/multicod
 reader gives 39/42, and the 3 misses are rc.5 wire changes. A new reader for the rc.5 HTTP profile agrees on 84/84
 verdicts. That run lists five gaps the vectors still leave open and seven proposed vectors.
 
+**Rerun on #306 (`d09ca9f`, 2026-11-23):** [`rerun-pr306-d09ca9f/`](rerun-pr306-d09ca9f/). #306 closes all five gaps: the same
+reader gives 94/95 verdicts, and the one difference is the reader's own, settled by #306's text. One small gap remains,
+with one proposed vector: no vector accepts a request to an IPv6 host.
+
 ## First blind run (reader v1, frozen before scoring)
 
 | Fixture | What is checked | Agreement |

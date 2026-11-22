@@ -1,0 +1,10 @@
+edisonduran/agent-did at d09ca9f83ee15084b507bb19d89547991a9a524b (merge of #306, 2026-11-22T19:52:48Z), fetched through the contents API on 2026-11-22T23:11:21Z (Apache-2.0; not copied here)
+
+Fetched; inputs read through reader/split_http_v3.py, expected values sealed until scoring:
+bbe42459324957ae443dfba0993219c6d85ebe06daf144c820ceb16182f2c45c  fixtures/http-verification-vectors.json
+
+Fetched, not opened before scoring (the reader is the rc.5 one, unchanged):
+7bab5763a765a935f8763254004809d9fdabbe53d9f6e6a161763eee2f47b21b  docs/Anti-Replay-HTTP-Signatures.md
+1daec23fabc853732036a2033e77c9a2ca2771f1feef448283dcdb4d115201aa  docs/RFC-001-Agent-DID-Specification.md
+
+Seen before scoring: the fixture's usage text (it defines steps[]), the key structure of the vectors and steps, and the maintainer's #127 reply 7084711440 (which names the 11 added vectors). Not opened: sdk/, sdk-python/, scripts/, tests, the #306 diff.

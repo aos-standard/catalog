@@ -1,0 +1,53 @@
+{
+ "mutants": [
+  {
+   "mutant": "percent-encoded dot segments allowed",
+   "caught_by": [
+    "reject-url-encoded-dot-segment-literal"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "@query empty string when the URL has no query",
+   "caught_by": [
+    "accept-no-query"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "explicit default port kept in @authority",
+   "caught_by": [
+    "accept-explicit-default-port"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "IPv6 RFC 5952 check off (reader as frozen, brackets dropped)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "IPv6 RFC 5952 check off, with brackets kept in @authority",
+   "caught_by": [
+    "reject-url-non-canonical-ipv6-literal"
+   ],
+   "caught": true
+  }
+ ],
+ "proposed": [
+  {
+   "id": "proposed-accept-ipv6-host",
+   "reader": "frozen v2",
+   "ok": false,
+   "reason": "signature_invalid",
+   "expected": true
+  },
+  {
+   "id": "proposed-accept-ipv6-host",
+   "reader": "v2 with brackets kept",
+   "ok": true,
+   "reason": null,
+   "expected": true
+  }
+ ]
+}

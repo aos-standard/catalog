@@ -1,0 +1,7 @@
+Written 2026-11-22T23:11:48Z, before scoring, after reading only the fixture's usage text, key structure and the #127 reply (7084711440).
+Reader: rerun-rc5-76b4f73/reader/agent_did_http_v2.py unchanged (sha256 01ab9074...), frozen 2026-11-22T14:28:30Z on the rc.5 text.
+Expected from what #127 says landed:
+- the 84 earlier vectors: unchanged, so 84/84 verdicts and the same two reason differences (keyid-not-in-document; non-canonical-ipv4), now both settled by the text in the fixture's favour.
+- 2 steps vectors (forged-then-valid, replay at expires): agree.
+- 9 -literal vectors: agree except non-canonical-ipv4-literal, which this reader accepts (the rc.5 text it was written from let 0x5d.0xb8.0xd8.0x22 through; the new text does not). So 1 verdict difference is expected there, from the reader, not the fixture.
+- battery: the record-first and last-second mutants now caught; the three URL mutants (apostrophe, IPv6, encoded dot) now caught.
