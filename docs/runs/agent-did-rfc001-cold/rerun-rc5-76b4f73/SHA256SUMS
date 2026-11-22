@@ -17,3 +17,4 @@ f2f2d4d1d1844e9f284de32b81ee855087facde7c3eba5e12197d3175b78f54f  ./runs/mutants
 121b3949c604e69c5623152039e4b7832977ed6e5c83cf555d6f5f1c1eb09dca  ./runs/score_rc5_v1_unchanged.json
 f5b9d1c13c9156c410d8cd14bb0de8ff3160ce18107d361d6bc22da0f6ba097e  ./runs/score_rc5_v2.json
 81382466e74d8a5618f5d9f7f0de35db6b64b2af5b3f049edfe2f9afb4a96093  ./upstream_pins_rc5.txt
+6cfb9055aa1954e8200bc43bd1d74cea36cc66d535044ab8af487bdb55e2b665  ./CORRECTION_20261123.md

@@ -8,14 +8,6 @@ SDK and then scored once.
 Text used: `docs/RFC-001-Agent-DID-Specification.md` (§4.3, §6.1, §6.2, §6.5), `docs/Anti-Replay-HTTP-Signatures.md`,
 RFC 8785, RFC 9421 §2, RFC 8941, RFC 9530, RFC 2104, and the multibase/multicodec form of an Ed25519 key.
 
-**Rerun on `v1.0.0-rc.5` (2026-11-22), asked for in #127:** [`rerun-rc5-76b4f73/`](rerun-rc5-76b4f73/). The unchanged
-reader gives 39/42, and the 3 misses are rc.5 wire changes. A new reader for the rc.5 HTTP profile agrees on 84/84
-verdicts. That run lists five gaps the vectors still leave open and seven proposed vectors.
-
-**Rerun on #306 (`d09ca9f`, 2026-11-23):** [`rerun-pr306-d09ca9f/`](rerun-pr306-d09ca9f/). #306 closes all five gaps: the same
-reader gives 94/95 verdicts, and the one difference is the reader's own, settled by #306's text. One small gap remains,
-with one proposed vector: no vector accepts a request to an IPv6 host.
-
 ## First blind run (reader v1, frozen before scoring)
 
 | Fixture | What is checked | Agreement |
