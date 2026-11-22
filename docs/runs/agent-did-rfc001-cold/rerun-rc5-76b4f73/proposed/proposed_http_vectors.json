@@ -1,0 +1,178 @@
+{
+ "basedOn": "edisonduran/agent-did fixtures/http-verification-vectors.json at v1.0.0-rc.5 (76b4f73): same keys, DID, clock, Date and body",
+ "note": "steps[] is a new field: several requests verified in order with ONE nonce store.",
+ "vectors": [
+  {
+   "id": "proposed-forged-does-not-consume-nonce",
+   "rule": "6.5 item 6: record the pair only after the signature verified",
+   "description": "Two different requests with one nonce store: first a request whose signature does not verify, then the valid request with the same keyid and nonce. A verifier that records the pair before checking the signature rejects the second.",
+   "steps": [
+    {
+     "request": {
+      "method": "POST",
+      "url": "https://api.example.com/v1/verify?mode=fixture",
+      "body": "{\"fixture\":true}"
+     },
+     "headers": {
+      "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+      "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+      "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+      "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g1nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+      "Signature": "sig1=:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==:"
+     },
+     "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g1nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+    },
+    {
+     "request": {
+      "method": "POST",
+      "url": "https://api.example.com/v1/verify?mode=fixture",
+      "body": "{\"fixture\":true}"
+     },
+     "headers": {
+      "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+      "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+      "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+      "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g1nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+      "Signature": "sig1=:PMNPwymDdm9fVgrZfJ5TZdemCiPvwHR/m2F3NqHBGEaaAqDnRIi/V6ohSom6q69kjfhiWtiSHrmVo1Krz+teCA==:"
+     },
+     "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g1nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\""
+    }
+   ],
+   "expectedSequence": [
+    false,
+    true
+   ],
+   "expectedReasons": [
+    "signature_invalid",
+    null
+   ]
+  },
+  {
+   "id": "proposed-replay-in-last-second",
+   "rule": "6.5 item 6: record until expires (inclusive)",
+   "now": 1704067230,
+   "description": "now == expires. The same request verified twice with one nonce store. The second must be rejected: the pair is kept through second `expires`.",
+   "request": {
+    "method": "POST",
+    "url": "https://api.example.com/v1/verify?mode=fixture",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067170;expires=1704067230;nonce=\"g2nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:Ocd5JE+RLrw7xwjxWNP2pQPoydKo76koCF9hgQK8FAiu/PJibY8IFyuoVIbjcCSz8cleUnZjwYuW5UG/+q8VCA==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067170;expires=1704067230;nonce=\"g2nonce\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expectedSequence": [
+    true,
+    false
+   ],
+   "expectedReasons": [
+    null,
+    "nonce_replayed"
+   ]
+  },
+  {
+   "id": "proposed-url-apostrophe-in-query-literal",
+   "rule": "6.5 item 4: url_not_normalized",
+   "description": "As `reject-url-apostrophe-in-query`, but signed over the components read from the URL as written (RFC 3986 split, no normalization). The existing vector is signed over the normalized components, so a verifier whose URL parser does not normalize rejects it on the signature even without the rule.",
+   "request": {
+    "method": "POST",
+    "url": "https://api.example.com/v1/verify?mode='fixture'",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3apostropheinquery\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:TlX4SlnR1yyOybO1sb2BLftOtpyf4AxdaKpp7GjURDX8MC8NMUmcSuI9jrdceSDdsJJhcHgtDORlAgfXcxJvCA==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode='fixture'\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3apostropheinquery\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": false,
+   "reason": "url_not_normalized"
+  },
+  {
+   "id": "proposed-url-non-canonical-ipv6-literal",
+   "rule": "6.5 item 4: url_not_normalized",
+   "description": "As `reject-url-non-canonical-ipv6`, but signed over the components read from the URL as written (RFC 3986 split, no normalization). The existing vector is signed over the normalized components, so a verifier whose URL parser does not normalize rejects it on the signature even without the rule.",
+   "request": {
+    "method": "POST",
+    "url": "https://[2001:db8:0:0::1]/v1/verify?mode=fixture",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3noncanonicalipv6\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:dwFGKK7ZddM5xtdnH2/EhbUSE9xhF3J0tq/o/gLuZhCGxZYpioC0WZHMWABsPfO+5hsHuvcsHVV8OAbRUXUEDQ==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": 2001:db8:0:0::1\n\"@path\": /v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3noncanonicalipv6\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": false,
+   "reason": "url_not_normalized"
+  },
+  {
+   "id": "proposed-url-dot-segment-literal",
+   "rule": "6.5 item 4: url_not_normalized",
+   "description": "As `reject-url-dot-segment`, but signed over the components read from the URL as written (RFC 3986 split, no normalization). The existing vector is signed over the normalized components, so a verifier whose URL parser does not normalize rejects it on the signature even without the rule.",
+   "request": {
+    "method": "POST",
+    "url": "https://api.example.com/v1/../v1/verify?mode=fixture",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3dotsegment\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:Y7mGqKTeg74piOe68gJZxRoNVgfY+afMhNU5naV9b7snJ3KTEBL4U/BtHNpeW5Xzf2UnnEcbmJ1LuuGaOi4mCw==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/../v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3dotsegment\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": false,
+   "reason": "url_not_normalized"
+  },
+  {
+   "id": "proposed-url-encoded-dot-segment-literal",
+   "rule": "6.5 item 4: url_not_normalized",
+   "description": "As `reject-url-encoded-dot-segment`, but signed over the components read from the URL as written (RFC 3986 split, no normalization). The existing vector is signed over the normalized components, so a verifier whose URL parser does not normalize rejects it on the signature even without the rule.",
+   "request": {
+    "method": "POST",
+    "url": "https://api.example.com/v1/%2e%2E/v1/verify?mode=fixture",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3encodeddotsegment\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:01/U3hIf7gIP4IdnLooghyXoKBkC0g7tm6gRIAxCye0Outc5FhjgMX+cEyFs+fehyOMDUjQk6/mEr5u5g9D4Bw==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/%2e%2E/v1/verify\n\"@query\": ?mode=fixture\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3encodeddotsegment\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": false,
+   "reason": "url_not_normalized"
+  },
+  {
+   "id": "proposed-url-space-in-query-literal",
+   "rule": "6.5 item 4: url_not_normalized",
+   "description": "As `reject-url-space-in-query`, but signed over the components read from the URL as written (RFC 3986 split, no normalization). The existing vector is signed over the normalized components, so a verifier whose URL parser does not normalize rejects it on the signature even without the rule.",
+   "request": {
+    "method": "POST",
+    "url": "https://api.example.com/v1/verify?mode=hello world",
+    "body": "{\"fixture\":true}"
+   },
+   "headers": {
+    "Agent-DID": "sig1=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"",
+    "Date": "Mon, 01 Jan 2024 00:00:20 GMT",
+    "Content-Digest": "sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:",
+    "Signature-Input": "sig1=(\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3spaceinquery\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+    "Signature": "sig1=:Mwl0JITv0Xtdx6qgVgs0C8EmbiW6llfVRMxpZQOGvcgJoA/JXtqA+wR4UBw7m53e9I6lAoQRmQfP/0uezIudAA==:"
+   },
+   "signatureBase": "\"@method\": POST\n\"@authority\": api.example.com\n\"@path\": /v1/verify\n\"@query\": ?mode=hello world\n\"content-digest\": sha-256=:/7wt/EAngjJdpxEyEA50/1EdFYXdgOTqGW7UvKzj/vI=:\n\"date\": Mon, 01 Jan 2024 00:00:20 GMT\n\"agent-did\";key=\"sig1\": \"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot\"\n\"@signature-params\": (\"@method\" \"@authority\" \"@path\" \"@query\" \"content-digest\" \"date\" \"agent-did\";key=\"sig1\");created=1704067220;expires=1704067280;nonce=\"g3spaceinquery\";keyid=\"did:webvh:QmHttpVerifyFixtureScid:verify.example:agents:fixture-bot#key-1\";alg=\"ed25519\";tag=\"agent-did\"",
+   "expected": false,
+   "reason": "url_not_normalized"
+  }
+ ]
+}

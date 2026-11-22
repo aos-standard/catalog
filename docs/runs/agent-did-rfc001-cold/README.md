@@ -8,6 +8,10 @@ SDK and then scored once.
 Text used: `docs/RFC-001-Agent-DID-Specification.md` (§4.3, §6.1, §6.2, §6.5), `docs/Anti-Replay-HTTP-Signatures.md`,
 RFC 8785, RFC 9421 §2, RFC 8941, RFC 9530, RFC 2104, and the multibase/multicodec form of an Ed25519 key.
 
+**Rerun on `v1.0.0-rc.5` (2026-11-22), asked for in #127:** [`rerun-rc5-76b4f73/`](rerun-rc5-76b4f73/). The unchanged
+reader gives 39/42, and the 3 misses are rc.5 wire changes. A new reader for the rc.5 HTTP profile agrees on 84/84
+verdicts. That run lists five gaps the vectors still leave open and seven proposed vectors.
+
 ## First blind run (reader v1, frozen before scoring)
 
 | Fixture | What is checked | Agreement |

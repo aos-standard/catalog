@@ -1,0 +1,160 @@
+[
+ {
+  "mutant": "rule off: tag",
+  "caught_by": [
+   "reject-foreign-tag",
+   "reject-missing-tag"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: alg",
+  "caught_by": [
+   "reject-other-alg",
+   "reject-missing-alg"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: nonce_required",
+  "caught_by": [
+   "reject-missing-nonce"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: nonce_grammar",
+  "caught_by": [
+   "reject-empty-nonce",
+   "reject-nonce-with-space",
+   "reject-nonce-forbidden-character",
+   "reject-nonce-too-long"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: keyid_bound",
+  "caught_by": [
+   "reject-keyid-under-other-did"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: required",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "rule off: order",
+  "caught_by": [
+   "reject-components-reordered",
+   "reject-components-reversed",
+   "reject-additional-component-first"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: skew",
+  "caught_by": [
+   "reject-created-in-the-future",
+   "reject-created-in-the-past"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: expires_ge_created",
+  "caught_by": [
+   "reject-expires-before-created"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: lifetime",
+  "caught_by": [
+   "reject-lifetime-exceeded"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: now_le_expires",
+  "caught_by": [
+   "reject-expired"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: url_normalized",
+  "caught_by": [
+   "reject-url-uppercase-host",
+   "reject-url-uppercase-scheme",
+   "reject-url-fragment",
+   "reject-url-user-info",
+   "reject-url-empty-query",
+   "reject-url-bad-percent-encoding",
+   "reject-url-leading-zero-port"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: keyid_in_doc",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "rule off: assertion_method",
+  "caught_by": [
+   "reject-keyagreement-only-key"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: replay",
+  "caught_by": [
+   "reject-replayed-nonce"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "rule off: digest",
+  "caught_by": [
+   "reject-digest-mismatch",
+   "reject-digest-other-algorithm",
+   "reject-digest-with-additional-algorithm"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "@query empty string when the URL has no query",
+  "caught_by": [
+   "accept-no-query"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "explicit default port kept in @authority",
+  "caught_by": [
+   "accept-explicit-default-port"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "field names matched case-sensitively (canonical capitalisation only)",
+  "caught_by": [
+   "accept-header-names-case-insensitive"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "percent-encoded dot segments allowed",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "URL normalization ignores case",
+  "caught_by": [
+   "reject-url-uppercase-host",
+   "reject-url-uppercase-scheme"
+  ],
+  "caught": true
+ }
+]

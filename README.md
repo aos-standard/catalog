@@ -11,6 +11,7 @@ Where each run stands in the other project's thread (open, merged, replied), mea
 | run | target | result |
 |---|---|---|
 | [`wimse-http-signature-cold`](docs/runs/wimse-http-signature-cold/) | IETF WIMSE HTTP signature test vectors (draft-miao-wimse-http-signature-test-vectors-00; seed corpus of ITU-T FG-TIDA themes#66) | 26/26 applicable of 29; 10 proposed negative vectors |
+| [`agent-did-rfc001-cold`](docs/runs/agent-did-rfc001-cold/) · [rerun on rc.5](docs/runs/agent-did-rfc001-cold/rerun-rc5-76b4f73/) | Agent-DID RFC-001 fixtures (edisonduran/agent-did), `37a3190`; rerun on `v1.0.0-rc.5` | blind 46/46; rc.5 HTTP vectors 84/84, 7 proposed vectors |
 | [`aps-lease-revocation-axes-cold`](docs/runs/aps-lease-revocation-axes-cold/) | APS conformance suite, `lease-revocation-axes` revision 2 | 176/176 calls × profiles; declared variant sets reproduced in three published steps |
 | [`work-acceptance-record-cold`](docs/runs/work-acceptance-record-cold/) | work-acceptance-record (x402-foundation/tsc#4), profiles 1.2.1–1.4.1 | 57/57 at `bc5a138`; probes adopted as upstream vectors |
 | [`ap2-evidence-pack-cold`](docs/runs/ap2-evidence-pack-cold/) | ap2-evidence-pack (google-agentic-commerce/AP2#338) | 26/26 at 1.5.3; later versions in its addenda |
@@ -32,6 +33,7 @@ Each line links to the other project's own file or record, pinned to a commit.
 
 | project | what it took in | where |
 |---|---|---|
+| edisonduran/agent-did | the first run's twelve mutation gaps and three text points, as 84 HTTP verification vectors, RFC-001 §4.3/§7 text and a real Multikey in `1.0.0-rc.5`; the maintainer names the record as "the external reader behind this work" | [`http-verification-vectors.json`](https://github.com/edisonduran/agent-did/blob/76b4f7368f4b15376163fa83411669605815a3b9/fixtures/http-verification-vectors.json) · [#127](https://github.com/edisonduran/agent-did/issues/127#issuecomment-7064981675) |
 | Agent-Authority-Conformance/aps-conformance-suite | the lease-revocation-axes run, as an interop record (Mode B, author-produced, answer-exposed); README rules added from the run | [`interop/aos-catalog-lra-cold-3e882bc/run-report.md`](https://github.com/Agent-Authority-Conformance/aps-conformance-suite/blob/7141c61/interop/aos-catalog-lra-cold-3e882bc/run-report.md) (PR #188) |
 | maximusrufus/work-acceptance-record | first row of the implementations table (57/57); vectors 12b–16 and 50 contributed, CC0; profile 1.3 and 1.4.1 readings | [`README.md`](https://github.com/maximusrufus/work-acceptance-record/blob/8e00300/README.md) |
 | robertolocatelli81-dev/ap2-evidence-pack | the clean-room run listed in the README; CHANGELOG points 2–5 from it | [`README.md`](https://github.com/robertolocatelli81-dev/ap2-evidence-pack/blob/fffadff/README.md) · [`CHANGELOG.md`](https://github.com/robertolocatelli81-dev/ap2-evidence-pack/blob/fffadff/CHANGELOG.md) |

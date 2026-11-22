@@ -27,6 +27,13 @@ certification.
 | [`anchor-pointer-evm-log-cold`](anchor-pointer-evm-log-cold/) | giskard09's `evm-log` anchor vectors | 14/14, live RPC | [agent-governance-vocabulary#217](https://github.com/aeoess/agent-governance-vocabulary/issues/217) | issue open | yes (2026-10-29) | — |
 | [`wimse-http-signature-cold`](wimse-http-signature-cold/) | IETF WIMSE HTTP signature test vectors (draft-miao-…-00) | 26/26 applicable of 29; 10 proposed vectors | [FG-TIDA/themes#66](https://github.com/FG-TIDA/themes/issues/66) | issue open | not yet posted | — |
 
+**After the measurement (added 2026-11-22, the row above is left as measured):** on agent-did#127, at
+2026-11-21T15:34:28Z, the maintainer wrote that everything the run raised "has landed and shipped in `1.0.0-rc.5`" (84 HTTP
+verification vectors, RFC-001 text, a real Multikey). The comment names `aos-standard/catalog@38720e6` as "the external
+reader behind this work", and the issue was closed as done. So that row now reads **merged** in edisonduran/agent-did,
+released in `v1.0.0-rc.5`. The rerun asked for there is in
+[`agent-did-rfc001-cold/rerun-rc5-76b4f73/`](agent-did-rfc001-cold/rerun-rc5-76b4f73/).
+
 "Reply after our last post" counts any human comment after our last comment, or after our opening post when the
 thread is ours. It does not say the reply was addressed to us. Each row's record has the details.
 

@@ -1,0 +1,1323 @@
+{
+ "summary": {
+  "verdict": "84/84",
+  "reason": "82/84",
+  "base_built_and_equal": "19/24 built",
+  "interop": [
+   {
+    "case": "webvh",
+    "base_agree": true,
+    "digest_agree": true,
+    "http_ok": true,
+    "message_ok": true
+   }
+  ]
+ },
+ "verdict_mismatch": [],
+ "reason_mismatch": [
+  {
+   "n": 39,
+   "id": "reject-keyid-not-in-document",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 80,
+   "id": "reject-url-non-canonical-ipv4",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  }
+ ],
+ "rows": [
+  {
+   "n": 0,
+   "id": "valid",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 1,
+   "id": "accept-no-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 2,
+   "id": "accept-explicit-default-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 3,
+   "id": "accept-non-default-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 4,
+   "id": "accept-additional-component",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 5,
+   "id": "accept-reserialized-signature-params",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 6,
+   "id": "accept-header-names-case-insensitive",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 7,
+   "id": "reject-missing-signature",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 8,
+   "id": "reject-missing-signature-input",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 9,
+   "id": "reject-missing-agent-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 10,
+   "id": "reject-legacy-signature-agent",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "missing_headers"
+   ],
+   "got": [
+    false,
+    "missing_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 11,
+   "id": "reject-missing-date",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signed_component_missing"
+   ],
+   "got": [
+    false,
+    "signed_component_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 12,
+   "id": "reject-missing-content-digest",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 13,
+   "id": "reject-digest-mismatch",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 14,
+   "id": "reject-digest-other-algorithm",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 15,
+   "id": "reject-digest-with-additional-algorithm",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "digest_mismatch"
+   ],
+   "got": [
+    false,
+    "digest_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 16,
+   "id": "reject-foreign-tag",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "tag_mismatch"
+   ],
+   "got": [
+    false,
+    "tag_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 17,
+   "id": "reject-missing-tag",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "tag_mismatch"
+   ],
+   "got": [
+    false,
+    "tag_mismatch"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 18,
+   "id": "reject-other-alg",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "alg_unsupported"
+   ],
+   "got": [
+    false,
+    "alg_unsupported"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 19,
+   "id": "reject-missing-alg",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "alg_unsupported"
+   ],
+   "got": [
+    false,
+    "alg_unsupported"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 20,
+   "id": "reject-missing-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 21,
+   "id": "reject-empty-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 22,
+   "id": "accept-nonce-token-characters",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 23,
+   "id": "accept-nonce-max-length",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 24,
+   "id": "reject-nonce-with-space",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 25,
+   "id": "reject-nonce-forbidden-character",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 26,
+   "id": "reject-nonce-too-long",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 27,
+   "id": "reject-missing-created",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 28,
+   "id": "reject-missing-expires",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 29,
+   "id": "reject-missing-keyid",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "params_missing"
+   ],
+   "got": [
+    false,
+    "params_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 30,
+   "id": "reject-expired",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "expired"
+   ],
+   "got": [
+    false,
+    "expired"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 31,
+   "id": "accept-at-expires",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 32,
+   "id": "reject-created-in-the-future",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "created_skew"
+   ],
+   "got": [
+    false,
+    "created_skew"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 33,
+   "id": "reject-created-in-the-past",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "created_skew"
+   ],
+   "got": [
+    false,
+    "created_skew"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 34,
+   "id": "accept-created-within-skew",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 35,
+   "id": "reject-expires-before-created",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "expires_before_created"
+   ],
+   "got": [
+    false,
+    "expires_before_created"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 36,
+   "id": "reject-lifetime-exceeded",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "lifetime_exceeded"
+   ],
+   "got": [
+    false,
+    "lifetime_exceeded"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 37,
+   "id": "accept-lifetime-at-cap",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 38,
+   "id": "reject-keyid-under-other-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_bound"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 39,
+   "id": "reject-keyid-not-in-document",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 40,
+   "id": "reject-keyagreement-only-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "got": [
+    false,
+    "keyid_not_authorized"
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 41,
+   "id": "reject-signature-by-other-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 42,
+   "id": "reject-tampered-signature",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 43,
+   "id": "reject-malformed-signature-input",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 44,
+   "id": "accept-agent-did-other-members",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 45,
+   "id": "reject-agent-did-not-dictionary",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 46,
+   "id": "reject-agent-did-no-member-for-label",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signed_component_missing"
+   ],
+   "got": [
+    false,
+    "signed_component_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 47,
+   "id": "reject-agent-did-token-member",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 48,
+   "id": "reject-agent-did-member-with-parameters",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "malformed_headers"
+   ],
+   "got": [
+    false,
+    "malformed_headers"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 49,
+   "id": "reject-agent-did-swapped",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "keyid_not_bound"
+   ],
+   "got": [
+    false,
+    "keyid_not_bound"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 50,
+   "id": "reject-agent-did-component-without-key",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 51,
+   "id": "reject-agent-did-component-other-label",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 52,
+   "id": "reject-component-dropped-method",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 53,
+   "id": "reject-component-dropped-authority",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 54,
+   "id": "reject-component-dropped-path",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 55,
+   "id": "reject-component-dropped-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 56,
+   "id": "reject-component-dropped-content-digest",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 57,
+   "id": "reject-component-dropped-date",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 58,
+   "id": "reject-component-dropped-agent-did",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_missing"
+   ],
+   "got": [
+    false,
+    "components_missing"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 59,
+   "id": "reject-components-reordered",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 60,
+   "id": "reject-components-reversed",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 61,
+   "id": "reject-additional-component-first",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "components_order"
+   ],
+   "got": [
+    false,
+    "components_order"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 62,
+   "id": "reject-method-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  },
+  {
+   "n": 63,
+   "id": "reject-authority-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  },
+  {
+   "n": 64,
+   "id": "reject-path-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  },
+  {
+   "n": 65,
+   "id": "reject-query-differs",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "signature_invalid"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  },
+  {
+   "n": 66,
+   "id": "accept-url-percent-encoded",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    true,
+    null
+   ],
+   "got": [
+    true,
+    null
+   ],
+   "base_agree": true
+  },
+  {
+   "n": 67,
+   "id": "reject-url-space-in-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 68,
+   "id": "reject-url-dot-segment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 69,
+   "id": "reject-url-encoded-dot-segment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 70,
+   "id": "reject-url-non-ascii-path",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 71,
+   "id": "reject-url-non-ascii-host",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 72,
+   "id": "reject-url-uppercase-host",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 73,
+   "id": "reject-url-uppercase-scheme",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 74,
+   "id": "reject-url-fragment",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 75,
+   "id": "reject-url-user-info",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 76,
+   "id": "reject-url-empty-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 77,
+   "id": "reject-url-apostrophe-in-query",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 78,
+   "id": "reject-url-bad-percent-encoding",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 79,
+   "id": "reject-url-backslash",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 80,
+   "id": "reject-url-non-canonical-ipv4",
+   "verdict_agree": true,
+   "reason_agree": false,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "signature_invalid"
+   ],
+   "base_agree": false
+  },
+  {
+   "n": 81,
+   "id": "reject-url-non-canonical-ipv6",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 82,
+   "id": "reject-url-leading-zero-port",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    false,
+    "url_not_normalized"
+   ],
+   "got": [
+    false,
+    "url_not_normalized"
+   ],
+   "base_agree": null
+  },
+  {
+   "n": 83,
+   "id": "reject-replayed-nonce",
+   "verdict_agree": true,
+   "reason_agree": true,
+   "expected": [
+    [
+     true,
+     false
+    ],
+    [
+     null,
+     "nonce_replayed"
+    ]
+   ],
+   "got": [
+    [
+     true,
+     false
+    ],
+    [
+     null,
+     "nonce_replayed"
+    ]
+   ],
+   "base_agree": true
+  }
+ ]
+}

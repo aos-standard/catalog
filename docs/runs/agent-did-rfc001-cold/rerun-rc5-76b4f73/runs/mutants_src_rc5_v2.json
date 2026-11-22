@@ -1,0 +1,100 @@
+[
+ {
+  "mutant": "Content-Digest: a dictionary is accepted when its sha-256 member matches",
+  "caught_by": [
+   "reject-digest-with-additional-algorithm"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "Agent-DID member accepted when it is a Token or carries parameters",
+  "caught_by": [
+   "reject-agent-did-token-member",
+   "reject-agent-did-member-with-parameters"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "(keyid, nonce) recorded before the signature is checked",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "replay window ends before expires (store kept until expires - 1)",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "nonce grammar allows space",
+  "caught_by": [
+   "reject-nonce-with-space"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "nonce up to 255 characters only",
+  "caught_by": [
+   "accept-nonce-max-length"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "lifetime cap exclusive (expires - created < cap)",
+  "caught_by": [
+   "accept-lifetime-at-cap"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "now < expires (exclusive)",
+  "caught_by": [
+   "accept-at-expires"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "skew compared exclusive",
+  "caught_by": [
+   "accept-created-within-skew"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "skew one-sided (only created in the past checked)",
+  "caught_by": [
+   "reject-created-in-the-future"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "empty query '?' allowed",
+  "caught_by": [
+   "reject-url-empty-query"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "leading-zero port allowed",
+  "caught_by": [
+   "reject-url-leading-zero-port"
+  ],
+  "caught": true
+ },
+ {
+  "mutant": "apostrophe allowed in query",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "IPv6 not required in RFC 5952 form",
+  "caught_by": [],
+  "caught": false
+ },
+ {
+  "mutant": "@signature-params taken from the received text instead of re-serialized",
+  "caught_by": [
+   "accept-reserialized-signature-params"
+  ],
+  "caught": true
+ }
+]

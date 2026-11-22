@@ -1,0 +1,9 @@
+reader v2 frozen 2026-11-22T14:28:30Z before any expected value of http-verification-vectors.json was read
+01ab90743a7ec8c2797f7793688a63af8e9e4a2a661e424005fda1a8373389d6  reader/agent_did_http_v2.py
+3fb8ca0955bafe352ed3f12a1fe2947733d65fbe326fc6d379b3ade7ef2dd580  reader/run_blind_v2.py
+c731a5fe1fe2df4e64c818e13536b4b4c4134aa3d3845adc8e293598aed81e5d  reader/split_http.py
+31c2d31ea4e70976c5e630b10b4d2c7f922f3059c25ca06a785926272a0563d4  reader/smoke_selfsign.py
+7d21f99ff45e124153bcbfd3769288a2e0195ae80f74d0c73d60920ac574bf4d  blind/http_inputs.json
+5e5739657ad817dbf58cd9fee6188f65c647cd7c50a484421910b8c542337415  blind_v1/inputs.json
+exposure before freeze: the inputs of all 84 HTTP vectors were available to the runner but not displayed; the top-level description/usage/keysNote/clock/dids/key ids and relationships were read; the rc.5 interop signatureBase was printed by score.py of the unchanged v1 run before v2 was written (it shows the agent-did;key="sig1" line form)
+also seen before freeze: the key structure of each vector and the counts of keys and header names across vectors (e.g. 69 carry reason, 8 carry now, 4 carry maxCreatedSkewSeconds, 1 carries expectedSequence; one vector has lower-case header names, one has a Signature-Agent header, two have Content-Type)

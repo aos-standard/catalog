@@ -1,0 +1,19 @@
+edisonduran/agent-did at tag v1.0.0-rc.5 = 76b4f7368f4b15376163fa83411669605815a3b9, fetched through the contents API on 2026-11-22T14:24:58Z (Apache-2.0; not copied here)
+
+Opened before the freeze:
+388692f6bd6ba964decfe60f645c69ec151cd192ebf65fbf24c37a7c45c2dcfc  docs/ADR-006-Wire-Alignment-rc5.md
+bd962d139b31d803827134c94a4744ff9e4d27cbd2dba4c34d7d7b3c08c03e11  docs/Anti-Replay-HTTP-Signatures.md
+a4649adf89144b7c774bdd45a55cf55b609ac31ebe1f6c668dd6534bd03157b0  docs/RFC-001-Agent-DID-Specification.md
+
+Fetched, not opened: docs/RFC-001-CHANGELOG.md, docs/RFC-001-Compliance-Checklist.md
+af9f2f9203c5aec99582310c52e11f677c59012d8a83393f7862c7090d630719  docs/RFC-001-Compliance-Checklist.md
+36cfcf465ba202736083d59041b1724f8e5773ce28b128720847570cdf781db7  docs/RFC-001-CHANGELOG.md
+
+Fetched; inputs read through split_http.py (this record) or the unchanged v1 split_inputs.py, expected values sealed until scoring:
+5fc2d83d2a1872e1063169b6d234946ac644ab06e5c3dfc040414472937758df  fixtures/canonical-document-reference.json
+ab25f89ea291c490fe6bd865d374eca336a829c41b01374930ef3e272bc7000d  fixtures/http-verification-vectors.json
+05eb1980b055e59fab5381cc8598b200d51d10b5037814c709a1786c2204aa64  fixtures/interop-vectors.json
+65636f1e47bc7e9a557ce934a5bc737a4492148de19a957b188794647009f156  fixtures/jcs-vectors.json
+30e59bb7b2c02563bfafa31a954522b046a316c2d300265bdbbed9747342d9d6  fixtures/metadata-commitment-vectors.json
+
+Not fetched, not opened, not run: sdk/, sdk-python/, integrations/, scripts/ (including the vector generator), tests, CI, and every other fixture file.
