@@ -38,7 +38,8 @@ released in `v1.0.0-rc.5`. The rerun asked for there is in
 rc.5 rerun with eleven vectors, and the rerun on it is in [`agent-did-rfc001-cold/rerun-pr306-d09ca9f/`](agent-did-rfc001-cold/rerun-pr306-d09ca9f/).
 On a2c-smcp-protocol#78, JIAQIA added vectors for the four rules the run found uncovered and closed the issue. They are
 merged into `develop` (PR #85, `e811757`) and not yet in the default branch `main`; the SDK re-vendor is a v0.5.1
-release gate (#86). So that row now reads **merged to develop**.
+release gate (#86). So that row now reads **merged to develop**. The rerun on `e811757` is in
+[`a2c-smcp-conformance-cold/rerun-e811757/`](a2c-smcp-conformance-cold/rerun-e811757/): 97/97, with all four gaps caught.
 
 "Reply after our last post" counts any human comment after our last comment, or after our opening post when the
 thread is ours. It does not say the reply was addressed to us. Each row's record has the details.

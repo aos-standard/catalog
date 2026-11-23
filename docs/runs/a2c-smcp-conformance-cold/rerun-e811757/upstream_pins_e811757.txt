@@ -1,0 +1,7 @@
+A2C-SMCP/a2c-smcp-protocol develop at e8117570fdea4942aa6a594cf8728c532f7d1b06 (merge of PR #85, 2026-11-22T15:01:42Z), fetched through the contents API on 2026-11-22T23:59:35Z (not copied here):
+3ef2412b8deb5543e5d55c7d2787cbe5042fe60740a2c3bfed2afbec565f6df9  docs/specification/fixtures/bundle_id_conformance_vectors.json
+0f1ebbd83a31c310203f9b670b3565de8f039953745c51f6e3392429c57f6fdd  docs/specification/fixtures/canonical_path_conformance_vectors.json
+c2489f25b896eeae28fd82fa92d39719c85c78cee97fb0e59e47f78bcd8953de  docs/specification/fixtures/env_segment_conformance_vectors.json
+
+Reader: ../reader/a2c_check_v1.py unchanged (sha256 9e7b99c6..., frozen 2026-11-02T05:21:52Z). Scorer and battery: ../reader/score.py and ../reader/mutants.py unchanged.
+Seen before scoring: JIAQIA's closing comment on #78 (7080992119), which lists the added cases. Not opened: the PR #85 diff, either SDK.
