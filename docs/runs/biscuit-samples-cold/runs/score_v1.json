@@ -1,0 +1,909 @@
+{
+ "summary": {
+  "class": "45/50",
+  "detail": "45/50",
+  "revocation_ids": "50/50"
+ },
+ "rows": [
+  {
+   "n": 0,
+   "test": "basic token",
+   "filename": "test001_basic.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 1,
+   "test": "different root key",
+   "filename": "test002_different_root_key.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "format",
+    "{\"Signature\": {\"InvalidSignature\": \"signature error: Verification equation was not satisfied\"}}",
+    "None"
+   ],
+   "got": [
+    "format",
+    "invalid block signature (block 0)",
+    "None"
+   ]
+  },
+  {
+   "n": 2,
+   "test": "invalid signature format",
+   "filename": "test003_invalid_signature_format.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "format",
+    "{\"BlockSignatureDeserializationError\": \"block signature deserialization error: [117, 149, 161, 18, 161, 235, 91, 129, 166, 227, 152, 133, 46, 97, 24, 183]\"}",
+    "None"
+   ],
+   "got": [
+    "format",
+    "invalid block signature (block 0)",
+    "None"
+   ]
+  },
+  {
+   "n": 3,
+   "test": "random block",
+   "filename": "test004_random_block.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "format",
+    "{\"Signature\": {\"InvalidSignature\": \"signature error: Verification equation was not satisfied\"}}",
+    "None"
+   ],
+   "got": [
+    "format",
+    "invalid block signature (block 1)",
+    "None"
+   ]
+  },
+  {
+   "n": 4,
+   "test": "invalid signature",
+   "filename": "test005_invalid_signature.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "format",
+    "{\"Signature\": {\"InvalidSignature\": \"signature error: Verification equation was not satisfied\"}}",
+    "None"
+   ],
+   "got": [
+    "format",
+    "invalid block signature (block 0)",
+    "None"
+   ]
+  },
+  {
+   "n": 5,
+   "test": "reordered blocks",
+   "filename": "test006_reordered_blocks.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "format",
+    "{\"Signature\": {\"InvalidSignature\": \"signature error: Verification equation was not satisfied\"}}",
+    "None"
+   ],
+   "got": [
+    "format",
+    "invalid block signature (block 1)",
+    "None"
+   ]
+  },
+  {
+   "n": 6,
+   "test": "scoped rules",
+   "filename": "test007_scoped_rules.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 7,
+   "test": "scoped checks",
+   "filename": "test008_scoped_checks.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 8,
+   "test": "expired token",
+   "filename": "test009_expired_token.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 1, 1),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 1, 1),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 9,
+   "test": "authorizer scope",
+   "filename": "test010_authorizer_scope.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('authorizer', 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('authorizer', 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 10,
+   "test": "authorizer authority checks",
+   "filename": "test011_authorizer_authority_caveats.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('authorizer', 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('authorizer', 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 11,
+   "test": "authority checks",
+   "filename": "test012_authority_caveats.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 12,
+   "test": "authority checks",
+   "filename": "test012_authority_caveats.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 13,
+   "test": "block rules",
+   "filename": "test013_block_rules.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 14,
+   "test": "block rules",
+   "filename": "test013_block_rules.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 1, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 15,
+   "test": "regex_constraint",
+   "filename": "test014_regex_constraint.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 16,
+   "test": "regex_constraint",
+   "filename": "test014_regex_constraint.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 17,
+   "test": "multi queries checks",
+   "filename": "test015_multi_queries_caveats.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 18,
+   "test": "check head name should be independent from fact names",
+   "filename": "test016_caveat_head_name.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 19,
+   "test": "test expression syntax and all available operations",
+   "filename": "test017_expressions.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 20,
+   "test": "invalid block rule with unbound_variables",
+   "filename": "test018_unbound_variables_in_rule.bc",
+   "class_agree": false,
+   "detail_agree": false,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic:InvalidBlockRule",
+    "[0, \"operation($unbound, \\\"read\\\") <- operation($any1, $any2)\"]",
+    "None"
+   ],
+   "got": [
+    "format",
+    "unsafe rule in block 1",
+    "None"
+   ]
+  },
+  {
+   "n": 21,
+   "test": "invalid block rule generating an #authority or #ambient symbol with a variable",
+   "filename": "test019_generating_ambient_from_variables.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 22,
+   "test": "sealed token",
+   "filename": "test020_sealed.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 23,
+   "test": "parsing",
+   "filename": "test021_parsing.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 24,
+   "test": "default_symbols",
+   "filename": "test022_default_symbols.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 25,
+   "test": "execution scope",
+   "filename": "test023_execution_scope.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 2, 1),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 2, 1),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 26,
+   "test": "third party",
+   "filename": "test024_third_party.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 27,
+   "test": "block rules",
+   "filename": "test025_check_all.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 28,
+   "test": "block rules",
+   "filename": "test025_check_all.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 29,
+   "test": "block rules",
+   "filename": "test025_check_all.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 30,
+   "test": "public keys interning",
+   "filename": "test026_public_keys_interning.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "3",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "3",
+    "None"
+   ]
+  },
+  {
+   "n": 31,
+   "test": "integer wraparound",
+   "filename": "test027_integer_wraparound.bc",
+   "class_agree": false,
+   "detail_agree": false,
+   "revocation_ids_agree": true,
+   "expected": [
+    "execution",
+    "\"Overflow\"",
+    "None"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1), ('block', 0, 2))",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 32,
+   "test": "test expression syntax and all available operations (v4 blocks)",
+   "filename": "test028_expressions_v4.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 33,
+   "test": "test reject if",
+   "filename": "test029_reject_if.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 34,
+   "test": "test reject if",
+   "filename": "test029_reject_if.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 35,
+   "test": "test null",
+   "filename": "test030_null.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 36,
+   "test": "test null",
+   "filename": "test030_null.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 37,
+   "test": "test null",
+   "filename": "test030_null.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 38,
+   "test": "test null",
+   "filename": "test030_null.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0), ('block', 0, 1))",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 39,
+   "test": "test heterogeneous equal",
+   "filename": "test031_heterogeneous_equal.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 40,
+   "test": "test heterogeneous equal",
+   "filename": "test031_heterogeneous_equal.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "failed_logic",
+    "(('authorizer', 0), ('block', 0, 19), ('block', 0, 20))",
+    "('allow', 0)"
+   ],
+   "got": [
+    "failed_logic",
+    "(('authorizer', 0), ('block', 0, 19), ('block', 0, 20))",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 41,
+   "test": "test laziness and closures",
+   "filename": "test032_laziness_closures.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 42,
+   "test": "test laziness and closures",
+   "filename": "test032_laziness_closures.bc",
+   "class_agree": false,
+   "detail_agree": false,
+   "revocation_ids_agree": true,
+   "expected": [
+    "execution",
+    "\"ShadowedVariable\"",
+    "None"
+   ],
+   "got": [
+    "no_matching_policy",
+    "None",
+    "None"
+   ]
+  },
+  {
+   "n": 43,
+   "test": "test .type()",
+   "filename": "test033_typeof.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 44,
+   "test": "test array and map operations",
+   "filename": "test034_array_map.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 45,
+   "test": "test ffi calls (v6 blocks)",
+   "filename": "test035_ffi.bc",
+   "class_agree": false,
+   "detail_agree": false,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "failed_logic",
+    "(('block', 0, 0),)",
+    "('allow', 0)"
+   ]
+  },
+  {
+   "n": 46,
+   "test": "ECDSA secp256r1 signatures",
+   "filename": "test036_secp256r1.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 47,
+   "test": "ECDSA secp256r1 signature on third-party block",
+   "filename": "test037_secp256r1_third_party.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 48,
+   "test": "test try operation",
+   "filename": "test038_try_op.bc",
+   "class_agree": true,
+   "detail_agree": true,
+   "revocation_ids_agree": true,
+   "expected": [
+    "ok",
+    "0",
+    "None"
+   ],
+   "got": [
+    "ok",
+    "0",
+    "None"
+   ]
+  },
+  {
+   "n": 49,
+   "test": "test try operation",
+   "filename": "test038_try_op.bc",
+   "class_agree": false,
+   "detail_agree": false,
+   "revocation_ids_agree": true,
+   "expected": [
+    "execution",
+    "\"InvalidType\"",
+    "None"
+   ],
+   "got": [
+    "failed_logic",
+    "(('authorizer', 0),)",
+    "('allow', 0)"
+   ]
+  }
+ ]
+}

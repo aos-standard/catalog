@@ -1,0 +1,888 @@
+[
+ {
+  "n": 0,
+  "filename": "test001_basic.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      1,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "7595a112a1eb5b81a6e398852e6118b7f5b8cbbff452778e655100e5fb4faa8d3a2af52fe2c4f9524879605675fae26adbc4783e0cafc43522fa82385f396c03",
+   "45f4c14f9d9e8fa044d68be7a2ec8cddb835f575c7b913ec59bd636c70acae9a90db9064ba0b3084290ed0c422bbb7170092a884f5e0202b31e9235bbcc1650d"
+  ]
+ },
+ {
+  "n": 1,
+  "filename": "test002_different_root_key.bc",
+  "result": [
+   "err",
+   "format",
+   "invalid block signature (block 0)"
+  ],
+  "revocation_ids": []
+ },
+ {
+  "n": 2,
+  "filename": "test003_invalid_signature_format.bc",
+  "result": [
+   "err",
+   "format",
+   "invalid block signature (block 0)"
+  ],
+  "revocation_ids": []
+ },
+ {
+  "n": 3,
+  "filename": "test004_random_block.bc",
+  "result": [
+   "err",
+   "format",
+   "invalid block signature (block 1)"
+  ],
+  "revocation_ids": []
+ },
+ {
+  "n": 4,
+  "filename": "test005_invalid_signature.bc",
+  "result": [
+   "err",
+   "format",
+   "invalid block signature (block 0)"
+  ],
+  "revocation_ids": []
+ },
+ {
+  "n": 5,
+  "filename": "test006_reordered_blocks.bc",
+  "result": [
+   "err",
+   "format",
+   "invalid block signature (block 1)"
+  ],
+  "revocation_ids": []
+ },
+ {
+  "n": 6,
+  "filename": "test007_scoped_rules.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      1,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "4d86c9af808dc2e0583f47282e6f5df3e09dc264d5231ec360b4519e15ddaeec60b25a9bbcb22e8d192f4d36a0da3f9243711e30535b00ee55c53cb1395f230a",
+   "63208c668c66f3ba6927140ba37533593b25e03459447805d4b2a8b75adeef45794c3d7249afe506ed77ccee276160bb4052a4009302bd34871a440f070b4509",
+   "d8da982888eae8c038e4894a8c06fc57d8e5f06ad2e972b9cf4bde49ad60804558a0d1938192596c702d8e4f7f12ec19201d7c33d0cd77774a0d879a33880d02"
+  ]
+ },
+ {
+  "n": 7,
+  "filename": "test008_scoped_checks.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      1,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "a80c985ddef895518c216f64c65dcd50a5d97d012a94453d79159aed2981654b1fe9748c686c5667604026a94fb8db8a1d02de747df61e99fa9a63ff2878ad00",
+   "77df45442be86a416aa02fd9d98d6d4703c634a9e3b1d293b41f5dc97849afbe7faeec8c22a210574888acc008fb64fe691ec9e8d2655586f970d9a6b6577000",
+   "b31398aefe97d3db41ebc445760f216fb3aa7bf7439adcfc3a07489bfcc163970af3f4e20f5460aa24cf841101a5ab114d21acc0ee8d442bae7793b121284900"
+  ]
+ },
+ {
+  "n": 8,
+  "filename": "test009_expired_token.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      1,
+      1
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "c248907bb6e5f433bbb5edf6367b399ebefca0d321d0b2ea9fc67f66dc1064ce926adb0c05d90c3e8a2833328b3578f79c4e1bca43583d9bcfb2ba6c37303d00",
+   "a4edf7aaea8658bb9ae19b3ffe2adcc77cc9f16c249aeb0a85a584b5362f89f27f7c67ac0af16d7170673d6d1fb1563d1934b25ec5a461f6c01fa49805cd5e07"
+  ]
+ },
+ {
+  "n": 9,
+  "filename": "test010_authorizer_scope.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "authorizer",
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "a80c985ddef895518c216f64c65dcd50a5d97d012a94453d79159aed2981654b1fe9748c686c5667604026a94fb8db8a1d02de747df61e99fa9a63ff2878ad00",
+   "966eceb2aa937c41b25368808bab6e0698c02a4038de669d007c9c3d43602638a640083558d1576ac80cf3eb2ac6a7585527e0f6c1a65402f0935cf7f4df8005"
+  ]
+ },
+ {
+  "n": 10,
+  "filename": "test011_authorizer_authority_caveats.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "authorizer",
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "a80c985ddef895518c216f64c65dcd50a5d97d012a94453d79159aed2981654b1fe9748c686c5667604026a94fb8db8a1d02de747df61e99fa9a63ff2878ad00"
+  ]
+ },
+ {
+  "n": 11,
+  "filename": "test012_authority_caveats.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "6a8f90dad67ae2ac188460463914ae7326fda431c80785755f4edcc15f1a53911f7366e606ad80cbbeba94672e42713e88632a932128f1d796ce9ba7d7a0b80a"
+  ]
+ },
+ {
+  "n": 12,
+  "filename": "test012_authority_caveats.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "6a8f90dad67ae2ac188460463914ae7326fda431c80785755f4edcc15f1a53911f7366e606ad80cbbeba94672e42713e88632a932128f1d796ce9ba7d7a0b80a"
+  ]
+ },
+ {
+  "n": 13,
+  "filename": "test013_block_rules.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "c46d071ff3f33434223c8305fdad529f62bf78bb5d9cbfc2a345d4bca6bf314014840e18ba353f86fdb9073d58b12b8c872ac1f8e593c2e9064b90f6c2ede006",
+   "a0c4c163a0b3ca406df4ece3d1371356190df04208eccef72f77e875ed0531b5d37e243d6f388b1967776a5dfd16ef228f19c5bdd6d2820f145c5ed3c3dcdc00"
+  ]
+ },
+ {
+  "n": 14,
+  "filename": "test013_block_rules.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      1,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "c46d071ff3f33434223c8305fdad529f62bf78bb5d9cbfc2a345d4bca6bf314014840e18ba353f86fdb9073d58b12b8c872ac1f8e593c2e9064b90f6c2ede006",
+   "a0c4c163a0b3ca406df4ece3d1371356190df04208eccef72f77e875ed0531b5d37e243d6f388b1967776a5dfd16ef228f19c5bdd6d2820f145c5ed3c3dcdc00"
+  ]
+ },
+ {
+  "n": 15,
+  "filename": "test014_regex_constraint.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "da42718ad2631c12d3a44b7710dcc76c6c7809c6bc3a2d7eb0378c4154eae10e0884a8d54a2cd25ca3dfe01091d816ebbb9d246227baf7a359a787cb2344ad07"
+  ]
+ },
+ {
+  "n": 16,
+  "filename": "test014_regex_constraint.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "da42718ad2631c12d3a44b7710dcc76c6c7809c6bc3a2d7eb0378c4154eae10e0884a8d54a2cd25ca3dfe01091d816ebbb9d246227baf7a359a787cb2344ad07"
+  ]
+ },
+ {
+  "n": 17,
+  "filename": "test015_multi_queries_caveats.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "b0d466d31e015fa85a075fa875f7e1c9017edd503fee9f62a5f033e1fcfa811074b6e39dfe5af2f452043db97a3f98650592a370f5685b62c5d6abf9dd10b603"
+  ]
+ },
+ {
+  "n": 18,
+  "filename": "test016_caveat_head_name.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "ce6f804f4390e693a8853d9a4a10bd4f3c94b86b7c6d671993a6e19346bc4d20bbb52cc945e5d0d02e4e75fa5da2caa99764050190353564a0a0b4b276809402",
+   "916d566cc724e0773046fc5266e9d0d804311435b8d6955b332f823ab296be9a78dfea190447732ac9f6217234cf5726becf88f65169c6de56a766af55451b0f"
+  ]
+ },
+ {
+  "n": 19,
+  "filename": "test017_expressions.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "fa358e4e3bea896415b1859e6cd347e64e1918fb86e31ae3fe208628321576a47f7a269760357e291c827ec9cbe322074f6860a546207a64e133c83a214bb505"
+  ]
+ },
+ {
+  "n": 20,
+  "filename": "test018_unbound_variables_in_rule.bc",
+  "result": [
+   "err",
+   "format",
+   "unsafe rule in block 1"
+  ],
+  "revocation_ids": [
+   "a44210c6a01e55eadefc7d8540c2e6eff80ab6eeedde4751de734f9d780435780680d3f42d826b7e0f0dcf4a5ba303fd4c116984bb30978813d46ed867924307",
+   "b0a33e3f4cd0994c0766c196c4d11c15e5a0f9bfba79a3a2b35ddd04ddb890282a7c63336ada5c680b9f9c940c1fa7127d2699754cbc77c21e1a2d85c5ef700c"
+  ]
+ },
+ {
+  "n": 21,
+  "filename": "test019_generating_ambient_from_variables.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "a44210c6a01e55eadefc7d8540c2e6eff80ab6eeedde4751de734f9d780435780680d3f42d826b7e0f0dcf4a5ba303fd4c116984bb30978813d46ed867924307",
+   "d3f8822a9b9bc0ee3933283c493ca9e711be5dd8339b5fe2eba1de3805aad4e84d3e2fb4affb4a743f1289915c167582b9425343635e45b70573ea1ee7a1ea03"
+  ]
+ },
+ {
+  "n": 22,
+  "filename": "test020_sealed.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "7595a112a1eb5b81a6e398852e6118b7f5b8cbbff452778e655100e5fb4faa8d3a2af52fe2c4f9524879605675fae26adbc4783e0cafc43522fa82385f396c03",
+   "45f4c14f9d9e8fa044d68be7a2ec8cddb835f575c7b913ec59bd636c70acae9a90db9064ba0b3084290ed0c422bbb7170092a884f5e0202b31e9235bbcc1650d"
+  ]
+ },
+ {
+  "n": 23,
+  "filename": "test021_parsing.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "d4b2f417b6e906434fdf5058afcabfcb98d3628f814f1c9dd7e64250d9beec4465aff51bd0cb2e85d0e67dc9f613c2a42af6158c678bc6f8b4684cd3a2d0d302"
+  ]
+ },
+ {
+  "n": 24,
+  "filename": "test022_default_symbols.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "75ce48d496fd28f99905901783a1ba46d7ff8d69f9d364d1546fd73006026eae51849ad1190a4ae521a0a1269f9c6951e226afba8fcd24fa50f679162439ae09"
+  ]
+ },
+ {
+  "n": 25,
+  "filename": "test023_execution_scope.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      2,
+      1
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "f9b49866caef5ece7be14ec5a9b36d98ca81d06b306eb0b4c57cd7436af176f40ee972f40903f87ec4460ab8b1adfcbfa9b19b20a6955a1e8dae7d88b2076005",
+   "889054b9119e4440e54da1b63266a98d0f6646cde195fef206efd8b133cfb2ee7be49b32a9a5925ece452e64f9e6f6d80dab422e916c599675dd68cdea053802",
+   "0a85ffbf27e08aa23665ba0d96a985b274d747556c9f016fd7f590c641ed0e4133291521aa442b320ee9ce80f5ad701b914a0c87b3dfa0cc92629dce94201806"
+  ]
+ },
+ {
+  "n": 26,
+  "filename": "test024_third_party.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "470e4bf7aa2a01ab39c98150bd06aa15b4aa5d86509044a8809a8634cd8cf2b42269a51a774b65d10bac9369d013070b00187925196a8e680108473f11cf8f03",
+   "901b2af4dacf33458d2d91ac484b60bad948e8d10faa9695b096054d5b46e832a977b60b17464cacf545ad0801f549ea454675f0ac88c413406925e2af83ff08"
+  ]
+ },
+ {
+  "n": 27,
+  "filename": "test025_check_all.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "c456817012e1d523c6d145b6d6a3475d9f7dd4383c535454ff3f745ecf4234984ce09b9dec0551f3d783abe850f826ce43b12f1fd91999a4753a56ecf4c56d0d"
+  ]
+ },
+ {
+  "n": 28,
+  "filename": "test025_check_all.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "c456817012e1d523c6d145b6d6a3475d9f7dd4383c535454ff3f745ecf4234984ce09b9dec0551f3d783abe850f826ce43b12f1fd91999a4753a56ecf4c56d0d"
+  ]
+ },
+ {
+  "n": 29,
+  "filename": "test025_check_all.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "c456817012e1d523c6d145b6d6a3475d9f7dd4383c535454ff3f745ecf4234984ce09b9dec0551f3d783abe850f826ce43b12f1fd91999a4753a56ecf4c56d0d"
+  ]
+ },
+ {
+  "n": 30,
+  "filename": "test026_public_keys_interning.bc",
+  "result": [
+   "ok",
+   3
+  ],
+  "revocation_ids": [
+   "3771cefe71beb21ead35a59c8116ee82627a5717c0295f35980662abccb159fe1b37848cb1818e548656bd4fd882d0094a2daab631c76b2b72e3a093914bfe04",
+   "7113d4dbb3b688b80e941f365a2c6342d480c77ed03937bccf85dc5cc3554c7517887b1b0c9021388a71e6ca9047aabaaad5ae5b511a2880902568444a98e50b",
+   "d0e3fc4bbd1b7320022800af909585aa906f677c4ca79c275a10b6779f669384c464ee84a1b04f13877a25761a874748362c065f4d15a8cab5c5e16c34074403",
+   "29b7e0a1f118a6185814a552660c516c43482044e280e7a8de85b8e7e54947e0ae82eb39d7b524d4b72cb9812a7a4b8871964f8f825b1c1ed85d344c05281d0d",
+   "c0a505d4d921a8b2d0b885917d42e2bca87b5302d13249a61af6f3802af44d691c40a624f901d677724740cb974a188aeb1c3992c1565ac0fbec3aa4f68dac0a"
+  ]
+ },
+ {
+  "n": 31,
+  "filename": "test027_integer_wraparound.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ],
+     [
+      "block",
+      0,
+      1
+     ],
+     [
+      "block",
+      0,
+      2
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "fb5e7ac2bb892f5cf2fb59677cfad1f96deabbc8e158e3fd1b5ee7c4b6949c999e2169187cbee53b943eebdadaaf68832747baa8cffa2ff9f78025a1f55f440c"
+  ]
+ },
+ {
+  "n": 32,
+  "filename": "test028_expressions_v4.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "9402c07923aa33bc911de80e61f388f5c4533e6b36e45317dc1db1e6bcc7664ed0c1c504d0ca8925208008961d95bbdbc36f6e3d91b3173369cc19ed625e9a0c"
+  ]
+ },
+ {
+  "n": 33,
+  "filename": "test029_reject_if.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "8d175329f7cf161f3cb5badc52f0e22e520956cdb565edbed963e9b047b20a314a7de1c9eba6b7bbf622636516ab3cc7f91572ae9461d3152825e0ece5127a0a"
+  ]
+ },
+ {
+  "n": 34,
+  "filename": "test029_reject_if.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "8d175329f7cf161f3cb5badc52f0e22e520956cdb565edbed963e9b047b20a314a7de1c9eba6b7bbf622636516ab3cc7f91572ae9461d3152825e0ece5127a0a"
+  ]
+ },
+ {
+  "n": 35,
+  "filename": "test030_null.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "fe50d65706a5945c76569d1ff2be8ece24276857631e96efa05959f73bb4ea8c772945738a01da77a1661aef2b8233b4f4e49ae220f2c81fd0b8da59c212750b"
+  ]
+ },
+ {
+  "n": 36,
+  "filename": "test030_null.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ],
+     [
+      "block",
+      0,
+      1
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "fe50d65706a5945c76569d1ff2be8ece24276857631e96efa05959f73bb4ea8c772945738a01da77a1661aef2b8233b4f4e49ae220f2c81fd0b8da59c212750b"
+  ]
+ },
+ {
+  "n": 37,
+  "filename": "test030_null.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ],
+     [
+      "block",
+      0,
+      1
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "fe50d65706a5945c76569d1ff2be8ece24276857631e96efa05959f73bb4ea8c772945738a01da77a1661aef2b8233b4f4e49ae220f2c81fd0b8da59c212750b"
+  ]
+ },
+ {
+  "n": 38,
+  "filename": "test030_null.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ],
+     [
+      "block",
+      0,
+      1
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "fe50d65706a5945c76569d1ff2be8ece24276857631e96efa05959f73bb4ea8c772945738a01da77a1661aef2b8233b4f4e49ae220f2c81fd0b8da59c212750b"
+  ]
+ },
+ {
+  "n": 39,
+  "filename": "test031_heterogeneous_equal.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "be50b2040f4b5fe278b87815910d249eeb9ca5238cae4ea538e22afda11f576e868cbfe7e6b0a03b02ae0f22239ec908947d4bad5a878e4b9f7bd7de73e5c90a"
+  ]
+ },
+ {
+  "n": 40,
+  "filename": "test031_heterogeneous_equal.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "authorizer",
+      0
+     ],
+     [
+      "block",
+      0,
+      19
+     ],
+     [
+      "block",
+      0,
+      20
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "be50b2040f4b5fe278b87815910d249eeb9ca5238cae4ea538e22afda11f576e868cbfe7e6b0a03b02ae0f22239ec908947d4bad5a878e4b9f7bd7de73e5c90a"
+  ]
+ },
+ {
+  "n": 41,
+  "filename": "test032_laziness_closures.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "2cd348b6df5f08b900903fd8d3fbea0bb89b665c331a2aa2131e0b8ecb38b3550275d4ccd8db35da6c4433eed1d456cfb761e3fcc7845894d891e986ca044b02"
+  ]
+ },
+ {
+  "n": 42,
+  "filename": "test032_laziness_closures.bc",
+  "result": [
+   "err",
+   "no_matching_policy",
+   null
+  ],
+  "revocation_ids": [
+   "2cd348b6df5f08b900903fd8d3fbea0bb89b665c331a2aa2131e0b8ecb38b3550275d4ccd8db35da6c4433eed1d456cfb761e3fcc7845894d891e986ca044b02"
+  ]
+ },
+ {
+  "n": 43,
+  "filename": "test033_typeof.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "e60875c6ef7917c227a5e4b2cabfe250a85fa0598eb3cf7987ded0da2b69a559a1665bd312aeecde78e76aeb28ea1c1a03ec9b7dec8aeb519e7867ef8ff9b402"
+  ]
+ },
+ {
+  "n": 44,
+  "filename": "test034_array_map.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "b22238a06ca9c015d3c49d4ebaa7e8ab6e0d69119b3264033618e726d62fc6f4757a7bebc25f255444aba39994554a62a53ecc13b68802efab8da85ace62390d"
+  ]
+ },
+ {
+  "n": 45,
+  "filename": "test035_ffi.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "block",
+      0,
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "d1719fd101c2695d2dac4df67569918363f691b6167670e1dbbf8026f639a7aa1ec2e13707f4d34cadbb2adce5c6e8a816577dd069a8717e0f5cb4ea3cec5b04"
+  ]
+ },
+ {
+  "n": 46,
+  "filename": "test036_secp256r1.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "628b9a6d74cc80b3ece50befd1f5f0f025c0a35d51708b2e77c11aed5f968b93b4096c87ed8169605716de934e155443f140334d71708fcc4247e5a0a518b30d",
+   "3046022100b60674854a12814cc36c8aab9600c1d9f9d3160e2334b72c0feede5a56213ea5022100a4f4bbf2dc33b309267af39fce76612017ddb6171e9cd2a3aa8a853f45f1675f"
+  ]
+ },
+ {
+  "n": 47,
+  "filename": "test037_secp256r1_third_party.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "70f5402208516fd44cfc9df3dfcfc0a327ee9004f1801ed0a7abdcbbae923d566ddcd2d4a14f4622b35732c4e538af04075cc67ab0888fa2d8923cc668187f0f",
+   "30450220793f95665d9af646339503a073670ea2c352459d2a2c2e14c57565f6c7eaf6bc022100cccadfc37e46755f52bb054ed206d7335067885df599a69431db40e33f33d4cf"
+  ]
+ },
+ {
+  "n": 48,
+  "filename": "test038_try_op.bc",
+  "result": [
+   "ok",
+   0
+  ],
+  "revocation_ids": [
+   "79674155cd5349604e89b00792aeaebfa0a512bd45edc289305ebec107f627d3d8c09847646a0d06c2390a4354771b2ebdc2cc66971f2d74ef744e4e81197600"
+  ]
+ },
+ {
+  "n": 49,
+  "filename": "test038_try_op.bc",
+  "result": [
+   "err",
+   "failed_logic",
+   {
+    "checks": [
+     [
+      "authorizer",
+      0
+     ]
+    ],
+    "policy": [
+     "allow",
+     0
+    ]
+   }
+  ],
+  "revocation_ids": [
+   "79674155cd5349604e89b00792aeaebfa0a512bd45edc289305ebec107f627d3d8c09847646a0d06c2390a4354771b2ebdc2cc66971f2d74ef744e4e81197600"
+  ]
+ }
+]

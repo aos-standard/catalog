@@ -1,0 +1,114 @@
+{
+ "root_public_key": "1055c750b1a1505937af1537c626ba3263995c33a64758aaafb1275b0312e284",
+ "based_on": "eclipse-biscuit/biscuit samples/current at b3d3fe2",
+ "cases": [
+  {
+   "id": "proposed_deny_policy",
+   "filename": "test012_authority_caveats.bc",
+   "authorizer_code": "deny if true;\nresource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "err",
+    "deny",
+    0
+   ],
+   "expected_samples_json": {
+    "Err": {
+     "FailedLogic": {
+      "Unauthorized": {
+       "policy": {
+        "Deny": 0
+       },
+       "checks": []
+      }
+     }
+    }
+   },
+   "mutant": "deny policy treated as allow",
+   "note": "No sample has a deny policy that matches.",
+   "token_file": "test012_authority_caveats.bc"
+  },
+  {
+   "id": "proposed_set_contains_is_superset",
+   "filename": "test012_authority_caveats.bc",
+   "authorizer_code": "check if !{1, 2}.contains({1, 3});\nresource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "ok",
+    0
+   ],
+   "expected_samples_json": {
+    "Ok": 0
+   },
+   "mutant": "set contains set = intersection non-empty",
+   "note": "Between two sets, contains is a superset test. No sample compares overlapping, non-nested sets.",
+   "token_file": "test012_authority_caveats.bc"
+  },
+  {
+   "id": "proposed_wrong_proof_secret",
+   "filename": null,
+   "authorizer_code": "resource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "expected_samples_json": {
+    "Err": {
+     "Format": "<proof secret does not match the last public key>"
+    }
+   },
+   "mutant": "proof secret not checked against the last key",
+   "note": "test012 with nextSecret replaced by an unrelated 32-byte secret.",
+   "token_file": "proposed_wrong_proof_secret.bc"
+  },
+  {
+   "id": "proposed_sealed_bad_final_signature",
+   "filename": null,
+   "authorizer_code": "resource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "expected_samples_json": {
+    "Err": {
+     "Format": "<invalid final signature>"
+    }
+   },
+   "mutant": "sealed final signature not checked",
+   "note": "test020 with the last bit of finalSignature flipped.",
+   "token_file": "proposed_sealed_bad_final_signature.bc"
+  },
+  {
+   "id": "proposed_datalog_version_above_range",
+   "filename": null,
+   "authorizer_code": "resource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "expected_samples_json": {
+    "Err": {
+     "Format": "<unsupported datalog version 7>"
+    }
+   },
+   "mutant": "datalog version not checked",
+   "note": "test012 with the authority block's version set to 7, re-signed with the samples' root key.",
+   "token_file": "proposed_datalog_version_above_range.bc"
+  },
+  {
+   "id": "proposed_datalog_version_below_range",
+   "filename": null,
+   "authorizer_code": "resource(\"file1\");\noperation(\"read\");\n\nallow if true;\n",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "expected_samples_json": {
+    "Err": {
+     "Format": "<unsupported datalog version 2>"
+    }
+   },
+   "mutant": "datalog version not checked",
+   "note": "test012 with the authority block's version set to 2, re-signed with the samples' root key.",
+   "token_file": "proposed_datalog_version_below_range.bc"
+  }
+ ]
+}

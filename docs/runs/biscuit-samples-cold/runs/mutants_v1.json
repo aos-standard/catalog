@@ -1,0 +1,293 @@
+{
+ "baseline_agree": 45,
+ "mutants": [
+  {
+   "mutant": "default scope trusts every block (no scoping)",
+   "caught_by": [
+    "test007_scoped_rules.bc",
+    "test008_scoped_checks.bc",
+    "test010_authorizer_scope.bc",
+    "test019_generating_ambient_from_variables.bc",
+    "test023_execution_scope.bc",
+    "test026_public_keys_interning.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "authority not trusted by default",
+   "caught_by": [
+    "test015_multi_queries_caveats.bc",
+    "test020_sealed.bc",
+    "test021_parsing.bc",
+    "test022_default_symbols.bc",
+    "test023_execution_scope.bc",
+    "test024_third_party.bc",
+    "test036_secp256r1.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "`previous` trusts only the previous block",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "`previous` honoured in the authorizer",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "public-key scope ignored",
+   "caught_by": [
+    "test024_third_party.bc",
+    "test026_public_keys_interning.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "rule-level scope ignored (block default used)",
+   "caught_by": [
+    "test024_third_party.bc",
+    "test026_public_keys_interning.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "block-level scope ignored",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "fact origin not checked (any fact usable)",
+   "caught_by": [
+    "test007_scoped_rules.bc",
+    "test008_scoped_checks.bc",
+    "test010_authorizer_scope.bc",
+    "test019_generating_ambient_from_variables.bc",
+    "test023_execution_scope.bc",
+    "test026_public_keys_interning.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "generated fact origin omits the matched facts",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "`check all` passes when nothing matches",
+   "caught_by": [
+    "test025_check_all.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "`check all` treated as `check if`",
+   "caught_by": [
+    "test025_check_all.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "`reject if` treated as `check if`",
+   "caught_by": [
+    "test029_reject_if.bc",
+    "test030_null.bc",
+    "test038_try_op.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "authorizer checks skipped",
+   "caught_by": [
+    "test010_authorizer_scope.bc",
+    "test011_authorizer_authority_caveats.bc",
+    "test031_heterogeneous_equal.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "deny policy treated as allow",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "checks only of the authority block",
+   "caught_by": [
+    "test001_basic.bc",
+    "test007_scoped_rules.bc",
+    "test008_scoped_checks.bc",
+    "test009_expired_token.bc",
+    "test013_block_rules.bc",
+    "test023_execution_scope.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "block signatures not verified",
+   "caught_by": [
+    "test002_different_root_key.bc",
+    "test003_invalid_signature_format.bc",
+    "test005_invalid_signature.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "external signatures not verified",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "proof secret not checked against the last key",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "sealed final signature not checked",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "v1 payload without PREVSIG",
+   "caught_by": [
+    "test024_third_party.bc",
+    "test026_public_keys_interning.bc",
+    "test036_secp256r1.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "duplicate symbols across blocks accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "third-party block uses the token symbol table",
+   "caught_by": [
+    "test026_public_keys_interning.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "third-party symbols leak into following blocks",
+   "caught_by": [
+    "test026_public_keys_interning.bc",
+    "test037_secp256r1_third_party.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "datalog version not checked",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "third-party block version not checked",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "unsafe rules accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "strict equality across types is false, not an error",
+   "caught_by": [
+    "test038_try_op.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "lenient equality as strict",
+   "caught_by": [
+    "test038_try_op.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "regex anchored (fullmatch)",
+   "caught_by": [
+    "test017_expressions.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "string length in characters",
+   "caught_by": [
+    "test017_expressions.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "floor division",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "integer overflow wraps",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "set contains set = intersection non-empty",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "string contains not supported",
+   "caught_by": [
+    "test017_expressions.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "&& evaluated eagerly",
+   "caught_by": [
+    "test032_laziness_closures.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "shadowing allowed",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "array get out of bounds is an error",
+   "caught_by": [
+    "test034_array_map.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "map contains on values",
+   "caught_by": [
+    "test034_array_map.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "typeof integer named int",
+   "caught_by": [
+    "test033_typeof.bc"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "set homogeneity not checked",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "date compared with integer",
+   "caught_by": [],
+   "caught": false
+  }
+ ]
+}
