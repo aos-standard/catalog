@@ -1,0 +1,8 @@
+openid/authzen main at aab761f98b31f2bbcdfb775551ab8bba7a2e592a, fetched through the contents API at 2026-11-24T23:16:17Z (not copied here):
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./SHA256SUMS
+c8031f32b10c285bb002d429e1d42adeb5d700997429052cc7c269451a18f360  ./api/authorization-api-1_0.md
+dc6846304169f32077c2f4a74a0912fff2df734a20999762b0055e15ac8ce534  ./certification/authorization-api-1_0-scenario.md
+2ff2eff12b6da595326650ba1e139a394a074af226ee61d132e847e84efc63d2  ./interop/authzen-interop-website/docs/scenarios/todo/index.md
+ce20a539e2ae4cdf9f5d45bb181408fc2e8299fb10dbb4fa5391207f1745d586  ./interop/authzen-todo-backend/test/decisions.json
+
+Only api/authorization-api-1_0.md and certification/authorization-api-1_0-scenario.md were used. The interop files were fetched and not opened. No implementation, harness or conformance-suite code was opened or run. Related open items read after the run: #763, #764, #775, #792, #793 (PR head 7a205fd2), #640, #601.

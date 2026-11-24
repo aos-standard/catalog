@@ -12,6 +12,7 @@ One case followed end to end, from an outside reader to a project's `v1.0.0` sec
 
 | run | target | result |
 |---|---|---|
+| [`authzen-certification-cold`](docs/runs/authzen-certification-cold/) | OpenID Foundation AuthZEN Authorization API 1.0 certification scenario at `aab761f` | 53/55 (both failures are cases open PR #793 changes); 3 gaps, 5 proposed cases |
 | [`wimse-http-signature-cold`](docs/runs/wimse-http-signature-cold/) | IETF WIMSE HTTP signature test vectors (draft-miao-wimse-http-signature-test-vectors-00; seed corpus of ITU-T FG-TIDA themes#66) | 26/26 applicable of 29; 10 proposed negative vectors |
 | [`agent-did-rfc001-cold`](docs/runs/agent-did-rfc001-cold/) · [rerun on rc.5](docs/runs/agent-did-rfc001-cold/rerun-rc5-76b4f73/) | Agent-DID RFC-001 fixtures (edisonduran/agent-did), `37a3190`; rerun on `v1.0.0-rc.5` | blind 46/46; rc.5 HTTP vectors 84/84, 7 proposed vectors |
 | [`aps-lease-revocation-axes-cold`](docs/runs/aps-lease-revocation-axes-cold/) | APS conformance suite, `lease-revocation-axes` revision 2 | 176/176 calls × profiles; declared variant sets reproduced in three published steps |

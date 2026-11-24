@@ -1,0 +1,210 @@
+{
+ "cases": [
+  {
+   "id": "proposed-basic-props-status-not-id",
+   "level": "Basic Properties",
+   "rule": "fixture rule 5",
+   "request": {
+    "path": "/access/v1/evaluation",
+    "body": {
+     "subject": {
+      "type": "user",
+      "id": "alice"
+     },
+     "action": {
+      "name": "write"
+     },
+     "resource": {
+      "type": "record",
+      "id": "record-1",
+      "properties": {
+       "status": "archived"
+      }
+     }
+    }
+   },
+   "expect": {
+    "status": 200,
+    "decision": false
+   },
+   "why": "c-2-2-4 says the deny is based on properties.status, not on the identifier, but it sends record-2, whose fixture status is already archived. Here the identifier is the active record-1 and only the request property says archived.",
+   "mutants": [
+    "request properties of subject and resource ignored (stored fixture values only)",
+    "stored fixture properties win over request properties",
+    "resource status taken from the resource id, not from properties (record-2 = archived)"
+   ]
+  },
+  {
+   "id": "proposed-batch-whole-object-override",
+   "level": "Batch Properties",
+   "rule": "c-3-2-7 (whole-object replacement), fixture rules 2 and 5",
+   "request": {
+    "path": "/access/v1/evaluations",
+    "body": {
+     "subject": {
+      "type": "user",
+      "id": "alice"
+     },
+     "action": {
+      "name": "write"
+     },
+     "resource": {
+      "type": "record",
+      "id": "record-2",
+      "properties": {
+       "status": "archived"
+      }
+     },
+     "evaluations": [
+      {
+       "resource": {
+        "type": "record",
+        "id": "record-1"
+       }
+      }
+     ]
+    }
+   },
+   "expect": {
+    "status": 200,
+    "decisions": [
+     true
+    ]
+   },
+   "why": "In c-3-2-7 the overriding resource carries type, id and properties, so a PDP that merges sub-fields gets the same result. Here the override has no properties: whole replacement gives record-1 as identified (rule 2, permit), while sub-field merging keeps the top-level properties.status archived (rule 5, deny).",
+   "mutants": [
+    "batch defaults merged by sub-field instead of replaced whole"
+   ]
+  },
+  {
+   "id": "proposed-invalid-type-subject-type-number",
+   "level": "Basic Core",
+   "rule": "c-2-4-6",
+   "request": {
+    "path": "/access/v1/evaluation",
+    "body": {
+     "subject": {
+      "type": 7,
+      "id": "alice"
+     },
+     "action": {
+      "name": "read"
+     },
+     "resource": {
+      "type": "record",
+      "id": "record-1"
+     }
+    }
+   },
+   "expect": {
+    "status": 400
+   },
+   "why": "c-2-4-6 checks an entity given as a string and action.name as a number; nothing checks the type of `type` or `id`.",
+   "mutants": [
+    "non-string type or id accepted (only presence checked)"
+   ]
+  },
+  {
+   "id": "proposed-invalid-type-properties-string",
+   "level": "Basic Core",
+   "rule": "c-2-4-6",
+   "request": {
+    "path": "/access/v1/evaluation",
+    "body": {
+     "subject": {
+      "type": "user",
+      "id": "alice"
+     },
+     "action": {
+      "name": "read"
+     },
+     "resource": {
+      "type": "record",
+      "id": "record-1",
+      "properties": "active"
+     }
+    }
+   },
+   "expect": {
+    "status": 400
+   },
+   "why": "properties is an object in the information model; no case sends another type.",
+   "mutants": [
+    "properties of a non-object type accepted"
+   ]
+  },
+  {
+   "id": "proposed-invalid-type-context-string",
+   "level": "Basic Core",
+   "rule": "c-2-4-6",
+   "request": {
+    "path": "/access/v1/evaluation",
+    "body": {
+     "subject": {
+      "type": "user",
+      "id": "alice"
+     },
+     "action": {
+      "name": "read"
+     },
+     "resource": {
+      "type": "record",
+      "id": "record-1"
+     },
+     "context": "2025-06-27"
+    }
+   },
+   "expect": {
+    "status": 400
+   },
+   "why": "context is an object; no case sends another type.",
+   "mutants": [
+    "context of a non-object type accepted"
+   ]
+  }
+ ],
+ "check": [
+  {
+   "id": "proposed-basic-props-status-not-id",
+   "frozen_passes": true,
+   "mutants_fail": {
+    "request properties of subject and resource ignored (stored fixture values only)": true,
+    "stored fixture properties win over request properties": true,
+    "resource status taken from the resource id, not from properties (record-2 = archived)": true
+   },
+   "isolates": true
+  },
+  {
+   "id": "proposed-batch-whole-object-override",
+   "frozen_passes": true,
+   "mutants_fail": {
+    "batch defaults merged by sub-field instead of replaced whole": true
+   },
+   "isolates": true
+  },
+  {
+   "id": "proposed-invalid-type-subject-type-number",
+   "frozen_passes": true,
+   "mutants_fail": {
+    "non-string type or id accepted (only presence checked)": true
+   },
+   "isolates": true
+  },
+  {
+   "id": "proposed-invalid-type-properties-string",
+   "frozen_passes": true,
+   "mutants_fail": {
+    "properties of a non-object type accepted": true
+   },
+   "isolates": true
+  },
+  {
+   "id": "proposed-invalid-type-context-string",
+   "frozen_passes": true,
+   "mutants_fail": {
+    "context of a non-object type accepted": true
+   },
+   "isolates": true
+  }
+ ]
+}

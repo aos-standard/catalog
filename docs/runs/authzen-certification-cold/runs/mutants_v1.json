@@ -1,0 +1,137 @@
+{
+ "baseline_fail": [
+  "c-3-4-1",
+  "c-4-5"
+ ],
+ "mutants": [
+  {
+   "mutant": "request properties of subject and resource ignored (stored fixture values only)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "stored fixture properties win over request properties",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "resource status taken from the resource id, not from properties (record-2 = archived)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "rule 5 wins for alice even with role admin in the request",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "soft compared loosely (any truthy value)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "batch defaults merged by sub-field instead of replaced whole",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "per-evaluation context replaces nothing (top-level context always used)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "short-circuit semantics ignored (always execute_all)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "unknown evaluations_semantic accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "properties of a non-object type accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "non-string type or id accepted (only presence checked)",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "context of a non-object type accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "a non-object top-level JSON value accepted as an empty request",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "page token not bound to the request (a changed request is accepted)",
+   "caught_by": [
+    "c-4-5"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "negative or non-integer page.limit accepted",
+   "caught_by": [],
+   "caught": false
+  },
+  {
+   "mutant": "X-Request-ID not echoed",
+   "caught_by": [
+    "c-2-5"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "Content-Type not checked",
+   "caught_by": [
+    "c-2-4-3"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "subject search filters to the given subject.id",
+   "caught_by": [
+    "c-4-2-3"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "unknown search type is a bad request",
+   "caught_by": [
+    "c-4-6-2"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "decision returned as a string",
+   "caught_by": [
+    "c-2-2-1",
+    "c-2-2-2",
+    "c-2-2-3",
+    "c-2-2-4",
+    "c-2-2-5",
+    "c-2-2-6",
+    "c-2-2-7",
+    "c-2-2-8",
+    "c-2-2-9",
+    "c-3-4-2",
+    "c-3-4-3"
+   ],
+   "caught": true
+  },
+  {
+   "mutant": "metadata endpoint missing",
+   "caught_by": [
+    "c-6"
+   ],
+   "caught": true
+  }
+ ]
+}
