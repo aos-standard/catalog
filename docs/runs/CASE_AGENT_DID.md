@@ -2,7 +2,7 @@
 
 One project, followed from a first independent run to the security sign-off of its `v1.0.0`. Each step links the
 other project's own commit or comment, so the account can be checked against the source and not taken on trust.
-Measured on 2026-11-24. The project is [edisonduran/agent-did](https://github.com/edisonduran/agent-did), maintained by
+Measured on 2026-11-25. The project is [edisonduran/agent-did](https://github.com/edisonduran/agent-did), maintained by
 Edison Muñoz Durango.
 
 | When (UTC) | What happened | Where |
@@ -16,6 +16,7 @@ Edison Muñoz Durango.
 | 2026-11-23 | The proposed vector was merged as `accept-url-ipv6-host`. | [comment 7088469735](https://github.com/edisonduran/agent-did/issues/127#issuecomment-7088469735) · [#307](https://github.com/edisonduran/agent-did/pull/307) (`1c078e3c`) |
 | 2026-11-23 | The maintainer asked us to review RFC-001 §8 as the external reviewer that the `v1.0.0` criterion C-SPEC-3 requires. Our review raised text points only, with a sign-off conditional on two of them. | [#310](https://github.com/edisonduran/agent-did/issues/310) · [review 7096220103](https://github.com/edisonduran/agent-did/issues/310#issuecomment-7096220103) |
 | 2026-11-23 | #311 addressed both conditions and every recommendation. We checked the diff and confirmed the sign-off as unconditional at `70d12439`. | [#311](https://github.com/edisonduran/agent-did/pull/311) (`70d12439`) · [confirmation 7116920249](https://github.com/edisonduran/agent-did/issues/310#issuecomment-7116920249) |
+| 2026-11-24 | #312 ticked C-SPEC-3 in the release criteria, citing the review and the confirmation as its evidence, and closed #310. | [#312](https://github.com/edisonduran/agent-did/pull/312) (`ccae1119`) · [`RELEASE-1.0-CRITERIA.md`](https://github.com/edisonduran/agent-did/blob/ccae11192f1d369251671b2ccf2f44a8dda4f64a/docs/RELEASE-1.0-CRITERIA.md) |
 
 ## What carried it
 
