@@ -42,6 +42,12 @@ merged into `develop` (PR #85, `e811757`) and not yet in the default branch `mai
 release gate (#86). So that row now reads **merged to develop**. The rerun on `e811757` is in
 [`a2c-smcp-conformance-cold/rerun-e811757/`](a2c-smcp-conformance-cold/rerun-e811757/): 97/97, with all four gaps caught.
 
+**Also after the measurement (added 2026-11-27):** the ACP SEP branch now has an implementations table,
+[`CONFORMANCE.md`](https://github.com/maximusrufus/agentic-commerce-protocol/blob/a7bb288105fe37d52e7be124764ef9e40f5aba42/examples/unreleased/dispute_resolution/CONFORMANCE.md).
+It lists both of this catalog's cold readers (33 of 33 at `089d8f9`, and 27 of 33 at `db04871`, each marked "no (same
+author)") next to Flyingmiata-droid's blind reader, APAF-1 and TruceHQ, and every row was rerun with the branch's runner.
+It is **proposed** in PR #316, not merged.
+
 "Reply after our last post" counts any human comment after our last comment, or after our opening post when the
 thread is ours. It does not say the reply was addressed to us. Each row's record has the details.
 
