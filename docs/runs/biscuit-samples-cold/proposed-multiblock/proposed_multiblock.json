@@ -1,0 +1,96 @@
+{
+ "root_public_key": "1055c750b1a1505937af1537c626ba3263995c33a64758aaafb1275b0312e284",
+ "third_party_public_key": "744757ff0cddb2a8e23bad9f85ce9e43f3d4d47d57c0a1fecde3b2bdc457b8eb",
+ "based_on": "eclipse-biscuit/biscuit samples/current at b3d3fe2 (root key); tokens built from scratch",
+ "cases": [
+  {
+   "id": "proposed_previous_covers_all_earlier_blocks",
+   "token_file": "proposed_previous_covers_all_earlier_blocks.bc",
+   "authorizer_code": "allow if true;",
+   "expect": [
+    "ok",
+    0
+   ],
+   "mutant": "`previous` trusts only the previous block",
+   "note": "Block 2 checks a fact of block 0 and one of block 1 under `trusting previous`. Both are earlier blocks, so the check passes."
+  },
+  {
+   "id": "proposed_block_level_trusting_previous",
+   "token_file": "proposed_block_level_trusting_previous.bc",
+   "authorizer_code": "allow if true;",
+   "expect": [
+    "ok",
+    0
+   ],
+   "mutant": "block-level scope ignored",
+   "note": "Block 2 declares `trusting previous` at block level and its check has no scope of its own; the check needs block 1's fact."
+  },
+  {
+   "id": "proposed_previous_ignored_in_authorizer",
+   "token_file": "proposed_previous_ignored_in_authorizer.bc",
+   "authorizer_code": "check if user(\"alice\") trusting previous;\nallow if true;",
+   "expect": [
+    "err",
+    "failed_logic",
+    [
+     [
+      "authorizer",
+      0
+     ]
+    ]
+   ],
+   "mutant": "`previous` honoured in the authorizer",
+   "note": "The authorizer asks for block 1's fact `trusting previous`. `previous` is ignored in the authorizer, so block 1 is not trusted and the check fails."
+  },
+  {
+   "id": "proposed_origin_includes_matched_facts",
+   "token_file": "proposed_origin_includes_matched_facts.bc",
+   "authorizer_code": "check if admin(\"alice\");\nallow if true;",
+   "expect": [
+    "err",
+    "failed_logic",
+    [
+     [
+      "authorizer",
+      0
+     ]
+    ]
+   ],
+   "mutant": "generated fact origin omits the matched facts",
+   "note": "The authority rule trusts the third-party key and derives admin(\"alice\") from block 1. The fact's origin is {0, 1}; the authorizer trusts {0, authorizer}, so its check fails."
+  },
+  {
+   "id": "proposed_bad_external_signature",
+   "token_file": "proposed_bad_external_signature.bc",
+   "authorizer_code": "allow if true;",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "mutant": "external signatures not verified",
+   "note": "Block 1's external signature has its last bit flipped; the regular signature is made over the flipped bytes, so only the external check can fail."
+  },
+  {
+   "id": "proposed_duplicate_symbol",
+   "token_file": "proposed_duplicate_symbol.bc",
+   "authorizer_code": "allow if true;",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "mutant": "duplicate symbols across blocks accepted",
+   "note": "Block 1's `symbols` repeats `file1`, already defined by block 0 (it is appended after the block's own symbols, so no index moves)."
+  },
+  {
+   "id": "proposed_third_party_below_v3_2",
+   "token_file": "proposed_third_party_below_v3_2.bc",
+   "authorizer_code": "allow if true;",
+   "expect": [
+    "err",
+    "format"
+   ],
+   "mutant": "third-party block version not checked",
+   "note": "Block 1 carries an external signature and declares datalog version 4 (v3.1); third-party blocks must be at least v3.2."
+  }
+ ]
+}
